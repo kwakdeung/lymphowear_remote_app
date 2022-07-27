@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Meterial 3 Theme Color
-// Meterial 3 Theme Builder(Color 설정): https://material-foundation.github.io/material-theme-builder/
-
 const seed = Color(0xFF51A48F);
 
 const lightColorScheme = ColorScheme(
