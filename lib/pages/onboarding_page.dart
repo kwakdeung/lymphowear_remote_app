@@ -59,7 +59,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                 ),
                 Expanded(
-                  // Column delete
                   child: Column(
                     children: [
                       const Spacer(flex: 2),
@@ -67,7 +66,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ...List.generate(
-                              // Legible 하게 고친다.
                               onboardingData.length,
                               ((index) => Padding(
                                     padding: const EdgeInsets.all(4),
