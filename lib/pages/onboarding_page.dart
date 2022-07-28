@@ -17,7 +17,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   void initState() {
-    pageController = PageController(initialPage: 0, viewportFraction: 1);
     super.initState();
   }
 
@@ -29,6 +28,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    pageController = PageController(initialPage: 0, viewportFraction: 0.6);
     var pageSize = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
