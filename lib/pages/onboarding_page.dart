@@ -39,7 +39,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Column(
               children: [
                 Expanded(
-                  // PageView.builder안에서 image, title, description 비율, size를 조절해야함
                   child: PageView.builder(
                     controller: pageController,
                     itemCount: onboardingData.length,
@@ -64,7 +63,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ...List.generate(
-                              // Legible 하게 고친다.
                               onboardingData.length,
                               ((index) => Padding(
                                     padding: const EdgeInsets.all(4),
