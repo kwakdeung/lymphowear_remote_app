@@ -16,10 +16,10 @@ class OnboardingContents extends StatefulWidget {
 class _OnboardingContentsState extends State<OnboardingContents> {
   @override
   Widget build(BuildContext context) {
-    EdgeInsets contentsPadding = MediaQuery.of(context).viewPadding;
     var pageSize = MediaQuery.of(context).size;
-    return Padding(
-      padding: contentsPadding,
+    return SizedBox(
+      width: double.infinity,
+      height: pageSize.height,
       child: Column(
         children: [
           Expanded(
@@ -29,6 +29,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
               height: pageSize.height * 0.1,
             ),
           ),
+          SizedBox(height: pageSize.height * 0.03),
           Expanded(
             flex: 1,
             child: Text(
@@ -43,7 +44,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
           Expanded(
             flex: 1,
             child: SizedBox(
-              width: pageSize.width * 0.5,
+              width: pageSize.width * 0.6,
               height: double.infinity,
               child: Text(
                 widget.description,

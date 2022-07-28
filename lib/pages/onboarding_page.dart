@@ -38,7 +38,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
             height: pageSize.height,
             child: Column(
               children: [
+                SizedBox(height: pageSize.height * 0.2),
                 Expanded(
+                  // PageView.builder안에서 image, title, description 비율, size를 조절해야함
                   child: PageView.builder(
                     controller: pageController,
                     itemCount: onboardingData.length,
@@ -56,6 +58,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                 ),
                 Expanded(
+                  // Column delete
                   child: Column(
                     children: [
                       const Spacer(flex: 2),
@@ -63,6 +66,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ...List.generate(
+                              // Legible 하게 고친다.
                               onboardingData.length,
                               ((index) => Padding(
                                     padding: const EdgeInsets.all(4),
@@ -72,19 +76,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ],
                       ),
                       const Spacer(flex: 1),
-                      SizedBox(
-                        height: 50,
-                        width: 300,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(),
-                          onPressed: () {
-                            pageController.nextPage(
-                                duration: const Duration(microseconds: 1000),
-                                curve: Curves.ease);
-                          },
-                          child: const Text(
-                            'Skip',
-                            style: TextStyle(fontSize: 20),
+                      Expanded(
+                        flex: 0,
+                        child: SizedBox(
+                          height: 50,
+                          width: 300,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(),
+                            onPressed: () {
+                              pageController.nextPage(
+                                  duration: const Duration(microseconds: 1000),
+                                  curve: Curves.ease);
+                            },
+                            child: const Text(
+                              'Skip',
+                              style: TextStyle(fontSize: 20),
+                            ),
                           ),
                         ),
                       ),
