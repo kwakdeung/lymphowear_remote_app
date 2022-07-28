@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/screens/onboarding_contents.dart';
 
 import '../components/dotindicator.dart';
 import '../models/onboarding_model.dart';
+import '../pages/onboarding_contents.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingPageState extends State<OnboardingPage> {
   late PageController pageController;
   int pageIndex = 0;
 
@@ -29,13 +29,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
+    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Center(
           child: SizedBox(
             width: double.infinity,
-            height: screenSize.height,
+            height: pageSize.height,
             child: Column(
               children: [
                 Expanded(
