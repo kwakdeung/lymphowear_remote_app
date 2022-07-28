@@ -39,8 +39,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Column(
               children: [
                 SizedBox(height: pageSize.height * 0.2),
-                Expanded(
-                  // PageView.builder안에서 image, title, description 비율, size를 조절해야함
+                SizedBox(
+                  width: double.infinity * 0.5,
+                  height: pageSize.height * 0.5,
                   child: PageView.builder(
                     controller: pageController,
                     itemCount: onboardingData.length,
@@ -80,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         flex: 0,
                         child: SizedBox(
                           height: 50,
-                          width: 300,
+                          width: pageSize.width * 0.8,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(),
                             onPressed: () {
