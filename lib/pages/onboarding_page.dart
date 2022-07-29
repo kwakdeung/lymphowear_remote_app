@@ -64,15 +64,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       const Spacer(flex: 2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ...List.generate(
-                              onboardingData.length,
-                              ((index) => Padding(
-                                    padding: const EdgeInsets.all(4),
-                                    child: DotIndicator(
-                                        isActive: index == pageIndex),
-                                  ))),
-                        ],
+                        children: List.generate(
+                            onboardingData.length,
+                            ((index) => Padding(
+                                  padding: const EdgeInsets.all(4),
+                                  child: DotIndicator(
+                                      isActive: index == pageIndex),
+                                ))),
                       ),
                       const Spacer(flex: 1),
                       Expanded(
