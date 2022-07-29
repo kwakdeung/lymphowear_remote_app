@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
+
 import '../components/dotindicator.dart';
 import '../models/onboarding_model.dart';
-import 'contents/onboarding_contents.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -39,15 +41,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Column(
               children: [
                 SizedBox(height: pageSize.height * 0.2),
-                SizedBox(
-                  width: double.infinity * 0.5,
-                  height: pageSize.height * 0.5,
+                Expanded(
                   child: PageView.builder(
                     controller: pageController,
                     itemCount: onboardingData.length,
                     onPageChanged: (index) {
                       setState(() {
                         pageIndex = index;
+                        debugPrint('PageView itemBuilder reload Check');
                       });
                     },
                     itemBuilder: (BuildContext context, int index) =>
@@ -77,13 +78,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         flex: 0,
                         child: SizedBox(
                           height: 50,
-                          width: pageSize.width * 0.8,
+                          width: pageSize.width * 0.75,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(),
                             onPressed: () {
-                              pageController.nextPage(
-                                  duration: const Duration(microseconds: 1000),
-                                  curve: Curves.ease);
+                              Navigator.pushReplacement(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder:
+                                      (context, animation1, animation2) =>
+                                          const PairingPage(),
+                                  transitionDuration:
+                                      const Duration(seconds: 0),
+                                ),
+                              );
                             },
                             child: const Text(
                               'Skip',
