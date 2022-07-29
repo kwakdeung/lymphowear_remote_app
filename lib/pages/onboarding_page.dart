@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../components/dotindicator.dart';
 import '../models/onboarding_model.dart';
-import '../pages/onboarding_contents.dart';
+import 'contents/onboarding_contents.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
