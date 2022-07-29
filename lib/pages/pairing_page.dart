@@ -39,7 +39,6 @@ class _PairingPageState extends State<PairingPage> {
       ),
       body: Center(
         child: Column(
-          // Device 내용
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: pageSize.height * 0.1),
@@ -81,7 +80,7 @@ class _PairingPageState extends State<PairingPage> {
             const Spacer(flex: 1),
           ],
         ),
-      ), // Start Button
+      ),
     );
   }
 }
