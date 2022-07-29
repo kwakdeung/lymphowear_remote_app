@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/lib_color_schemes.g.dart';
-import 'package:lymphowear_remote_app/pages/onboarding_page.dart';
+import 'package:lymphowear_remote_app/pages/splashscreen_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
           colorScheme: darkColorScheme,
         ),
         themeMode: ThemeMode.system,
-        home: const OnboardingPage());
+        home: const SplashScreenPage());
   }
 }
