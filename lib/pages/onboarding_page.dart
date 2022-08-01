@@ -48,7 +48,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     onPageChanged: (index) {
                       setState(() {
                         pageIndex = index;
-                        debugPrint('PageView itemBuilder reload Check');
                       });
                     },
                     itemBuilder: (BuildContext context, int index) =>

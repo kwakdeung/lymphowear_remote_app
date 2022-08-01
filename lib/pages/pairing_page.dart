@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/pages/contents/notice_contents.dart';
-
-import '../models/notice_model.dart';
+import 'package:lymphowear_remote_app/widgets/adddevice_contents_success_widget.dart';
+import 'package:lymphowear_remote_app/widgets/adddevice_contents_widget.dart';
+import 'package:lymphowear_remote_app/widgets/noticecontents_widget.dart';
 
 class PairingPage extends StatefulWidget {
   const PairingPage({Key? key}) : super(key: key);
@@ -41,24 +41,17 @@ class _PairingPageState extends State<PairingPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: pageSize.height * 0.1),
+            SizedBox(height: pageSize.height * 0.05),
             SizedBox(
-              width: double.infinity * 0.5,
+              width: double.infinity,
               height: pageSize.height * 0.5,
-              child: PageView.builder(
+              child: PageView(
                 controller: pageController,
-                itemCount: noticeData.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    pageIndex = index;
-                  });
-                },
-                itemBuilder: (BuildContext context, int index) =>
-                    NoticeContents(
-                  image: noticeData[index].image,
-                  instruction: noticeData[index].instruction,
-                  detail: noticeData[index].detail,
-                ),
+                children: const [
+                  NoticeContentsWidget(),
+                  AdviceContentsWidget(),
+                  AdviceContentsSucessWidget(),
+                ],
               ),
             ),
             const Spacer(flex: 1),
@@ -69,18 +62,22 @@ class _PairingPageState extends State<PairingPage> {
                 width: pageSize.width * 0.8,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(),
-                  onPressed: () {},
+                  onPressed: () {
+                    pageController.nextPage(
+                        duration: const Duration(microseconds: 1000),
+                        curve: Curves.ease);
+                  },
                   child: const Text(
                     'Start',
                     style: TextStyle(fontSize: 20),
-                  ),
+                  ), // Start - Detecting... 실행 button(옅은 색깔 적용)과 if문 생성하여 else 다음에 Pairing 성공 Page의 start를 실행하도록 만들어준다.
                 ),
               ),
             ),
             const Spacer(flex: 1),
           ],
         ),
-      ),
+      ), // Start Button
     );
   }
 }
