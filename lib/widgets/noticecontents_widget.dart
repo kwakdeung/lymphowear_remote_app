@@ -18,9 +18,7 @@ class _NoticeContentsWidgetState extends State<NoticeContentsWidget> {
       controller: pageController,
       itemCount: noticeData.length,
       onPageChanged: (index) {
-        setState(() {
-          // pageIndex = index;
-        });
+        setState(() {});
       },
       itemBuilder: (BuildContext context, int index) => NoticeContents(
         image: noticeData[index].image,

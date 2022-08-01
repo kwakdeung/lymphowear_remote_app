@@ -70,14 +70,14 @@ class _PairingPageState extends State<PairingPage> {
                   child: const Text(
                     'Start',
                     style: TextStyle(fontSize: 20),
-                  ), // Start - Detecting... 실행 button(옅은 색깔 적용)과 if문 생성하여 else 다음에 Pairing 성공 Page의 start를 실행하도록 만들어준다.
+                  ),
                 ),
               ),
             ),
             const Spacer(flex: 1),
           ],
         ),
-      ), // Start Button
+      ),
     );
   }
 }
