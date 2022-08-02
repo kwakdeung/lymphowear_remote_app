@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lymphowear_remote_app/lib_color_schemes.g.dart';
-import 'package:lymphowear_remote_app/pages/splashscreen_page.dart';
+import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

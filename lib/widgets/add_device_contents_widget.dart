@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:lymphowear_remote_app/models/add_device_model.dart';
-import 'package:lymphowear_remote_app/pages/contents/adddevice_contents.dart';
+import 'package:lymphowear_remote_app/pages/contents/add_device_contents.dart';
 
 class AdviceContentsWidget extends StatefulWidget {
   const AdviceContentsWidget({Key? key}) : super(key: key);
@@ -20,7 +20,6 @@ class _AdviceContentsWidgetState extends State<AdviceContentsWidget> {
       itemCount: adddeviceData.length,
       onPageChanged: (index) {
         setState(() {
-          // pageIndex = index;
         });
       },
       itemBuilder: (BuildContext context, int index) => AddDeviceContents(

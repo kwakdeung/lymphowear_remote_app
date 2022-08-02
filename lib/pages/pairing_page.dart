@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/widgets/adddevice_contents_success_widget.dart';
-import 'package:lymphowear_remote_app/widgets/adddevice_contents_widget.dart';
-import 'package:lymphowear_remote_app/widgets/noticecontents_widget.dart';
+import 'package:lymphowear_remote_app/widgets/add_device_contents_success_widget.dart';
+import 'package:lymphowear_remote_app/widgets/add_device_contents_widget.dart';
+import 'package:lymphowear_remote_app/widgets/notice_contents_widget.dart';
 
 class PairingPage extends StatefulWidget {
   const PairingPage({Key? key}) : super(key: key);
