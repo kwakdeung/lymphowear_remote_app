@@ -30,11 +30,12 @@ class _LoaderState extends State<Loader> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Center(
-      child: SizedBox(
-        width: pageSize.width * 0.215,
-        height: pageSize.height,
+      child: Container(
+        margin: const EdgeInsets.all(0.0),
+        padding: const EdgeInsets.all(0.0),
+        width: 100,
+        height: 100,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: CircularProgressIndicator(
