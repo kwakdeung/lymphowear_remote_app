@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/components/loader.dart';
 
 class AddDeviceContents extends StatefulWidget {
   const AddDeviceContents(
@@ -15,12 +16,24 @@ class AddDeviceContents extends StatefulWidget {
 }
 
 class _AddDeviceContentsState extends State<AddDeviceContents> {
+  bool visible = true;
   @override
   Widget build(BuildContext context) {
     var pageSize = MediaQuery.of(context).size;
     return Column(
       children: [
-        SizedBox(
+        Container(
+          margin: const EdgeInsets.all(0.0),
+          padding: const EdgeInsets.all(0.0),
+          width: 200,
+          height: 200,
+          alignment: Alignment.center,
+          child: const Loader(),
+        ),
+        Container(
+          margin: const EdgeInsets.all(0.0),
+          padding: const EdgeInsets.all(0.0),
+          alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(
@@ -34,7 +47,6 @@ class _AddDeviceContentsState extends State<AddDeviceContents> {
                 ),
                 Row(
                   children: [
-                    SizedBox(height: pageSize.height * 0.1),
                     Expanded(
                       child: Text(
                         widget.name,
@@ -46,18 +58,25 @@ class _AddDeviceContentsState extends State<AddDeviceContents> {
                       ),
                     ),
                     SizedBox(
-                      width: pageSize.width * 0.2,
+                      width: pageSize.width * 0.38,
                     ),
-                    Expanded(
-                      child: SizedBox(
-                        height: pageSize.height * 0.05,
+                    Container(
+                      margin: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(0.0),
+                      child: AnimatedOpacity(
+                        opacity: visible ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 300),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(12.0)),
                           )),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              visible = !visible;
+                            });
+                          },
                           child: const Text(
                             'Sync',
                             style: TextStyle(fontSize: 14),

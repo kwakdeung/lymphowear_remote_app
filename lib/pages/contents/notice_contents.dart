@@ -17,7 +17,9 @@ class _NoticeContentsState extends State<NoticeContents> {
   @override
   Widget build(BuildContext context) {
     var pageSize = MediaQuery.of(context).size;
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       width: double.infinity,
       height: pageSize.height,
       child: Column(

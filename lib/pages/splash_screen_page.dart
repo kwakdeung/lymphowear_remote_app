@@ -15,7 +15,6 @@ class SplashScreenPage extends StatefulWidget {
 class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   void initState() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     Timer(const Duration(milliseconds: 3700), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const OnboardingPage(),
@@ -26,7 +25,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([]);
     super.dispose();
   }
 

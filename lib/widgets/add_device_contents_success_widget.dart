@@ -13,7 +13,14 @@ class _AdviceContentsSucessWidgetState
   late PageController pageController;
   @override
   Widget build(BuildContext context) {
-    pageController = PageController();
-    return const Scaffold();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          'assets/images/Paring04.png',
+          fit: BoxFit.fill,
+        ),
+      ],
+    );
   }
 }

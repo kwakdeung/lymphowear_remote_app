@@ -17,21 +17,19 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   @override
   Widget build(BuildContext context) {
     var pageSize = MediaQuery.of(context).size;
-    return SizedBox(
+    return Container(
+      margin: const EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       width: double.infinity,
       height: pageSize.height,
       child: Column(
         children: [
           Expanded(
-            flex: 2,
             child: Image.asset(
               widget.image,
-              height: pageSize.height * 0.1,
             ),
           ),
-          SizedBox(height: pageSize.height * 0.03),
           Expanded(
-            flex: 1,
             child: Text(
               widget.title,
               textAlign: TextAlign.center,
@@ -42,7 +40,6 @@ class _OnboardingContentsState extends State<OnboardingContents> {
             ),
           ),
           Expanded(
-            flex: 1,
             child: SizedBox(
               width: pageSize.width * 0.6,
               height: double.infinity,
