@@ -18,6 +18,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   Widget build(BuildContext context) {
     var pageSize = MediaQuery.of(context).size;
     return Container(
+      color: Colors.white,
       margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),
       width: double.infinity,

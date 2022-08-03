@@ -33,6 +33,7 @@ class _PairingPageState extends State<PairingPage> {
     pageController = PageController();
     var pageSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
@@ -40,6 +41,7 @@ class _PairingPageState extends State<PairingPage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
@@ -53,7 +55,7 @@ class _PairingPageState extends State<PairingPage> {
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
-                color: Colors.transparent,
+                color: Colors.white,
               ),
               child: PageView(
                 controller: pageController,
@@ -73,7 +75,7 @@ class _PairingPageState extends State<PairingPage> {
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
-                color: Colors.transparent,
+                color: Colors.white,
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -82,7 +84,6 @@ class _PairingPageState extends State<PairingPage> {
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
-                  shadowColor: Colors.red,
                 ),
                 onPressed: isButtonActive
                     ? () {

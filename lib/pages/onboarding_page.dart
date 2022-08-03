@@ -32,8 +32,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
     var pageSize = MediaQuery.of(context).size;
     return Scaffold(
+        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +49,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.transparent,
+                  color: Colors.white,
                 ),
                 child: PageView.builder(
                   controller: pageController,
@@ -81,7 +84,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.transparent,
+                  color: Colors.white,
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
