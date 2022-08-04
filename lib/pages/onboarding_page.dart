@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/dotindicator.dart';
 import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_page.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 import '../models/onboarding_model.dart';
 
@@ -89,7 +89,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold),
-                    shadowColor: Colors.red,
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
