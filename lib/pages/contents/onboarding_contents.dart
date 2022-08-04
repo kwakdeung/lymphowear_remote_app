@@ -18,19 +18,25 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   Widget build(BuildContext context) {
     var pageSize = MediaQuery.of(context).size;
     return Container(
-      color: Colors.white,
       margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),
       width: double.infinity,
       height: pageSize.height,
       child: Column(
         children: [
-          Expanded(
+          Container(
+            margin: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
+            width: 200,
+            height: 200,
             child: Image.asset(
               widget.image,
             ),
           ),
-          Expanded(
+          SizedBox(height: pageSize.height * 0.03),
+          Container(
+            margin: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: Text(
               widget.title,
               textAlign: TextAlign.center,
@@ -40,6 +46,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
               ),
             ),
           ),
+          SizedBox(height: pageSize.height * 0.03),
           Expanded(
             child: SizedBox(
               width: pageSize.width * 0.6,

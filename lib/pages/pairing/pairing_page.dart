@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:lymphowear_remote_app/widgets/add_device_contents_success_widget.dart';
-import 'package:lymphowear_remote_app/widgets/add_device_contents_widget.dart';
-import 'package:lymphowear_remote_app/widgets/notice_contents_widget.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingPage extends StatefulWidget {
   const PairingPage({Key? key}) : super(key: key);
@@ -33,45 +30,47 @@ class _PairingPageState extends State<PairingPage> {
     pageController = PageController();
     var pageSize = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        shadowColor: Colors.black,
         title: const Text(
           'Add Device',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 20,
+          ),
         ),
+        bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(0),
+            child: Container(
+              color: Colors.grey[200],
+              height: 2.0,
+            )),
         centerTitle: true,
-        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: const EdgeInsets.only(bottom: 70),
               padding: const EdgeInsets.all(0.0),
               width: double.infinity,
-              height: pageSize.height * 0.55,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: PageView(
-                controller: pageController,
-                physics: const NeverScrollableScrollPhysics(),
-                children: const <Widget>[
-                  NoticeContentsWidget(),
-                  AdviceContentsWidget(),
-                  AdviceContentsSucessWidget()
-                ],
+              child: Image.asset(
+                'assets/images/Pairing01.png',
+                fit: BoxFit.fill,
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: const EdgeInsets.only(top: 100, bottom: 100),
               padding: const EdgeInsets.all(0.0),
               width: double.infinity,
-              height: 200,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -79,20 +78,19 @@ class _PairingPageState extends State<PairingPage> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.75, 50),
-                  primary: Colors.black,
+                  fixedSize: Size(pageSize.width * 0.87, 50),
+                  primary: Colors.green[500],
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                onPressed: isButtonActive
-                    ? () {
-                        setState(() => isButtonActive = false);
-                        pageController.nextPage(
-                            duration: const Duration(microseconds: 1000),
-                            curve: Curves.ease);
-                      }
-                    : null,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const PairingLoading()),
+                      ));
+                },
                 child: const Text('Start'),
               ),
             ),

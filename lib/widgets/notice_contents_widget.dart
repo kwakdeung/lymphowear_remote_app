@@ -6,7 +6,7 @@ class NoticeContentsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.asset(
           'assets/images/Paring01.png',

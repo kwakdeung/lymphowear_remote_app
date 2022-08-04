@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/dotindicator.dart';
 import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_page.dart';
 
 import '../models/onboarding_model.dart';
 
@@ -32,11 +32,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
     var pageSize = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-        ),
+        appBar: AppBar(),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +46,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.white,
+                  color: Colors.transparent,
                 ),
                 child: PageView.builder(
                   controller: pageController,
@@ -77,19 +74,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ))),
               ),
               Container(
-                margin: const EdgeInsets.all(0.0),
+                margin: const EdgeInsets.only(top: 100, bottom: 100),
                 padding: const EdgeInsets.all(0.0),
                 width: double.infinity,
-                height: 200,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.white,
+                  color: Colors.transparent,
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(pageSize.width * 0.75, 50),
-                    primary: Colors.black,
+                    fixedSize: Size(pageSize.width * 0.87, 50),
+                    primary: Colors.green[500],
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold),

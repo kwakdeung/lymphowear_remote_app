@@ -24,16 +24,18 @@ class _NoticeContentsState extends State<NoticeContents> {
       height: pageSize.height,
       child: Column(
         children: [
-          Expanded(
-            flex: 1,
+          Container(
+            margin: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: Image.asset(
               widget.image,
               height: pageSize.height * 0.1,
             ),
           ),
           SizedBox(height: pageSize.height * 0.05),
-          Expanded(
-            flex: 0,
+          Container(
+            margin: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: Text(
               widget.instruction,
               textAlign: TextAlign.center,
@@ -44,8 +46,9 @@ class _NoticeContentsState extends State<NoticeContents> {
             ),
           ),
           SizedBox(height: pageSize.height * 0.03),
-          Expanded(
-            flex: 1,
+          Container(
+            margin: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(0.0),
             child: SizedBox(
               width: pageSize.width * 0.6,
               height: double.infinity,
