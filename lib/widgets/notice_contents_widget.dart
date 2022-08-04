@@ -9,7 +9,7 @@ class NoticeContentsWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Image.asset(
-          'assets/images/Paring01.png',
+          'assets/images/Pairing01.png',
           fit: BoxFit.fill,
         ),
       ],
