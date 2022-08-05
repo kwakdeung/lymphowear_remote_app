@@ -16,6 +16,7 @@ class _PairingLoadingState extends State<PairingLoading> {
   @override
   void initState() {
     Timer(const Duration(milliseconds: 3700), () {
+      // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const PairingConnect(), // Pairing 연결
         // builder: (context) => const PairingFailed(), // Pairing 실패

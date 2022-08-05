@@ -17,7 +17,7 @@ class _AdviceContentsSucessWidgetState
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          'assets/images/Pairing04.png',
+          'assets/images/Paring04.png',
           fit: BoxFit.fill,
         ),
       ],

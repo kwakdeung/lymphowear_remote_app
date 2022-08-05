@@ -96,7 +96,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) =>
                             const PairingPage(),
-                        transitionDuration: const Duration(seconds: 0),
                       ),
                     );
                   },

@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/pages/home_page.dart';
+import 'package:lymphowear_remote_app/pages/home_none.dart';
 
 class PairingComplete extends StatefulWidget {
   const PairingComplete({Key? key}) : super(key: key);
@@ -21,7 +23,6 @@ class _PairingCompleteState extends State<PairingComplete> {
 
   @override
   void dispose() {
-    pageController.dispose();
     super.dispose();
   }
 
@@ -34,6 +35,12 @@ class _PairingCompleteState extends State<PairingComplete> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            exit(0);
+          },
+        ),
         backgroundColor: Colors.white,
         title: const Text(
           'Add Device',
@@ -85,11 +92,14 @@ class _PairingCompleteState extends State<PairingComplete> {
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const HomePage()),
-                      ));
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const HomeNone(),
+                      transitionDuration: const Duration(seconds: 0),
+                    ),
+                  );
                 },
                 child: const Text('Start'),
               ),

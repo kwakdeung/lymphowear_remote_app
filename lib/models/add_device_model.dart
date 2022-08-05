@@ -14,4 +14,9 @@ final List<AddDevice> adddeviceData = [
     model: 'LW-100',
     loading: '40%',
   ),
+  AddDevice(
+    name: 'LymphoWear',
+    model: 'LW-200',
+    loading: '30%',
+  ),
 ];

@@ -98,9 +98,14 @@ class _PairingConnectState extends State<PairingConnect> {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 3), () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const PairingComplete()));
+        Future.delayed(const Duration(seconds: 5), () {
+          Navigator.pushReplacement(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation1, animation2) =>
+                  const PairingComplete(),
+            ),
+          );
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
