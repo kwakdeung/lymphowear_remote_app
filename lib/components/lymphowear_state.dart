@@ -10,10 +10,10 @@ class LymphoWearState extends StatelessWidget {
       children: [
         const Text(
           'Manual Mode',
-          style: TextStyle(),
+          style: TextStyle(fontSize: 14),
         ),
         const SizedBox(
-          height: 20,
+          height: 8,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

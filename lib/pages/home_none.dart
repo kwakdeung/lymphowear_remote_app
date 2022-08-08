@@ -37,9 +37,18 @@ class HomeNone extends StatelessWidget {
               fit: BoxFit.fill,
             ),
             Container(
-              margin: const EdgeInsets.only(top: 40, bottom: 40),
+              margin: const EdgeInsets.only(
+                  top: 40, bottom: 184, left: 20, right: 20),
               child: ElevatedButton.icon(
                 onPressed: () {
+                  // Navigator.pushReplacement(
+                  //   context,
+                  //   PageRouteBuilder(
+                  //     pageBuilder: ((context, animation, secondaryAnimation) =>
+                  //         const HomeRefresh()),
+                  //     transitionDuration: const Duration(seconds: 0),
+                  //   ),
+                  // );  // Home_BT연결 / 전원이 꺼진 경우
                   Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
@@ -47,7 +56,7 @@ class HomeNone extends StatelessWidget {
                           const HomeBluetooth()),
                       transitionDuration: const Duration(seconds: 0),
                     ),
-                  );
+                  ); // Home_BT연결이 끊어진 경우
                 },
                 icon: const Icon(
                   Icons.add_circle_outline_outlined,

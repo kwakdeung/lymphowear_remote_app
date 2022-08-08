@@ -16,10 +16,10 @@ class _HeatingOptionState extends State<HeatingOption> {
     return Container(
       margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),
-      width: 300,
+      width: 271,
       decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.grey,
+            color: Colors.white,
           ),
           borderRadius: BorderRadius.circular(7)),
       child: Row(
@@ -27,11 +27,11 @@ class _HeatingOptionState extends State<HeatingOption> {
         children: [
           const Icon(Icons.wb_sunny_outlined),
           const SizedBox(
-            width: 15,
+            width: 10,
           ),
           const Text('Heating Option'),
           const SizedBox(
-            width: 75,
+            width: 70,
           ),
           buildIOSSwitch(),
         ],

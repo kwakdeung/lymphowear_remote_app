@@ -10,7 +10,6 @@ class HomeRefresh extends StatefulWidget {
 class _HomeRefreshState extends State<HomeRefresh> {
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -43,7 +42,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
               fit: BoxFit.fill,
             ),
             Container(
-              margin: const EdgeInsets.all(40.0),
+              margin: const EdgeInsets.fromLTRB(119, 16, 119, 200),
               child: ElevatedButton.icon(
                 icon: const Icon(Icons.cached),
                 label: const Text(
@@ -52,7 +51,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 ),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white,
-                    fixedSize: Size(pageSize.width * 0.37, 50),
+                    fixedSize: const Size(122, 40),
                     side: const BorderSide(color: Colors.green)),
                 onPressed: () => showProgressDialog('Loading...'),
               ),

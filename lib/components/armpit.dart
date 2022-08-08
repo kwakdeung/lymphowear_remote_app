@@ -13,12 +13,12 @@ class _ArmpitState extends State<Armpit> {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.grey,
+            color: Colors.white,
           ),
           borderRadius: BorderRadius.circular(7)),
       margin: const EdgeInsets.all(5.0),
       padding: const EdgeInsets.all(0.0),
-      height: 80,
+      height: 60,
       width: 300,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

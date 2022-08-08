@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/dotindicator.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
@@ -30,7 +31,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(),
@@ -42,7 +42,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 margin: const EdgeInsets.all(0.0),
                 padding: const EdgeInsets.all(0.0),
                 width: double.infinity,
-                height: pageSize.height * 0.5305,
+                height: 432,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -74,9 +74,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ))),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 100, bottom: 100),
-                padding: const EdgeInsets.all(0.0),
-                width: double.infinity,
+                // Log
+                margin: bottombuttonmargin,
+                padding: bottombuttonpadding,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -84,7 +84,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(pageSize.width * 0.87, 50),
+                    fixedSize: const Size(320, 48),
                     primary: Colors.green[500],
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
@@ -92,6 +92,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
+                      // onboarding의 Button이 Skip이기 때문에 back이 안되게 하고 종료 시키기 위해 Navigator.pushReplacement()를 사용
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) =>
@@ -99,7 +100,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                     );
                   },
-                  child: const Text('Skip'),
+                  child: const Text('Skip'), // 함수 호출
                 ),
               ),
             ],

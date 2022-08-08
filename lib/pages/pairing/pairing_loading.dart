@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingLoading extends StatefulWidget {
@@ -44,7 +45,7 @@ class _PairingLoadingState extends State<PairingLoading> {
         title: const Text(
           'Add Device',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         bottom: PreferredSize(
@@ -60,16 +61,18 @@ class _PairingLoadingState extends State<PairingLoading> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 25),
-              padding: const EdgeInsets.all(0.0),
+              margin: const EdgeInsets.fromLTRB(160, 80, 160, 16),
+              // margin: const EdgeInsets.fromLTRB(160, 80, 1600, 16),
+              width: 40,
+              height: 40,
               child: CircularProgressIndicator(
                 color: Colors.green,
                 backgroundColor: Colors.green[50],
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 3, bottom: 275),
-              padding: const EdgeInsets.all(0.0),
+              margin: const EdgeInsets.fromLTRB(93, 0, 92, 283),
+              // padding: const EdgeInsets.fromLTRB(93, 2, 92, 255),
               child: const Center(
                   child: Text(
                 'Searching for device...',
@@ -80,9 +83,8 @@ class _PairingLoadingState extends State<PairingLoading> {
               )),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 100),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              margin: bottombuttonmargin,
+              padding: bottombuttonpadding,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -90,14 +92,14 @@ class _PairingLoadingState extends State<PairingLoading> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.87, 50),
+                  fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
                   primary: Colors.grey[200],
                   onPrimary: Colors.grey,
                   textStyle: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context); // Stop -> 이전 페이지
                 },
                 child: const Text('Stop'),
               ),

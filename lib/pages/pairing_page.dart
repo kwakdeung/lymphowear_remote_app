@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
@@ -28,17 +30,22 @@ class _PairingPageState extends State<PairingPage> {
   @override
   Widget build(BuildContext context) {
     pageController = PageController();
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            exit(0);
+          },
+        ),
         backgroundColor: Colors.white,
         shadowColor: Colors.black,
         title: const Text(
           'Add Device',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         bottom: PreferredSize(
@@ -51,12 +58,13 @@ class _PairingPageState extends State<PairingPage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(bottom: 70),
+              margin: const EdgeInsets.only(top: 56, bottom: 58),
               padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              width: double.infinity, // 크기를 지정하지 않으면 부모의 크기
+              height: 328,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -68,9 +76,8 @@ class _PairingPageState extends State<PairingPage> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 100),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(20, 104, 20, 80),
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -78,11 +85,11 @@ class _PairingPageState extends State<PairingPage> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.87, 50),
-                  primary: Colors.green[500],
+                  fixedSize: const Size(320, 48),
+                  primary: Colors.green,
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -91,12 +98,17 @@ class _PairingPageState extends State<PairingPage> {
                         builder: ((context) => const PairingLoading()),
                       ));
                 },
-                child: const Text('Start'),
+
+                // 페이지 중 앱바 유지 위젯만 바꾸기
+                child: const Text(
+                  'Start',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             ),
           ],
         ),
-      ),
+      ), // Start Button
     );
   }
 }

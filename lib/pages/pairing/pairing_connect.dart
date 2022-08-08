@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
 
 class PairingConnect extends StatefulWidget {
@@ -37,7 +38,7 @@ class _PairingConnectState extends State<PairingConnect> {
         title: const Text(
           'Add Device',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         bottom: PreferredSize(
@@ -53,9 +54,8 @@ class _PairingConnectState extends State<PairingConnect> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 20, bottom: 65),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 72),
+              padding: const EdgeInsets.all(0),
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -67,10 +67,8 @@ class _PairingConnectState extends State<PairingConnect> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 100),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
-              height: 50,
+              margin: bottombuttonmargin,
+              padding: bottombuttonpadding,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -78,19 +76,21 @@ class _PairingConnectState extends State<PairingConnect> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.87, 100),
+                  fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
                   primary: Colors.green[500],
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => showProgressDialog('Pairing...'),
+
+                // 페이지 중 앱바 유지 위젯만 바꾸기
                 child: const Text('Connect'),
               ),
             ),
           ],
         ),
-      ),
+      ), // Start Button
     );
   }
 
@@ -100,12 +100,9 @@ class _PairingConnectState extends State<PairingConnect> {
       builder: (BuildContext context) {
         Future.delayed(const Duration(seconds: 5), () {
           Navigator.pushReplacement(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation1, animation2) =>
-                  const PairingComplete(),
-            ),
-          );
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PairingComplete())); // start
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),

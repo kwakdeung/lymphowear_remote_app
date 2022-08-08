@@ -22,7 +22,6 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
 
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -46,27 +45,36 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
       ),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.all(100.0),
+          padding: const EdgeInsets.all(0),
           color: Colors.grey[100],
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.bluetooth_disabled,
-                color: Colors.grey,
-                size: 30,
-              ),
-              const Text(
-                'Not connected',
-                style: TextStyle(fontSize: 20, color: Colors.grey),
+              Container(
+                margin: const EdgeInsets.fromLTRB(167, 81.66, 168.14, 8),
+                width: 32,
+                height: 32,
+                child: const Icon(
+                  Icons.bluetooth_disabled,
+                  color: Colors.grey,
+                  size: 30,
+                ),
               ),
               Container(
-                margin: const EdgeInsets.all(30.0),
+                margin: const EdgeInsets.fromLTRB(121, 9.66, 121, 0),
+                child: const Text(
+                  'Not connected',
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(125.5, 0, 125.5, 352),
+                padding: const EdgeInsets.fromLTRB(10, 24, 10, 24),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: Colors.white,
-                      fixedSize: Size(pageSize.width * 0.37, 50),
+                      fixedSize: const Size(109, 40),
                       side: const BorderSide(color: Colors.green)),
                   onPressed: () {
                     showProgressDialog('Connecting...');

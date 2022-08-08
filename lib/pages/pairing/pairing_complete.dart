@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 
 class PairingComplete extends StatefulWidget {
@@ -45,7 +46,7 @@ class _PairingCompleteState extends State<PairingComplete> {
         title: const Text(
           'Add Device',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         bottom: PreferredSize(
@@ -58,12 +59,13 @@ class _PairingCompleteState extends State<PairingComplete> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 10, bottom: 65),
+              margin: const EdgeInsets.fromLTRB(0, 10, 0, 58),
               padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              width: double.infinity, // 크기를 지정하지 않으면 부모의 크기
+
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -75,9 +77,8 @@ class _PairingCompleteState extends State<PairingComplete> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 100),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              margin: bottombuttonmargin,
+              padding: bottombuttonpadding,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -85,7 +86,7 @@ class _PairingCompleteState extends State<PairingComplete> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.87, 50),
+                  fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
                   primary: Colors.green[500],
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
@@ -93,20 +94,20 @@ class _PairingCompleteState extends State<PairingComplete> {
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
-                    context,
-                    PageRouteBuilder(
-                      pageBuilder: (context, animation1, animation2) =>
-                          const HomeNone(),
-                      transitionDuration: const Duration(seconds: 0),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) =>
+                            const HomeNone()), // Home_name 페이지로
+                      ));
                 },
+
+                // 페이지 중 앱바 유지 위젯만 바꾸기
                 child: const Text('Start'),
               ),
             ),
           ],
         ),
-      ),
+      ), // Start Button
     );
   }
 }
