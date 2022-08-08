@@ -78,6 +78,7 @@ class HomeDefault extends StatelessWidget {
                             )),
                       ],
                     ),
+                    verticalDivider(),
                     GestureDetector(
                         onTap: () {
                           debugPrint("Relaxing mode 홈페이지로 이동");
@@ -98,6 +99,7 @@ class HomeDefault extends StatelessWidget {
                             ),
                           ]),
                         )),
+                    verticalDivider(),
                     GestureDetector(
                         onTap: () {
                           debugPrint("Slepping mode 홈페이지로 이동");
@@ -170,5 +172,10 @@ class HomeDefault extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget verticalDivider() {
+    return const VerticalDivider(
+        thickness: 1, width: 1, color: Color(0xffEEEEEE));
   }
 }
