@@ -29,7 +29,6 @@ class _PairingConnectState extends State<PairingConnect> {
   @override
   Widget build(BuildContext context) {
     pageController = PageController();
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -54,7 +53,7 @@ class _PairingConnectState extends State<PairingConnect> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(bottom: 72),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 72),
               padding: const EdgeInsets.all(0),
               alignment: Alignment.center,
               decoration: const BoxDecoration(

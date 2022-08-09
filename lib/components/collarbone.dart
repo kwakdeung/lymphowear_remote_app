@@ -24,7 +24,7 @@ class _CollarboneState extends State<Collarbone> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.only(left: 5.0, right: 0.0),
+            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
             child: Image.asset(
               'assets/images/Collarbone.png',
               width: 60,

@@ -6,7 +6,6 @@ class HomeNone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -37,8 +36,7 @@ class HomeNone extends StatelessWidget {
               fit: BoxFit.fill,
             ),
             Container(
-              margin: const EdgeInsets.only(
-                  top: 40, bottom: 184, left: 20, right: 20),
+              margin: const EdgeInsets.fromLTRB(20, 40, 20, 184),
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Navigator.pushReplacement(
@@ -68,7 +66,7 @@ class HomeNone extends StatelessWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
-                  fixedSize: Size(pageSize.width * 0.87, 50),
+                  fixedSize: const Size(320, 50),
                   side: const BorderSide(color: Colors.green),
                 ),
               ),

@@ -28,7 +28,6 @@ class _PairingFailedState extends State<PairingFailed> {
   @override
   Widget build(BuildContext context) {
     pageController = PageController();
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -54,7 +53,7 @@ class _PairingFailedState extends State<PairingFailed> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 20, bottom: 66),
+              margin: const EdgeInsets.fromLTRB(0, 20, 0, 66),
               padding: const EdgeInsets.all(0.0),
               width: double.infinity,
               alignment: Alignment.center,
@@ -68,7 +67,7 @@ class _PairingFailedState extends State<PairingFailed> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 100, bottom: 100),
+              margin: const EdgeInsets.fromLTRB(0, 100, 0, 100),
               padding: const EdgeInsets.all(0.0),
               width: double.infinity,
               alignment: Alignment.center,
@@ -78,7 +77,7 @@ class _PairingFailedState extends State<PairingFailed> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(pageSize.width * 0.87, 50),
+                  fixedSize: const Size(320, 50),
                   primary: Colors.white,
                   onPrimary: Colors.green[500],
                   surfaceTintColor: Colors.white,

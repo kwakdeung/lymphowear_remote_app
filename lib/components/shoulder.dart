@@ -24,7 +24,7 @@ class _ShoulderState extends State<Shoulder> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.only(left: 5.0, right: 0.0),
+            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
             child: Image.asset(
               'assets/images/Shoulder.png',
               width: 60,

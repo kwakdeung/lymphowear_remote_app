@@ -34,8 +34,7 @@ class AddDeviceListWidgetState extends State<AddDeviceListWidget> {
     List<Widget> settingList = [
       ListTile(
         tileColor: Colors.white,
-        contentPadding:
-            const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
+        contentPadding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
         title: Text(
           widget.name,
           style: const TextStyle(

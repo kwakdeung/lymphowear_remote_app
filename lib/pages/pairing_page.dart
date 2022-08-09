@@ -61,7 +61,7 @@ class _PairingPageState extends State<PairingPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.only(top: 56, bottom: 58),
+              margin: const EdgeInsets.fromLTRB(0, 56, 0, 58),
               padding: const EdgeInsets.all(0.0),
               width: double.infinity, // 크기를 지정하지 않으면 부모의 크기
               height: 328,

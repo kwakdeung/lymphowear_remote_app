@@ -35,7 +35,6 @@ class _PairingLoadingState extends State<PairingLoading> {
   bool visible = true;
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -62,7 +61,6 @@ class _PairingLoadingState extends State<PairingLoading> {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(160, 80, 160, 16),
-              // margin: const EdgeInsets.fromLTRB(160, 80, 1600, 16),
               width: 40,
               height: 40,
               child: CircularProgressIndicator(
@@ -72,7 +70,6 @@ class _PairingLoadingState extends State<PairingLoading> {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(93, 0, 92, 283),
-              // padding: const EdgeInsets.fromLTRB(93, 2, 92, 255),
               child: const Center(
                   child: Text(
                 'Searching for device...',

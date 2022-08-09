@@ -30,7 +30,6 @@ class _PairingCompleteState extends State<PairingComplete> {
   @override
   Widget build(BuildContext context) {
     pageController = PageController();
-    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
