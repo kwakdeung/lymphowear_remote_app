@@ -43,13 +43,13 @@ class LymphoWearState extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  side: const BorderSide(color: Colors.black),
+                  side: const BorderSide(color: Color(0xffE0E0E0)),
                   shape: const CircleBorder(),
                   padding: const EdgeInsets.all(10),
                   surfaceTintColor: Colors.white),
               child: const Icon(
                 Icons.add,
-                color: Colors.black,
+                color: Color(0xffE0E0E0),
                 size: 20,
               ),
             ),
