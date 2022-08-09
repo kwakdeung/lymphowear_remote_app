@@ -88,6 +88,10 @@ class _CircularIndicatorState extends State<CircularIndicator> {
                         "Percent: ${(_value * 100).round()}%",
                         style: const TextStyle(fontSize: 20),
                       ),
+                      Text(
+                        "${(_value * 15).round()}%",
+                        style: const TextStyle(fontSize: 20),
+                      ),
                       GestureDetector(
                         onTap: _handleTap,
                         child: Container(
@@ -95,13 +99,13 @@ class _CircularIndicatorState extends State<CircularIndicator> {
                           height: 40.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: _active ? Colors.green : Colors.grey[600],
+                            border: Border.all(color: Colors.green, width: 1),
+                            color: _active ? Colors.green : Colors.white,
                           ),
                           child: Center(
-                            child: Text(
-                              _active ? 'Start' : 'Stop',
-                              style: const TextStyle(
-                                  fontSize: 10.0, color: Colors.white),
+                            child: Icon(
+                              _active ? Icons.play_arrow : Icons.pause,
+                              color: _active ? Colors.white : Colors.green,
                             ),
                           ),
                         ),
