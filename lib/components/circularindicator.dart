@@ -16,6 +16,15 @@ class _CircularIndicatorState extends State<CircularIndicator> {
   bool _active = true;
 
   void _handleTap() {
+    if (_active) {
+      debugPrint('test true');
+      pairing();
+      startWorking();
+    } else {
+      debugPrint('test false');
+      pairing();
+      stopWorking();
+    }
     setState(() {
       _active = !_active;
     });
