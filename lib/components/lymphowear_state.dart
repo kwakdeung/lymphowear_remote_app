@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/components/circularindicator.dart';
 
 class LymphoWearState extends StatelessWidget {
   const LymphoWearState({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class LymphoWearState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Text(
           'Manual Mode',
@@ -16,41 +17,42 @@ class LymphoWearState extends StatelessWidget {
           height: 8,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  side: const BorderSide(color: Colors.black),
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(10),
-                  surfaceTintColor: Colors.white),
-              child: const Icon(
-                Icons.remove,
-                color: Colors.black,
-                size: 20,
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    side: const BorderSide(color: Colors.black),
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(10),
+                    surfaceTintColor: Colors.white),
+                child: const Icon(
+                  Icons.remove,
+                  color: Colors.black,
+                  size: 20,
+                ),
               ),
             ),
             const Align(
-              alignment: Alignment.center,
-              child: CircleAvatar(
-                radius: 70.0,
-                backgroundColor: Colors.grey,
-                foregroundColor: Colors.grey,
-                child: Icon(Icons.image),
-              ),
+              alignment: Alignment.topCenter,
+              child: CircularIndicator(),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  side: const BorderSide(color: Color(0xffE0E0E0)),
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(10),
-                  surfaceTintColor: Colors.white),
-              child: const Icon(
-                Icons.add,
-                color: Color(0xffE0E0E0),
-                size: 20,
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    side: const BorderSide(color: Color(0xffE0E0E0)),
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(10),
+                    surfaceTintColor: Colors.white),
+                child: const Icon(
+                  Icons.add,
+                  color: Color(0xffE0E0E0),
+                  size: 20,
+                ),
               ),
             ),
           ],
