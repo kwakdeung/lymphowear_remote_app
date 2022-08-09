@@ -49,7 +49,19 @@ class HomeDefault extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                 width: 320,
                 height: 72,
-                color: Colors.white,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.black12, width: 0),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 0,
+                      blurRadius: 4.0,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -127,8 +139,20 @@ class HomeDefault extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                 padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                 width: 320,
-                height: 604, // 원래 height: 504
-                color: Colors.white,
+                height: 604,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.black12, width: 0),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.7),
+                      spreadRadius: 0,
+                      blurRadius: 4.0,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                   padding: const EdgeInsets.all(0.0),
@@ -145,12 +169,11 @@ class HomeDefault extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      // heating option SwitchButton 추가 - Container로
                       Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20), //모서리를 둥글게
-                            border: Border.all(
-                                color: Colors.black12, width: 2)), //테두리
+                            borderRadius: BorderRadius.circular(20),
+                            border:
+                                Border.all(color: Colors.black12, width: 2)),
                         margin: const EdgeInsets.all(0.0),
                         width: 280,
                         height: 264,
