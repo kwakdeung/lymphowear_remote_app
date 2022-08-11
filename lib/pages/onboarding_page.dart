@@ -32,7 +32,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
 
-    var bottombuttonmargin;
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Center(
