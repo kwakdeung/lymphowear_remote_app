@@ -24,7 +24,6 @@ class _PairingCompleteState extends State<PairingComplete> {
 
   @override
   void dispose() {
-    // pageController.dispose();
     super.dispose();
   }
 
@@ -57,7 +56,6 @@ class _PairingCompleteState extends State<PairingComplete> {
             )),
         centerTitle: true,
       ),
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +63,7 @@ class _PairingCompleteState extends State<PairingComplete> {
             Container(
               margin: const EdgeInsets.fromLTRB(72.5, 40, 71.5, 24),
               padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
-              width: 216, // log
+              width: 216,
               height: 160,
               child: Image.asset(
                 'assets/images/Pairing04_image.png',
@@ -75,7 +73,7 @@ class _PairingCompleteState extends State<PairingComplete> {
             Container(
               margin: const EdgeInsets.fromLTRB(104, 0, 103, 8),
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              width: 153, // log
+              width: 153,
               height: 20,
               child: Image.asset(
                 'assets/images/Pairing04_title.png',
@@ -85,7 +83,7 @@ class _PairingCompleteState extends State<PairingComplete> {
             Container(
               margin: const EdgeInsets.fromLTRB(97, 0, 96, 160),
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              width: 167, // log
+              width: 167,
               height: 20,
               child: Image.asset(
                 'assets/images/Pairing04_content.png',
@@ -93,7 +91,7 @@ class _PairingCompleteState extends State<PairingComplete> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(20, 0, 20, 80), // 이놈이 문제
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
               padding: bottombuttonpadding,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
@@ -102,7 +100,7 @@ class _PairingCompleteState extends State<PairingComplete> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
+                  fixedSize: const Size(320, 48),
                   primary: Colors.green[500],
                   onPrimary: Colors.white,
                   textStyle: const TextStyle(
@@ -112,18 +110,15 @@ class _PairingCompleteState extends State<PairingComplete> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: ((context) =>
-                            const HomeNone()), // Home_name 페이지로
+                        builder: ((context) => const HomeNone()),
                       ));
                 },
-
-                // 페이지 중 앱바 유지 위젯만 바꾸기
                 child: const Text('Start'),
               ),
             ),
           ],
         ),
-      ), // Start Button
+      ),
     );
   }
 }

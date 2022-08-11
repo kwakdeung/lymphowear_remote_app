@@ -80,37 +80,39 @@ class _CircularIndicatorState extends State<CircularIndicator> {
                   valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                 ),
                 Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('battery'),
-                      Text(
-                        "Percent: ${(_value * 100).round()}%",
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      Text(
-                        "${(_value * 15).round()}%",
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      GestureDetector(
-                        onTap: _handleTap,
-                        child: Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.green, width: 1),
-                            color: _active ? Colors.green : Colors.white,
-                          ),
-                          child: Center(
-                            child: Icon(
-                              _active ? Icons.play_arrow : Icons.pause,
-                              color: _active ? Colors.white : Colors.green,
+                  child: FittedBox(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('battery'),
+                        Text(
+                          "Percent: ${(_value * 100).round()}%",
+                          style: const TextStyle(),
+                        ),
+                        Text(
+                          "${(_value * 15).round()}%",
+                          style: const TextStyle(),
+                        ),
+                        GestureDetector(
+                          onTap: _handleTap,
+                          child: Container(
+                            width: 40.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              border: Border.all(color: Colors.green, width: 1),
+                              color: _active ? Colors.green : Colors.white,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                _active ? Icons.play_arrow : Icons.pause,
+                                color: _active ? Colors.white : Colors.green,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],

@@ -65,7 +65,7 @@ class _PairingConnectState extends State<PairingConnect> {
               Container(
                 margin: const EdgeInsets.fromLTRB(91, 56, 91, 16),
                 padding: const EdgeInsets.all(0.0),
-                width: 178, // log
+                width: 178,
                 height: 20,
                 child: Image.asset(
                   'assets/images/Pairing03_text.png',
@@ -75,7 +75,7 @@ class _PairingConnectState extends State<PairingConnect> {
               Container(
                 margin: const EdgeInsets.fromLTRB(63, 0, 63, 0),
                 padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
-                width: 234, // log
+                width: 234,
                 height: 166,
                 child: Image.asset(
                   'assets/images/Pairing03_image.png',
@@ -87,15 +87,13 @@ class _PairingConnectState extends State<PairingConnect> {
                 padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
+                    fixedSize: const Size(320, 48),
                     primary: Colors.green[500],
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   onPressed: () => showProgressDialog('Pairing...'),
-
-                  // 페이지 중 앱바 유지 위젯만 바꾸기
                   child: const Text('Connect'),
                 ),
               ),
@@ -111,10 +109,8 @@ class _PairingConnectState extends State<PairingConnect> {
       context: context,
       builder: (BuildContext context) {
         Future.delayed(const Duration(seconds: 5), () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const PairingComplete())); // start
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const PairingComplete()));
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),

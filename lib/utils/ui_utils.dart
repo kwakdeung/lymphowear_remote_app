@@ -4,7 +4,6 @@ import 'package:lymphowear_remote_app/enums/device_screen_type.dart';
 DeviceScreenType getDeviceType(MediaQueryData mediaQuery) {
   var orientation = mediaQuery.orientation;
 
-  // Fixed Device width (changes with orientation)
   double deviceWidth = 0;
 
   if (orientation == Orientation.landscape) {

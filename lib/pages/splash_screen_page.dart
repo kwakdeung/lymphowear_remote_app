@@ -21,22 +21,20 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const OnboardingPage(),
-      )); // Navigator.of(context).pushReplacement(): 다음페이지인 onboarding page에서 back 버튼을 눌렀을 때 SplashScreen에 못넘어오게 제한
+      ));
     });
     super.initState();
   }
 
   @override
   void dispose() {
-    // SystemChrome.setPreferredOrientations([]);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    var pageSize =
-        MediaQuery.of(context).size; // responsibie의 MediaQuery로 Size 적용
+    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
         child: Column(

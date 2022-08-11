@@ -13,7 +13,6 @@ class _HeatingOptionState extends State<HeatingOption> {
 
   @override
   Widget build(BuildContext context) {
-    // Container -> Switch Button
     return Container(
       margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),

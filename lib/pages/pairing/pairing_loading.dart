@@ -85,14 +85,14 @@ class _PairingLoadingState extends State<PairingLoading> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 48), // 왼쪽 width 미디어 쿼리 적용하기
+                  fixedSize: const Size(320, 48),
                   primary: Colors.grey[200],
                   onPrimary: Colors.grey,
                   textStyle: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  Navigator.pop(context); // Stop -> 이전 페이지
+                  Navigator.pop(context);
                 },
                 child: const Text('Stop'),
               ),

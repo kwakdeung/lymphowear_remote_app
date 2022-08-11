@@ -51,7 +51,7 @@ class HomeDefault extends StatelessWidget {
                       margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8), //모서리를 둥글게
+                        borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.black12, width: 0),
                         color: Colors.white,
                         boxShadow: [
@@ -59,93 +59,89 @@ class HomeDefault extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.7),
                             spreadRadius: 0,
                             blurRadius: 4.0,
-                            offset: const Offset(
-                                0, 4), // changes position of shadow
+                            offset: const Offset(0, 4),
                           ),
                         ],
-                      ), //테두리
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Column(
-                            children: [
-                              GestureDetector(
-                                  onTap: () {
-                                    debugPrint("Vital mode 홈페이지로 이동");
-                                  },
-                                  child: Container(
-                                    width: 107.0,
-                                    padding: const EdgeInsets.fromLTRB(
-                                        10.0, 0, 10.0, 0),
-                                    color: Colors.transparent,
-                                    child: Column(children: const [
-                                      Icon(
-                                        Icons.abc,
-                                        size: 14,
-                                      ),
-                                      Text(
-                                        "Vital\n Mode",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ]),
-                                  )),
-                            ],
+                          FittedBox(
+                            child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Vital mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  width: 107.0,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      10.0, 0, 10.0, 0),
+                                  color: Colors.transparent,
+                                  child: Column(children: const [
+                                    Icon(
+                                      Icons.abc,
+                                    ),
+                                    Text(
+                                      "Vital\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(),
+                                    ),
+                                  ]),
+                                )),
                           ),
                           verticalDivider(),
-                          GestureDetector(
-                              onTap: () {
-                                debugPrint("Relaxing mode 홈페이지로 이동");
-                              },
-                              child: Container(
-                                width: 104.0,
-                                padding:
-                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-                                color: Colors.transparent,
-                                child: Column(children: const [
-                                  Icon(
-                                    Icons.abc,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "Relaxingn\n Mode",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ]),
-                              )),
+                          FittedBox(
+                            child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Relaxing mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  width: 104.0,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      10.0, 0, 10.0, 0),
+                                  color: Colors.transparent,
+                                  child: Column(children: const [
+                                    Icon(
+                                      Icons.abc,
+                                    ),
+                                    Text(
+                                      "Relaxingn\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(),
+                                    ),
+                                  ]),
+                                )),
+                          ),
                           verticalDivider(),
-                          GestureDetector(
-                              onTap: () {
-                                debugPrint("Slepping mode 홈페이지로 이동");
-                              },
-                              child: Container(
-                                width: 107.0,
-                                padding:
-                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-                                color: Colors.transparent,
-                                child: Column(children: const [
-                                  Icon(
-                                    Icons.abc,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "Slepping\n Mode",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ]),
-                              )),
+                          FittedBox(
+                            child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Slepping mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  width: 107.0,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      10.0, 0, 10.0, 0),
+                                  color: Colors.transparent,
+                                  child: Column(children: const [
+                                    Icon(
+                                      Icons.abc,
+                                    ),
+                                    Text(
+                                      "Slepping\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(),
+                                    ),
+                                  ]),
+                                )),
+                          ),
                         ],
                       ),
                     ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                  // width: 320,
-                  // height: 604, // 원래 height: 504
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8), //모서리를 둥글게
+                    borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.black12, width: 0),
                     color: Colors.white,
                     boxShadow: [
@@ -153,16 +149,13 @@ class HomeDefault extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.7),
                         spreadRadius: 0,
                         blurRadius: 4.0,
-                        offset:
-                            const Offset(0, 4), // changes position of shadow
+                        offset: const Offset(0, 4),
                       ),
                     ],
                   ),
                   child: Container(
-                    margin: const EdgeInsets.fromLTRB(
-                        20, 16, 20, 90), // 하단 container // 원래 B: 112
+                    margin: const EdgeInsets.fromLTRB(20, 16, 20, 90),
                     padding: const EdgeInsets.all(0.0),
-                    // log 여기 마진 조절 하기 height: 704,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -173,15 +166,11 @@ class HomeDefault extends StatelessWidget {
                           color: Colors.white,
                           child: const LymphoWearState(),
                         ),
-                        // heating option SwitchButton 추가 - Container로
                         Container(
-                          // container BoxDecoration margin 적용 안됨
                           decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(20), //모서리를 둥글게
-                              border: Border.all(
-                                  color: Colors.black12, width: 2)), //테두리
-
+                              borderRadius: BorderRadius.circular(20),
+                              border:
+                                  Border.all(color: Colors.black12, width: 2)),
                           child: Column(
                             children: const [
                               Collarbone(),
