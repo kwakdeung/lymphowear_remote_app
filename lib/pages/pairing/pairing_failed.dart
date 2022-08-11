@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingFailed extends StatefulWidget {
@@ -52,20 +53,21 @@ class _PairingFailedState extends State<PairingFailed> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 20, 0, 66),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
+            if (isMobileWidth(context))
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 66),
+                padding: const EdgeInsets.all(0.0),
+                width: double.infinity,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                ),
+                child: Image.asset(
+                  'assets/images/Pairing02_2.png',
+                  fit: BoxFit.fill,
+                ),
               ),
-              child: Image.asset(
-                'assets/images/Pairing02_2.png',
-                fit: BoxFit.fill,
-              ),
-            ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 100, 0, 100),
               padding: const EdgeInsets.all(0.0),

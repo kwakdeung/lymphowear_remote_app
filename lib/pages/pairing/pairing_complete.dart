@@ -24,6 +24,7 @@ class _PairingCompleteState extends State<PairingComplete> {
 
   @override
   void dispose() {
+    // pageController.dispose();
     super.dispose();
   }
 
@@ -56,27 +57,43 @@ class _PairingCompleteState extends State<PairingComplete> {
             )),
         centerTitle: true,
       ),
+
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 10, 0, 58),
-              padding: const EdgeInsets.all(0.0),
-              width: double.infinity, // 크기를 지정하지 않으면 부모의 크기
-
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-              ),
+              margin: const EdgeInsets.fromLTRB(72.5, 40, 71.5, 24),
+              padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+              width: 216, // log
+              height: 160,
               child: Image.asset(
-                'assets/images/Pairing04.png',
+                'assets/images/Pairing04_image.png',
                 fit: BoxFit.fill,
               ),
             ),
             Container(
-              margin: bottombuttonmargin,
+              margin: const EdgeInsets.fromLTRB(104, 0, 103, 8),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              width: 153, // log
+              height: 20,
+              child: Image.asset(
+                'assets/images/Pairing04_title.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(97, 0, 96, 160),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              width: 167, // log
+              height: 20,
+              child: Image.asset(
+                'assets/images/Pairing04_content.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 0, 20, 80), // 이놈이 문제
               padding: bottombuttonpadding,
               alignment: Alignment.center,
               decoration: const BoxDecoration(

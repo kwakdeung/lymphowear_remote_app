@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lymphowear_remote_app/lib_color_schemes.g.dart';
@@ -9,7 +10,7 @@ void main() {
     statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.white,
   ));
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         title: 'LymphoWear',
         theme: ThemeData(

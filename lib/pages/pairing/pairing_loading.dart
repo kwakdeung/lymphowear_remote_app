@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingLoading extends StatefulWidget {
@@ -32,7 +31,6 @@ class _PairingLoadingState extends State<PairingLoading> {
     super.dispose();
   }
 
-  bool visible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,27 +59,25 @@ class _PairingLoadingState extends State<PairingLoading> {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(160, 80, 160, 16),
-              width: 40,
-              height: 40,
               child: CircularProgressIndicator(
                 color: Colors.green,
                 backgroundColor: Colors.green[50],
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(93, 0, 92, 283),
+              margin: const EdgeInsets.fromLTRB(93, 0, 92, 0),
               child: const Center(
                   child: Text(
                 'Searching for device...',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   color: Colors.black,
                 ),
               )),
             ),
             Container(
-              margin: bottombuttonmargin,
-              padding: bottombuttonpadding,
+              margin: const EdgeInsets.fromLTRB(20, 276, 20, 80),
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -93,7 +89,7 @@ class _PairingLoadingState extends State<PairingLoading> {
                   primary: Colors.grey[200],
                   onPrimary: Colors.grey,
                   textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
                   Navigator.pop(context); // Stop -> 이전 페이지
