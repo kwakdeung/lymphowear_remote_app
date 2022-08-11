@@ -169,6 +169,7 @@ class HomeDefault extends StatelessWidget {
                         child: const LymphoWearState(),
                       ),
                       Container(
+                        margin: const EdgeInsets.fromLTRB(20, 24, 20, 24),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border:
