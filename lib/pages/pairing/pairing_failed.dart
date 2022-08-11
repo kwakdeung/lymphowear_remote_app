@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingFailed extends StatefulWidget {
@@ -51,27 +50,41 @@ class _PairingFailedState extends State<PairingFailed> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (isMobileWidth(context))
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 66),
-                padding: const EdgeInsets.all(0.0),
-                width: double.infinity,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: Image.asset(
-                  'assets/images/Pairing02_2.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 100, 0, 100),
+              margin: const EdgeInsets.fromLTRB(156, 80, 156, 16),
               padding: const EdgeInsets.all(0.0),
-              width: double.infinity,
+              width: 48,
+              height: 48,
+              child: Image.asset(
+                'assets/images/Pairing02_2_alert.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(115, 0, 114, 8),
+              padding: const EdgeInsets.all(0.0),
+              width: 131,
+              height: 20,
+              child: Image.asset(
+                'assets/images/Pairing02_2_title.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(76, 0, 76, 0),
+              padding: const EdgeInsets.all(0.0),
+              width: 208,
+              height: 40,
+              child: Image.asset(
+                'assets/images/Pairing02_2_content.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 220, 20, 80),
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
               alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -79,7 +92,7 @@ class _PairingFailedState extends State<PairingFailed> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 50),
+                  fixedSize: const Size(320, 48),
                   primary: Colors.white,
                   onPrimary: Colors.green[500],
                   surfaceTintColor: Colors.white,
