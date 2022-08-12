@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'onboarding_page.dart';
+import 'package:lymphowear_remote_app/main.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
@@ -17,12 +16,14 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     // 부분 세로모드 고정하기 - SystemChrome.setPreferredOrientations를 initState에 세로고정 모드 삽입과 dispose에 원 상태 복귀 삽입
     // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    Timer(const Duration(milliseconds: 3700), () {
-      // 시간 제한
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const OnboardingPage(),
-      )); // Navigator.of(context).pushReplacement(): 다음페이지인 onboarding page에서 back 버튼을 눌렀을 때 SplashScreen에 못넘어오게 제한
-    });
+    // Timer(const Duration(milliseconds: 3700), () {
+    //   // 시간 제한
+    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+    //     builder: (context) => const MyHomePage(
+    //       title: 'Test',
+    //     ),
+    //   )); // Navigator.of(context).pushReplacement(): 다음페이지인 onboarding page에서 back 버튼을 눌렀을 때 SplashScreen에 못넘어오게 제한
+    // });
     super.initState();
   }
 
@@ -35,22 +36,16 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    var pageSize =
-        MediaQuery.of(context).size; // responsibie의 MediaQuery로 Size 적용
+
     return Scaffold(
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(50, 250, 50, 250),
-              child: Text(
-                'LymphoWear',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: pageSize.width * 0.095,
-                  fontWeight: FontWeight.bold,
-                ),
+              margin: const EdgeInsets.fromLTRB(20, 270, 20, 270),
+              child: Image.asset(
+                'assets/images/SplashScreen_Logo.png',
               ),
             ),
           ],
