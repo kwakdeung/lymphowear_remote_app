@@ -30,10 +30,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    pageController = PageController(
-        initialPage: 0,
-        viewportFraction:
-            0.65); // viewportFraction - PageView 이전, 다음 페이지 약간 보이게 하는 효과
+    pageController = PageController(initialPage: 0, viewportFraction: 0.65);
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -45,7 +42,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 padding: const EdgeInsets.all(0.0),
                 width: double.infinity,
-                height: 432, // Log - 반응형으로 맞추기
+                height: 432,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,

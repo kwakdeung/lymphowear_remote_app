@@ -35,8 +35,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    var pageSize =
-        MediaQuery.of(context).size; // responsibie의 MediaQuery로 Size 적용
+    var pageSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
         child: Column(

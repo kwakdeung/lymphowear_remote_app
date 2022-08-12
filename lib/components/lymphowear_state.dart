@@ -30,7 +30,7 @@ class LymphoWearState extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(color: Colors.black),
-                        shape: const CircleBorder(), //<-- SEE HERE
+                        shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10),
                         surfaceTintColor: Colors.white),
                     child: const Icon(
@@ -50,7 +50,7 @@ class LymphoWearState extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(color: Color(0xffE0E0E0)),
-                        shape: const CircleBorder(), //<-- SEE HERE
+                        shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10),
                         surfaceTintColor: Colors.white),
                     child: const Icon(
