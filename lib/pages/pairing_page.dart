@@ -29,6 +29,7 @@ class _PairingPageState extends State<PairingPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close),
+          color: Colors.grey[700],
           onPressed: () {
             exit(0);
           },

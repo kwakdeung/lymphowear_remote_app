@@ -34,7 +34,9 @@ class HomeDefault extends StatelessWidget {
             )),
         actions: <Widget>[
           IconButton(
-              icon: const Icon(Icons.settings_outlined), onPressed: () {}),
+              icon: const Icon(Icons.settings_outlined),
+              color: Colors.grey[700],
+              onPressed: () {}),
         ],
       ),
       body: Container(
