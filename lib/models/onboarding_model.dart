@@ -17,7 +17,7 @@ final List<Onboarding> onboardingData = [
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."),
   Onboarding(
-      image: "assets/images/LymphoWearUse.png",
+      image: "assets/images/LymphoWearLeft.png",
       title: "Title title 3",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."),

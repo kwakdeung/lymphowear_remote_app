@@ -70,7 +70,6 @@ class _PairingLoadingState extends State<PairingLoading> {
                   child: Text(
                 'Searching for device...',
                 style: TextStyle(
-                  fontSize: 16,
                   color: Colors.black,
                 ),
               )),
@@ -78,7 +77,6 @@ class _PairingLoadingState extends State<PairingLoading> {
             Container(
               margin: const EdgeInsets.fromLTRB(20, 276, 20, 80),
               padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
-              alignment: Alignment.center,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Colors.white,

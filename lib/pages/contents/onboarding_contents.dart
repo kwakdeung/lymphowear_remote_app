@@ -16,26 +16,22 @@ class OnboardingContents extends StatefulWidget {
 class _OnboardingContentsState extends State<OnboardingContents> {
   @override
   Widget build(BuildContext context) {
-    var pageSize = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),
       width: double.infinity,
-      height: pageSize.height,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            margin: const EdgeInsets.all(0.0),
+            margin: const EdgeInsets.fromLTRB(10, 40, 10, 18),
             padding: const EdgeInsets.all(0.0),
-            width: 200,
-            height: 200,
             child: Image.asset(
               widget.image,
             ),
           ),
-          SizedBox(height: pageSize.height * 0.03),
           Container(
-            margin: const EdgeInsets.all(0.0),
+            margin: const EdgeInsets.fromLTRB(10, 0, 10, 8),
             padding: const EdgeInsets.all(0.0),
             child: Text(
               widget.title,
@@ -46,16 +42,12 @@ class _OnboardingContentsState extends State<OnboardingContents> {
               ),
             ),
           ),
-          SizedBox(height: pageSize.height * 0.03),
-          Expanded(
-            child: SizedBox(
-              width: pageSize.width * 0.6,
-              height: double.infinity,
-              child: Text(
-                widget.description,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.grey),
-              ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: Text(
+              widget.description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
         ],

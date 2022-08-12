@@ -37,9 +37,19 @@ class _HomeRefreshState extends State<HomeRefresh> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/Home_refresh.png',
-              fit: BoxFit.fill,
+            Container(
+              margin: const EdgeInsets.fromLTRB(60, 48, 60, 32),
+              child: Image.asset(
+                'assets/images/Home_refresh_image.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(76, 0, 75, 0),
+              child: Image.asset(
+                'assets/images/Home_refresh_content.png',
+                fit: BoxFit.fill,
+              ),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(119, 16, 119, 200),
@@ -71,27 +81,33 @@ class _HomeRefreshState extends State<HomeRefresh> {
           child: AlertDialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0)),
-            content: SizedBox(
-              height: 90,
+            content: Container(
+              margin: const EdgeInsets.all(0.0),
+              width: 186,
+              height: 96,
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 25.0,
-                      width: 25.0,
-                      child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation(Colors.blue),
-                          strokeWidth: 5.0),
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    Text(
-                      message,
-                      style: const TextStyle(fontSize: 20, height: 1.5),
-                    ),
-                  ],
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(81, 8, 81, 4),
+                        height: 24.0,
+                        width: 24.0,
+                        child: const CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation(Colors.blue),
+                            strokeWidth: 5.0),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(56, 8, 56, 8),
+                        child: Text(
+                          message,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -54,9 +54,6 @@ class _PairingFailedState extends State<PairingFailed> {
           children: <Widget>[
             Container(
               margin: const EdgeInsets.fromLTRB(156, 80, 156, 16),
-              padding: const EdgeInsets.all(0.0),
-              width: 48,
-              height: 48,
               child: Image.asset(
                 'assets/images/Pairing02_2_alert.png',
                 fit: BoxFit.fill,
@@ -64,9 +61,6 @@ class _PairingFailedState extends State<PairingFailed> {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(115, 0, 114, 8),
-              padding: const EdgeInsets.all(0.0),
-              width: 131,
-              height: 20,
               child: Image.asset(
                 'assets/images/Pairing02_2_title.png',
                 fit: BoxFit.fill,
@@ -74,9 +68,6 @@ class _PairingFailedState extends State<PairingFailed> {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(76, 0, 76, 0),
-              padding: const EdgeInsets.all(0.0),
-              width: 208,
-              height: 40,
               child: Image.asset(
                 'assets/images/Pairing02_2_content.png',
                 fit: BoxFit.fill,

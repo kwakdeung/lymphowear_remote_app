@@ -143,7 +143,7 @@ class HomeDefault extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 16),
                   padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
                   width: double.infinity,
                   decoration: BoxDecoration(
