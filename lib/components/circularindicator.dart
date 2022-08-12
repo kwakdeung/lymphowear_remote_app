@@ -93,7 +93,10 @@ class _CircularIndicatorState extends State<CircularIndicator>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('battery'),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: Image.asset('assets/images/Battery.png'),
+                        ),
                         Text(
                           "Percent: ${(_value * 10).round()}%",
                           style: const TextStyle(),
