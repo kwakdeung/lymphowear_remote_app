@@ -27,9 +27,9 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
-          'LymphoWear',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        title: Container(
+          margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+          child: Image.asset('assets/images/Appbar_Text_LymphoWear.png'),
         ),
         centerTitle: true,
         bottom: PreferredSize(
