@@ -35,15 +35,15 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    var pageSize = MediaQuery.of(context).size;
+    var pageSize =
+        MediaQuery.of(context).size; // responsibie의 MediaQuery로 Size 적용
     return Scaffold(
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: pageSize.width,
-              height: pageSize.height * 0.1,
+            Container(
+              margin: const EdgeInsets.fromLTRB(50, 250, 50, 250),
               child: Text(
                 'LymphoWear',
                 textAlign: TextAlign.center,
