@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingLoading extends StatefulWidget {
@@ -54,48 +55,55 @@ class _PairingLoadingState extends State<PairingLoading> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(160, 80, 160, 16),
-              child: CircularProgressIndicator(
-                color: Colors.green,
-                backgroundColor: Colors.green[50],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(93, 0, 92, 0),
-              child: const Center(
-                  child: Text(
-                'Searching for device...',
-                style: TextStyle(
-                  color: Colors.black,
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
+                child: CircularProgressIndicator(
+                  color: Colors.green,
+                  backgroundColor: Colors.green[50],
                 ),
-              )),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(20, 276, 20, 80),
-              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
               ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 48),
-                  primary: Colors.grey[200],
-                  onPrimary: Colors.grey,
-                  textStyle: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
+              Container(
+                margin: const EdgeInsets.all(0.0),
+                child: const Center(
+                    child: Text(
+                  'Searching for device...',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                )),
+              ),
+              const Spacer(),
+              Container(
+                // margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('Stop'),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    // fixedSize: const Size(320, 48),
+                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                    primary: const Color(0xffE0E0E0),
+                    onPrimary: const Color(0xff757575),
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Stop',
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

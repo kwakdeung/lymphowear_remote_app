@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/dotindicator.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
+
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 import '../models/onboarding_model.dart';
@@ -33,62 +32,57 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Center(
+      resizeToAvoidBottomInset: false,
+      body: Center(
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(35, 80, 35, 80),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+              //   height: 432, // Log - 반응형으로 맞추기
+              //   //   alignment: Alignment.center,
+              //   decoration: const BoxDecoration(
+              //     shape: BoxShape.rectangle,
+              //     color: Colors.transparent,
+              //   ),
+              //   child: Expanded(
+              //     child: PageView.builder(
+              //       controller: pageController,
+              //       itemCount: onboardingData.length,
+              //       onPageChanged: (index) {
+              //         setState(() {
+              //           pageIndex = index;
+              //         });
+              //       },
+              //       itemBuilder: (BuildContext context, int index) =>
+              //           OnboardingContents(
+              //         image: onboardingData[index].image,
+              //         title: onboardingData[index].title,
+              //         description: onboardingData[index].description,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                padding: const EdgeInsets.all(0.0),
+                margin: const EdgeInsets.all(32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      onboardingData.length,
+                      ((index) => Padding(
+                            padding: const EdgeInsets.all(4),
+                            child: DotIndicator(isActive: index == pageIndex),
+                          ))),
+                ),
+              ),
+              Container(
+                color: const Color.fromARGB(0, 231, 174, 174),
+                // margin: const EdgeInsets.fromLTRB(20, 43, 20, 80),
+                // padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
                 width: double.infinity,
-                height: 432,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.transparent,
-                ),
-                child: PageView.builder(
-                  controller: pageController,
-                  itemCount: onboardingData.length,
-                  onPageChanged: (index) {
-                    setState(() {
-                      pageIndex = index;
-                    });
-                  },
-                  itemBuilder: (BuildContext context, int index) =>
-                      OnboardingContents(
-                    image: onboardingData[index].image,
-                    title: onboardingData[index].title,
-                    description: onboardingData[index].description,
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                    onboardingData.length,
-                    ((index) => Padding(
-                          padding: const EdgeInsets.all(4),
-                          child: DotIndicator(isActive: index == pageIndex),
-                        ))),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(20, 60, 20, 80),
-                padding: bottombuttonpadding,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.transparent,
-                ),
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(320, 48),
-                    primary: Colors.green[500],
-                    onPrimary: Colors.white,
-                    textStyle: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
@@ -98,11 +92,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                     );
                   },
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                    primary: const Color(0xff008A40),
+                    onPrimary: Colors.white,
+                    textStyle: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                   child: const Text('Skip'),
                 ),
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

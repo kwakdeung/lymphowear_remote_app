@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -49,59 +48,61 @@ class _PairingFailedState extends State<PairingFailed> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.fromLTRB(156, 80, 156, 16),
-              child: Image.asset(
-                'assets/images/Pairing02_2_alert.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(115, 0, 114, 8),
-              child: Image.asset(
-                'assets/images/Pairing02_2_title.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(76, 0, 76, 0),
-              child: Image.asset(
-                'assets/images/Pairing02_2_content.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(20, 220, 20, 80),
-              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-              ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 48),
-                  primary: Colors.white,
-                  onPrimary: Colors.green[500],
-                  surfaceTintColor: Colors.white,
-                  textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                  side: const BorderSide(color: Colors.green),
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
+                child: Image.asset(
+                  'assets/images/Pairing02_2_alert.png',
+                  fit: BoxFit.fill,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const PairingLoading()),
-                      ));
-                },
-                child: const Text('Try Again'),
               ),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+                child: Image.asset(
+                  'assets/images/Pairing02_2_title.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                child: Image.asset(
+                  'assets/images/Pairing02_2_content.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              const Spacer(),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    // fixedSize: const Size(320, 48),
+                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                    primary: Colors.white,
+                    onPrimary: Colors.green[500],
+                    surfaceTintColor: Colors.white,
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
+                    side: const BorderSide(color: Colors.green),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Try Again',
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
