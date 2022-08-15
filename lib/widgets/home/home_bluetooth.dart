@@ -47,47 +47,49 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
       ),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.all(0),
-          color: Colors.grey[100],
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(164, 78, 164, 8),
-                child: const Icon(
-                  Icons.bluetooth_disabled,
-                  color: Colors.grey,
-                  size: 32,
+          color: const Color(0xffF3F3F3),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 78, 0, 8),
+                  child: const Icon(
+                    Icons.bluetooth_disabled,
+                    color: Colors.grey,
+                    size: 32,
+                  ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(121, 0, 120, 24),
-                child: const Text(
-                  'Not connected',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                  child: const Text(
+                    'Not connected',
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(125.5, 0, 125.5, 352),
-                padding: const EdgeInsets.fromLTRB(10, 24, 10, 24),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      fixedSize: const Size(109, double.infinity),
-                      side: const BorderSide(color: Colors.green)),
-                  onPressed: () {
-                    showProgressDialog('Connecting...');
-                  },
-                  child: const FittedBox(
-                    child: Text(
-                      'Connect',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                const Spacer(),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                        primary: Colors.white,
+                        side: const BorderSide(color: Colors.green)),
+                    onPressed: () {
+                      showProgressDialog('Connecting...');
+                    },
+                    child: const FittedBox(
+                      child: Text(
+                        'Connect',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

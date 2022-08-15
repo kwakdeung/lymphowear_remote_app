@@ -71,7 +71,6 @@ class _PairingConnectState extends State<PairingConnect> {
               ),
               const Spacer(),
               Container(
-                // margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -79,7 +78,6 @@ class _PairingConnectState extends State<PairingConnect> {
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    // fixedSize: const Size(320, 48),
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     primary: const Color(0xff008A40),
                     onPrimary: Colors.white,

@@ -31,42 +31,47 @@ class _HomeRefreshState extends State<HomeRefresh> {
               icon: const Icon(Icons.settings_outlined), onPressed: () {}),
         ],
       ),
-      body: Container(
-        margin: const EdgeInsets.all(0.0),
-        color: Colors.grey[100],
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(60, 48, 60, 32),
-              child: Image.asset(
-                'assets/images/Home_refresh_image.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(76, 0, 75, 0),
-              child: Image.asset(
-                'assets/images/Home_refresh_content.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(119, 16, 119, 200),
-              child: ElevatedButton.icon(
-                icon: const Icon(Icons.cached),
-                label: const Text(
-                  'Refresh',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+      body: Center(
+        child: Container(
+          color: const Color(0xffF3F3F3),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 48, 0, 32),
+                  child: Image.asset(
+                    'assets/images/Home_refresh_image.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    fixedSize: const Size(122, 40),
-                    side: const BorderSide(color: Colors.green)),
-                onPressed: () => showProgressDialog('Loading...'),
-              ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(76, 0, 75, 0),
+                  child: Image.asset(
+                    'assets/images/Home_refresh_content.png',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(99, 0, 99, 0),
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.cached),
+                    label: const Text(
+                      'Refresh',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                        side: const BorderSide(color: Colors.green)),
+                    onPressed: () => showProgressDialog('Loading...'),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

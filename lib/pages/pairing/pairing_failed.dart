@@ -84,7 +84,6 @@ class _PairingFailedState extends State<PairingFailed> {
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    // fixedSize: const Size(320, 48),
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     primary: Colors.white,
                     onPrimary: Colors.green[500],

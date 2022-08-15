@@ -29,73 +29,79 @@ class HomeNone extends StatelessWidget {
               onPressed: () {}),
         ],
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.grey[100],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(63, 40, 63, 8),
-              child: Image.asset(
-                'assets/images/Home_none_title.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(102, 0, 102, 24),
-              child: Image.asset(
-                'assets/images/Home_none_content.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(60, 0, 60, 0),
-              child: Image.asset(
-                'assets/images/Home_none_image.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(20, 68, 20, 148),
-              padding: const EdgeInsets.fromLTRB(12, 24, 12, 16),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  // Navigator.pushReplacement(
-                  //   context,
-                  //   PageRouteBuilder(
-                  //     pageBuilder: ((context, animation, secondaryAnimation) =>
-                  //         const HomeRefresh()),
-                  //     transitionDuration: const Duration(seconds: 0),
-                  //   ),
-                  // );  // Home_BT연결 / 전원이 꺼진 경우
-                  Navigator.pushReplacement(
-                    context,
-                    PageRouteBuilder(
-                      pageBuilder: ((context, animation, secondaryAnimation) =>
-                          const HomeBluetooth()),
-                      transitionDuration: const Duration(seconds: 0),
+      body: Center(
+        child: Container(
+          color: const Color(0xffF3F3F3),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 40, 0, 8),
+                  child: Image.asset(
+                    'assets/images/Home_none_title.png',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                  child: Image.asset(
+                    'assets/images/Home_none_content.png',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: Image.asset(
+                    'assets/images/Home_none_image.png',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   PageRouteBuilder(
+                      //     pageBuilder:
+                      //         ((context, animation, secondaryAnimation) =>
+                      //             const HomeRefresh()),
+                      //     transitionDuration: const Duration(seconds: 0),
+                      //   ),
+                      // ); // Home_BT연결 / 전원이 꺼진 경우
+                      Navigator.pushReplacement(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              ((context, animation, secondaryAnimation) =>
+                                  const HomeBluetooth()),
+                          transitionDuration: const Duration(seconds: 0),
+                        ),
+                      ); // Home_BT연결이 끊어진 경우
+                    },
+                    icon: const Icon(
+                      Icons.add_circle_outline_outlined,
+                      color: Colors.green,
                     ),
-                  ); // Home_BT연결이 끊어진 경우
-                },
-                icon: const Icon(
-                  Icons.add_circle_outline_outlined,
-                  color: Colors.green,
+                    label: const Text(
+                      'Add Device',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                      primary: Colors.white,
+                      side: const BorderSide(color: Colors.green),
+                    ),
+                  ),
                 ),
-                label: const Text(
-                  'Add Device',
-                  style: TextStyle(color: Colors.green),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  fixedSize: const Size(320, 48),
-                  side: const BorderSide(color: Colors.green),
-                ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

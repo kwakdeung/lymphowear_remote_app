@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 
 class PairingComplete extends StatefulWidget {
@@ -52,56 +51,61 @@ class _PairingCompleteState extends State<PairingComplete> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.fromLTRB(72.5, 40, 71.5, 24),
-              child: Image.asset(
-                'assets/images/Pairing04_image.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(104, 0, 103, 8),
-              child: Image.asset(
-                'assets/images/Pairing04_title.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(97, 0, 96, 160),
-              child: Image.asset(
-                'assets/images/Pairing04_content.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-              padding: bottombuttonpadding,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-              ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(320, 48),
-                  primary: Colors.green[500],
-                  onPrimary: Colors.white,
-                  textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 40, 0, 24),
+                child: Image.asset(
+                  'assets/images/Pairing04_image.png',
+                  fit: BoxFit.fill,
                 ),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const HomeNone()),
-                      ));
-                },
-                child: const Text('Start'),
               ),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                child: Image.asset(
+                  'assets/images/Pairing04_title.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 160),
+                child: Image.asset(
+                  'assets/images/Pairing04_content.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              const Spacer(),
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                    primary: const Color(0xff008A40),
+                    onPrimary: Colors.white,
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const HomeNone()),
+                        ));
+                  },
+                  child: const Text(
+                    'Start',
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
