@@ -14,7 +14,7 @@ class LymphoWearState extends StatelessWidget {
           child: const FittedBox(
             child: Text(
               'Manual Mode',
-              style: TextStyle(),
+              style: TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
         ),
