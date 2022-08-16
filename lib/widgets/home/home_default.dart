@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/armpit.dart';
 import 'package:lymphowear_remote_app/components/collarbone.dart';
+import 'package:lymphowear_remote_app/components/heat.dart';
 import 'package:lymphowear_remote_app/components/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/shoulder.dart';
 
@@ -204,7 +205,7 @@ class HomeDefault extends StatelessWidget {
                                 Collarbone(),
                                 Armpit(),
                                 Shoulder(),
-                                Shoulder(),
+                                Heat(),
                               ],
                             ),
                           ),
