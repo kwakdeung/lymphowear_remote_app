@@ -10,7 +10,7 @@ class LymphoWearState extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(53, 0, 53, 8), // 113, 20, 113, 8
+          margin: const EdgeInsets.fromLTRB(53, 0, 53, 8),
           child: const FittedBox(
             child: Text(
               'Manual Mode',
@@ -29,7 +29,7 @@ class LymphoWearState extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Colors.black),
+                        side: const BorderSide(color: Color(0xff212121)),
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10),
                         surfaceTintColor: Colors.white),
@@ -42,20 +42,20 @@ class LymphoWearState extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                  child: const CircularIndicator(),
+                  child: CircularIndicator(),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Color(0xffE0E0E0)),
+                        side: const BorderSide(color: Color(0xff212121)),
                         shape: const CircleBorder(),
                         padding: const EdgeInsets.all(10),
                         surfaceTintColor: Colors.white),
                     child: const Icon(
                       Icons.add,
-                      color: Color(0xffE0E0E0),
+                      color: Colors.black,
                       size: 20,
                     ),
                   ),
