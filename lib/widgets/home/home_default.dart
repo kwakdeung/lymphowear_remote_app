@@ -49,7 +49,6 @@ class HomeDefault extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.fromLTRB(0, 1, 0, 1),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.black12, width: 0),
@@ -64,111 +63,108 @@ class HomeDefault extends StatelessWidget {
                         ],
                       ),
                       height: 100,
-                      child: Container(
-                        color: Colors.white,
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  debugPrint("Vital mode 홈페이지로 이동");
-                                },
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                  color: Colors.transparent,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          margin: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 4),
-                                          child: Image.asset(
-                                              'assets/images/ic_vital2.png')),
-                                      const Text(
-                                        "Vital\n Mode",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ],
-                                  ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                debugPrint("Vital mode 홈페이지로 이동");
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                color: Colors.transparent,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        margin: const EdgeInsets.fromLTRB(
+                                            0, 8, 0, 4),
+                                        child: Image.asset(
+                                            'assets/images/ic_vital2.png')),
+                                    const Text(
+                                      "Vital\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                              child: const VerticalDivider(
-                                width: 1,
-                                thickness: 1,
-                                color: Colors.black,
-                                // color: Color(0xffEEEEEE),
-                              ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                            child: const VerticalDivider(
+                              width: 1,
+                              thickness: 1,
+                              color: Colors.black,
+                              // color: Color(0xffEEEEEE),
                             ),
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  debugPrint("Relaxing mode 홈페이지로 이동");
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 0, 10.0, 0),
-                                  color: Colors.transparent,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          margin: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 4),
-                                          child: Image.asset(
-                                              'assets/images/ic_relaxing2.png')),
-                                      const Text(
-                                        "Relaxing\n Mode",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ],
-                                  ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                debugPrint("Relaxing mode 홈페이지로 이동");
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+                                color: Colors.transparent,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        margin: const EdgeInsets.fromLTRB(
+                                            0, 8, 0, 4),
+                                        child: Image.asset(
+                                            'assets/images/ic_relaxing2.png')),
+                                    const Text(
+                                      "Relaxing\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                              child: const VerticalDivider(
-                                width: 1,
-                                thickness: 1,
-                                color: Colors.black,
-                                // color: Color(0xffEEEEEE),
-                              ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                            child: const VerticalDivider(
+                              width: 1,
+                              thickness: 1,
+                              color: Colors.black,
+                              // color: Color(0xffEEEEEE),
                             ),
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  debugPrint("Sleeping mode 홈페이지로 이동");
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 0, 10.0, 0),
-                                  color: Colors.transparent,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          margin: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 4),
-                                          child: Image.asset(
-                                              'assets/images/ic_sleeping2.png')),
-                                      const Text(
-                                        "Sleeping\n Mode",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ],
-                                  ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                debugPrint("Sleeping mode 홈페이지로 이동");
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+                                color: Colors.transparent,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        margin: const EdgeInsets.fromLTRB(
+                                            0, 8, 0, 4),
+                                        child: Image.asset(
+                                            'assets/images/ic_sleeping2.png')),
+                                    const Text(
+                                      "Sleeping\n Mode",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
