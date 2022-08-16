@@ -45,9 +45,7 @@ class _ArmpitState extends State<Armpit> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      width: 71,
-                    ),
+                    Spacer(),
                     Text(
                       'intensity 1',
                       style: TextStyle(fontSize: 10),

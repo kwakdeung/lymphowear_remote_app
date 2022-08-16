@@ -45,9 +45,7 @@ class _CollarboneState extends State<Collarbone> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      width: 40,
-                    ),
+                    Spacer(),
                     Text(
                       'intensity 2',
                       style: TextStyle(fontSize: 10),

@@ -45,9 +45,7 @@ class _HeatState extends State<Heat> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      width: 53,
-                    ),
+                    Spacer(),
                     Text(
                       'intensity 1',
                       style: TextStyle(fontSize: 10),

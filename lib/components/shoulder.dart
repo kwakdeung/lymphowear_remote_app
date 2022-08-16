@@ -45,9 +45,7 @@ class _ShoulderState extends State<Shoulder> {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      width: 53,
-                    ),
+                    Spacer(),
                     Text(
                       'intensity 0',
                       style: TextStyle(fontSize: 10),
