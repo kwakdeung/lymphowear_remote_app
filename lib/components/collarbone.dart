@@ -8,23 +8,18 @@ class Collarbone extends StatefulWidget {
 }
 
 class _CollarboneState extends State<Collarbone> {
+  double _currentSliderValue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.circular(7)),
-      margin: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.all(0.0),
       padding: const EdgeInsets.all(0.0),
-      height: 60,
-      width: 300,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 0, 6, 0),
             child: Image.asset(
               'assets/images/Collarbone.png',
               width: 60,
@@ -32,27 +27,95 @@ class _CollarboneState extends State<Collarbone> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(0.0),
-            width: 180,
+            margin: const EdgeInsets.fromLTRB(6, 0, 0, 0),
+            // width: 100,
+            height: 70,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Text(
                       'Collarbone',
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                     ),
-                    Spacer(),
-                    Text(
-                      'intensity 2',
+                    const SizedBox(
+                      width: 40,
+                    ),
+                    const Text(
+                      'Intensity',
                       style: TextStyle(fontSize: 10),
+                    ),
+                    Text(
+                      ' ${_currentSliderValue.round()}',
+                      style: const TextStyle(
+                          fontSize: 10,
+                          color: Colors.green,
+                          fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
-                const Text('Slider 추가'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Image.asset('assets/images/ic_min.png'),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(0.0),
+                      width: 180,
+                      height: 48,
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          trackHeight: 4.0,
+                          trackShape: const RoundedRectSliderTrackShape(),
+                          activeTrackColor: Colors.green[300],
+                          inactiveTrackColor: const Color(0xffEEEEEE),
+                          thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 8.0,
+                            pressedElevation: 8.0,
+                          ),
+                          thumbColor: Colors.green[300], // 여기를 안에 흰색 넣기
+                          overlayColor: Colors.green.withOpacity(0.2),
+                          overlayShape: const RoundSliderOverlayShape(
+                              overlayRadius: 12.0),
+                          tickMarkShape: const RoundSliderTickMarkShape(),
+                          activeTickMarkColor:
+                              const Color(0xff212121).withOpacity(0.16),
+                          inactiveTickMarkColor: Colors.grey,
+                          valueIndicatorShape:
+                              const PaddleSliderValueIndicatorShape(),
+                          valueIndicatorColor: Colors.white,
+                          valueIndicatorTextStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          child: Slider(
+                              min: 0.0,
+                              max: 3.0,
+                              value: _currentSliderValue,
+                              divisions: 3,
+                              label: '${_currentSliderValue.round()}',
+                              onChanged: (value) {
+                                setState(() {
+                                  _currentSliderValue = value;
+                                });
+                              }),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Image.asset('assets/images/ic_max.png'),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
