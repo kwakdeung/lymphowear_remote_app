@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/dotindicator.dart';
+import 'package:lymphowear_remote_app/pages/contents/onboarding_contents.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
@@ -39,32 +40,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              //   height: 432, // Log - 반응형으로 맞추기
-              //   //   alignment: Alignment.center,
-              //   decoration: const BoxDecoration(
-              //     shape: BoxShape.rectangle,
-              //     color: Colors.transparent,
-              //   ),
-              //   child: Expanded(
-              //     child: PageView.builder(
-              //       controller: pageController,
-              //       itemCount: onboardingData.length,
-              //       onPageChanged: (index) {
-              //         setState(() {
-              //           pageIndex = index;
-              //         });
-              //       },
-              //       itemBuilder: (BuildContext context, int index) =>
-              //           OnboardingContents(
-              //         image: onboardingData[index].image,
-              //         title: onboardingData[index].title,
-              //         description: onboardingData[index].description,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              Expanded(
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: onboardingData.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      pageIndex = index;
+                    });
+                  },
+                  itemBuilder: (BuildContext context, int index) =>
+                      OnboardingContents(
+                    image: onboardingData[index].image,
+                    title: onboardingData[index].title,
+                    description: onboardingData[index].description,
+                  ),
+                ),
+              ),
               Container(
                 margin: const EdgeInsets.all(32),
                 child: Row(
@@ -79,6 +71,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               Container(
                 color: const Color.fromARGB(0, 231, 174, 174),
+                // margin: const EdgeInsets.fromLTRB(20, 43, 20, 80),
+                // padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
@@ -95,7 +89,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     primary: const Color(0xff008A40),
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600),
                   ),
                   child: const Text('Skip'),
                 ),
