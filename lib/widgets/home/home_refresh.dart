@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);
@@ -17,7 +18,10 @@ class _HomeRefreshState extends State<HomeRefresh> {
         automaticallyImplyLeading: false,
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: Image.asset('assets/images/Appbar_Text_LymphoWear.png'),
+          child: SvgPicture.asset(
+            'assets/images/LymphoWear.svg',
+            fit: BoxFit.fill,
+          ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -27,8 +31,15 @@ class _HomeRefreshState extends State<HomeRefresh> {
               height: 2.0,
             )),
         actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.settings_outlined), onPressed: () {}),
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            child: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_setting.svg',
+                  fit: BoxFit.fill,
+                ),
+                onPressed: () {}),
+          ),
         ],
       ),
       body: Center(
@@ -40,22 +51,26 @@ class _HomeRefreshState extends State<HomeRefresh> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 48, 0, 32),
+                  margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
                   child: Image.asset(
-                    'assets/images/Home_refresh_image.png',
+                    'assets/images/2.0x/Home_refresh_image.png',
+                    width: 240,
+                    height: 184,
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(76, 0, 75, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Image.asset(
-                    'assets/images/Home_refresh_content.png',
+                    'assets/images/2.0x/Home_refresh_content.png',
+                    width: 209,
+                    height: 40,
                     fit: BoxFit.fill,
                   ),
                 ),
                 const Spacer(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(99, 0, 99, 0),
+                  margin: const EdgeInsets.fromLTRB(84, 0, 84, 0),
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.cached),
                     label: const Text(
@@ -105,10 +120,11 @@ class _HomeRefreshState extends State<HomeRefresh> {
                             strokeWidth: 5.0),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(56, 8, 56, 8),
+                        margin: const EdgeInsets.fromLTRB(56, 8, 56, 0),
                         child: Text(
                           message,
-                          style: const TextStyle(fontSize: 16),
+                          style: const TextStyle(
+                              fontSize: 16, fontFamily: "Poppins"),
                         ),
                       ),
                     ],

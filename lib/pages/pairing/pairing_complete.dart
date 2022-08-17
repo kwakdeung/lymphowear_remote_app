@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 
 class PairingComplete extends StatefulWidget {
@@ -40,6 +41,8 @@ class _PairingCompleteState extends State<PairingComplete> {
           'Add Device',
           style: TextStyle(
             fontSize: 16,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600,
           ),
         ),
         bottom: PreferredSize(
@@ -57,23 +60,24 @@ class _PairingCompleteState extends State<PairingComplete> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 40, 0, 24),
+                margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
                 child: Image.asset(
-                  'assets/images/Pairing04_image.png',
+                  'assets/images/2.0x/Pairing04_image.png',
+                  width: 234,
+                  height: 168,
                   fit: BoxFit.fill,
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                child: Image.asset(
-                  'assets/images/Pairing04_title.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                  child: SvgPicture.asset(
+                    'assets/images/Pairing04_title.svg',
+                    fit: BoxFit.fill,
+                  )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 160),
-                child: Image.asset(
-                  'assets/images/Pairing04_content.png',
+                child: SvgPicture.asset(
+                  'assets/images/Pairing04_content.svg',
                   fit: BoxFit.fill,
                 ),
               ),
@@ -90,7 +94,10 @@ class _PairingCompleteState extends State<PairingComplete> {
                     primary: const Color(0xff008A40),
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(

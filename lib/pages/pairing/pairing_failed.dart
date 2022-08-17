@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -36,7 +37,9 @@ class _PairingFailedState extends State<PairingFailed> {
         title: const Text(
           'Add Device',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600,
           ),
         ),
         bottom: PreferredSize(
@@ -55,23 +58,20 @@ class _PairingFailedState extends State<PairingFailed> {
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-                child: Image.asset(
-                  'assets/images/Pairing02_2_alert.png',
-                  fit: BoxFit.fill,
+                child: SvgPicture.asset(
+                  'assets/images/Pairing02_2_alert.svg',
                 ),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                child: Image.asset(
-                  'assets/images/Pairing02_2_title.png',
-                  fit: BoxFit.fill,
+                child: SvgPicture.asset(
+                  'assets/images/Pairing02_2_title.svg',
                 ),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                child: Image.asset(
-                  'assets/images/Pairing02_2_content.png',
-                  fit: BoxFit.fill,
+                child: SvgPicture.asset(
+                  'assets/images/Pairing02_2_content.svg',
                 ),
               ),
               const Spacer(),
@@ -86,11 +86,13 @@ class _PairingFailedState extends State<PairingFailed> {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     primary: Colors.white,
-                    onPrimary: Colors.green[500],
+                    onPrimary: const Color(0xff008A40),
                     surfaceTintColor: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18),
-                    side: const BorderSide(color: Colors.green),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                    side: const BorderSide(color: Color(0xff008A40)),
                   ),
                   onPressed: () {
                     Navigator.pop(context);

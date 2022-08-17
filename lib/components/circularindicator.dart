@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CircularIndicator extends StatefulWidget {
   const CircularIndicator({Key? key}) : super(key: key);
@@ -16,13 +17,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
   bool _working = false;
   String value = 'Paring...';
   bool _active = true;
-
-  String get countText {
-    Duration count = controller.duration! * controller.value;
-    return controller.isDismissed
-        ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
-        : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
-  }
 
   void _handleTap() {
     if (_active) {
@@ -48,7 +42,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
   void startWorking() async {
     setState(() {
       _working = true;
-      _value = 150; // 초기 값
+      _value = 150;
     });
     for (int i = 0; i < 10; i--) {
       if (!_working) {
@@ -94,17 +88,17 @@ class _CircularIndicatorState extends State<CircularIndicator>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                          child: Image.asset('assets/images/Battery.png'),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                          child: SvgPicture.asset(
+                            'assets/images/Battery.svg',
+                          ),
                         ),
                         Text(
                           "Percent: ${(_value * 10).round()}%",
-                          style: const TextStyle(),
+                          style: const TextStyle(
+                            fontFamily: "Poppins",
+                          ),
                         ),
-                        // Text(
-                        //   "${(_value * 15).round()}%",
-                        //   style: const TextStyle(),
-                        // ),
                         GestureDetector(
                           onTap: _handleTap,
                           child: Container(

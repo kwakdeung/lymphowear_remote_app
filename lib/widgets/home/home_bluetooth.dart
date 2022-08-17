@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/widgets/home/home_default.dart';
 
@@ -29,7 +30,10 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
         automaticallyImplyLeading: false,
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: Image.asset('assets/images/Appbar_Text_LymphoWear.png'),
+          child: SvgPicture.asset(
+            'assets/images/LymphoWear.svg',
+            fit: BoxFit.fill,
+          ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -39,10 +43,15 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
               height: 2.0,
             )),
         actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.settings_outlined),
-              color: Colors.grey[700],
-              onPressed: () {}),
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            child: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_setting.svg',
+                  fit: BoxFit.fill,
+                ),
+                onPressed: () {}),
+          ),
         ],
       ),
       body: Center(
@@ -56,17 +65,25 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 78, 0, 8),
-                  child: const Icon(
-                    Icons.bluetooth_disabled,
-                    color: Colors.grey,
-                    size: 32,
-                  ),
+                  child: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/images/ic_bluetooth_off.svg',
+                        fit: BoxFit.fill,
+                        width: 32,
+                        height: 32,
+                        color: Colors.grey[600],
+                      ),
+                      onPressed: () {}),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
                   child: const Text(
                     'Not connected',
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey),
                   ),
                 ),
                 const Spacer(),
@@ -74,16 +91,20 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
-                        primary: Colors.white,
-                        side: const BorderSide(color: Colors.green)),
+                      padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                      primary: Colors.white,
+                      side: const BorderSide(color: Color(0xff008A40)),
+                    ),
                     onPressed: () {
                       showProgressDialog('Connecting...');
                     },
                     child: const FittedBox(
                       child: Text(
                         'Connect',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff008A40)),
                       ),
                     ),
                   ),
@@ -127,10 +148,11 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                             strokeWidth: 5.0),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(56, 8, 56, 8),
+                        margin: const EdgeInsets.fromLTRB(56, 8, 56, 0),
                         child: Text(
                           message,
-                          style: const TextStyle(fontSize: 16),
+                          style: const TextStyle(
+                              fontSize: 16, fontFamily: "Poppins"),
                         ),
                       ),
                     ],
@@ -149,7 +171,6 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: AlertDialog(
-            // 너비, 높이 설정
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0)),
             title: Center(
@@ -157,13 +178,12 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                 margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                 child: const Text(
                   'Failed to Connect',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 14, fontFamily: "Poppins"),
                 ),
               ),
             ),
             actions: [
               Container(
-                //weight 없앰
                 margin: const EdgeInsets.all(0.0),
                 height: 80,
                 child: Row(
@@ -180,9 +200,11 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                           side:
                               const BorderSide(width: 1.0, color: Colors.grey),
                           primary: Colors.white,
-                          onPrimary: Colors.grey,
+                          onPrimary: const Color(0xff757575),
                           textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -202,10 +224,12 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(999),
                           ),
-                          primary: Colors.green,
+                          primary: const Color(0xff008A40),
                           onPrimary: Colors.white,
                           textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
 
 class PairingConnect extends StatefulWidget {
@@ -26,18 +27,23 @@ class _PairingConnectState extends State<PairingConnect> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        leading: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.grey[700],
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         backgroundColor: Colors.white,
         title: const Text(
           'Add Device',
           style: TextStyle(
             fontSize: 16,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600,
           ),
         ),
         bottom: PreferredSize(
@@ -56,18 +62,15 @@ class _PairingConnectState extends State<PairingConnect> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(91, 56, 91, 16),
-                child: Image.asset(
-                  'assets/images/Pairing03_text.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
+                  child: SvgPicture.asset(
+                    'assets/images/Pairing03_text.svg',
+                  )),
               Container(
-                margin: const EdgeInsets.fromLTRB(63, 0, 63, 0),
-                child: Image.asset(
-                  'assets/images/Pairing03_image.png',
-                  fit: BoxFit.fill,
-                ),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                width: 234,
+                height: 166,
+                child: Image.asset('assets/images/2.0x/Pairing03_image.png'),
               ),
               const Spacer(),
               Container(
@@ -82,7 +85,10 @@ class _PairingConnectState extends State<PairingConnect> {
                     primary: const Color(0xff008A40),
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   onPressed: () => showProgressDialog('Pairing...'),
                   child: const Text(
@@ -127,10 +133,11 @@ class _PairingConnectState extends State<PairingConnect> {
                           strokeWidth: 5.0),
                     ),
                     Container(
-                      margin: const EdgeInsets.fromLTRB(56, 8, 56, 8),
+                      margin: const EdgeInsets.fromLTRB(56, 8, 56, 0),
                       child: Text(
                         message,
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(
+                            fontSize: 16, fontFamily: "Poppins"),
                       ),
                     ),
                   ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/widgets/home/home_bluetooth.dart';
+import 'package:lymphowear_remote_app/widgets/home/home_refresh.dart';
 
 class HomeNone extends StatelessWidget {
   const HomeNone({Key? key}) : super(key: key);
@@ -13,7 +15,10 @@ class HomeNone extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: Image.asset('assets/images/Appbar_Text_LymphoWear.png'),
+          child: SvgPicture.asset(
+            'assets/images/LymphoWear.svg',
+            fit: BoxFit.fill,
+          ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -23,10 +28,16 @@ class HomeNone extends StatelessWidget {
               height: 2.0,
             )),
         actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.settings_outlined),
-              color: Colors.grey[700],
-              onPressed: () {}),
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            child: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_setting.svg',
+                  fit: BoxFit.fill,
+                ),
+                color: Colors.grey[700],
+                onPressed: () {}),
+          ),
         ],
       ),
       body: Center(
@@ -39,23 +50,23 @@ class HomeNone extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 40, 0, 8),
-                  child: Image.asset(
-                    'assets/images/Home_none_title.png',
+                  margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
+                  child: SvgPicture.asset(
+                    'assets/images/Home_none_title.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                  child: Image.asset(
-                    'assets/images/Home_none_content.png',
+                  child: SvgPicture.asset(
+                    'assets/images/Home_none_content.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Image.asset(
-                    'assets/images/Home_none_image.png',
+                  child: SvgPicture.asset(
+                    'assets/images/Home_none_image.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -86,16 +97,21 @@ class HomeNone extends StatelessWidget {
                     },
                     icon: const Icon(
                       Icons.add_circle_outline_outlined,
-                      color: Colors.green,
+                      color: Color(0xff008A40),
                     ),
                     label: const Text(
                       'Add Device',
-                      style: TextStyle(color: Colors.green),
+                      style: TextStyle(
+                        color: Color(0xff008A40),
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                       primary: Colors.white,
-                      side: const BorderSide(color: Colors.green),
+                      side: const BorderSide(color: Color(0xff008A40)),
                     ),
                   ),
                 ),

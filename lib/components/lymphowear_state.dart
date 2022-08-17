@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/circularindicator.dart';
 
 class LymphoWearState extends StatelessWidget {
@@ -10,11 +11,12 @@ class LymphoWearState extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(53, 0, 53, 8),
+          margin: const EdgeInsets.fromLTRB(53, 20, 53, 20),
           child: const FittedBox(
             child: Text(
               'Manual Mode',
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style:
+                  TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
             ),
           ),
         ),
@@ -25,38 +27,40 @@ class LymphoWearState extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  width: 32,
+                  height: 32,
                   margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Color(0xff212121)),
+                        side: const BorderSide(
+                            color: Color(0xff212121), width: 2),
                         shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(8),
                         surfaceTintColor: Colors.white),
-                    child: const Icon(
-                      Icons.remove,
-                      color: Colors.black,
-                      size: 20,
+                    child: SvgPicture.asset(
+                      'assets/images/ic_minus.svg',
                     ),
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                   child: CircularIndicator(),
                 ),
                 Container(
+                  width: 32,
+                  height: 32,
                   margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Color(0xff212121)),
+                        side: const BorderSide(
+                            color: Color(0xff212121), width: 2),
                         shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(8),
                         surfaceTintColor: Colors.white),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.black,
-                      size: 20,
+                    child: SvgPicture.asset(
+                      'assets/images/ic_plus.svg',
                     ),
                   ),
                 ),

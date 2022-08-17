@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Heat extends StatefulWidget {
   const Heat({Key? key}) : super(key: key);
@@ -25,10 +26,9 @@ class _HeatState extends State<Heat> {
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-            child: Image.asset(
-              'assets/images/Heat.png',
-              width: 60,
-              height: 60,
+            child: SvgPicture.asset(
+              'assets/images/Heat.svg',
+              fit: BoxFit.fill,
             ),
           ),
           Container(
@@ -42,13 +42,19 @@ class _HeatState extends State<Heat> {
                   children: const [
                     Text(
                       'Heat',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     Spacer(),
                     Text(
                       'intensity 1',
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: "Poppins",
+                      ),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingPage extends StatefulWidget {
@@ -40,6 +41,8 @@ class _PairingPageState extends State<PairingPage> {
           'Add Device',
           style: TextStyle(
             fontSize: 16,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600,
           ),
         ),
         bottom: PreferredSize(
@@ -57,26 +60,20 @@ class _PairingPageState extends State<PairingPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(76, 59, 75, 32),
-                child: Image.asset(
-                  'assets/images/Pairing01_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 59, 0, 32),
+                  child: SvgPicture.asset(
+                    'assets/images/Pairing01_image.svg',
+                  )),
               Container(
-                margin: const EdgeInsets.fromLTRB(58, 0, 57, 16),
-                child: Image.asset(
-                  'assets/images/Pairing01_title.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+                  child: SvgPicture.asset(
+                    'assets/images/Pairing01_title.svg',
+                  )),
               Container(
-                margin: const EdgeInsets.fromLTRB(60, 0, 59, 0),
-                child: Image.asset(
-                  'assets/images/Pairing01_content.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: SvgPicture.asset(
+                    'assets/images/Pairing01_content.svg',
+                  )),
               const Spacer(),
               Container(
                 width: double.infinity,
@@ -90,7 +87,9 @@ class _PairingPageState extends State<PairingPage> {
                     primary: const Color(0xff008A40),
                     onPrimary: Colors.white,
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
                   ),
                   onPressed: () {
                     Navigator.push(

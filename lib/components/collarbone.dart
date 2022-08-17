@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Collarbone extends StatefulWidget {
   const Collarbone({Key? key}) : super(key: key);
@@ -20,15 +21,13 @@ class _CollarboneState extends State<Collarbone> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 6, 0),
-            child: Image.asset(
-              'assets/images/Collarbone.png',
-              width: 60,
-              height: 60,
+            child: SvgPicture.asset(
+              'assets/images/Collarbone.svg',
+              fit: BoxFit.fill,
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(6, 0, 0, 0),
-            // width: 100,
             height: 70,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -38,21 +37,27 @@ class _CollarboneState extends State<Collarbone> {
                   children: [
                     const Text(
                       'Collarbone',
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
                       width: 40,
                     ),
                     const Text(
                       'Intensity',
-                      style: TextStyle(fontSize: 10),
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: "Poppins",
+                      ),
                     ),
                     Text(
                       ' ${_currentSliderValue.round()}',
                       style: const TextStyle(
                           fontSize: 10,
                           color: Colors.green,
+                          fontFamily: "Poppins",
                           fontWeight: FontWeight.w600),
                     ),
                   ],
@@ -62,11 +67,14 @@ class _CollarboneState extends State<Collarbone> {
                   children: [
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Image.asset('assets/images/ic_min.png'),
+                      child: SvgPicture.asset(
+                        'assets/images/ic_min.svg',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.all(0.0),
-                      width: 180,
+                      width: 168,
                       height: 48,
                       child: SliderTheme(
                         data: SliderTheme.of(context).copyWith(
@@ -78,7 +86,7 @@ class _CollarboneState extends State<Collarbone> {
                             enabledThumbRadius: 8.0,
                             pressedElevation: 8.0,
                           ),
-                          thumbColor: Colors.green[300], // 여기를 안에 흰색 넣기
+                          thumbColor: Colors.green[300],
                           overlayColor: Colors.green.withOpacity(0.2),
                           overlayShape: const RoundSliderOverlayShape(
                               overlayRadius: 12.0),
@@ -112,7 +120,10 @@ class _CollarboneState extends State<Collarbone> {
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Image.asset('assets/images/ic_max.png'),
+                      child: SvgPicture.asset(
+                        'assets/images/ic_max.svg',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ],
                 ),

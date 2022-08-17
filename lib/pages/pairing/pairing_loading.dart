@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 
 class PairingLoading extends StatefulWidget {
   const PairingLoading({
@@ -44,6 +45,8 @@ class _PairingLoadingState extends State<PairingLoading> {
           'Add Device',
           style: TextStyle(
             fontSize: 16,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600,
           ),
         ),
         bottom: PreferredSize(
@@ -73,6 +76,8 @@ class _PairingLoadingState extends State<PairingLoading> {
                     child: Text(
                   'Searching for device...',
                   style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w400,
                     color: Colors.black,
                   ),
                 )),
@@ -90,7 +95,10 @@ class _PairingLoadingState extends State<PairingLoading> {
                     primary: const Color(0xffE0E0E0),
                     onPrimary: const Color(0xff757575),
                     textStyle: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   onPressed: () {
                     Navigator.pop(context);

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/onboarding_page.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   void initState() {
     // 부분 세로모드 고정하기 - SystemChrome.setPreferredOrientations를 initState에 세로고정 모드 삽입과 dispose에 원 상태 복귀 삽입
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     Timer(const Duration(milliseconds: 3700), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -43,8 +43,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(20, 270, 20, 270),
-              child: Image.asset(
-                'assets/images/SplashScreen_Logo.png',
+              child: SvgPicture.asset(
+                'assets/images/LymphoWear.svg',
+                fit: BoxFit.fill,
+                width: 276,
+                height: 36,
               ),
             ),
           ],

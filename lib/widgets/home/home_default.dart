@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/armpit.dart';
 import 'package:lymphowear_remote_app/components/collarbone.dart';
 import 'package:lymphowear_remote_app/components/heat.dart';
@@ -15,15 +16,23 @@ class HomeDefault extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(
-            icon: const Icon(
-              Icons.power_settings_new_outlined,
-              color: Colors.red,
-            ),
-            onPressed: () {}),
+        leading: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: IconButton(
+              icon: SvgPicture.asset(
+                'assets/images/ic_power.svg',
+                fit: BoxFit.fill,
+              ),
+              onPressed: () {
+                debugPrint('기기 전원 OFF');
+              }),
+        ),
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: Image.asset('assets/images/Appbar_Text_LymphoWear.png'),
+          child: SvgPicture.asset(
+            'assets/images/LymphoWear.svg',
+            fit: BoxFit.fill,
+          ),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -33,10 +42,16 @@ class HomeDefault extends StatelessWidget {
               height: 2.0,
             )),
         actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.settings_outlined),
-              color: Colors.grey[700],
-              onPressed: () {}),
+          Container(
+            margin: const EdgeInsets.only(right: 4),
+            child: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/ic_setting.svg',
+                  fit: BoxFit.fill,
+                ),
+                color: Colors.grey[700],
+                onPressed: () {}),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -46,7 +61,7 @@ class HomeDefault extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.fromLTRB(20, 16, 20, 0),
               child: Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                 child: Column(
                   children: [
                     Container(
@@ -63,32 +78,38 @@ class HomeDefault extends StatelessWidget {
                           ),
                         ],
                       ),
-                      height: 100,
+                      height: 92,
                       child: Row(
                         children: <Widget>[
                           Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                debugPrint("Vital mode 홈페이지로 이동");
-                              },
-                              child: Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                                color: Colors.transparent,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
+                            child: Container(
+                              child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Vital mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                  color: Colors.transparent,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
                                         margin: const EdgeInsets.fromLTRB(
-                                            0, 8, 0, 4),
-                                        child: Image.asset(
-                                            'assets/images/ic_vital2.png')),
-                                    const Text(
-                                      "Vital\n Mode",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                  ],
+                                            0, 4, 0, 4),
+                                        child: SvgPicture.asset(
+                                          'assets/images/ic_vital2.svg',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                      const Text(
+                                        "Vital\n Mode",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontFamily: "Poppins"),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -103,28 +124,34 @@ class HomeDefault extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                debugPrint("Relaxing mode 홈페이지로 이동");
-                              },
-                              child: Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-                                color: Colors.transparent,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
+                            child: Container(
+                              margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Relaxing mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  color: Colors.transparent,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
                                         margin: const EdgeInsets.fromLTRB(
-                                            0, 8, 0, 4),
-                                        child: Image.asset(
-                                            'assets/images/ic_relaxing2.png')),
-                                    const Text(
-                                      "Relaxing\n Mode",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                  ],
+                                            0, 4, 0, 4),
+                                        child: SvgPicture.asset(
+                                          'assets/images/ic_relaxing2.svg',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                      const Text(
+                                        "Relaxing\n Mode",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontFamily: "Poppins"),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -139,28 +166,34 @@ class HomeDefault extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                debugPrint("Sleeping mode 홈페이지로 이동");
-                              },
-                              child: Container(
-                                padding:
-                                    const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-                                color: Colors.transparent,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
+                            child: Container(
+                              margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  debugPrint("Sleeping mode 홈페이지로 이동");
+                                },
+                                child: Container(
+                                  color: Colors.transparent,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
                                         margin: const EdgeInsets.fromLTRB(
-                                            0, 8, 0, 4),
-                                        child: Image.asset(
-                                            'assets/images/ic_sleeping2.png')),
-                                    const Text(
-                                      "Sleeping\n Mode",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                  ],
+                                            0, 4, 0, 4),
+                                        child: SvgPicture.asset(
+                                          'assets/images/ic_sleeping2.svg',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                      const Text(
+                                        "Sleeping\n Mode",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            fontFamily: "Poppins"),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -195,7 +228,8 @@ class HomeDefault extends StatelessWidget {
                             child: const LymphoWearState(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(20, 24, 20, 72),
+                            margin: const EdgeInsets.fromLTRB(20, 24, 20, 68),
+                            width: double.infinity,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
