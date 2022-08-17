@@ -66,7 +66,7 @@ class _CollarboneState extends State<Collarbone> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: SvgPicture.asset(
                         'assets/images/ic_min.svg',
                         fit: BoxFit.fill,
@@ -119,7 +119,7 @@ class _CollarboneState extends State<Collarbone> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: SvgPicture.asset(
                         'assets/images/ic_max.svg',
                         fit: BoxFit.fill,

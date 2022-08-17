@@ -83,6 +83,7 @@ class HomeDefault extends StatelessWidget {
                         children: <Widget>[
                           Expanded(
                             child: Container(
+                              padding: const EdgeInsets.all(0.0),
                               child: GestureDetector(
                                 onTap: () {
                                   debugPrint("Vital mode 홈페이지로 이동");
