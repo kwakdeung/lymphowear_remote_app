@@ -29,12 +29,15 @@ class _PairingCompleteState extends State<PairingComplete> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          color: Colors.grey[700],
-          onPressed: () {
-            exit(0);
-          },
+        leading: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.grey[700],
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         backgroundColor: Colors.white,
         title: const Text(

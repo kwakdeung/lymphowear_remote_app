@@ -39,6 +39,16 @@ class _PairingLoadingState extends State<PairingLoading> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        leading: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.grey[700],
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
         backgroundColor: Colors.white,
         title: const Text(
           'Add Device',
