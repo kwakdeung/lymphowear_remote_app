@@ -83,7 +83,7 @@ class HomeDefault extends StatelessWidget {
                         children: <Widget>[
                           Expanded(
                             child: Container(
-                              padding: const EdgeInsets.all(0.0),
+                              margin: const EdgeInsets.all(0.0),
                               child: GestureDetector(
                                 onTap: () {
                                   debugPrint("Vital mode 홈페이지로 이동");
@@ -121,7 +121,6 @@ class HomeDefault extends StatelessWidget {
                               width: 1,
                               thickness: 1,
                               color: Colors.black,
-                              // color: Color(0xffEEEEEE),
                             ),
                           ),
                           Expanded(
@@ -163,7 +162,6 @@ class HomeDefault extends StatelessWidget {
                               width: 1,
                               thickness: 1,
                               color: Colors.black,
-                              // color: Color(0xffEEEEEE),
                             ),
                           ),
                           Expanded(
@@ -223,26 +221,30 @@ class HomeDefault extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                            margin: const EdgeInsets.fromLTRB(0, 0, 0, 32),
                             padding: const EdgeInsets.all(0.0),
                             color: Colors.white,
                             child: const LymphoWearState(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(20, 24, 20, 68),
+                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
                             width: double.infinity,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                    color: Colors.black12, width: 2)),
-                            child: Column(
-                              children: const [
-                                Collarbone(),
-                                Armpit(),
-                                Shoulder(),
-                                Heat(),
-                              ],
-                            ),
+                            child: const Collarbone(),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            width: double.infinity,
+                            child: const Armpit(),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            width: double.infinity,
+                            child: const Shoulder(),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            width: double.infinity,
+                            child: const Heat(),
                           ),
                         ],
                       ),

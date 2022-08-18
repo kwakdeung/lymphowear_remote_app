@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Armpit extends StatefulWidget {
   const Armpit({Key? key}) : super(key: key);
@@ -8,52 +9,113 @@ class Armpit extends StatefulWidget {
 }
 
 class _ArmpitState extends State<Armpit> {
+  double armpitValue = 2;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.circular(7)),
-      margin: const EdgeInsets.all(5.0),
-      padding: const EdgeInsets.all(0.0),
-      height: 60,
-      width: 300,
+      margin: const EdgeInsets.all(0.0),
+      height: 54,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-            child: Image.asset(
-              'assets/images/Armpit.png',
-              width: 60,
-              height: 60,
+            margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
+            child: SvgPicture.asset(
+              'assets/images/Armpit.svg',
+              fit: BoxFit.fill,
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(0),
-            width: 180,
+            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            child: SvgPicture.asset(
+              'assets/images/ic_min.svg',
+              width: 16,
+              height: 16,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Expanded(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Armpit',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                    Spacer(),
-                    Text(
-                      'intensity 1',
-                      style: TextStyle(fontSize: 10),
-                    ),
-                  ],
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 0, 20, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Armpit',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
+                      ),
+                      const Spacer(),
+                      const Text(
+                        'Intensity',
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: "Poppins",
+                        ),
+                      ),
+                      Text(
+                        '  ${armpitValue.round()}',
+                        style: const TextStyle(
+                            fontSize: 10,
+                            color: Colors.green,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
                 ),
-                const Text('Slider 추가'),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  width: double.infinity,
+                  height: 18,
+                  child: Slider(
+                    value: armpitValue,
+                    max: 3,
+                    divisions: 3,
+                    onChanged: (double value) {
+                      setState(() {
+                        armpitValue = value;
+                      });
+                    },
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('off',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('1',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('2',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('3',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                    ],
+                  ),
+                ),
               ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            child: SvgPicture.asset(
+              'assets/images/ic_max.svg',
+              width: 16,
+              height: 16,
+              fit: BoxFit.fill,
             ),
           ),
         ],

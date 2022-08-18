@@ -9,57 +9,109 @@ class Heat extends StatefulWidget {
 }
 
 class _HeatState extends State<Heat> {
+  double heatValue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.circular(7)),
-      margin: const EdgeInsets.all(5.0),
-      padding: const EdgeInsets.all(0.0),
-      height: 60,
-      width: 300,
+      margin: const EdgeInsets.all(0.0),
+      height: 54,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
             child: SvgPicture.asset(
               'assets/images/Heat.svg',
               fit: BoxFit.fill,
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(0.0),
-            width: 180,
+            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            child: SvgPicture.asset(
+              'assets/images/ic_min.svg',
+              width: 16,
+              height: 16,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Expanded(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Heat',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400,
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 0, 20, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Heat',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                    ),
-                    Spacer(),
-                    Text(
-                      'intensity 1',
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontFamily: "Poppins",
+                      const Spacer(),
+                      const Text(
+                        'Intensity',
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontFamily: "Poppins",
+                        ),
                       ),
-                    ),
-                  ],
+                      Text(
+                        '  ${heatValue.round()}',
+                        style: const TextStyle(
+                            fontSize: 10,
+                            color: Colors.green,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
                 ),
-                const Text('Slider 추가'),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  width: double.infinity,
+                  height: 18,
+                  child: Slider(
+                    value: heatValue,
+                    max: 2,
+                    divisions: 2,
+                    onChanged: (double value) {
+                      setState(() {
+                        heatValue = value;
+                      });
+                    },
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text('off',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('1',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('2',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                    ],
+                  ),
+                ),
               ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            child: SvgPicture.asset(
+              'assets/images/ic_max.svg',
+              width: 16,
+              height: 16,
+              fit: BoxFit.fill,
             ),
           ),
         ],
