@@ -5,6 +5,7 @@ import 'package:lymphowear_remote_app/components/collarbone.dart';
 import 'package:lymphowear_remote_app/components/heat.dart';
 import 'package:lymphowear_remote_app/components/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/shoulder.dart';
+import 'package:lymphowear_remote_app/widgets/vital/vital_01_1.dart';
 
 class HomeDefault extends StatelessWidget {
   const HomeDefault({Key? key}) : super(key: key);
@@ -86,7 +87,12 @@ class HomeDefault extends StatelessWidget {
                               margin: const EdgeInsets.all(0.0),
                               child: GestureDetector(
                                 onTap: () {
-                                  debugPrint("Vital mode 홈페이지로 이동");
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const VitalMode()),
+                                  );
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
