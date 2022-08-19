@@ -5,6 +5,8 @@ import 'package:lymphowear_remote_app/components/collarbone.dart';
 import 'package:lymphowear_remote_app/components/heat.dart';
 import 'package:lymphowear_remote_app/components/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/shoulder.dart';
+import 'package:lymphowear_remote_app/widgets/relaxing/relaxing_01_1.dart';
+import 'package:lymphowear_remote_app/widgets/sleeping/sleeping-01-1.dart';
 import 'package:lymphowear_remote_app/widgets/vital/vital_01_1.dart';
 
 class HomeDefault extends StatelessWidget {
@@ -134,7 +136,11 @@ class HomeDefault extends StatelessWidget {
                               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: GestureDetector(
                                 onTap: () {
-                                  debugPrint("Relaxing mode 홈페이지로 이동");
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              const RelaxingMode())));
                                 },
                                 child: Container(
                                   color: Colors.transparent,
@@ -175,7 +181,11 @@ class HomeDefault extends StatelessWidget {
                               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                               child: GestureDetector(
                                 onTap: () {
-                                  debugPrint("Sleeping mode 홈페이지로 이동");
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) =>
+                                              const SleepingMode())));
                                 },
                                 child: Container(
                                   color: Colors.transparent,
