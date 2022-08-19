@@ -1,16 +1,14 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class VitalMode extends StatefulWidget {
-  const VitalMode({Key? key}) : super(key: key);
+class SleepingMode extends StatefulWidget {
+  const SleepingMode({Key? key}) : super(key: key);
 
   @override
-  State<VitalMode> createState() => _VitalModeState();
+  State<SleepingMode> createState() => _SleepingModeState();
 }
 
-class _VitalModeState extends State<VitalMode> {
+class _SleepingModeState extends State<SleepingMode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,40 +16,35 @@ class _VitalModeState extends State<VitalMode> {
         leading: Container(
           margin: const EdgeInsets.only(left: 10),
           child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            color: Colors.grey[700],
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
-        title: const Text(
-          'Vital Mode',
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        title: const Text('Sleeping Mode',
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w600,
+            )),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: const Size.fromHeight(0.0),
           child: Container(
             color: Colors.grey[200],
             height: 2.0,
           ),
         ),
-        centerTitle: true,
       ),
       body: Container(
         color: const Color(0xffF3F3F3),
         child: Center(
           child: Container(
             margin: const EdgeInsets.fromLTRB(20, 32, 20, 112),
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             decoration: BoxDecoration(
+              color: Colors.white,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.black12, width: 0),
-              color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.7),
@@ -66,27 +59,24 @@ class _VitalModeState extends State<VitalMode> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(0.0),
-                  color: Colors.transparent,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(right: 8),
-                        child: SvgPicture.asset(
-                          'assets/images/ic_vital2.svg',
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
+                          margin: const EdgeInsets.only(right: 8),
+                          child: SvgPicture.asset(
+                            "assets/images/ic_sleeping2.svg",
+                            width: 24,
+                            height: 24,
+                          )),
                       Container(
                         margin: const EdgeInsets.all(0.0),
                         child: const Text(
-                          'Vital Mode',
+                          'Sleeping Mode',
                           style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600,
-                          ),
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       const Spacer(),
@@ -113,7 +103,7 @@ class _VitalModeState extends State<VitalMode> {
                     color: const Color(0xffEEEEEE),
                   ),
                   child: const Text(
-                    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+                    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
                     style: TextStyle(
                         color: Color(0xff616161),
                         fontSize: 12,
@@ -122,7 +112,7 @@ class _VitalModeState extends State<VitalMode> {
                   ),
                 ),
                 Container(
-                    margin: const EdgeInsets.only(bottom: 128),
+                    margin: const EdgeInsets.only(bottom: 80),
                     child: SvgPicture.asset('assets/images/Mode_image.svg')),
               ],
             ),

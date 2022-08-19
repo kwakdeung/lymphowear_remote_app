@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class VitalMode extends StatefulWidget {
-  const VitalMode({Key? key}) : super(key: key);
+class RelaxingMode extends StatefulWidget {
+  const RelaxingMode({Key? key}) : super(key: key);
 
   @override
-  State<VitalMode> createState() => _VitalModeState();
+  State<RelaxingMode> createState() => _RelaxingModeState();
 }
 
-class _VitalModeState extends State<VitalMode> {
+class _RelaxingModeState extends State<RelaxingMode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,12 +26,9 @@ class _VitalModeState extends State<VitalMode> {
           ),
         ),
         title: const Text(
-          'Vital Mode',
+          'Relaxing Mode',
           style: TextStyle(
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-          ),
+              fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(0),
@@ -46,8 +43,8 @@ class _VitalModeState extends State<VitalMode> {
         color: const Color(0xffF3F3F3),
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(20, 32, 20, 112),
-            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.fromLTRB(20, 24, 20, 112),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.black12, width: 0),
@@ -65,15 +62,14 @@ class _VitalModeState extends State<VitalMode> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  margin: const EdgeInsets.all(0.0),
-                  color: Colors.transparent,
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         margin: const EdgeInsets.only(right: 8),
                         child: SvgPicture.asset(
-                          'assets/images/ic_vital2.svg',
+                          'assets/images/ic_relaxing2.svg',
                           width: 24,
                           height: 24,
                         ),
@@ -81,12 +77,11 @@ class _VitalModeState extends State<VitalMode> {
                       Container(
                         margin: const EdgeInsets.all(0.0),
                         child: const Text(
-                          'Vital Mode',
+                          'Relaxing Mode',
                           style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600,
-                          ),
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                       const Spacer(),
@@ -105,24 +100,23 @@ class _VitalModeState extends State<VitalMode> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
                   padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
                   decoration: BoxDecoration(
+                    color: const Color(0xffEEEEEE),
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Colors.black12, width: 0),
-                    color: const Color(0xffEEEEEE),
                   ),
                   child: const Text(
-                    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
-                    style: TextStyle(
-                        color: Color(0xff616161),
-                        fontSize: 12,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400),
-                  ),
+                      'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
+                      style: TextStyle(
+                          color: Color(0xff616161),
+                          fontSize: 12,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400)),
                 ),
                 Container(
-                    margin: const EdgeInsets.only(bottom: 128),
+                    margin: const EdgeInsets.only(bottom: 96),
                     child: SvgPicture.asset('assets/images/Mode_image.svg')),
               ],
             ),
