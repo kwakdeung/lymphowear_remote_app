@@ -59,6 +59,7 @@ class SettingPage extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child:
                         SvgPicture.asset("assets/images/ic_chevron_right.svg")),
+                onTap: () {},
               ),
             ),
             const Divider(
@@ -84,6 +85,7 @@ class SettingPage extends StatelessWidget {
                   margin: const EdgeInsets.all(0.0),
                   child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
                 ),
+                onTap: () {},
               ),
             ),
             const Divider(
@@ -107,6 +109,7 @@ class SettingPage extends StatelessWidget {
                   margin: const EdgeInsets.all(0.0),
                   child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
                 ),
+                onTap: () {},
               ),
             ),
             const Divider(
@@ -129,6 +132,7 @@ class SettingPage extends StatelessWidget {
                   margin: const EdgeInsets.all(0.0),
                   child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
                 ),
+                onTap: () {},
               ),
             ),
           ],
