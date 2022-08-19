@@ -13,7 +13,7 @@ class CircularIndicator extends StatefulWidget {
 class _CircularIndicatorState extends State<CircularIndicator>
     with TickerProviderStateMixin {
   late AnimationController controller;
-  double _value = 0;
+  double _value = 900;
   bool _working = false;
   String value = 'Paring...';
   bool _active = true;
@@ -42,7 +42,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
   void startWorking() async {
     setState(() {
       _working = true;
-      _value = 150;
+      _value = 900;
     });
     for (int i = 0; i < 10; i--) {
       if (!_working) {
@@ -91,31 +91,41 @@ class _CircularIndicatorState extends State<CircularIndicator>
                           margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                           child: SvgPicture.asset(
                             'assets/images/Battery.svg',
+                            width: 20,
+                            height: 10,
                           ),
                         ),
                         Text(
-                          "Percent: ${(_value * 10).round()}%",
+                          "${(_value).round()}",
                           style: const TextStyle(
+                            fontSize: 24,
                             fontFamily: "Poppins",
                           ),
                         ),
-                        GestureDetector(
-                          onTap: _handleTap,
-                          child: Container(
-                            width: 40.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(color: Colors.green, width: 1),
-                              color: _active ? Colors.green : Colors.white,
-                            ),
-                            child: Center(
-                              child: Icon(
-                                _active ? Icons.play_arrow : Icons.pause,
-                                color: _active ? Colors.white : Colors.green,
-                              ),
-                            ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 8),
+                          width: 40.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(
+                                color: const Color(0xff0BB15D), width: 1.5),
+                            color: _active
+                                ? const Color(0xff0BB15D)
+                                : Colors.white,
                           ),
+                          child: IconButton(
+                              onPressed: () {
+                                _handleTap();
+                              },
+                              color: _active
+                                  ? Colors.white
+                                  : const Color(0xff0BB15D),
+                              icon: _active
+                                  ? SvgPicture.asset(
+                                      "assets/images/ic_play_full.svg")
+                                  : SvgPicture.asset(
+                                      "assets/images/ic_pause_full.svg")),
                         ),
                       ],
                     ),
