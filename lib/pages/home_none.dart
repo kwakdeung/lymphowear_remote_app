@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 import 'package:lymphowear_remote_app/widgets/home_bluetooth.dart';
 
 class HomeNone extends StatelessWidget {
@@ -35,7 +36,12 @@ class HomeNone extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 color: Colors.grey[700],
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SettingPage())));
+                }),
           ),
         ],
       ),

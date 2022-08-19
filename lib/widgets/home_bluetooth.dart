@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 import 'package:lymphowear_remote_app/widgets/home_default.dart';
 
 class HomeBluetooth extends StatefulWidget {
@@ -50,7 +51,12 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                   'assets/images/ic_setting.svg',
                   fit: BoxFit.fill,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SettingPage())));
+                }),
           ),
         ],
       ),

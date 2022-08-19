@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);
@@ -38,7 +39,12 @@ class _HomeRefreshState extends State<HomeRefresh> {
                   'assets/images/ic_setting.svg',
                   fit: BoxFit.fill,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SettingPage())));
+                }),
           ),
         ],
       ),
