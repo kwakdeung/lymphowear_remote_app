@@ -5,6 +5,7 @@ import 'package:lymphowear_remote_app/components/collarbone.dart';
 import 'package:lymphowear_remote_app/components/heat.dart';
 import 'package:lymphowear_remote_app/components/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/shoulder.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 import 'package:lymphowear_remote_app/widgets/relaxing/relaxing_01_1.dart';
 import 'package:lymphowear_remote_app/widgets/sleeping/sleeping-01-1.dart';
 import 'package:lymphowear_remote_app/widgets/vital/vital_01_1.dart';
@@ -53,7 +54,12 @@ class HomeDefault extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 color: Colors.grey[700],
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SettingPage())));
+                }),
           ),
         ],
       ),
