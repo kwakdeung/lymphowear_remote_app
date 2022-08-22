@@ -57,21 +57,21 @@ class HomeNone extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
                   child: SvgPicture.asset(
-                    'assets/images/Home_none_title.svg',
+                    'assets/images/none_title.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
                   child: SvgPicture.asset(
-                    'assets/images/Home_none_content.svg',
+                    'assets/images/none_content.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: SvgPicture.asset(
-                    'assets/images/Home_none_image.svg',
+                    'assets/images/none_image.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
