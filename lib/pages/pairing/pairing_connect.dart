@@ -108,40 +108,46 @@ class _PairingConnectState extends State<PairingConnect> {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 5), () {
+        Future.delayed(const Duration(seconds: 3), () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const PairingComplete()));
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
-          child: AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0)),
-            content: Container(
-              padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
-              width: 178,
-              height: 96,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(77, 8, 77, 4),
-                      height: 24.0,
-                      width: 24.0,
-                      child: const CupertinoActivityIndicator(
-                        animating: true,
-                      ),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(70, 246, 70, 246),
+            child: AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0)),
+              content: Container(
+                margin: const EdgeInsets.all(0.0),
+                height: 62,
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                          child: const CupertinoActivityIndicator(
+                            radius: 12,
+                            animating: true,
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
+                          child: Text(
+                            message,
+                            style: const TextStyle(
+                                fontSize: 16,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(56, 8, 56, 0),
-                      child: Text(
-                        message,
-                        style: const TextStyle(
-                            fontSize: 16, fontFamily: "Poppins"),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
