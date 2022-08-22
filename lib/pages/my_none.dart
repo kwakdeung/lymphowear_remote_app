@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/my/my_not_connected.dart';
 
 class MyNone extends StatelessWidget {
   const MyNone({Key? key}) : super(key: key);
@@ -67,7 +68,17 @@ class MyNone extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder:
+                            ((context, animation, secondaryAnimation) =>
+                                const MyNotConnected()),
+                        transitionDuration: const Duration(seconds: 0),
+                      ),
+                    ); // my_BT연결이 끊어진 경우
+                  },
                   icon: const Icon(
                     Icons.add_circle_outline_outlined,
                     color: Color(0xff008A40),
