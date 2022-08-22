@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/alarm01_1.dart';
+import 'package:lymphowear_remote_app/pages/my_none.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -60,7 +61,12 @@ class SettingPage extends StatelessWidget {
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child:
                         SvgPicture.asset("assets/images/ic_chevron_right.svg")),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const MyNone())));
+                },
               ),
             ),
             const Divider(
