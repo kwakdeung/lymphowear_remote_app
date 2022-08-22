@@ -134,7 +134,7 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: Container(
-            margin: const EdgeInsets.fromLTRB(70, 246, 70, 246),
+            margin: const EdgeInsets.fromLTRB(59, 246, 59, 246),
             child: AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16.0)),
