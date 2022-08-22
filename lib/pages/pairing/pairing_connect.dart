@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
@@ -128,9 +129,9 @@ class _PairingConnectState extends State<PairingConnect> {
                       margin: const EdgeInsets.fromLTRB(77, 8, 77, 4),
                       height: 24.0,
                       width: 24.0,
-                      child: const CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation(Colors.blue),
-                          strokeWidth: 5.0),
+                      child: const CupertinoActivityIndicator(
+                        animating: true,
+                      ),
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(56, 8, 56, 0),
