@@ -37,20 +37,22 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return Scaffold(
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(20, 270, 20, 270),
-              child: SvgPicture.asset(
-                'assets/images/LymphoWear.svg',
-                fit: BoxFit.fill,
-                width: 276,
-                height: 36,
+      body: SafeArea(
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(20, 270, 20, 270),
+                child: SvgPicture.asset(
+                  'assets/images/LymphoWear.svg',
+                  fit: BoxFit.fill,
+                  width: 276,
+                  height: 36,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
