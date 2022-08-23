@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MyNotConnected extends StatefulWidget {
   const MyNotConnected({Key? key}) : super(key: key);
@@ -299,7 +300,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // ShowDialog
+                  showProgressDialog();
                 },
                 icon: Image.asset(
                   "assets/images/2.0x/ic_trash.png",
@@ -324,6 +325,87 @@ class _MyNotConnectedState extends State<MyNotConnected> {
           ],
         ),
       ),
+    );
+  }
+
+  Future showProgressDialog() async {
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Theme(
+          data: ThemeData(dialogBackgroundColor: Colors.white),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0)),
+            title: Center(
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: const Text(
+                  'Delete to this device',
+                  style: TextStyle(fontSize: 14, fontFamily: "Poppins"),
+                ),
+              ),
+            ),
+            actions: [
+              Container(
+                margin: const EdgeInsets.all(0.0),
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(112, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          side:
+                              const BorderSide(width: 1.0, color: Colors.grey),
+                          primary: Colors.white,
+                          onPrimary: const Color(0xff757575),
+                          textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
+                      child: ElevatedButton.icon(
+                        icon: SvgPicture.asset("assets/images/ic_delete.svg"),
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(112, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          side: const BorderSide(
+                              width: 1.0, color: Color(0xffBB0000)),
+                          primary: Colors.white,
+                          onPrimary: const Color(0xffBB0000),
+                          textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600),
+                        ),
+                        onPressed: () {},
+                        label: const Text('Delete'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
