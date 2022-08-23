@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
+import 'package:lymphowear_remote_app/widgets/home_bluetooth.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);
@@ -104,7 +105,15 @@ class _HomeRefreshState extends State<HomeRefresh> {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 3), () {});
+        Future.delayed(const Duration(seconds: 3), () {
+          Navigator.pushReplacement(
+            context,
+            PageRouteBuilder(
+              pageBuilder: ((context, animation, secondaryAnimation) =>
+                  const HomeBluetooth()),
+            ),
+          ); // Home_BT연결이 끊어진 경우
+        });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
-import 'package:lymphowear_remote_app/widgets/home_bluetooth.dart';
+import 'package:lymphowear_remote_app/widgets/home_refresh.dart';
 
 class HomeNone extends StatelessWidget {
   const HomeNone({Key? key}) : super(key: key);
@@ -81,24 +81,24 @@ class HomeNone extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   PageRouteBuilder(
-                      //     pageBuilder:
-                      //         ((context, animation, secondaryAnimation) =>
-                      //             const HomeRefresh()),
-                      //     transitionDuration: const Duration(seconds: 0),
-                      //   ),
-                      // ); // Home_BT연결 / 전원이 꺼진 경우
                       Navigator.pushReplacement(
                         context,
                         PageRouteBuilder(
                           pageBuilder:
                               ((context, animation, secondaryAnimation) =>
-                                  const HomeBluetooth()),
+                                  const HomeRefresh()),
                           transitionDuration: const Duration(seconds: 0),
                         ),
-                      ); // Home_BT연결이 끊어진 경우
+                      ); // Home_BT연결 / 전원이 꺼진 경우
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   PageRouteBuilder(
+                      //     pageBuilder:
+                      //         ((context, animation, secondaryAnimation) =>
+                      //             const HomeBluetooth()),
+                      //     transitionDuration: const Duration(seconds: 0),
+                      //   ),
+                      // ); // Home_BT연결이 끊어진 경우
                     },
                     icon: const Icon(
                       Icons.add_circle_outline_outlined,
