@@ -380,7 +380,11 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                     Container(
                       margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
                       child: ElevatedButton.icon(
-                        icon: SvgPicture.asset("assets/images/ic_delete.svg"),
+                        icon: SvgPicture.asset(
+                          "assets/images/ic_delete.svg",
+                          width: 20,
+                          height: 20,
+                        ),
                         style: ElevatedButton.styleFrom(
                           fixedSize: const Size(112, 40),
                           shape: RoundedRectangleBorder(
