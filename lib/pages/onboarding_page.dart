@@ -37,7 +37,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       body: SafeArea(
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(35, 80, 35, 80),
+            margin: const EdgeInsets.fromLTRB(35, 80, 35, 46),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
