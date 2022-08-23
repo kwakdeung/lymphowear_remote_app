@@ -25,20 +25,11 @@ class _CollarboneState extends State<Collarbone> {
               fit: BoxFit.fill,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
-            child: SvgPicture.asset(
-              'assets/images/ic_min.svg',
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
-          ),
           Expanded(
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(10, 0, 20, 0),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -84,7 +75,7 @@ class _CollarboneState extends State<Collarbone> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                  padding: const EdgeInsets.fromLTRB(18, 0, 22, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [

@@ -25,20 +25,11 @@ class _HeatState extends State<Heat> {
               fit: BoxFit.fill,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
-            child: SvgPicture.asset(
-              'assets/images/ic_min.svg',
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
-          ),
           Expanded(
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(10, 0, 20, 0),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -84,7 +75,7 @@ class _HeatState extends State<Heat> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                  padding: const EdgeInsets.fromLTRB(18, 0, 22, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -108,7 +99,7 @@ class _HeatState extends State<Heat> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/ic_max.svg',
+              'assets/images/ic_heat_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,
