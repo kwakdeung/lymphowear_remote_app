@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:lymphowear_remote_app/pages/reminder/morning.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -71,6 +72,8 @@ class _AlarmPageState extends State<AlarmPage> {
                   setState(() {
                     _morningValue = !_morningValue;
                   });
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => Morning())));
                 },
               ),
             ),
