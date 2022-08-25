@@ -11,19 +11,19 @@ class AlarmPage extends StatefulWidget {
 
 class _AlarmPageState extends State<AlarmPage> {
   bool _morningButton = false;
-  bool _morningvisible = false;
+  bool _morningVisible = false;
   String _morningValue = "";
 
   bool _afternoonButton = false;
-  bool _afternoonvisible = false;
+  bool _afternoonVisible = false;
   String _afternoonValue = "";
 
   bool _eveningButton = false;
-  bool _eveningvisible = false;
+  bool _eveningVisible = false;
   String _eveningValue = "";
 
   bool _nightButton = false;
-  bool _nightvisible = false;
+  bool _nightVisible = false;
   String _nightValue = "";
 
   @override
@@ -80,7 +80,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 fontWeight: FontWeight.w400),
                           ),
                           Visibility(
-                            visible: _morningvisible,
+                            visible: _morningVisible,
                             child: Text(
                               _morningValue,
                               style: const TextStyle(
@@ -99,11 +99,11 @@ class _AlarmPageState extends State<AlarmPage> {
                           setState(() {
                             _morningButton = !_morningButton;
                             if (_morningButton != false) {
-                              _morningvisible = true;
+                              _morningVisible = true;
                               debugPrint('true 작동');
                               _morningValue = "Scheduled for 08:00AM";
                             } else {
-                              _morningvisible = false;
+                              _morningVisible = false;
                               debugPrint('false 작동');
                               _morningValue = "";
                             }
@@ -143,7 +143,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 fontWeight: FontWeight.w400),
                           ),
                           Visibility(
-                            visible: _afternoonvisible,
+                            visible: _afternoonVisible,
                             child: Text(
                               _afternoonValue,
                               style: const TextStyle(
@@ -162,11 +162,11 @@ class _AlarmPageState extends State<AlarmPage> {
                           setState(() {
                             _afternoonButton = !_afternoonButton;
                             if (_afternoonButton != false) {
-                              _afternoonvisible = true;
+                              _afternoonVisible = true;
                               debugPrint('true 작동');
                               _afternoonValue = "Scheduled for 12:00PM";
                             } else {
-                              _afternoonvisible = false;
+                              _afternoonVisible = false;
                               debugPrint('false 작동');
                               _afternoonValue = "";
                             }
@@ -206,7 +206,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 fontWeight: FontWeight.w400),
                           ),
                           Visibility(
-                            visible: _eveningvisible,
+                            visible: _eveningVisible,
                             child: Text(
                               _eveningValue,
                               style: const TextStyle(
@@ -225,11 +225,11 @@ class _AlarmPageState extends State<AlarmPage> {
                           setState(() {
                             _eveningButton = !_eveningButton;
                             if (_eveningButton != false) {
-                              _eveningvisible = true;
+                              _eveningVisible = true;
                               debugPrint('true 작동');
                               _eveningValue = "Scheduled for 06:00PM";
                             } else {
-                              _eveningvisible = false;
+                              _eveningVisible = false;
                               debugPrint('false 작동');
                               _eveningValue = "";
                             }
@@ -269,7 +269,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 fontWeight: FontWeight.w400),
                           ),
                           Visibility(
-                            visible: _nightvisible,
+                            visible: _nightVisible,
                             child: Text(
                               _nightValue,
                               style: const TextStyle(
@@ -289,11 +289,11 @@ class _AlarmPageState extends State<AlarmPage> {
                             _nightButton = !_nightButton;
                             if (_nightButton != false) {
                               debugPrint('true 작동');
-                              _nightvisible = true;
+                              _nightVisible = true;
                               _nightValue = "Scheduled for 10:00PM";
                             } else {
                               debugPrint('false 작동');
-                              _nightvisible = false;
+                              _nightVisible = false;
                               _nightValue = "";
                             }
                           });
