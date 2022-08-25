@@ -7,7 +7,7 @@ class Onboarding {
 
 final List<Onboarding> onboardingData = [
   Onboarding(
-      image: "assets/images/LymphoWear.png",
+      image: "assets/images/LymphoWearFace.png",
       title: "Title title 1",
       description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "),
