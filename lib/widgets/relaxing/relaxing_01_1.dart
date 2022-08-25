@@ -69,7 +69,7 @@ class _RelaxingModeState extends State<RelaxingMode> {
                       Container(
                         margin: const EdgeInsets.only(right: 8),
                         child: SvgPicture.asset(
-                          'assets/images/ic_relaxing2.svg',
+                          'assets/icons/ic_relaxing2.svg',
                           width: 24,
                           height: 24,
                         ),

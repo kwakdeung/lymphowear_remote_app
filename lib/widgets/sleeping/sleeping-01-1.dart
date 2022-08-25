@@ -65,7 +65,7 @@ class _SleepingModeState extends State<SleepingMode> {
                       Container(
                           margin: const EdgeInsets.only(right: 8),
                           child: SvgPicture.asset(
-                            "assets/images/ic_sleeping2.svg",
+                            "assets/icons/ic_sleeping2.svg",
                             width: 24,
                             height: 24,
                           )),
