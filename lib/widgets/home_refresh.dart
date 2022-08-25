@@ -38,7 +38,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
             margin: const EdgeInsets.only(right: 4),
             child: IconButton(
                 icon: SvgPicture.asset(
-                  'assets/images/ic_setting.svg',
+                  'assets/icons/ic_setting.svg',
                   fit: BoxFit.fill,
                 ),
                 onPressed: () {
@@ -70,16 +70,19 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Image.asset(
-                    'assets/images/2.0x/Home_refresh_content.png',
-                    width: 209,
-                    height: 40,
-                    fit: BoxFit.fill,
+                  child: const Text(
+                    'LymphoWear is turned off.\nTurn on LymphoWear',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xff212121),
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
                 const Spacer(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(80, 0, 80, 0),
+                  margin: const EdgeInsets.fromLTRB(84, 0, 84, 0),
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.cached),
                     label: const Text(
