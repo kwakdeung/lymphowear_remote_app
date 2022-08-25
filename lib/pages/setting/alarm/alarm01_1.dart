@@ -10,10 +10,17 @@ class AlarmPage extends StatefulWidget {
 }
 
 class _AlarmPageState extends State<AlarmPage> {
-  bool _morningValue = true;
-  bool _afternoonValue = true;
-  bool _eveningValue = true;
-  bool _nightValue = true;
+  bool _morningButton = false;
+  String _morningValue = "";
+
+  bool _afternoonButton = false;
+  String _afternoonValue = "";
+
+  bool _eveningButton = false;
+  String _eveningValue = "";
+
+  bool _nightButton = false;
+  String _nightValue = "";
 
   @override
   Widget build(BuildContext context) {
@@ -60,18 +67,30 @@ class _AlarmPageState extends State<AlarmPage> {
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400),
                 ),
+                subtitle: Text(
+                  _morningValue,
+                  style: const TextStyle(
+                      color: Color(0xff0BB15D),
+                      fontSize: 12,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
+                ),
                 trailing: CupertinoSwitch(
-                  value: _morningValue,
+                  value: _morningButton,
                   onChanged: (bool value) {
                     setState(() {
-                      _morningValue = value;
+                      _morningButton = !_morningButton;
+                      if (_morningButton != false) {
+                        debugPrint('true 작동');
+                        _morningValue = "Scheduled for 08:00AM";
+                      } else {
+                        debugPrint('false 작동');
+                        _morningValue = "";
+                      }
                     });
                   },
                 ),
                 onTap: () {
-                  setState(() {
-                    _morningValue = !_morningValue;
-                  });
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) => Morning())));
                 },
@@ -92,18 +111,31 @@ class _AlarmPageState extends State<AlarmPage> {
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400),
                 ),
+                subtitle: Text(
+                  _afternoonValue,
+                  style: const TextStyle(
+                      color: Color(0xff0BB15D),
+                      fontSize: 12,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
+                ),
                 trailing: CupertinoSwitch(
-                  value: _afternoonValue,
+                  value: _afternoonButton,
                   onChanged: (bool value) {
                     setState(() {
-                      _afternoonValue = value;
+                      _afternoonButton = !_afternoonButton;
+                      if (_afternoonButton != false) {
+                        debugPrint('true 작동');
+                        _afternoonValue = "Scheduled for 12:00PM";
+                      } else {
+                        debugPrint('false 작동');
+                        _afternoonValue = "";
+                      }
                     });
                   },
                 ),
                 onTap: () {
-                  setState(() {
-                    _afternoonValue = !_afternoonValue;
-                  });
+                  setState(() {});
                 },
               ),
             ),
@@ -122,19 +154,30 @@ class _AlarmPageState extends State<AlarmPage> {
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400),
                 ),
+                subtitle: Text(
+                  _eveningValue,
+                  style: const TextStyle(
+                      color: Color(0xff0BB15D),
+                      fontSize: 12,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
+                ),
                 trailing: CupertinoSwitch(
-                  value: _eveningValue,
+                  value: _eveningButton,
                   onChanged: (bool value) {
                     setState(() {
-                      _eveningValue = value;
+                      _eveningButton = !_eveningButton;
+                      if (_eveningButton != false) {
+                        debugPrint('true 작동');
+                        _eveningValue = "Scheduled for 06:00PM";
+                      } else {
+                        debugPrint('false 작동');
+                        _eveningValue = "";
+                      }
                     });
                   },
                 ),
-                onTap: () {
-                  setState(() {
-                    _eveningValue = !_eveningValue;
-                  });
-                },
+                onTap: () {},
               ),
             ),
             const Divider(
@@ -152,18 +195,31 @@ class _AlarmPageState extends State<AlarmPage> {
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w400),
                 ),
+                subtitle: Text(
+                  _nightValue,
+                  style: const TextStyle(
+                      color: Color(0xff0BB15D),
+                      fontSize: 12,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
+                ),
                 trailing: CupertinoSwitch(
-                  value: _nightValue,
+                  value: _nightButton,
                   onChanged: (bool value) {
                     setState(() {
-                      _nightValue = value;
+                      _nightButton = !_nightButton;
+                      if (_nightButton != false) {
+                        debugPrint('true 작동');
+                        _nightValue = "Scheduled for 10:00PM";
+                      } else {
+                        debugPrint('false 작동');
+                        _nightValue = "";
+                      }
                     });
                   },
                 ),
                 onTap: () {
-                  setState(() {
-                    _nightValue = !_nightValue;
-                  });
+                  setState(() {});
                 },
               ),
             ),
