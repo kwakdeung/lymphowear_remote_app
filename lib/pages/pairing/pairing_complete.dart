@@ -73,15 +73,23 @@ class _PairingCompleteState extends State<PairingComplete> {
               ),
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                  child: SvgPicture.asset(
-                    'assets/images/Pairing04_title.svg',
-                    fit: BoxFit.fill,
+                  child: const Text(
+                    'Pairing is complete',
+                    style: TextStyle(
+                        color: Color(0xff006E33),
+                        fontSize: 20,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w600),
                   )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 160),
-                child: SvgPicture.asset(
-                  'assets/images/Pairing04_content.svg',
-                  fit: BoxFit.fill,
+                child: const Text(
+                  "Let's start LymphoWear",
+                  style: TextStyle(
+                      color: Color(0xff757575),
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
                 ),
               ),
               const Spacer(),
