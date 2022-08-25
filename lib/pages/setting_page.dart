@@ -72,7 +72,7 @@ class SettingPage extends StatelessWidget {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
             Container(
               color: Colors.white,
@@ -102,8 +102,8 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             const Divider(
-              height: 16,
-              color: Color(0xffEEEEEE),
+              height: 1,
+              color: Color(0xffE0E0E0),
             ),
             Container(
               color: Colors.white,
@@ -127,7 +127,7 @@ class SettingPage extends StatelessWidget {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
             Container(
               color: Colors.white,
