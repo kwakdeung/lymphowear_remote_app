@@ -121,7 +121,7 @@ class _AlarmPageState extends State<AlarmPage> {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -184,7 +184,7 @@ class _AlarmPageState extends State<AlarmPage> {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -247,7 +247,7 @@ class _AlarmPageState extends State<AlarmPage> {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -310,7 +310,7 @@ class _AlarmPageState extends State<AlarmPage> {
             ),
             const Divider(
               height: 1,
-              color: Color(0xffEEEEEE),
+              color: Color(0xffE0E0E0),
             ),
           ],
         ),
