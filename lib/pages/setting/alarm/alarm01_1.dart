@@ -229,63 +229,56 @@ class _AlarmPageState extends State<AlarmPage> {
               color: Color(0xffEEEEEE),
             ),
             Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              color: Colors.white,
+              width: double.infinity,
               child: GestureDetector(
                 child: Container(
-                  width: double.infinity,
-                  // padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Container(
-                    margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            const Text(
-                              'Morning Reminder',
-                              style: TextStyle(
-                                  fontSize: 16,
+                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          const Text(
+                            'Morning Reminder',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Visibility(
+                            visible: _visible,
+                            child: Text(
+                              _morningValue,
+                              style: const TextStyle(
+                                  color: Color(0xff0BB15D),
+                                  fontSize: 12,
                                   fontFamily: "Poppins",
                                   fontWeight: FontWeight.w400),
                             ),
-                            Visibility(
-                              visible: _visible,
-                              child: Text(
-                                _morningValue,
-                                style: const TextStyle(
-                                    color: Color(0xff0BB15D),
-                                    fontSize: 12,
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        CupertinoSwitch(
-                          value: _morningButton,
-                          onChanged: (bool value) {
-                            setState(() {
-                              _morningButton = !_morningButton;
-                              if (_morningButton != false) {
-                                _visible = true;
-                                debugPrint('true 작동');
-                                _morningValue = "Scheduled for 08:00AM";
-                              } else {
-                                _visible = false;
-                                debugPrint('false 작동');
-                                _morningValue = "";
-                              }
-                            });
-                          },
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      CupertinoSwitch(
+                        value: _morningButton,
+                        onChanged: (bool value) {
+                          setState(() {
+                            _morningButton = !_morningButton;
+                            if (_morningButton != false) {
+                              _visible = true;
+                              debugPrint('true 작동');
+                              _morningValue = "Scheduled for 08:00AM";
+                            } else {
+                              _visible = false;
+                              debugPrint('false 작동');
+                              _morningValue = "";
+                            }
+                          });
+                        },
+                      ),
+                    ],
                   ),
-                  // 일반 컨테이너 텍스트를 버튼처럼 꾸며줌
-                  decoration: BoxDecoration(
-                      // 테마의 버튼 컬러로 설정
-                      color: Colors.white,
-                      // 텍스트 외각을 버튼처럼 둥글게 처리
-                      borderRadius: BorderRadius.circular(8.0)),
                 ),
                 onTap: () {
                   Navigator.push(context,
