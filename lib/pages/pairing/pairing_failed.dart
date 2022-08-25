@@ -74,16 +74,26 @@ class _PairingFailedState extends State<PairingFailed> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                child: SvgPicture.asset(
-                  'assets/images/Pairing02_2_title.svg',
+                child: const Text(
+                  "No device found",
+                  style: TextStyle(
+                      color: Color(0xff212121),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                child: SvgPicture.asset(
-                  'assets/images/Pairing02_2_content.svg',
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                  child: const Text(
+                    "Make sure device is turned on\nand in range.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xff757575),
+                        fontSize: 14,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400),
+                  )),
               const Spacer(),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
