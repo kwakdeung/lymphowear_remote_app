@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/my/my_not_connected.dart';
 
@@ -44,18 +45,27 @@ class MyNone extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
-                child: SvgPicture.asset(
-                  'assets/images/none_title.svg',
-                  fit: BoxFit.fill,
+                child: const Text(
+                  "There’s no device connected.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color(0xff212121),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                child: SvgPicture.asset(
-                  'assets/images/none_content.svg',
-                  fit: BoxFit.fill,
-                ),
-              ),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                  child: const Text(
+                    "Press the button and\nconnect to the device.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xff757575),
+                        fontSize: 14,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400),
+                  )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: SvgPicture.asset(
@@ -77,7 +87,7 @@ class MyNone extends StatelessWidget {
                                 const MyNotConnected()),
                         transitionDuration: const Duration(seconds: 0),
                       ),
-                    ); // my_BT연결이 끊어진 경우
+                    );
                   },
                   icon: const Icon(
                     Icons.add_circle_outline_outlined,
@@ -95,7 +105,6 @@ class MyNone extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     primary: Colors.white,
-                    // fixedSize: const Size(320, 48),
                     side: const BorderSide(color: Color(0xff008A40)),
                   ),
                 ),
