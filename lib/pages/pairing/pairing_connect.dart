@@ -63,10 +63,17 @@ class _PairingConnectState extends State<PairingConnect> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                  margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
-                  child: SvgPicture.asset(
-                    'assets/images/Pairing03_text.svg',
-                  )),
+                margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
+                child: const Text(
+                  'Confirm on the device',
+                  style: TextStyle(
+                    color: Color(0xff006E33),
+                    fontSize: 16,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 width: 234,
