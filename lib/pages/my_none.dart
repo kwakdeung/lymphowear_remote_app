@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
 
 class PairingConnect extends StatefulWidget {

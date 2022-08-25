@@ -11,7 +11,6 @@ class MyNotConnected extends StatefulWidget {
 
 class _MyNotConnectedState extends State<MyNotConnected> {
   bool _isConnecting = true;
-  bool _isStarting = true;
 
   @override
   Widget build(BuildContext context) {
