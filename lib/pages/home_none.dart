@@ -32,7 +32,7 @@ class HomeNone extends StatelessWidget {
             margin: const EdgeInsets.only(right: 4),
             child: IconButton(
                 icon: SvgPicture.asset(
-                  'assets/images/ic_setting.svg',
+                  'assets/icons/ic_setting.svg',
                   fit: BoxFit.fill,
                 ),
                 color: Colors.grey[700],
@@ -56,16 +56,25 @@ class HomeNone extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
-                  child: SvgPicture.asset(
-                    'assets/images/none_title.svg',
-                    fit: BoxFit.fill,
+                  child: const Text(
+                    "There’s no device connected.",
+                    style: TextStyle(
+                        color: Color(0xff212121),
+                        fontSize: 16,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                  child: SvgPicture.asset(
-                    'assets/images/none_content.svg',
-                    fit: BoxFit.fill,
+                  child: const Text(
+                    "Press the button and\nconnect to the device.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xff757575),
+                        fontSize: 14,
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
                 Container(
