@@ -303,7 +303,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                   showProgressDialog();
                 },
                 icon: Image.asset(
-                  "assets/images/2.0x/ic_trash.png",
+                  "assets/icons/2.0x/ic_trash.png",
                   width: 24,
                   height: 24,
                 ),
@@ -381,7 +381,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                       margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
                       child: ElevatedButton.icon(
                         icon: SvgPicture.asset(
-                          "assets/images/ic_delete.svg",
+                          "assets/icons/ic_delete.svg",
                           width: 20,
                           height: 20,
                         ),

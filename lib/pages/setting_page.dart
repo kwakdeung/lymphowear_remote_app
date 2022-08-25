@@ -46,7 +46,7 @@ class SettingPage extends StatelessWidget {
                 leading: Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: SvgPicture.asset(
-                    "assets/images/ic_my_device.svg",
+                    "assets/icons/ic_my_device.svg",
                   ),
                 ),
                 title: const Text(
@@ -60,7 +60,7 @@ class SettingPage extends StatelessWidget {
                 trailing: Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child:
-                        SvgPicture.asset("assets/images/ic_chevron_right.svg")),
+                        SvgPicture.asset("assets/icons/ic_chevron_right.svg")),
                 onTap: () {
                   Navigator.push(
                       context,
@@ -78,7 +78,7 @@ class SettingPage extends StatelessWidget {
               child: ListTile(
                 leading: Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: SvgPicture.asset("assets/images/ic_timer.svg"),
+                  child: SvgPicture.asset("assets/icons/ic_timer.svg"),
                 ),
                 title: const Text(
                   'Alarm',
@@ -90,7 +90,7 @@ class SettingPage extends StatelessWidget {
                 tileColor: Colors.white,
                 trailing: Container(
                   margin: const EdgeInsets.all(0.0),
-                  child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
+                  child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
                 ),
                 onTap: () {
                   Navigator.push(
@@ -109,7 +109,7 @@ class SettingPage extends StatelessWidget {
               child: ListTile(
                 leading: Container(
                   margin: const EdgeInsets.all(0.0),
-                  child: SvgPicture.asset("assets/images/ic_info.svg"),
+                  child: SvgPicture.asset("assets/icons/ic_info.svg"),
                 ),
                 title: const Text('User Guide',
                     style: TextStyle(
@@ -119,7 +119,7 @@ class SettingPage extends StatelessWidget {
                 tileColor: Colors.white,
                 trailing: Container(
                   margin: const EdgeInsets.all(0.0),
-                  child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
+                  child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
                 ),
                 onTap: () {},
               ),
@@ -133,7 +133,7 @@ class SettingPage extends StatelessWidget {
               child: ListTile(
                 leading: Container(
                     margin: const EdgeInsets.all(0.0),
-                    child: SvgPicture.asset("assets/images/ic_help.svg")),
+                    child: SvgPicture.asset("assets/icons/ic_help.svg")),
                 title: const Text('FAQ',
                     style: TextStyle(
                         fontSize: 16,
@@ -142,7 +142,7 @@ class SettingPage extends StatelessWidget {
                 tileColor: Colors.white,
                 trailing: Container(
                   margin: const EdgeInsets.all(0.0),
-                  child: SvgPicture.asset("assets/images/ic_chevron_right.svg"),
+                  child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
                 ),
                 onTap: () {},
               ),
