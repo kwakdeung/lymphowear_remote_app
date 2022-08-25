@@ -64,6 +64,7 @@ class _VitalModeState extends State<VitalMode> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                // Vital MODE용 Circular 따로 넣기, 시간 조절이 안되서 -, + 버튼 없음
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   color: Colors.transparent,

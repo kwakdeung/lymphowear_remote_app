@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/home/home_bluetooth.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
-import 'package:lymphowear_remote_app/widgets/home_bluetooth.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
-import 'package:lymphowear_remote_app/widgets/home_refresh.dart';
 
 class HomeNone extends StatelessWidget {
   const HomeNone({Key? key}) : super(key: key);

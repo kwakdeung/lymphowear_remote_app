@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/pages/alarm01_1.dart';
+
 import 'package:lymphowear_remote_app/pages/my_none.dart';
+import 'package:lymphowear_remote_app/pages/setting/alarm/alarm01_1.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({Key? key}) : super(key: key);

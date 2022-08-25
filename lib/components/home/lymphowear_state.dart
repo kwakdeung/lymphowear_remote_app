@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/components/circularindicator.dart';
+import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
 
 class LymphoWearState extends StatelessWidget {
   const LymphoWearState({Key? key}) : super(key: key);

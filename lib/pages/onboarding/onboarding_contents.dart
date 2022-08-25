@@ -36,22 +36,17 @@ class _OnboardingContentsState extends State<OnboardingContents> {
               widget.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  fontSize: 16,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff212121)),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             child: Text(
               widget.description,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff757575)),
+              style: const TextStyle(color: Colors.grey),
             ),
           ),
         ],

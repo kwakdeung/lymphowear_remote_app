@@ -25,6 +25,15 @@ class _ShoulderState extends State<Shoulder> {
               fit: BoxFit.fill,
             ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+          //   child: SvgPicture.asset(
+          //     'assets/images/ic_min.svg',
+          //     width: 16,
+          //     height: 16,
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
           Expanded(
             child: Column(
               children: [
@@ -103,7 +112,7 @@ class _ShoulderState extends State<Shoulder> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/ic_max.svg',
+              'assets/icons/ic_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,

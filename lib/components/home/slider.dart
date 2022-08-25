@@ -22,7 +22,7 @@ class _MaterialSliderState extends State<MaterialSlider> {
           enabledThumbRadius: 8.0,
           pressedElevation: 8.0,
         ),
-        thumbColor: Colors.green[300],
+        thumbColor: Colors.green[300], // 여기를 안에 흰색 넣기
         overlayColor: Colors.green.withOpacity(0.2),
         overlayShape: RoundSliderOverlayShape(overlayRadius: 32.0),
         tickMarkShape: RoundSliderTickMarkShape(),

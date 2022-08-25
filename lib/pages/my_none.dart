@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/pages/my/my_not_connected.dart';
+import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
 
 class MyNone extends StatelessWidget {
   const MyNone({Key? key}) : super(key: key);
@@ -87,7 +87,16 @@ class MyNone extends StatelessWidget {
                                 const MyNotConnected()),
                         transitionDuration: const Duration(seconds: 0),
                       ),
-                    );
+                    ); // Home_BT연결 / 전원이 꺼진 경우
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   PageRouteBuilder(
+                    //     pageBuilder:
+                    //         ((context, animation, secondaryAnimation) =>
+                    //             const MyNotConnected()),
+                    //     transitionDuration: const Duration(seconds: 0),
+                    //   ),
+                    // ); // Home_BT연결이 끊어진 경우
                   },
                   icon: const Icon(
                     Icons.add_circle_outline_outlined,
@@ -105,6 +114,7 @@ class MyNone extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                     primary: Colors.white,
+                    // fixedSize: const Size(320, 48),
                     side: const BorderSide(color: Color(0xff008A40)),
                   ),
                 ),

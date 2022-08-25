@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Armpit extends StatefulWidget {
-  const Armpit({Key? key}) : super(key: key);
+class Collarbone extends StatefulWidget {
+  const Collarbone({Key? key}) : super(key: key);
 
   @override
-  State<Armpit> createState() => _ArmpitState();
+  State<Collarbone> createState() => _CollarboneState();
 }
 
-class _ArmpitState extends State<Armpit> {
-  double armpitValue = 2;
+class _CollarboneState extends State<Collarbone> {
+  double colloarboneValue = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,19 @@ class _ArmpitState extends State<Armpit> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
             child: SvgPicture.asset(
-              'assets/images/Armpit.svg',
+              'assets/images/Collarbone.svg',
               fit: BoxFit.fill,
             ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+          //   child: SvgPicture.asset(
+          //     'assets/images/ic_min.svg',
+          //     width: 16,
+          //     height: 16,
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
           Expanded(
             child: Column(
               children: [
@@ -34,7 +43,7 @@ class _ArmpitState extends State<Armpit> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text(
-                        'Armpit',
+                        'Collarbone',
                         style: TextStyle(
                             fontSize: 14,
                             fontFamily: "Poppins",
@@ -49,7 +58,7 @@ class _ArmpitState extends State<Armpit> {
                         ),
                       ),
                       Text(
-                        '  ${armpitValue.round()}',
+                        '  ${colloarboneValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,
@@ -64,12 +73,12 @@ class _ArmpitState extends State<Armpit> {
                   width: double.infinity,
                   height: 18,
                   child: Slider(
-                    value: armpitValue,
+                    value: colloarboneValue,
                     max: 3,
                     divisions: 3,
                     onChanged: (double value) {
                       setState(() {
-                        armpitValue = value;
+                        colloarboneValue = value;
                       });
                     },
                   ),
@@ -103,7 +112,7 @@ class _ArmpitState extends State<Armpit> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/ic_max.svg',
+              'assets/icons/ic_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Collarbone extends StatefulWidget {
-  const Collarbone({Key? key}) : super(key: key);
+class Heat extends StatefulWidget {
+  const Heat({Key? key}) : super(key: key);
 
   @override
-  State<Collarbone> createState() => _CollarboneState();
+  State<Heat> createState() => _HeatState();
 }
 
-class _CollarboneState extends State<Collarbone> {
-  double colloarboneValue = 2;
+class _HeatState extends State<Heat> {
+  double heatValue = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,19 @@ class _CollarboneState extends State<Collarbone> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
             child: SvgPicture.asset(
-              'assets/images/Collarbone.svg',
+              'assets/images/Heat.svg',
               fit: BoxFit.fill,
             ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+          //   child: SvgPicture.asset(
+          //     'assets/images/ic_min.svg',
+          //     width: 16,
+          //     height: 16,
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
           Expanded(
             child: Column(
               children: [
@@ -34,7 +43,7 @@ class _CollarboneState extends State<Collarbone> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text(
-                        'Collarbone',
+                        'Heat',
                         style: TextStyle(
                             fontSize: 14,
                             fontFamily: "Poppins",
@@ -49,7 +58,7 @@ class _CollarboneState extends State<Collarbone> {
                         ),
                       ),
                       Text(
-                        '  ${colloarboneValue.round()}',
+                        '  ${heatValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,
@@ -64,12 +73,12 @@ class _CollarboneState extends State<Collarbone> {
                   width: double.infinity,
                   height: 18,
                   child: Slider(
-                    value: colloarboneValue,
-                    max: 3,
-                    divisions: 3,
+                    value: heatValue,
+                    max: 2,
+                    divisions: 2,
                     onChanged: (double value) {
                       setState(() {
-                        colloarboneValue = value;
+                        heatValue = value;
                       });
                     },
                   ),
@@ -90,10 +99,6 @@ class _CollarboneState extends State<Collarbone> {
                       Text('2',
                           style:
                               TextStyle(fontFamily: "Poppins", fontSize: 10)),
-                      Spacer(),
-                      Text('3',
-                          style:
-                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
                     ],
                   ),
                 ),
@@ -103,7 +108,7 @@ class _CollarboneState extends State<Collarbone> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/ic_max.svg',
+              'assets/icons/ic_heat_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,

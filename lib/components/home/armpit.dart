@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Heat extends StatefulWidget {
-  const Heat({Key? key}) : super(key: key);
+class Armpit extends StatefulWidget {
+  const Armpit({Key? key}) : super(key: key);
 
   @override
-  State<Heat> createState() => _HeatState();
+  State<Armpit> createState() => _ArmpitState();
 }
 
-class _HeatState extends State<Heat> {
-  double heatValue = 1;
+class _ArmpitState extends State<Armpit> {
+  double armpitValue = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,19 @@ class _HeatState extends State<Heat> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
             child: SvgPicture.asset(
-              'assets/images/Heat.svg',
+              'assets/images/Armpit.svg',
               fit: BoxFit.fill,
             ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+          //   child: SvgPicture.asset(
+          //     'assets/images/ic_min.svg',
+          //     width: 16,
+          //     height: 16,
+          //     fit: BoxFit.fill,
+          //   ),
+          // ),
           Expanded(
             child: Column(
               children: [
@@ -34,7 +43,7 @@ class _HeatState extends State<Heat> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text(
-                        'Heat',
+                        'Armpit',
                         style: TextStyle(
                             fontSize: 14,
                             fontFamily: "Poppins",
@@ -49,7 +58,7 @@ class _HeatState extends State<Heat> {
                         ),
                       ),
                       Text(
-                        '  ${heatValue.round()}',
+                        '  ${armpitValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,
@@ -64,12 +73,12 @@ class _HeatState extends State<Heat> {
                   width: double.infinity,
                   height: 18,
                   child: Slider(
-                    value: heatValue,
-                    max: 2,
-                    divisions: 2,
+                    value: armpitValue,
+                    max: 3,
+                    divisions: 3,
                     onChanged: (double value) {
                       setState(() {
-                        heatValue = value;
+                        armpitValue = value;
                       });
                     },
                   ),
@@ -90,6 +99,10 @@ class _HeatState extends State<Heat> {
                       Text('2',
                           style:
                               TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                      Spacer(),
+                      Text('3',
+                          style:
+                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
                     ],
                   ),
                 ),
@@ -99,7 +112,7 @@ class _HeatState extends State<Heat> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/ic_heat_max.svg',
+              'assets/icons/ic_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,

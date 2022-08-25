@@ -11,6 +11,7 @@ class MyNotConnected extends StatefulWidget {
 
 class _MyNotConnectedState extends State<MyNotConnected> {
   bool _isConnecting = true;
+  bool _isStarting = true;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,8 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                       height: 128,
                     ),
                   ),
-                  _isConnecting
+
+                  _isConnecting // 삼항연산자1 처음
                       ? Column(
                           children: [
                             const Text(
@@ -173,8 +175,10 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
+                            // Timer(const Duration(milliseconds: 3700), () {}),
+                            // Timer(const Duration(milliseconds: 3700), () => ),
                           ],
-                        ),
+                        ), // 삼항연산자1 끝
                 ],
               ),
             ),
@@ -380,11 +384,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                     Container(
                       margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
                       child: ElevatedButton.icon(
-                        icon: SvgPicture.asset(
-                          "assets/icons/ic_delete.svg",
-                          width: 20,
-                          height: 20,
-                        ),
+                        icon: SvgPicture.asset("assets/icons/ic_delete.svg"),
                         style: ElevatedButton.styleFrom(
                           fixedSize: const Size(112, 40),
                           shape: RoundedRectangleBorder(
@@ -399,6 +399,13 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w600),
                         ),
+                        // onPressed: () {
+                        //   // Navigator.pushReplacement(
+                        //   //   context,
+                        //   //   MaterialPageRoute(
+                        //   //       builder: (context) => const HomeNone()),
+                        //   // );
+                        // },
                         onPressed: () {},
                         label: const Text('Delete'),
                       ),
