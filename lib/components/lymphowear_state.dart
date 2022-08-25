@@ -39,7 +39,7 @@ class LymphoWearState extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         surfaceTintColor: Colors.white),
                     child: SvgPicture.asset(
-                      'assets/images/ic_minus.svg',
+                      'assets/icons/ic_minus.svg',
                     ),
                   ),
                 ),
@@ -60,7 +60,7 @@ class LymphoWearState extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         surfaceTintColor: Colors.white),
                     child: SvgPicture.asset(
-                      'assets/images/ic_plus.svg',
+                      'assets/icons/ic_plus.svg',
                     ),
                   ),
                 ),

@@ -123,9 +123,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
                                   : const Color(0xff0BB15D),
                               icon: _active
                                   ? SvgPicture.asset(
-                                      "assets/images/ic_play_full.svg")
+                                      "assets/icons/ic_play_full.svg")
                                   : SvgPicture.asset(
-                                      "assets/images/ic_pause_full.svg")),
+                                      "assets/icons/ic_pause_full.svg")),
                         ),
                       ],
                     ),

@@ -24,7 +24,7 @@ class HomeDefault extends StatelessWidget {
           margin: const EdgeInsets.only(left: 10),
           child: IconButton(
               icon: SvgPicture.asset(
-                'assets/images/ic_power.svg',
+                'assets/icons/ic_power.svg',
                 fit: BoxFit.fill,
               ),
               onPressed: () {
@@ -50,7 +50,7 @@ class HomeDefault extends StatelessWidget {
             margin: const EdgeInsets.only(right: 4),
             child: IconButton(
                 icon: SvgPicture.asset(
-                  'assets/images/ic_setting.svg',
+                  'assets/icons/ic_setting.svg',
                   fit: BoxFit.fill,
                 ),
                 color: Colors.grey[700],
@@ -112,7 +112,7 @@ class HomeDefault extends StatelessWidget {
                                         margin: const EdgeInsets.fromLTRB(
                                             0, 4, 0, 4),
                                         child: SvgPicture.asset(
-                                          'assets/images/ic_vital2.svg',
+                                          'assets/icons/ic_vital2.svg',
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -157,7 +157,7 @@ class HomeDefault extends StatelessWidget {
                                         margin: const EdgeInsets.fromLTRB(
                                             0, 4, 0, 4),
                                         child: SvgPicture.asset(
-                                          'assets/images/ic_relaxing2.svg',
+                                          'assets/icons/ic_relaxing2.svg',
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -202,7 +202,7 @@ class HomeDefault extends StatelessWidget {
                                         margin: const EdgeInsets.fromLTRB(
                                             0, 4, 0, 4),
                                         child: SvgPicture.asset(
-                                          'assets/images/ic_sleeping2.svg',
+                                          'assets/icons/ic_sleeping2.svg',
                                           fit: BoxFit.fill,
                                         ),
                                       ),

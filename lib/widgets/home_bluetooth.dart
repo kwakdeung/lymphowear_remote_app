@@ -74,7 +74,7 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                   margin: const EdgeInsets.fromLTRB(0, 78, 0, 8),
                   child: IconButton(
                       icon: SvgPicture.asset(
-                        'assets/images/ic_bluetooth_off.svg',
+                        'assets/icons/ic_bluetooth_off.svg',
                         fit: BoxFit.fill,
                         width: 32,
                         height: 32,
