@@ -82,7 +82,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 ),
                 const Spacer(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(84, 0, 84, 0),
+                  margin: const EdgeInsets.fromLTRB(80, 0, 80, 0),
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.cached),
                     label: const Text(
