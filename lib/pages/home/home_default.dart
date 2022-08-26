@@ -136,7 +136,7 @@ class HomeDefault extends StatelessWidget {
                             child: const VerticalDivider(
                               width: 1,
                               thickness: 1,
-                              color: Colors.black,
+                              color: Color(0xffEEEEEE),
                             ),
                           ),
                           Expanded(
@@ -181,7 +181,7 @@ class HomeDefault extends StatelessWidget {
                             child: const VerticalDivider(
                               width: 1,
                               thickness: 1,
-                              color: Colors.black,
+                              color: Color(0xffEEEEEE),
                             ),
                           ),
                           Expanded(
