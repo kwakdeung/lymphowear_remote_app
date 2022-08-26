@@ -6,7 +6,7 @@ import 'package:lymphowear_remote_app/components/home/heat.dart';
 import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/home/shoulder.dart';
 import 'package:lymphowear_remote_app/pages/home/relaxing/relaxing_01_1.dart';
-import 'package:lymphowear_remote_app/pages/home/sleeping/sleeping-01-1.dart';
+import 'package:lymphowear_remote_app/pages/home/sleeping/sleeping_01_1.dart';
 import 'package:lymphowear_remote_app/pages/home/vital/vital_01_1.dart';
 
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
