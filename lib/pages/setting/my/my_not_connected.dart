@@ -10,7 +10,23 @@ class MyNotConnected extends StatefulWidget {
 }
 
 class _MyNotConnectedState extends State<MyNotConnected> {
-  bool _isConnecting = true;
+  bool _isConnecting = false;
+  bool _isVisible = true;
+  bool _isLoading = false;
+  String connecttext = "Not connected";
+
+  connecting() {
+    _isConnecting = !_isConnecting;
+    if (_isConnecting == true) {
+      setState(() {
+        connecttext = "Connecting...";
+      });
+    } else {
+      setState(() {
+        connecttext = "Not connected";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,125 +75,58 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                       height: 128,
                     ),
                   ),
-
-                  _isConnecting // 삼항연산자1 처음
-                      ? Column(
-                          children: [
-                            const Text(
-                              "Not connected",
+                  Visibility(
+                    visible: _isLoading,
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                      child: const CupertinoActivityIndicator(
+                        radius: 12,
+                        animating: true,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.all(0.0),
+                        child: Text(
+                          connecttext,
+                          style: const TextStyle(
+                            color: Color(0xff616161),
+                            fontSize: 12,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: _isVisible,
+                        child: Container(
+                          margin: const EdgeInsets.only(left: 14, top: 8),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding:
+                                  const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                              primary: Colors.white,
+                              side: const BorderSide(color: Color(0xff008A40)),
+                            ),
+                            onPressed: () {
+                              connecting();
+                              _isVisible = false;
+                              _isLoading = true;
+                            },
+                            child: const Text(
+                              'Connect',
                               style: TextStyle(
-                                color: Color(0xff616161),
-                                fontSize: 12,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400,
-                              ),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff008A40)),
                             ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 14, top: 8),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(24, 10, 24, 10),
-                                  primary: Colors.white,
-                                  side: const BorderSide(
-                                      color: Color(0xff008A40)),
-                                ),
-                                onPressed: () {
-                                  _isConnecting
-                                      ? Container(
-                                          margin: const EdgeInsets.all(0.0),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                margin: const EdgeInsets.only(
-                                                    left: 14, top: 8),
-                                                child: ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    padding: const EdgeInsets
-                                                            .fromLTRB(
-                                                        24, 10, 24, 10),
-                                                    primary: Colors.white,
-                                                    side: const BorderSide(
-                                                        color:
-                                                            Color(0xff008A40)),
-                                                  ),
-                                                  onPressed: () {
-                                                    _isConnecting
-                                                        ? Container()
-                                                        : Container(
-                                                            margin:
-                                                                const EdgeInsets
-                                                                        .fromLTRB(
-                                                                    0, 0, 0, 4),
-                                                            child:
-                                                                const CupertinoActivityIndicator(
-                                                              radius: 12,
-                                                              animating: true,
-                                                            ),
-                                                          );
-                                                  },
-                                                  child: const Text(
-                                                    'Connect',
-                                                    style: TextStyle(
-                                                        fontFamily: "Poppins",
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color:
-                                                            Color(0xff008A40)),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ))
-                                      : Container(
-                                          margin: const EdgeInsets.fromLTRB(
-                                              0, 0, 0, 4),
-                                          child:
-                                              const CupertinoActivityIndicator(
-                                            radius: 12,
-                                            animating: true,
-                                          ),
-                                        );
-                                  setState(() {
-                                    _isConnecting = false;
-                                  });
-                                },
-                                child: const Text(
-                                  'Connect',
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff008A40)),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      : Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-                              child: const CupertinoActivityIndicator(
-                                radius: 12,
-                                animating: true,
-                              ),
-                            ),
-                            Text(
-                              _isConnecting ? "Not connected" : "Connecting...",
-                              style: const TextStyle(
-                                color: Color(0xff616161),
-                                fontSize: 12,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            // Timer(const Duration(milliseconds: 3700), () {}),
-                            // Timer(const Duration(milliseconds: 3700), () => ),
-                          ],
-                        ), // 삼항연산자1 끝
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -398,13 +347,6 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w600),
                         ),
-                        // onPressed: () {
-                        //   // Navigator.pushReplacement(
-                        //   //   context,
-                        //   //   MaterialPageRoute(
-                        //   //       builder: (context) => const HomeNone()),
-                        //   // );
-                        // },
                         onPressed: () {},
                         label: const Text('Delete'),
                       ),
