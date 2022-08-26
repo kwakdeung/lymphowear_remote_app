@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
-import 'package:lymphowear_remote_app/models/onboarding_model.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
+
+import '../models/onboarding_model.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       body: SafeArea(
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(35, 80, 35, 80),
+            // margin: const EdgeInsets.fromLTRB(35, 26, 35, 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
@@ -70,7 +71,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 Container(
                   color: const Color.fromARGB(0, 231, 174, 174),
-                  // margin: const EdgeInsets.fromLTRB(20, 43, 20, 80),
+                  // margin: const EdgeInsets.fromLTRB(40, 43, 40, 46),
+                  margin: const EdgeInsets.fromLTRB(40, 40, 40, 80),
                   // padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
                   width: double.infinity,
                   child: ElevatedButton(
