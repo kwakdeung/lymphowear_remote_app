@@ -112,7 +112,7 @@ class _HeatState extends State<Heat> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(18, 0, 22, 0),
+                  padding: const EdgeInsets.fromLTRB(18, 0, 23, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
