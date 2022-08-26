@@ -1,36 +1,38 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
-import 'package:lymphowear_remote_app/pages/pairing/paring_reloading.dart';
+import 'dart:async';
 
-class PairingFailed extends StatefulWidget {
-  const PairingFailed({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+
+class PairingReLoading extends StatefulWidget {
+  const PairingReLoading({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<PairingFailed> createState() => _PairingFailedState();
+  State<PairingReLoading> createState() => _PairingReLoadingState();
 }
 
-class _PairingFailedState extends State<PairingFailed> {
-  bool isButtonActive = true;
-  late PageController pageController;
-  int pageIndex = 0;
-  int curIndex = 0;
-
+class _PairingReLoadingState extends State<PairingReLoading> {
   @override
   void initState() {
+    Timer(const Duration(milliseconds: 3700), () {
+      // 시간 제한
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const PairingConnect(), // Pairing 연결
+        // builder: (context) => const PairingFailed(), // Pairing 실패
+        // builder: (context) => const PairingComplete(), // Pairing 성공
+      ));
+    });
     super.initState();
   }
 
   @override
   void dispose() {
-    pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    pageController = PageController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -68,38 +70,28 @@ class _PairingFailedState extends State<PairingFailed> {
           margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
+            children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-                child: SvgPicture.asset(
-                  'assets/images/Pairing02_2_alert.svg',
+                child: CircularProgressIndicator(
+                  color: Colors.green,
+                  backgroundColor: Colors.green[50],
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                child: const Text(
-                  "No device found",
+                margin: const EdgeInsets.all(0.0),
+                child: const Center(
+                    child: Text(
+                  'Searching for device...',
                   style: TextStyle(
-                      color: Color(0xff212121),
-                      fontSize: 16,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400),
-                ),
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                )),
               ),
-              Container(
-                  margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
-                  child: const Text(
-                    "Make sure device is turned on\nand in range.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400),
-                  )),
               const Spacer(),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -108,22 +100,19 @@ class _PairingFailedState extends State<PairingFailed> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                    primary: Colors.white,
-                    onPrimary: const Color(0xff008A40),
-                    surfaceTintColor: Colors.white,
+                    primary: const Color(0xffE0E0E0),
+                    onPrimary: const Color(0xff757575),
                     textStyle: const TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18),
-                    side: const BorderSide(color: Color(0xff008A40)),
+                      fontSize: 16,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const PairingReLoading(),
-                    ));
+                    Navigator.pop(context);
                   },
                   child: const Text(
-                    'Try Again',
+                    'Stop',
                   ),
                 ),
               ),
