@@ -74,18 +74,15 @@ class _ShoulderState extends State<Shoulder> {
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       trackHeight: 4.0,
-                      trackShape: RoundedRectSliderTrackShape(),
+                      trackShape: const RoundedRectSliderTrackShape(),
                       activeTrackColor: const Color(0xff0BB15D),
                       inactiveTrackColor: const Color(0xffEEEEEE),
-                      thumbShape: RoundSliderThumbShape(
-                        enabledThumbRadius: 8.0,
-                        pressedElevation: 8.0,
-                      ),
-                      thumbColor: const Color(0xffFFFFFF),
+                      thumbShape: const CircleThumbShape(thumbRadius: 6),
+                      thumbColor: const Color(0xff0BB15D),
                       // const Color(0xffFFFFFF),
                       // overlayColor: Colors.pink.withOpacity(0.2),
                       // overlayShape: RoundSliderOverlayShape(overlayRadius: 32.0),
-                      tickMarkShape: RoundSliderTickMarkShape(),
+                      tickMarkShape: const RoundSliderTickMarkShape(),
                       activeTickMarkColor:
                           const Color(0xff212121).withOpacity(0.12),
                       inactiveTickMarkColor:
@@ -149,5 +146,48 @@ class _ShoulderState extends State<Shoulder> {
         ],
       ),
     );
+  }
+}
+
+class CircleThumbShape extends SliderComponentShape {
+  final double thumbRadius;
+
+  const CircleThumbShape({
+    this.thumbRadius = 6.0,
+  });
+
+  @override
+  Size getPreferredSize(bool isEnabled, bool isDiscrete) {
+    return Size.fromRadius(thumbRadius);
+  }
+
+  @override
+  void paint(
+    PaintingContext context,
+    Offset center, {
+    required Animation<double> activationAnimation,
+    required Animation<double> enableAnimation,
+    required bool isDiscrete,
+    required TextPainter labelPainter,
+    required RenderBox parentBox,
+    required SliderThemeData sliderTheme,
+    required TextDirection textDirection,
+    required double value,
+    required double textScaleFactor,
+    required Size sizeWithOverflow,
+  }) {
+    final Canvas canvas = context.canvas;
+
+    final fillPaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+
+    final borderPaint = Paint()
+      ..color = sliderTheme.thumbColor!
+      ..strokeWidth = 3
+      ..style = PaintingStyle.stroke;
+
+    canvas.drawCircle(center, thumbRadius, fillPaint);
+    canvas.drawCircle(center, thumbRadius, borderPaint);
   }
 }
