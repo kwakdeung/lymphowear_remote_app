@@ -41,13 +41,11 @@ class _CollarboneState extends State<Collarbone> {
                             fontWeight: FontWeight.w400),
                       ),
                       const Spacer(),
-                      const Text(
-                        'Intensity',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: "Poppins",
-                        ),
-                      ),
+                      const Text('Intensity',
+                          style: TextStyle(
+                              color: Color(0xff9E9E9E),
+                              fontFamily: "Poppins",
+                              fontSize: 10)),
                       Text(
                         '  ${colloarboneValue.round()}',
                         style: const TextStyle(
