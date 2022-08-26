@@ -69,18 +69,46 @@ class _ArmpitState extends State<Armpit> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  width: double.infinity,
+                  margin: const EdgeInsets.all(0.0),
                   height: 18,
-                  child: Slider(
-                    value: armpitValue,
-                    max: 3,
-                    divisions: 3,
-                    onChanged: (double value) {
-                      setState(() {
-                        armpitValue = value;
-                      });
-                    },
+                  child: SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      trackHeight: 4.0,
+                      trackShape: RoundedRectSliderTrackShape(),
+                      activeTrackColor: const Color(0xff0BB15D),
+                      inactiveTrackColor: const Color(0xffEEEEEE),
+                      thumbShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 8.0,
+                        pressedElevation: 8.0,
+                      ),
+                      thumbColor: const Color(0xffFFFFFF),
+                      // const Color(0xffFFFFFF),
+                      // overlayColor: Colors.pink.withOpacity(0.2),
+                      // overlayShape: RoundSliderOverlayShape(overlayRadius: 32.0),
+                      tickMarkShape: RoundSliderTickMarkShape(),
+                      activeTickMarkColor:
+                          const Color(0xff212121).withOpacity(0.12),
+                      inactiveTickMarkColor:
+                          const Color(0xff212121).withOpacity(0.12),
+                      // valueIndicatorShape: PaddleSliderValueIndicatorShape(),
+                      // valueIndicatorColor: const Color(0xff0BB15D),
+                      // valueIndicatorTextStyle: TextStyle(
+                      //   color: Colors.white,
+                      //   fontSize: 20.0,
+                      // ),
+                    ),
+                    child: Slider(
+                      min: 0.0,
+                      max: 3.0,
+                      value: armpitValue,
+                      divisions: 3,
+                      // label: '${colloarboneValue.round()}',
+                      onChanged: (value) {
+                        setState(() {
+                          armpitValue = value;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 Container(
