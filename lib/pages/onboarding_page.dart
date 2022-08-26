@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
 import 'package:lymphowear_remote_app/models/onboarding_model.dart';
+import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -79,7 +79,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         context,
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>
-                              const PairingPage(),
+                              const HomeNone(),
                         ),
                       );
                     },

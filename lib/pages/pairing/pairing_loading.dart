@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 
 class PairingLoading extends StatefulWidget {
   const PairingLoading({
@@ -19,8 +19,8 @@ class _PairingLoadingState extends State<PairingLoading> {
     Timer(const Duration(milliseconds: 3700), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const PairingConnect(), // Pairing 연결
-        // builder: (context) => const PairingFailed(), // Pairing 실패
+        // builder: (context) => const PairingConnect(), // Pairing 연결
+        builder: (context) => const PairingFailed(), // Pairing 실패
         // builder: (context) => const PairingComplete(), // Pairing 성공
       ));
     });

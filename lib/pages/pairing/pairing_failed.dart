@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -115,7 +117,9 @@ class _PairingFailedState extends State<PairingFailed> {
                     side: const BorderSide(color: Color(0xff008A40)),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const PairingConnect(),
+                    ));
                   },
                   child: const Text(
                     'Try Again',

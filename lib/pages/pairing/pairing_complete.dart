@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
 
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 
@@ -112,7 +113,7 @@ class _PairingCompleteState extends State<PairingComplete> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: ((context) => const HomeNone()),
+                          builder: ((context) => const HomeRefresh()),
                         ));
                   },
                   child: const Text(

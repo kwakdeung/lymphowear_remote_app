@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class HomeNone extends StatelessWidget {
@@ -95,7 +96,7 @@ class HomeNone extends StatelessWidget {
                         PageRouteBuilder(
                           pageBuilder:
                               ((context, animation, secondaryAnimation) =>
-                                  const HomeRefresh()),
+                                  const PairingPage()),
                           transitionDuration: const Duration(seconds: 0),
                         ),
                       ); // Home_BT연결 / 전원이 꺼진 경우
