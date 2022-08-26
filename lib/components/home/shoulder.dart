@@ -95,20 +95,28 @@ class _ShoulderState extends State<Shoulder> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text('off',
-                          style:
-                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                          style: TextStyle(
+                              color: Color(0xff9E9E9E),
+                              fontFamily: "Poppins",
+                              fontSize: 10)),
                       Spacer(),
                       Text('1',
-                          style:
-                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                          style: TextStyle(
+                              color: Color(0xff9E9E9E),
+                              fontFamily: "Poppins",
+                              fontSize: 10)),
                       Spacer(),
                       Text('2',
-                          style:
-                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                          style: TextStyle(
+                              color: Color(0xff9E9E9E),
+                              fontFamily: "Poppins",
+                              fontSize: 10)),
                       Spacer(),
                       Text('3',
-                          style:
-                              TextStyle(fontFamily: "Poppins", fontSize: 10)),
+                          style: TextStyle(
+                              color: Color(0xff9E9E9E),
+                              fontFamily: "Poppins",
+                              fontSize: 10)),
                     ],
                   ),
                 ),
