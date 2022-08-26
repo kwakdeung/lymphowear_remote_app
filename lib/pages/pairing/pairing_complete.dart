@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
 
-import 'package:lymphowear_remote_app/pages/home_none.dart';
-
 class PairingComplete extends StatefulWidget {
   const PairingComplete({Key? key}) : super(key: key);
 

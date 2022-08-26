@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+
 import 'package:lymphowear_remote_app/pages/pairing/paring_reloading.dart';
 
 class PairingFailed extends StatefulWidget {
