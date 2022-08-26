@@ -25,15 +25,6 @@ class _ShoulderState extends State<Shoulder> {
               fit: BoxFit.fill,
             ),
           ),
-          // Container(
-          //   margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
-          //   child: SvgPicture.asset(
-          //     'assets/images/ic_min.svg',
-          //     width: 16,
-          //     height: 16,
-          //     fit: BoxFit.fill,
-          //   ),
-          // ),
           Expanded(
             child: Column(
               children: [
@@ -79,27 +70,17 @@ class _ShoulderState extends State<Shoulder> {
                       inactiveTrackColor: const Color(0xffEEEEEE),
                       thumbShape: const CircleThumbShape(thumbRadius: 6),
                       thumbColor: const Color(0xff0BB15D),
-                      // const Color(0xffFFFFFF),
-                      // overlayColor: Colors.pink.withOpacity(0.2),
-                      // overlayShape: RoundSliderOverlayShape(overlayRadius: 32.0),
                       tickMarkShape: const RoundSliderTickMarkShape(),
                       activeTickMarkColor:
                           const Color(0xff212121).withOpacity(0.12),
                       inactiveTickMarkColor:
                           const Color(0xff212121).withOpacity(0.12),
-                      // valueIndicatorShape: PaddleSliderValueIndicatorShape(),
-                      // valueIndicatorColor: const Color(0xff0BB15D),
-                      // valueIndicatorTextStyle: TextStyle(
-                      //   color: Colors.white,
-                      //   fontSize: 20.0,
-                      // ),
                     ),
                     child: Slider(
                       min: 0.0,
                       max: 3.0,
                       value: shoulderValue,
                       divisions: 3,
-                      // label: '${colloarboneValue.round()}',
                       onChanged: (value) {
                         setState(() {
                           shoulderValue = value;
