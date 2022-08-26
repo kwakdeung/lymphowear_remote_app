@@ -77,7 +77,8 @@ class HomeDefault extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.black12, width: 0),
+                        border: Border.all(
+                            color: const Color(0xffEEEEEE), width: 1),
                         color: Colors.white,
                         boxShadow: const [
                           BoxShadow(
@@ -229,7 +230,8 @@ class HomeDefault extends StatelessWidget {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.black12, width: 0),
+                        border: Border.all(
+                            color: const Color(0xffEEEEEE), width: 1),
                         color: Colors.white,
                         boxShadow: const [
                           BoxShadow(

@@ -42,15 +42,15 @@ class _SleepingModeState extends State<SleepingMode> {
             margin: const EdgeInsets.fromLTRB(20, 32, 20, 112),
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.black12, width: 0),
-              boxShadow: [
+              border: Border.all(color: const Color(0xffEEEEEE), width: 1),
+              color: Colors.white,
+              boxShadow: const [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.7),
+                  color: Color.fromRGBO(0, 0, 0, 0.08),
                   spreadRadius: 0,
-                  blurRadius: 4.0,
-                  offset: const Offset(0, 4),
+                  offset: Offset(4, 1),
+                  blurRadius: 8.0,
                 ),
               ],
             ),

@@ -45,14 +45,14 @@ class _RelaxingModeState extends State<RelaxingMode> {
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.black12, width: 0),
+              border: Border.all(color: const Color(0xffEEEEEE), width: 1),
               color: Colors.white,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.7),
+                  color: Color.fromRGBO(0, 0, 0, 0.08),
                   spreadRadius: 0,
-                  blurRadius: 4.0,
-                  offset: const Offset(0, 4),
+                  offset: Offset(4, 1),
+                  blurRadius: 8.0,
                 ),
               ],
             ),
