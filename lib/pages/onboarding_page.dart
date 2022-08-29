@@ -93,9 +93,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 Container(
                   color: const Color.fromARGB(0, 231, 174, 174),
-                  // margin: const EdgeInsets.fromLTRB(40, 43, 40, 46),
                   margin: const EdgeInsets.fromLTRB(36, 40, 36, 80),
-                  // padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {

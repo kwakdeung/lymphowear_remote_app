@@ -41,31 +41,6 @@ class _MyNotConnectedState extends State<MyNotConnected> {
     }
   }
 
-  // connecting1() {
-  //   switch (connected) {
-  //     case ("CONNECT"):
-  //       setState(() {
-  //         connecttext = "Not connected";
-  //       });
-  //       break;
-  //     case ("CONNECTING"):
-  //       Timer(const Duration(seconds: 40), () {
-  //         debugPrint("Timer 테스트");
-  //         setState(() {
-  //           debugPrint("Timer 후 결과");
-  //           connecttext = "Connecting...";
-  //         });
-  //       });
-  //       break;
-  //     case ("CONNECTED"):
-  //       setState(() {
-  //         debugPrint("최종 결과");
-  //         connecttext = "Connected";
-  //       });
-  //       break;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +125,6 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                             ),
                             onPressed: () {
                               connecting();
-                              // connecting1();
                               _isVisible = false;
                               _isLoading = true;
                             },
