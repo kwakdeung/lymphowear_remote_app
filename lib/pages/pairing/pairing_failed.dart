@@ -86,7 +86,7 @@ class _PairingFailedState extends State<PairingFailed> {
                 ),
               ),
               Container(
-                  margin: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+                  margin: const EdgeInsets.all(0.0),
                   child: const Text(
                     "Make sure device is turned on\nand in range.",
                     textAlign: TextAlign.center,

@@ -79,7 +79,7 @@ class _PairingCompleteState extends State<PairingComplete> {
                         fontWeight: FontWeight.w600),
                   )),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 160),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: const Text(
                   "Let's start LymphoWear",
                   style: TextStyle(
