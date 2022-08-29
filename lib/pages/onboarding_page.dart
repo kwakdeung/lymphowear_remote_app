@@ -27,6 +27,25 @@ class _OnboardingPageState extends State<OnboardingPage> {
     super.dispose();
   }
 
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => const HomeNone(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
@@ -42,6 +61,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               children: <Widget>[
                 Expanded(
                   child: PageView.builder(
+                    scrollDirection: Axis.horizontal,
                     controller: pageController,
                     itemCount: onboardingData.length,
                     onPageChanged: (index) {
@@ -77,13 +97,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation1, animation2) =>
-                              const HomeNone(),
-                        ),
-                      );
+                      Navigator.of(context).push(_createRoute());
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),

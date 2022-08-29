@@ -7,6 +7,33 @@ import 'package:lymphowear_remote_app/pages/setting_page.dart';
 class HomeNone extends StatelessWidget {
   const HomeNone({Key? key}) : super(key: key);
 
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const PairingPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return ScaleTransition(
+            scale: Tween<double>(
+              begin: 0.0,
+              end: 1.0,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: Curves.fastOutSlowIn,
+              ),
+            ),
+            child: child);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,14 +119,7 @@ class HomeNone extends StatelessWidget {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.pushReplacement(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder:
-                              ((context, animation, secondaryAnimation) =>
-                                  const PairingPage()),
-                          transitionDuration: const Duration(seconds: 0),
-                        ),
-                      ); // Home_BT연결 / 전원이 꺼진 경우
+                          context, _createRoute()); // Home_BT연결 / 전원이 꺼진 경우
                       // Navigator.pushReplacement(
                       //   context,
                       //   PageRouteBuilder(

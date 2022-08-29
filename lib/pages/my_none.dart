@@ -6,6 +6,26 @@ import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
 class MyNone extends StatelessWidget {
   const MyNone({Key? key}) : super(key: key);
 
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const MyNotConnected(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+            position: Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)
+                .animate(animation),
+            child: child);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,12 +100,7 @@ class MyNone extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      PageRouteBuilder(
-                        pageBuilder:
-                            ((context, animation, secondaryAnimation) =>
-                                const MyNotConnected()),
-                        transitionDuration: const Duration(seconds: 0),
-                      ),
+                      _createRoute(),
                     ); // Home_BT연결 / 전원이 꺼진 경우
                     // Navigator.pushReplacement(
                     //   context,
