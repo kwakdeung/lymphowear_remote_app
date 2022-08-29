@@ -53,6 +53,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
+        top: true,
+        bottom: false,
         child: Center(
           child: Container(
             margin: const EdgeInsets.all(0.0),
