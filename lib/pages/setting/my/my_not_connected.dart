@@ -248,7 +248,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
             ),
             const Spacer(),
             Container(
-              margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+              margin: const EdgeInsets.fromLTRB(36, 0, 36, 80),
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () {
