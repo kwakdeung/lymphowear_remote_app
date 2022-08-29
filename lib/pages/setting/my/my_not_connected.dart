@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,7 +15,9 @@ class _MyNotConnectedState extends State<MyNotConnected> {
   bool _isConnecting = false;
   bool _isVisible = true;
   bool _isLoading = false;
+  bool _isConnected = false;
   String connecttext = "Not connected";
+  var connected = "CONNECTED";
 
   connecting() {
     _isConnecting = !_isConnecting;
@@ -21,12 +25,46 @@ class _MyNotConnectedState extends State<MyNotConnected> {
       setState(() {
         connecttext = "Connecting...";
       });
+      Timer(const Duration(seconds: 3), () {
+        debugPrint("Timer 테스트");
+        setState(() {
+          debugPrint("Timer 후 결과");
+          _isLoading = false;
+          _isConnected = true;
+          connecttext = "Connected";
+        });
+      });
     } else {
       setState(() {
         connecttext = "Not connected";
       });
     }
   }
+
+  // connecting1() {
+  //   switch (connected) {
+  //     case ("CONNECT"):
+  //       setState(() {
+  //         connecttext = "Not connected";
+  //       });
+  //       break;
+  //     case ("CONNECTING"):
+  //       Timer(const Duration(seconds: 40), () {
+  //         debugPrint("Timer 테스트");
+  //         setState(() {
+  //           debugPrint("Timer 후 결과");
+  //           connecttext = "Connecting...";
+  //         });
+  //       });
+  //       break;
+  //     case ("CONNECTED"):
+  //       setState(() {
+  //         debugPrint("최종 결과");
+  //         connecttext = "Connected";
+  //       });
+  //       break;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +150,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                             ),
                             onPressed: () {
                               connecting();
+                              // connecting1();
                               _isVisible = false;
                               _isLoading = true;
                             },
@@ -124,6 +163,13 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                             ),
                           ),
                         ),
+                      ),
+                      Visibility(
+                        visible: _isConnected,
+                        child: Container(
+                            margin: const EdgeInsets.only(right: 45, top: 8),
+                            child: SvgPicture.asset(
+                                "assets/images/Battery_20%.svg")),
                       ),
                     ],
                   ),
