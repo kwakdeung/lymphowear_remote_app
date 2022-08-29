@@ -17,7 +17,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     // 부분 세로모드 고정하기 - SystemChrome.setPreferredOrientations를 initState에 세로고정 모드 삽입과 dispose에 원 상태 복귀 삽입
     // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    Timer(const Duration(milliseconds: 3700), () {
+    Timer(const Duration(milliseconds: 2000), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const OnboardingPage(),
