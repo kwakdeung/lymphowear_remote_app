@@ -253,22 +253,22 @@ class HomeDefault extends StatelessWidget {
                             child: const LymphoWearState(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
                             width: double.infinity,
                             child: const Collarbone(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
                             width: double.infinity,
                             child: const Armpit(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
                             width: double.infinity,
                             child: const Shoulder(),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
                             width: double.infinity,
                             child: const Heat(),
                           ),

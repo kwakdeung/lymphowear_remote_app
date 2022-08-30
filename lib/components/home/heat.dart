@@ -41,9 +41,11 @@ class _HeatState extends State<Heat> {
       child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
               'assets/images/Heat.svg',
+              width: 40,
+              height: 40,
               fit: BoxFit.fill,
             ),
           ),
@@ -51,7 +53,7 @@ class _HeatState extends State<Heat> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -75,6 +77,7 @@ class _HeatState extends State<Heat> {
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
+                  width: double.infinity,
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       trackHeight: 4.0,
@@ -103,7 +106,7 @@ class _HeatState extends State<Heat> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(18, 0, 24, 0),
+                  padding: const EdgeInsets.fromLTRB(15, 0, 23, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -131,9 +134,9 @@ class _HeatState extends State<Heat> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
             child: SvgPicture.asset(
-              'assets/icons/ic_heat_max.svg',
+              'assets/icons/ic_max.svg',
               width: 16,
               height: 16,
               fit: BoxFit.fill,

@@ -41,9 +41,11 @@ class _ShoulderState extends State<Shoulder> {
       child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 12, 0),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
               'assets/images/Shoulder.svg',
+              width: 40,
+              height: 40,
               fit: BoxFit.fill,
             ),
           ),
@@ -51,7 +53,7 @@ class _ShoulderState extends State<Shoulder> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -75,6 +77,7 @@ class _ShoulderState extends State<Shoulder> {
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
+                  width: double.infinity,
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       trackHeight: 4.0,
@@ -103,7 +106,7 @@ class _ShoulderState extends State<Shoulder> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(18, 0, 22, 0),
+                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -137,7 +140,7 @@ class _ShoulderState extends State<Shoulder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
             child: SvgPicture.asset(
               'assets/icons/ic_max.svg',
               width: 16,
