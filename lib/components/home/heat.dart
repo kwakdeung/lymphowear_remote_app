@@ -107,7 +107,7 @@ class _HeatState extends State<Heat> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text('off',
+                      Text('Off',
                           style: TextStyle(
                               color: Color(0xff9E9E9E),
                               fontFamily: "Poppins",
