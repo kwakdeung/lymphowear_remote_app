@@ -11,6 +11,28 @@ class Heat extends StatefulWidget {
 class _HeatState extends State<Heat> {
   double heatValue = 1;
 
+  heatvalue() {
+    if (heatValue == 0) {
+      return const Text(
+        '  Off',
+        style: TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    } else {
+      return Text(
+        '  ${heatValue.round()}',
+        style: const TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,14 +68,7 @@ class _HeatState extends State<Heat> {
                               color: Color(0xff9E9E9E),
                               fontFamily: "Poppins",
                               fontSize: 10)),
-                      Text(
-                        '  ${heatValue == 0 ? 'off' : heatValue.round()}',
-                        style: const TextStyle(
-                            fontSize: 10,
-                            color: Colors.green,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600),
-                      ),
+                      heatvalue(),
                     ],
                   ),
                 ),

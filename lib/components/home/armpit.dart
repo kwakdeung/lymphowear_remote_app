@@ -11,6 +11,28 @@ class Armpit extends StatefulWidget {
 class _ArmpitState extends State<Armpit> {
   double armpitValue = 2;
 
+  armpitvalue() {
+    if (armpitValue == 0) {
+      return const Text(
+        '  Off',
+        style: TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    } else {
+      return Text(
+        '  ${armpitValue.round()}',
+        style: const TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,14 +68,7 @@ class _ArmpitState extends State<Armpit> {
                               color: Color(0xff9E9E9E),
                               fontFamily: "Poppins",
                               fontSize: 10)),
-                      Text(
-                        '  ${armpitValue == 0 ? 'off' : armpitValue.round()}',
-                        style: const TextStyle(
-                            fontSize: 10,
-                            color: Colors.green,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600),
-                      ),
+                      armpitvalue(),
                     ],
                   ),
                 ),

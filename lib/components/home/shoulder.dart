@@ -11,6 +11,28 @@ class Shoulder extends StatefulWidget {
 class _ShoulderState extends State<Shoulder> {
   double shoulderValue = 2;
 
+  shouldervalue() {
+    if (shoulderValue == 0) {
+      return const Text(
+        '  Off',
+        style: TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    } else {
+      return Text(
+        '  ${shoulderValue.round()}',
+        style: const TextStyle(
+            fontSize: 10,
+            color: Colors.green,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w600),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,14 +68,7 @@ class _ShoulderState extends State<Shoulder> {
                               color: Color(0xff9E9E9E),
                               fontFamily: "Poppins",
                               fontSize: 10)),
-                      Text(
-                        '  ${shoulderValue == 0 ? 'off' : shoulderValue.round()}',
-                        style: const TextStyle(
-                            fontSize: 10,
-                            color: Colors.green,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600),
-                      ),
+                      shouldervalue(),
                     ],
                   ),
                 ),

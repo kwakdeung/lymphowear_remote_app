@@ -11,18 +11,18 @@ class Collarbone extends StatefulWidget {
 class _CollarboneState extends State<Collarbone> {
   double colloarboneValue = 2;
 
-  off() {
-    if (colloarboneValue == 0.0) {
-      Text(
-        '  ${colloarboneValue.round()}',
-        style: const TextStyle(
+  colloarbonevalue() {
+    if (colloarboneValue == 0) {
+      return const Text(
+        '  Off',
+        style: TextStyle(
             fontSize: 10,
             color: Colors.green,
             fontFamily: "Poppins",
             fontWeight: FontWeight.w600),
       );
     } else {
-      Text(
+      return Text(
         '  ${colloarboneValue.round()}',
         style: const TextStyle(
             fontSize: 10,
@@ -68,14 +68,7 @@ class _CollarboneState extends State<Collarbone> {
                               color: Color(0xff9E9E9E),
                               fontFamily: "Poppins",
                               fontSize: 10)),
-                      Text(
-                        '  ${colloarboneValue == 0 ? 'off' : colloarboneValue.round()}',
-                        style: const TextStyle(
-                            fontSize: 10,
-                            color: Colors.green,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600),
-                      ),
+                      colloarbonevalue(),
                     ],
                   ),
                 ),
