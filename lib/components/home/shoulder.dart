@@ -47,7 +47,7 @@ class _ShoulderState extends State<Shoulder> {
                               fontFamily: "Poppins",
                               fontSize: 10)),
                       Text(
-                        '  ${shoulderValue.round()}',
+                        '  ${shoulderValue == 0 ? 'off' : shoulderValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,

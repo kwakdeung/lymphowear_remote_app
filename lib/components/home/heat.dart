@@ -47,7 +47,7 @@ class _HeatState extends State<Heat> {
                               fontFamily: "Poppins",
                               fontSize: 10)),
                       Text(
-                        '  ${heatValue.round()}',
+                        '  ${heatValue == 0 ? 'off' : heatValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,

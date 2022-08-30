@@ -47,7 +47,7 @@ class _ArmpitState extends State<Armpit> {
                               fontFamily: "Poppins",
                               fontSize: 10)),
                       Text(
-                        '  ${armpitValue.round()}',
+                        '  ${armpitValue == 0 ? 'off' : armpitValue.round()}',
                         style: const TextStyle(
                             fontSize: 10,
                             color: Colors.green,
