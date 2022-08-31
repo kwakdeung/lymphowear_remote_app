@@ -31,7 +31,9 @@ class LymphoWearState extends StatelessWidget {
                   height: 32,
                   margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      debugPrint("-1분");
+                    },
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(
                             color: Color(0xff212121), width: 2),
@@ -52,7 +54,9 @@ class LymphoWearState extends StatelessWidget {
                   height: 32,
                   margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      debugPrint("+1분");
+                    },
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(
                             color: Color(0xff212121), width: 2),
