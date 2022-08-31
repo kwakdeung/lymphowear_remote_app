@@ -41,7 +41,10 @@ class _PairingFailedState extends State<PairingFailed> {
             icon: const Icon(Icons.arrow_back_ios),
             color: Colors.grey[700],
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const PairingFailed())));
             },
           ),
         ),
