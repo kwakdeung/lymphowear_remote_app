@@ -77,7 +77,7 @@ class HomeNone extends StatelessWidget {
         child: Container(
           color: const Color(0xffF3F3F3),
           child: Container(
-            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

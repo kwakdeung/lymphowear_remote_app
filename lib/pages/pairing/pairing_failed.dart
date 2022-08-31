@@ -64,7 +64,7 @@ class _PairingFailedState extends State<PairingFailed> {
       ),
       body: Center(
         child: Container(
-          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -113,7 +113,7 @@ class _PairingFailedState extends State<PairingFailed> {
                     textStyle: const TextStyle(
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                        fontSize: 16),
                     side: const BorderSide(color: Color(0xff008A40)),
                   ),
                   onPressed: () {

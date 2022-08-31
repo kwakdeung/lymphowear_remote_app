@@ -82,7 +82,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
           color: const Color(0xffF3F3F3),
           width: double.infinity,
           child: Container(
-            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -109,17 +109,24 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 ),
                 const Spacer(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(80, 0, 80, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  width: double.infinity,
                   child: ElevatedButton.icon(
-                    icon: const Icon(Icons.cached),
+                    icon: const Icon(
+                      Icons.cached,
+                      color: Color(0xff008A40),
+                    ),
                     label: const Text(
                       'Refresh',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff008A40),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
                         primary: Colors.white,
-                        padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
-                        side: const BorderSide(color: Colors.green)),
+                        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                        side: const BorderSide(color: Color(0xff008A40))),
                     onPressed: () => showProgressDialog('Loading...'),
                   ),
                 ),

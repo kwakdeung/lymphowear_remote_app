@@ -65,7 +65,7 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
         child: Container(
           color: const Color(0xffF3F3F3),
           child: Container(
-            margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -96,23 +96,22 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
                 const Spacer(),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                      padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
                       primary: Colors.white,
                       side: const BorderSide(color: Color(0xff008A40)),
                     ),
                     onPressed: () {
                       showProgressDialog('Connecting...');
                     },
-                    child: const FittedBox(
-                      child: Text(
-                        'Connect',
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff008A40)),
-                      ),
+                    child: const Text(
+                      'Connect',
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff008A40)),
                     ),
                   ),
                 ),

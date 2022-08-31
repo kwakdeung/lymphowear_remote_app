@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
 class PairingPage extends StatefulWidget {
@@ -32,7 +33,9 @@ class _PairingPageState extends State<PairingPage> {
           icon: const Icon(Icons.close),
           color: Colors.grey[700],
           onPressed: () {
-            exit(0);
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => const HomeNone(),
+            ));
           },
         ),
         backgroundColor: Colors.white,
@@ -55,7 +58,7 @@ class _PairingPageState extends State<PairingPage> {
       ),
       body: Center(
         child: Container(
-          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

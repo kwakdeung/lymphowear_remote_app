@@ -68,7 +68,7 @@ class _PairingLoadingState extends State<PairingLoading> {
       ),
       body: Center(
         child: Container(
-          margin: const EdgeInsets.fromLTRB(35, 0, 35, 80),
+          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
