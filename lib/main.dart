@@ -6,7 +6,6 @@ import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.light,
-    statusBarIconBrightness: Brightness.dark,
     statusBarColor: Colors.white,
   ));
   runApp((const MyApp()));
