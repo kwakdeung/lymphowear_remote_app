@@ -61,57 +61,49 @@ class _AlarmPageState extends State<AlarmPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               color: Colors.white,
-              width: double.infinity,
-              child: GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Morning Reminder',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400),
-                          ),
-                          Visibility(
-                            visible: _morningVisible,
-                            child: Text(
-                              _morningValue,
-                              style: const TextStyle(
-                                  color: Color(0xff0BB15D),
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ],
+              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+              child: ListTile(
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Morning Reminder',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400),
+                    ),
+                    Visibility(
+                      visible: _morningVisible,
+                      child: Text(
+                        _morningValue,
+                        style: const TextStyle(
+                            color: Color(0xff0BB15D),
+                            fontSize: 12,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                      const Spacer(),
-                      CupertinoSwitch(
-                        value: _morningButton,
-                        onChanged: (bool value) {
-                          setState(() {
-                            _morningButton = !_morningButton;
-                            if (_morningButton != false) {
-                              _morningVisible = true;
-                              debugPrint('true 작동');
-                              _morningValue = "Scheduled for 08:00AM";
-                            } else {
-                              _morningVisible = false;
-                              debugPrint('false 작동');
-                              _morningValue = "";
-                            }
-                          });
-                        },
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
+                trailing: CupertinoSwitch(
+                  value: _morningButton,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _morningButton = !_morningButton;
+                      if (_morningButton != false) {
+                        _morningVisible = true;
+                        debugPrint('true 작동');
+                        _morningValue = "Scheduled for 08:00AM";
+                      } else {
+                        _morningVisible = false;
+                        debugPrint('false 작동');
+                        _morningValue = "";
+                      }
+                    });
+                  },
                 ),
                 onTap: () {
                   Navigator.push(context,
@@ -124,57 +116,49 @@ class _AlarmPageState extends State<AlarmPage> {
               color: Color(0xffE0E0E0),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               color: Colors.white,
-              width: double.infinity,
-              child: GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Afternoon Reminder',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400),
-                          ),
-                          Visibility(
-                            visible: _afternoonVisible,
-                            child: Text(
-                              _afternoonValue,
-                              style: const TextStyle(
-                                  color: Color(0xff0BB15D),
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ],
+              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+              child: ListTile(
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Afternoon Reminder',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400),
+                    ),
+                    Visibility(
+                      visible: _afternoonVisible,
+                      child: Text(
+                        _afternoonValue,
+                        style: const TextStyle(
+                            color: Color(0xff0BB15D),
+                            fontSize: 12,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                      const Spacer(),
-                      CupertinoSwitch(
-                        value: _afternoonButton,
-                        onChanged: (bool value) {
-                          setState(() {
-                            _afternoonButton = !_afternoonButton;
-                            if (_afternoonButton != false) {
-                              _afternoonVisible = true;
-                              debugPrint('true 작동');
-                              _afternoonValue = "Scheduled for 12:00PM";
-                            } else {
-                              _afternoonVisible = false;
-                              debugPrint('false 작동');
-                              _afternoonValue = "";
-                            }
-                          });
-                        },
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
+                trailing: CupertinoSwitch(
+                  value: _afternoonButton,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _afternoonButton = !_afternoonButton;
+                      if (_afternoonButton != false) {
+                        _afternoonVisible = true;
+                        debugPrint('true 작동');
+                        _afternoonValue = "Scheduled for 12:00PM";
+                      } else {
+                        _afternoonVisible = false;
+                        debugPrint('false 작동');
+                        _afternoonValue = "";
+                      }
+                    });
+                  },
                 ),
                 onTap: () {
                   Navigator.push(context,
@@ -187,57 +171,49 @@ class _AlarmPageState extends State<AlarmPage> {
               color: Color(0xffE0E0E0),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               color: Colors.white,
-              width: double.infinity,
-              child: GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Evening Reminder',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400),
-                          ),
-                          Visibility(
-                            visible: _eveningVisible,
-                            child: Text(
-                              _eveningValue,
-                              style: const TextStyle(
-                                  color: Color(0xff0BB15D),
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ],
+              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+              child: ListTile(
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Evening Reminder',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400),
+                    ),
+                    Visibility(
+                      visible: _eveningVisible,
+                      child: Text(
+                        _eveningValue,
+                        style: const TextStyle(
+                            color: Color(0xff0BB15D),
+                            fontSize: 12,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                      const Spacer(),
-                      CupertinoSwitch(
-                        value: _eveningButton,
-                        onChanged: (bool value) {
-                          setState(() {
-                            _eveningButton = !_eveningButton;
-                            if (_eveningButton != false) {
-                              _eveningVisible = true;
-                              debugPrint('true 작동');
-                              _eveningValue = "Scheduled for 06:00PM";
-                            } else {
-                              _eveningVisible = false;
-                              debugPrint('false 작동');
-                              _eveningValue = "";
-                            }
-                          });
-                        },
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
+                trailing: CupertinoSwitch(
+                  value: _eveningButton,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _eveningButton = !_eveningButton;
+                      if (_eveningButton != false) {
+                        _eveningVisible = true;
+                        debugPrint('true 작동');
+                        _eveningValue = "Scheduled for 06:00PM";
+                      } else {
+                        _eveningVisible = false;
+                        debugPrint('false 작동');
+                        _eveningValue = "";
+                      }
+                    });
+                  },
                 ),
                 onTap: () {
                   Navigator.push(context,
@@ -250,57 +226,52 @@ class _AlarmPageState extends State<AlarmPage> {
               color: Color(0xffE0E0E0),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               color: Colors.white,
-              width: double.infinity,
-              child: GestureDetector(
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Night Reminder',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400),
-                          ),
-                          Visibility(
-                            visible: _nightVisible,
-                            child: Text(
-                              _nightValue,
-                              style: const TextStyle(
-                                  color: Color(0xff0BB15D),
-                                  fontSize: 12,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ],
+              padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+              child: ListTile(
+                leading: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: const Text(
+                        'Night Reminder',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                      const Spacer(),
-                      CupertinoSwitch(
-                        value: _nightButton,
-                        onChanged: (bool value) {
-                          setState(() {
-                            _nightButton = !_nightButton;
-                            if (_nightButton != false) {
-                              debugPrint('true 작동');
-                              _nightVisible = true;
-                              _nightValue = "Scheduled for 10:00PM";
-                            } else {
-                              debugPrint('false 작동');
-                              _nightVisible = false;
-                              _nightValue = "";
-                            }
-                          });
-                        },
+                    ),
+                    Visibility(
+                      visible: _nightVisible,
+                      child: Text(
+                        _nightValue,
+                        style: const TextStyle(
+                            color: Color(0xff0BB15D),
+                            fontSize: 12,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w400),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
+                trailing: CupertinoSwitch(
+                  value: _nightButton,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _nightButton = !_nightButton;
+                      if (_nightButton != false) {
+                        debugPrint('true 작동');
+                        _nightVisible = true;
+                        _nightValue = "Scheduled for 10:00PM";
+                      } else {
+                        debugPrint('false 작동');
+                        _nightVisible = false;
+                        _nightValue = "";
+                      }
+                    });
+                  },
                 ),
                 onTap: () {
                   Navigator.push(context,
