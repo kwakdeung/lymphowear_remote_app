@@ -100,7 +100,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
               fit: StackFit.expand,
               children: [
                 CircularProgressIndicator(
-                  value: 0.0,
+                  value: controller.value,
                   backgroundColor: Colors.green[100],
                   valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                 ),
