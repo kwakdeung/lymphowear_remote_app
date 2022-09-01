@@ -103,6 +103,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                   child: CircularProgressIndicator(
                     value: controller.value,
                     backgroundColor: Colors.green[100],
+                    strokeWidth: 6,
                     valueColor:
                         const AlwaysStoppedAnimation<Color>(Colors.green),
                   ),
@@ -112,7 +113,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                     child: Column(
                       children: [
                         Container(
-                          margin: const EdgeInsets.fromLTRB(0, 20, 0, 7),
+                          margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
                           child: SvgPicture.asset(
                             'assets/images/Battery.svg',
                             width: 20,
