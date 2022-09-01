@@ -99,18 +99,20 @@ class _CircularIndicatorState extends State<CircularIndicator>
             child: Stack(
               fit: StackFit.expand,
               children: [
-                CircularProgressIndicator(
-                  value: controller.value,
-                  backgroundColor: Colors.green[100],
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                Positioned(
+                  child: CircularProgressIndicator(
+                    value: controller.value,
+                    backgroundColor: Colors.green[100],
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(Colors.green),
+                  ),
                 ),
-                Center(
-                  child: Expanded(
+                Positioned(
+                  child: Center(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          margin: const EdgeInsets.fromLTRB(0, 14, 0, 7),
+                          margin: const EdgeInsets.fromLTRB(0, 20, 0, 7),
                           child: SvgPicture.asset(
                             'assets/images/Battery.svg',
                             width: 20,
