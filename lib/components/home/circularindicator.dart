@@ -105,7 +105,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                     backgroundColor: Colors.green[100],
                     strokeWidth: 6,
                     valueColor:
-                        const AlwaysStoppedAnimation<Color>(Colors.green),
+                        const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
                   ),
                 ),
                 Positioned(
