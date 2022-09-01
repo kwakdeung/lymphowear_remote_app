@@ -17,6 +17,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
   double _value = 900;
   bool isPlaying = false;
   bool _working = false;
+  bool circularvisible = false;
 
   String get countText {
     Duration count = controller.duration! * controller.value;
@@ -101,12 +102,16 @@ class _CircularIndicatorState extends State<CircularIndicator>
               fit: StackFit.expand,
               children: [
                 Positioned(
-                  child: CircularProgressIndicator(
-                    value: controller.value,
-                    backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
-                    strokeWidth: 6,
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
+                  child: Visibility(
+                    visible: circularvisible,
+                    child: CircularProgressIndicator(
+                      value: controller.value,
+                      backgroundColor:
+                          const Color(0xff0BB15D).withOpacity(0.16),
+                      strokeWidth: 6,
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          Color(0xff0BB15D)),
+                    ),
                   ),
                 ),
                 Positioned(
@@ -180,6 +185,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                                             ? 1.0
                                             : controller.value);
                                     setState(() {
+                                      circularvisible = true;
                                       isPlaying = true;
                                     });
                                   }
