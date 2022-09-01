@@ -31,13 +31,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => const HomeNone(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        // const begin = Offset(0.0, 1.0);
-        // const end = Offset.zero;
-        // const curve = Curves.ease;
-
-        // var tween =
-        //     Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
         return FadeTransition(
           opacity: animation,
           child: child,
