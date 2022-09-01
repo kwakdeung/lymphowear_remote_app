@@ -33,7 +33,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
   @override
   void initState() {
-    super.initState();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 900),
@@ -51,11 +50,13 @@ class _CircularIndicatorState extends State<CircularIndicator>
         });
       }
     });
+    super.initState();
   }
 
   @override
   void dispose() {
     controller.dispose();
+
     super.dispose();
   }
 
@@ -158,6 +159,11 @@ class _CircularIndicatorState extends State<CircularIndicator>
                                     setState(() {
                                       circularvisible = true;
                                       isPlaying = true;
+                                      Future.delayed(
+                                          const Duration(seconds: 900), () {
+                                        _timeAlertDialog(
+                                            context, "Total Time: 15mins");
+                                      });
                                     });
                                   }
                                 },
@@ -193,38 +199,66 @@ Future _timeAlertDialog(BuildContext context, String message) async {
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: AlertDialog(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0)),
-              title: const Text(
-                "Great job!",
-                style: TextStyle(
-                    color: Color(0xff212121),
-                    fontSize: 20,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w600),
+                  borderRadius: BorderRadius.circular(16.0)),
+              title: const Center(
+                child: Text(
+                  "Great job!",
+                  style: TextStyle(
+                      color: Color(0xff212121),
+                      fontSize: 20,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w600),
+                ),
               ),
               content: Container(
-                height: 196,
+                height: 100,
                 child: Column(
                   children: [
-                    SvgPicture.asset(
-                      "assets/images/time_complete.svg",
+                    Image.asset(
+                      "assets/images/time_complete.png",
                       fit: BoxFit.fill,
+                      width: 140,
+                      height: 72,
                     ),
-                    Text(message),
+                    Text(
+                      message,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Color(0xff9E9E9E),
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w400),
+                    ),
                   ],
                 ),
               ),
               actions: [
-                ElevatedButton(
-                    child: Text("Done"),
+                Container(
+                  width: double.maxFinite,
+                  margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                      primary: const Color(0xff008A40),
+                      onPrimary: Colors.white,
+                      textStyle: const TextStyle(
+                          fontSize: 14,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w600),
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
-                    }),
+                    },
+                    child: const Text('Done'),
+                  ),
+                ),
               ]),
         );
       });
 }
-
 
 // class CircularIn {
 //   final dynamic value, backgroundColor, valueColor;
