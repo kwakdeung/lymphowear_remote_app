@@ -102,7 +102,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                 Positioned(
                   child: CircularProgressIndicator(
                     value: controller.value,
-                    backgroundColor: Colors.green[100],
+                    backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
                     strokeWidth: 6,
                     valueColor:
                         const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
