@@ -30,6 +30,8 @@ class HomeDefault extends StatelessWidget {
               ),
               onPressed: () {
                 debugPrint('기기 전원 OFF');
+                _powerAlertDialog(
+                    context, "Are you sure you want\n to turn off?");
               }),
         ),
         title: Container(
@@ -283,5 +285,83 @@ class HomeDefault extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future _powerAlertDialog(BuildContext context, String message) async {
+    await showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Theme(
+            data: ThemeData(dialogBackgroundColor: Colors.white),
+            child: AlertDialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0)),
+                title: Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      color: Color(0xff212121),
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
+                ),
+                actions: [
+                  Container(
+                    margin: const EdgeInsets.all(0.0),
+                    // height: 70,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(10, 0, 4, 20),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: const Size(112, 40),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                              side: const BorderSide(
+                                  width: 1.0, color: Colors.grey),
+                              primary: Colors.white,
+                              onPrimary: const Color(0xff757575),
+                              textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('No'),
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(4, 0, 10, 20),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: const Size(112, 40),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(999),
+                              ),
+                              primary: const Color(0xff008A40),
+                              onPrimary: Colors.white,
+                              textStyle: const TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Yes'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+          );
+        });
   }
 }
