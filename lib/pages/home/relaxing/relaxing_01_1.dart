@@ -45,11 +45,22 @@ class _RelaxingModeState extends State<RelaxingMode> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(16, 56, 16, 0),
+                  margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(999.0)),
+                    border: Border.all(
+                      color: const Color(0xffE0E0E0),
+                      width: 1,
+                    ),
+                  ),
                   child: const CircularIndicator(),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 24, 20, 112),
+                  margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
