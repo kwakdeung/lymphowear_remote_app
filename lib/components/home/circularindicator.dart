@@ -125,6 +125,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                               showModalBottomSheet(
                                 context: context,
                                 builder: (context) => Container(
+                                  margin: const EdgeInsets.all(0.0),
                                   height: 150,
                                   child: CupertinoTimerPicker(
                                     initialTimerDuration: controller.duration!,

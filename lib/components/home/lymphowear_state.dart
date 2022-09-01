@@ -47,7 +47,7 @@ class LymphoWearState extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  child: CircularIndicator(),
+                  child: const CircularIndicator(),
                 ),
                 Container(
                   width: 32,

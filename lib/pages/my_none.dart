@@ -19,8 +19,9 @@ class MyNone extends StatelessWidget {
             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
-            position: Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)
-                .animate(animation),
+            position:
+                Tween<Offset>(begin: const Offset(-1, 0), end: Offset.zero)
+                    .animate(animation),
             child: child);
       },
     );
