@@ -142,7 +142,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 1), () {
           Navigator.pushReplacement(
             context,
             _createRoute(),

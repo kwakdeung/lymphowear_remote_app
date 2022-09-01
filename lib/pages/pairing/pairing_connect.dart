@@ -115,7 +115,7 @@ class _PairingConnectState extends State<PairingConnect> {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 1), () {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const PairingComplete()));
         });

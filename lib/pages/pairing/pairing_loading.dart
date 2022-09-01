@@ -16,7 +16,7 @@ class PairingLoading extends StatefulWidget {
 class _PairingLoadingState extends State<PairingLoading> {
   @override
   void initState() {
-    Timer(const Duration(milliseconds: 3700), () {
+    Timer(const Duration(seconds: 1), () {
       Navigator.push(context,
           MaterialPageRoute(builder: ((context) => const PairingFailed())));
     });

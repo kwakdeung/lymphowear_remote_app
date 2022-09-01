@@ -15,7 +15,7 @@ class PairingReLoading extends StatefulWidget {
 class _PairingReLoadingState extends State<PairingReLoading> {
   @override
   void initState() {
-    Timer(const Duration(milliseconds: 3700), () {
+    Timer(const Duration(seconds: 1), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const PairingConnect(), // Pairing 연결
