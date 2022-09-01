@@ -53,6 +53,17 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(999.0)),
+                    border: Border.all(
+                      color: const Color(0xffE0E0E0),
+                      width: 1,
+                    ),
+                  ),
                   child: const CircularIndicator(),
                 ),
                 Container(
