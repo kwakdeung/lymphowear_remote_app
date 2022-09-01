@@ -14,6 +14,7 @@ class CircularIndicator extends StatefulWidget {
 class _CircularIndicatorState extends State<CircularIndicator>
     with TickerProviderStateMixin {
   late AnimationController controller;
+  double _value = 900;
   bool isPlaying = false;
   bool _working = false;
 
@@ -206,21 +207,20 @@ class _CircularIndicatorState extends State<CircularIndicator>
   }
 }
 
-class CircularIn {
-  final dynamic value, backgroundColor, valueColor;
+// class CircularIn {
+//   final dynamic value, backgroundColor, valueColor;
 
-  CircularIn({
-    required this.value,
-    required this.backgroundColor,
-    required this.valueColor,
-  });
-}
+//   CircularIn({
+//     required this.value,
+//     required this.backgroundColor,
+//     required this.valueColor,
+//   });
+// }
 
-double _value = 900;
-final List<CircularIn> circularinData = [
-  CircularIn(
-    value: _value,
-    backgroundColor: Colors.green[100],
-    valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
-  ),
-];
+// final List<CircularIn> circularinData = [
+//   CircularIn(
+//     value: _value,
+//     backgroundColor: Colors.green[100],
+//     valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+//   ),
+// ];

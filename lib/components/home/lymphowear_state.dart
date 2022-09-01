@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
 
-class LymphoWearState extends StatelessWidget {
+class LymphoWearState extends StatefulWidget {
   const LymphoWearState({Key? key}) : super(key: key);
 
+  @override
+  State<LymphoWearState> createState() => _LymphoWearStateState();
+}
+
+class _LymphoWearStateState extends State<LymphoWearState> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,6 +38,7 @@ class LymphoWearState extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("-1분");
+                      setState(() {});
                     },
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(
@@ -56,6 +62,7 @@ class LymphoWearState extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("+1분");
+                      setState(() {});
                     },
                     style: ElevatedButton.styleFrom(
                         side: const BorderSide(
