@@ -19,16 +19,23 @@ class _CircularIndicatorState extends State<CircularIndicator>
   bool circularvisible = false;
 
   String get countText {
-    Duration count = controller.duration! * controller.value;
-    return controller.isDismissed
-        ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
-        : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
+    int seconds = (900.0 * controller.value).toInt();
+
+    var min = (seconds ~/ 60).toString().padLeft(2, '0');
+    var sec = (seconds % 60).toString().padLeft(2, '0');
+    return "$min:$sec";
+
+    // Duration count = controller.duration! * controller.value;
+
+    // return controller.isDismissed
+    //     ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
+    //     : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
   double progress = 1.0;
 
   void notify() {
-    if (countText == '00:00') {}
+    if (countText == "00:00") {}
   }
 
   @override
@@ -41,11 +48,11 @@ class _CircularIndicatorState extends State<CircularIndicator>
       notify();
       if (controller.isAnimating) {
         setState(() {
-          progress = controller.value;
+          // progress = controller.value;
         });
       } else {
         setState(() {
-          progress = 1.0;
+          progress = 0;
           isPlaying = false;
         });
       }
@@ -56,7 +63,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
   @override
   void dispose() {
     controller.dispose();
-
     super.dispose();
   }
 
@@ -77,7 +83,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                   child: Visibility(
                     visible: circularvisible,
                     child: CircularProgressIndicator(
-                      value: controller.value,
+                      value: 1.0 - controller.value,
                       backgroundColor:
                           const Color(0xff0BB15D).withOpacity(0.16),
                       strokeWidth: 6,
@@ -156,14 +162,15 @@ class _CircularIndicatorState extends State<CircularIndicator>
                                         from: controller.value == 0
                                             ? 1.0
                                             : controller.value);
+
                                     setState(() {
                                       circularvisible = true;
                                       isPlaying = true;
-                                      Future.delayed(
-                                          const Duration(seconds: 900), () {
-                                        _timeAlertDialog(
-                                            context, "Total Time: 15mins");
-                                      });
+                                      // Future.delayed(
+                                      //     const Duration(seconds: 900), () {
+                                      //   _timeAlertDialog(
+                                      //       context, "Total Time: 15mins");
+                                      // });
                                     });
                                   }
                                 },
