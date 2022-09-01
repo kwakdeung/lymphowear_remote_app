@@ -211,6 +211,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
                 ),
               ),
               content: Container(
+                margin: const EdgeInsets.all(0.0),
                 height: 100,
                 child: Column(
                   children: [
@@ -259,21 +260,3 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         );
       });
 }
-
-// class CircularIn {
-//   final dynamic value, backgroundColor, valueColor;
-
-//   CircularIn({
-//     required this.value,
-//     required this.backgroundColor,
-//     required this.valueColor,
-//   });
-// }
-
-// final List<CircularIn> circularinData = [
-//   CircularIn(
-//     value: _value,
-//     backgroundColor: Colors.green[100],
-//     valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
-//   ),
-// ];
