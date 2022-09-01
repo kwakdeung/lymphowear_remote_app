@@ -14,9 +14,8 @@ class CircularIndicator extends StatefulWidget {
 class _CircularIndicatorState extends State<CircularIndicator>
     with TickerProviderStateMixin {
   late AnimationController controller;
-  double _value = 900;
+
   bool isPlaying = false;
-  bool _working = false;
   bool circularvisible = false;
 
   String get countText {
@@ -39,7 +38,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
       vsync: this,
       duration: const Duration(seconds: 900),
     );
-    controller.reverse();
     controller.addListener(() {
       notify();
       if (controller.isAnimating) {
@@ -52,33 +50,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
           isPlaying = false;
         });
       }
-    });
-  }
-
-  // indicator 시작
-  void startWorking() async {
-    setState(() {
-      _working = true;
-      _value = 900;
-    });
-    for (int i = 0; i < 10; i--) {
-      if (!_working) {
-        break;
-      }
-      await Future.delayed(const Duration(seconds: 1));
-      setState(() {
-        _value -= 1;
-      });
-    }
-    setState(() {
-      _working = false;
-    });
-  }
-
-  // indicator 멈춤
-  void stopWorking() {
-    setState(() {
-      _working = false;
     });
   }
 
@@ -212,6 +183,48 @@ class _CircularIndicatorState extends State<CircularIndicator>
     );
   }
 }
+
+Future _timeAlertDialog(BuildContext context, String message) async {
+  await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Theme(
+          data: ThemeData(dialogBackgroundColor: Colors.white),
+          child: AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0)),
+              title: const Text(
+                "Great job!",
+                style: TextStyle(
+                    color: Color(0xff212121),
+                    fontSize: 20,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w600),
+              ),
+              content: Container(
+                height: 196,
+                child: Column(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/images/time_complete.svg",
+                      fit: BoxFit.fill,
+                    ),
+                    Text(message),
+                  ],
+                ),
+              ),
+              actions: [
+                ElevatedButton(
+                    child: Text("Done"),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+              ]),
+        );
+      });
+}
+
 
 // class CircularIn {
 //   final dynamic value, backgroundColor, valueColor;
