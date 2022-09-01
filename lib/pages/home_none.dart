@@ -12,12 +12,12 @@ class HomeNone extends StatelessWidget {
       pageBuilder: (context, animation, secondaryAnimation) =>
           const PairingPage(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 1.0);
-        const end = Offset.zero;
-        const curve = Curves.ease;
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        // const curve = Curves.ease;
 
-        var tween =
-            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        // var tween =
+        //     Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return ScaleTransition(
             scale: Tween<double>(
