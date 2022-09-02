@@ -82,10 +82,8 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 16, 24, 16),
                     child: Image.asset(
-                      "assets/images/2.0x/lymphowear_image.png",
+                      "assets/images/lymphowear_image.png",
                       fit: BoxFit.fill,
-                      width: 137,
-                      height: 128,
                     ),
                   ),
                   Visibility(
