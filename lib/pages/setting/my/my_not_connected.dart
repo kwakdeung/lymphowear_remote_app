@@ -274,10 +274,8 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                 onPressed: () {
                   showProgressDialog();
                 },
-                icon: Image.asset(
-                  "assets/icons/2.0x/ic_trash.png",
-                  width: 24,
-                  height: 24,
+                icon: SvgPicture.asset(
+                  "assets/icons/ic_trash.svg",
                 ),
                 label: const Text(
                   'Delete device',
