@@ -276,6 +276,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                 },
                 icon: SvgPicture.asset(
                   "assets/icons/ic_trash.svg",
+                  color: const Color(0xff757575),
                 ),
                 label: const Text(
                   'Delete device',
