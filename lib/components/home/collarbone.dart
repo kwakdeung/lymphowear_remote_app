@@ -33,6 +33,88 @@ class _CollarboneState extends State<Collarbone> {
     }
   }
 
+  final collarboneimage = SvgPicture.asset(
+    'assets/images/collarbone.svg',
+    width: 40,
+    height: 40,
+    fit: BoxFit.fill,
+  );
+
+  Row collarbonetitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const Text(
+          'Collarbone',
+          style: TextStyle(
+              fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        ),
+        const Spacer(),
+        const Text('Intensity',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        colloarbonevalue(),
+      ],
+    );
+  }
+
+  SliderTheme collarboneslider() {
+    return SliderTheme(
+      data: SliderTheme.of(context).copyWith(
+        trackHeight: 4.0,
+        trackShape: const RoundedRectSliderTrackShape(),
+        activeTrackColor: const Color(0xff0BB15D),
+        inactiveTrackColor: const Color(0xffEEEEEE),
+        thumbShape: const CircleThumbShape(thumbRadius: 6),
+        thumbColor: const Color(0xff0BB15D),
+        tickMarkShape: const RoundSliderTickMarkShape(),
+        activeTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+        inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+      ),
+      child: Slider(
+        min: 0.0,
+        max: 3.0,
+        value: colloarboneValue,
+        divisions: 3,
+        onChanged: (value) {
+          setState(() {
+            colloarboneValue = value;
+          });
+        },
+      ),
+    );
+  }
+
+  Row collarboneslidervalue() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Text('Off',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('1',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('2',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('3',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+      ],
+    );
+  }
+
+  final slidericon = SvgPicture.asset(
+    'assets/icons/ic_max.svg',
+    width: 16,
+    height: 16,
+    fit: BoxFit.fill,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,111 +124,31 @@ class _CollarboneState extends State<Collarbone> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: SvgPicture.asset(
-              'assets/images/collarbone.svg',
-              width: 40,
-              height: 40,
-              fit: BoxFit.fill,
-            ),
+            child: collarboneimage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Collarbone',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400),
-                      ),
-                      const Spacer(),
-                      const Text('Intensity',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      colloarbonevalue(),
-                    ],
-                  ),
+                  child: collarbonetitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      trackHeight: 4.0,
-                      trackShape: const RoundedRectSliderTrackShape(),
-                      activeTrackColor: const Color(0xff0BB15D),
-                      inactiveTrackColor: const Color(0xffEEEEEE),
-                      thumbShape: const CircleThumbShape(thumbRadius: 6),
-                      thumbColor: const Color(0xff0BB15D),
-                      tickMarkShape: const RoundSliderTickMarkShape(),
-                      activeTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                      inactiveTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                    ),
-                    child: Slider(
-                      min: 0.0,
-                      max: 3.0,
-                      value: colloarboneValue,
-                      divisions: 3,
-                      onChanged: (value) {
-                        setState(() {
-                          colloarboneValue = value;
-                        });
-                      },
-                    ),
-                  ),
+                  child: collarboneslider(),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Off',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('1',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('2',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('3',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                    ],
-                  ),
+                  child: collarboneslidervalue(),
                 ),
               ],
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
-            child: SvgPicture.asset(
-              'assets/icons/ic_max.svg',
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
+            child: slidericon,
           ),
         ],
       ),

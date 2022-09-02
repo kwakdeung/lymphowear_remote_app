@@ -33,6 +33,84 @@ class _HeatState extends State<Heat> {
     }
   }
 
+  final heatimage = SvgPicture.asset(
+    'assets/images/heat.svg',
+    width: 40,
+    height: 40,
+    fit: BoxFit.fill,
+  );
+
+  Row heattitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const Text(
+          'Heat',
+          style: TextStyle(
+              fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        ),
+        const Spacer(),
+        const Text('Intensity',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        heatvalue(),
+      ],
+    );
+  }
+
+  SliderTheme heatslider() {
+    return SliderTheme(
+      data: SliderTheme.of(context).copyWith(
+        trackHeight: 4.0,
+        trackShape: const RoundedRectSliderTrackShape(),
+        activeTrackColor: const Color(0xff0BB15D),
+        inactiveTrackColor: const Color(0xffEEEEEE),
+        thumbShape: const CircleThumbShape(thumbRadius: 6),
+        thumbColor: const Color(0xff0BB15D),
+        tickMarkShape: const RoundSliderTickMarkShape(),
+        activeTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+        inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+      ),
+      child: Slider(
+        min: 0.0,
+        max: 2.0,
+        value: heatValue,
+        divisions: 2,
+        onChanged: (value) {
+          setState(() {
+            heatValue = value;
+          });
+        },
+      ),
+    );
+  }
+
+  final slidericon = SvgPicture.asset(
+    'assets/icons/ic_max.svg',
+    width: 16,
+    height: 16,
+    fit: BoxFit.fill,
+  );
+
+  Row heatslidervalue() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Text('Off',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('1',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('2',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,105 +120,31 @@ class _HeatState extends State<Heat> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: SvgPicture.asset(
-              'assets/images/heat.svg',
-              width: 40,
-              height: 40,
-              fit: BoxFit.fill,
-            ),
+            child: heatimage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Heat',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400),
-                      ),
-                      const Spacer(),
-                      const Text('Intensity',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      heatvalue(),
-                    ],
-                  ),
+                  child: heattitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      trackHeight: 4.0,
-                      trackShape: const RoundedRectSliderTrackShape(),
-                      activeTrackColor: const Color(0xff0BB15D),
-                      inactiveTrackColor: const Color(0xffEEEEEE),
-                      thumbShape: const CircleThumbShape(thumbRadius: 6),
-                      thumbColor: const Color(0xff0BB15D),
-                      tickMarkShape: const RoundSliderTickMarkShape(),
-                      activeTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                      inactiveTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                    ),
-                    child: Slider(
-                      min: 0.0,
-                      max: 2.0,
-                      value: heatValue,
-                      divisions: 2,
-                      onChanged: (value) {
-                        setState(() {
-                          heatValue = value;
-                        });
-                      },
-                    ),
-                  ),
+                  child: heatslider(),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 23, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Off',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('1',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('2',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                    ],
-                  ),
+                  child: heatslidervalue(),
                 ),
               ],
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
-            child: SvgPicture.asset(
-              'assets/icons/ic_max.svg',
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
+            child: slidericon,
           ),
         ],
       ),

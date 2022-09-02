@@ -33,6 +33,81 @@ class _ShoulderState extends State<Shoulder> {
     }
   }
 
+  final shoulderimage = SvgPicture.asset(
+    'assets/images/shoulder.svg',
+    width: 40,
+    height: 40,
+    fit: BoxFit.fill,
+  );
+
+  Row shoudertitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const Text(
+          'Shoulder',
+          style: TextStyle(
+              fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        ),
+        const Spacer(),
+        const Text('Intensity',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        shouldervalue(),
+      ],
+    );
+  }
+
+  SliderTheme shoulderslider() {
+    return SliderTheme(
+      data: SliderTheme.of(context).copyWith(
+        trackHeight: 4.0,
+        trackShape: const RoundedRectSliderTrackShape(),
+        activeTrackColor: const Color(0xff0BB15D),
+        inactiveTrackColor: const Color(0xffEEEEEE),
+        thumbShape: const CircleThumbShape(thumbRadius: 6),
+        thumbColor: const Color(0xff0BB15D),
+        tickMarkShape: const RoundSliderTickMarkShape(),
+        activeTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+        inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
+      ),
+      child: Slider(
+        min: 0.0,
+        max: 3.0,
+        value: shoulderValue,
+        divisions: 3,
+        onChanged: (value) {
+          setState(() {
+            shoulderValue = value;
+          });
+        },
+      ),
+    );
+  }
+
+  Row shoulderslidervalue() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Text('Off',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('1',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('2',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Spacer(),
+        Text('3',
+            style: TextStyle(
+                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,100 +117,24 @@ class _ShoulderState extends State<Shoulder> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: SvgPicture.asset(
-              'assets/images/shoulder.svg',
-              width: 40,
-              height: 40,
-              fit: BoxFit.fill,
-            ),
+            child: shoulderimage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Shoulder',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w400),
-                      ),
-                      const Spacer(),
-                      const Text('Intensity',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      shouldervalue(),
-                    ],
-                  ),
+                  child: shoudertitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                      trackHeight: 4.0,
-                      trackShape: const RoundedRectSliderTrackShape(),
-                      activeTrackColor: const Color(0xff0BB15D),
-                      inactiveTrackColor: const Color(0xffEEEEEE),
-                      thumbShape: const CircleThumbShape(thumbRadius: 6),
-                      thumbColor: const Color(0xff0BB15D),
-                      tickMarkShape: const RoundSliderTickMarkShape(),
-                      activeTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                      inactiveTickMarkColor:
-                          const Color(0xff212121).withOpacity(0.12),
-                    ),
-                    child: Slider(
-                      min: 0.0,
-                      max: 3.0,
-                      value: shoulderValue,
-                      divisions: 3,
-                      onChanged: (value) {
-                        setState(() {
-                          shoulderValue = value;
-                        });
-                      },
-                    ),
-                  ),
+                  child: shoulderslider(),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Off',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('1',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('2',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                      Spacer(),
-                      Text('3',
-                          style: TextStyle(
-                              color: Color(0xff9E9E9E),
-                              fontFamily: "Poppins",
-                              fontSize: 10)),
-                    ],
-                  ),
-                ),
+                    padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                    child: shoulderslidervalue()),
               ],
             ),
           ),
