@@ -17,7 +17,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     // 부분 세로모드 고정하기 - SystemChrome.setPreferredOrientations를 initState에 세로고정 모드 삽입과 dispose에 원 상태 복귀 삽입
     // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    Timer(const Duration(milliseconds: 2000), () {
+    Timer(const Duration(seconds: 1), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const OnboardingPage(),
@@ -32,6 +32,15 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     super.dispose();
   }
 
+  final splashscreen = Container(
+    margin: const EdgeInsets.all(0.0),
+    child: SvgPicture.asset(
+      alignment: Alignment.center,
+      'assets/images/splash_screen_logo.svg',
+      fit: BoxFit.fill,
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -42,15 +51,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(20, 270, 20, 270),
-                child: SvgPicture.asset(
-                  'assets/images/LymphoWear.svg',
-                  fit: BoxFit.fill,
-                  width: 276,
-                  height: 36,
-                ),
-              ),
+              splashscreen,
             ],
           ),
         ),

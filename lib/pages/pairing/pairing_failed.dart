@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'package:lymphowear_remote_app/pages/pairing/pairing_reloading.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -27,13 +26,7 @@ class _PairingFailedState extends State<PairingFailed> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    pageController = PageController();
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+  AppBar pairingfailedappbar() => AppBar(
         automaticallyImplyLeading: false,
         leading: Container(
           margin: const EdgeInsets.only(left: 10),
@@ -64,75 +57,91 @@ class _PairingFailedState extends State<PairingFailed> {
               height: 2.0,
             )),
         centerTitle: true,
+      );
+
+  Center pairingfailedbody() {
+    final pairingfailedimage = SvgPicture.asset(
+      'assets/images/pairing02_2_alert.svg',
+    );
+
+    const pairingfailedtitle = Text(
+      "No device found",
+      style: TextStyle(
+          color: Color(0xff212121),
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400),
+    );
+
+    const pairingfailedcontent = Text(
+      "Make sure device is turned on\nand in range.",
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          color: Color(0xff757575),
+          fontSize: 14,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400),
+    );
+
+    final pairingfailedbottombutton = ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: Colors.white,
+        onPrimary: const Color(0xff008A40),
+        surfaceTintColor: Colors.white,
+        textStyle: const TextStyle(
+            fontFamily: "Poppins", fontWeight: FontWeight.bold, fontSize: 16),
+        side: const BorderSide(color: Color(0xff008A40)),
       ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-                child: SvgPicture.asset(
-                  'assets/images/pairing02_2_alert.svg',
-                ),
-              ),
-              Container(
+      onPressed: () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const PairingConnect(),
+        ));
+      },
+      child: const Text(
+        'Try Again',
+      ),
+    );
+
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
+              child: pairingfailedimage,
+            ),
+            Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-                child: const Text(
-                  "No device found",
-                  style: TextStyle(
-                      color: Color(0xff212121),
-                      fontSize: 16,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400),
-                ),
+                child: pairingfailedtitle),
+            Container(
+                margin: const EdgeInsets.all(0.0), child: pairingfailedcontent),
+            const Spacer(),
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white,
               ),
-              Container(
-                  margin: const EdgeInsets.all(0.0),
-                  child: const Text(
-                    "Make sure device is turned on\nand in range.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400),
-                  )),
-              const Spacer(),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                    primary: Colors.white,
-                    onPrimary: const Color(0xff008A40),
-                    surfaceTintColor: Colors.white,
-                    textStyle: const TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
-                    side: const BorderSide(color: Color(0xff008A40)),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const PairingReLoading(),
-                    ));
-                  },
-                  child: const Text(
-                    'Try Again',
-                  ),
-                ),
-              ),
-            ],
-          ),
+              child: pairingfailedbottombutton,
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    pageController = PageController();
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: pairingfailedappbar(),
+      body: pairingfailedbody(),
     );
   }
 }

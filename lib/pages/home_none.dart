@@ -4,10 +4,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
-class HomeNone extends StatelessWidget {
+class HomeNone extends StatefulWidget {
   const HomeNone({Key? key}) : super(key: key);
 
-  Route _createRoute() {
+  @override
+  State<HomeNone> createState() => _HomeNoneState();
+}
+
+class _HomeNoneState extends State<HomeNone> {
+  Route _createroute() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const PairingPage(),
@@ -34,12 +39,7 @@ class HomeNone extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+  AppBar homenoneappbar() => AppBar(
         automaticallyImplyLeading: false,
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -72,89 +72,98 @@ class HomeNone extends StatelessWidget {
                 }),
           ),
         ],
+      );
+
+  Center homenonebody() {
+    const homenonetitle = Text(
+      "There’s no device connected.",
+      style: TextStyle(
+          color: Color(0xff212121),
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400),
+    );
+
+    const homenonecontent = Text(
+      "Press the button and\nconnect to the device.",
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          color: Color(0xff757575),
+          fontSize: 14,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400),
+    );
+
+    final homenoneimage = SvgPicture.asset(
+      'assets/images/none_image.svg',
+      fit: BoxFit.fill,
+    );
+
+    final homenonebottombutton = ElevatedButton.icon(
+      onPressed: () {
+        Navigator.pushReplacement(context, _createroute());
+      },
+      icon: const Icon(
+        Icons.add_circle_outline_outlined,
+        color: Color(0xff008A40),
       ),
-      body: Center(
+      label: const Text(
+        'Add Device',
+        style: TextStyle(
+          color: Color(0xff008A40),
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: Colors.white,
+        side: const BorderSide(color: Color(0xff008A40)),
+      ),
+    );
+
+    return Center(
+      child: Container(
+        color: const Color(0xffF3F3F3),
         child: Container(
-          color: const Color(0xffF3F3F3),
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
-                  child: const Text(
-                    "There’s no device connected.",
-                    style: TextStyle(
-                        color: Color(0xff212121),
-                        fontSize: 16,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                  child: const Text(
-                    "Press the button and\nconnect to the device.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: SvgPicture.asset(
-                    'assets/images/none_image.svg',
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                          context, _createRoute()); // Home_BT연결 / 전원이 꺼진 경우
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   PageRouteBuilder(
-                      //     pageBuilder:
-                      //         ((context, animation, secondaryAnimation) =>
-                      //             const HomeBluetooth()),
-                      //     transitionDuration: const Duration(seconds: 0),
-                      //   ),
-                      // ); // Home_BT연결이 끊어진 경우
-                    },
-                    icon: const Icon(
-                      Icons.add_circle_outline_outlined,
-                      color: Color(0xff008A40),
-                    ),
-                    label: const Text(
-                      'Add Device',
-                      style: TextStyle(
-                        color: Color(0xff008A40),
-                        fontSize: 16,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                      primary: Colors.white,
-                      side: const BorderSide(color: Color(0xff008A40)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
+                child: homenonetitle,
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                child: homenonecontent,
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: homenoneimage,
+              ),
+              const Spacer(),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                width: double.infinity,
+                child: homenonebottombutton,
+              ),
+            ],
           ),
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: homenoneappbar(),
+      body: homenonebody(),
     );
   }
 }

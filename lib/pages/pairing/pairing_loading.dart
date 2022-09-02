@@ -28,12 +28,7 @@ class _PairingLoadingState extends State<PairingLoading> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+  AppBar pairingloadingappbar() => AppBar(
         automaticallyImplyLeading: false,
         leading: Container(
           margin: const EdgeInsets.only(left: 10),
@@ -61,64 +56,81 @@ class _PairingLoadingState extends State<PairingLoading> {
               height: 2.0,
             )),
         centerTitle: true,
+      );
+
+  Center pairingloadingbody() {
+    var circularprogressindicator = CircularProgressIndicator(
+      color: Colors.green,
+      backgroundColor: Colors.green[50],
+    );
+
+    Center pairingcontent = const Center(
+        child: Text(
+      'Searching for device...',
+      style: TextStyle(
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
       ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-                child: CircularProgressIndicator(
-                  color: Colors.green,
-                  backgroundColor: Colors.green[50],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(0.0),
-                child: const Center(
-                    child: Text(
-                  'Searching for device...',
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                  ),
-                )),
-              ),
-              const Spacer(),
-              Container(
-                // margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    // fixedSize: const Size(320, 48),
-                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                    primary: const Color(0xffE0E0E0),
-                    onPrimary: const Color(0xff757575),
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Stop',
-                  ),
-                ),
-              ),
-            ],
-          ),
+    ));
+
+    final pairingloadingbottombutton = ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        // fixedSize: const Size(320, 48),
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: const Color(0xffE0E0E0),
+        onPrimary: const Color(0xff757575),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
         ),
       ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      child: const Text(
+        'Stop',
+      ),
+    );
+
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
+              child: circularprogressindicator,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0.0),
+              child: pairingcontent,
+            ),
+            const Spacer(),
+            Container(
+              // margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white,
+              ),
+              child: pairingloadingbottombutton,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: pairingloadingappbar(),
+      body: pairingloadingbody(),
     );
   }
 }

@@ -19,12 +19,7 @@ class _PairingCompleteState extends State<PairingComplete> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+  AppBar pairingcompleteappbar() => AppBar(
         automaticallyImplyLeading: false,
         leading: Container(
           margin: const EdgeInsets.only(left: 10),
@@ -52,75 +47,92 @@ class _PairingCompleteState extends State<PairingComplete> {
               height: 2.0,
             )),
         centerTitle: true,
-      ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
-                child: Image.asset(
-                  'assets/images/pairing04_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                  child: const Text(
-                    'Pairing is complete',
-                    style: TextStyle(
-                        color: Color(0xff006E33),
-                        fontSize: 20,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600),
-                  )),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: const Text(
-                  "Let's start LymphoWear",
-                  style: TextStyle(
-                      color: Color(0xff757575),
-                      fontSize: 14,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                    primary: const Color(0xff008A40),
-                    onPrimary: Colors.white,
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((context) => const HomeRefresh()),
-                        ));
-                  },
-                  child: const Text(
-                    'Start',
-                  ),
-                ),
-              ),
-            ],
-          ),
+      );
+  Center pairingcompletebody() {
+    final pairingcompleteimage = Image.asset(
+      'assets/images/pairing04_image.png',
+      fit: BoxFit.fill,
+    );
+
+    const pairingcompletetitle = Text(
+      'Pairing is complete',
+      style: TextStyle(
+          color: Color(0xff006E33),
+          fontSize: 20,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600),
+    );
+
+    const pairingcompletecontent = Text(
+      "Let's start LymphoWear",
+      style: TextStyle(
+          color: Color(0xff757575),
+          fontSize: 14,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400),
+    );
+
+    final pairingcompletebottombutton = ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: const Color(0xff008A40),
+        onPrimary: Colors.white,
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
         ),
       ),
+      onPressed: () {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const HomeRefresh()),
+            ));
+      },
+      child: const Text(
+        'Start',
+      ),
+    );
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
+              child: pairingcompleteimage,
+            ),
+            Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                child: pairingcompletetitle),
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: pairingcompletecontent,
+            ),
+            const Spacer(),
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white,
+              ),
+              child: pairingcompletebottombutton,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: pairingcompleteappbar(),
+      body: pairingcompletebody(),
     );
   }
 }
