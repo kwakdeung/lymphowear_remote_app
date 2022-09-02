@@ -10,6 +10,55 @@ class LymphoWearState extends StatefulWidget {
 }
 
 class _LymphoWearStateState extends State<LymphoWearState> {
+  static const lymphowearstatetitle = Text(
+    'Manual Mode',
+    style: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
+  );
+
+  Container minusbutton() {
+    return Container(
+      width: 32,
+      height: 32,
+      margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
+      child: ElevatedButton(
+        onPressed: () {
+          debugPrint("-1분");
+          setState(() {});
+        },
+        style: ElevatedButton.styleFrom(
+            side: const BorderSide(color: Color(0xff212121), width: 2),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(8),
+            surfaceTintColor: Colors.white),
+        child: SvgPicture.asset(
+          'assets/icons/ic_minus.svg',
+        ),
+      ),
+    );
+  }
+
+  Container plusbutton() {
+    return Container(
+      width: 32,
+      height: 32,
+      margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
+      child: ElevatedButton(
+        onPressed: () {
+          debugPrint("+1분");
+          setState(() {});
+        },
+        style: ElevatedButton.styleFrom(
+            side: const BorderSide(color: Color(0xff212121), width: 2),
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(8),
+            surfaceTintColor: Colors.white),
+        child: SvgPicture.asset(
+          'assets/icons/ic_plus.svg',
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,11 +67,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         Container(
           margin: const EdgeInsets.fromLTRB(53, 20, 53, 20),
           child: const FittedBox(
-            child: Text(
-              'Manual Mode',
-              style:
-                  TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
-            ),
+            child: lymphowearstatetitle,
           ),
         ),
         FittedBox(
@@ -31,26 +76,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 32,
-                  height: 32,
-                  margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      debugPrint("-1분");
-                      setState(() {});
-                    },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            color: Color(0xff212121), width: 2),
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(8),
-                        surfaceTintColor: Colors.white),
-                    child: SvgPicture.asset(
-                      'assets/icons/ic_minus.svg',
-                    ),
-                  ),
-                ),
+                minusbutton(),
                 Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                   width: 150.0,
@@ -66,26 +92,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                   ),
                   child: const CircularIndicator(),
                 ),
-                Container(
-                  width: 32,
-                  height: 32,
-                  margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      debugPrint("+1분");
-                      setState(() {});
-                    },
-                    style: ElevatedButton.styleFrom(
-                        side: const BorderSide(
-                            color: Color(0xff212121), width: 2),
-                        shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(8),
-                        surfaceTintColor: Colors.white),
-                    child: SvgPicture.asset(
-                      'assets/icons/ic_plus.svg',
-                    ),
-                  ),
-                ),
+                plusbutton(),
               ],
             ),
           ),
