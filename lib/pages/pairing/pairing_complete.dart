@@ -62,9 +62,7 @@ class _PairingCompleteState extends State<PairingComplete> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
                 child: Image.asset(
-                  'assets/images/2.0x/pairing04_image.png',
-                  width: 234,
-                  height: 168,
+                  'assets/images/pairing04_image.png',
                   fit: BoxFit.fill,
                 ),
               ),

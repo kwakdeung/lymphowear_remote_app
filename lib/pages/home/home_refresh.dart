@@ -89,9 +89,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
                   child: Image.asset(
-                    'assets/images/2.0x/home_refresh_image.png',
-                    width: 240,
-                    height: 184,
+                    'assets/images/home_refresh_image.png',
                     fit: BoxFit.fill,
                   ),
                 ),
