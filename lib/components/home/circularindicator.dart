@@ -20,7 +20,8 @@ class _CircularIndicatorState extends State<CircularIndicator>
   bool circularvisible = false;
 
   String get countText {
-    int seconds = (900.0 * controller.value).toInt();
+    // int seconds = (900.0 * controller.value).toInt();
+    int seconds = (10.0 * controller.value).toInt();
 
     var min = (seconds ~/ 60).toString().padLeft(2, '0');
     var sec = (seconds % 60).toString().padLeft(2, '0');
@@ -36,17 +37,19 @@ class _CircularIndicatorState extends State<CircularIndicator>
   double progress = 1.0;
 
   void notify() {
-    if (countText == "00:00") {}
+    // if (countText == "00:00") {}
+    // if (countText == "00:05") {
+    //   _timeAlertDialog(context, "Total Time: 15mins");
+    // } // 여기 로깅
   }
 
   @override
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 900),
+      duration: const Duration(seconds: 10),
     );
     controller.addListener(() {
-      notify();
       if (controller.isAnimating) {
         setState(() {
           // progress = controller.value;
@@ -58,6 +61,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
         });
       }
     });
+
     super.initState();
   }
 
@@ -141,9 +145,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
               setState(() {
                 circularvisible = true;
                 isPlaying = true;
-                Future.delayed(const Duration(seconds: 1), () {
-                  _timeAlertDialog(context, "Total Time: 15mins");
-                });
               });
             }
           },
