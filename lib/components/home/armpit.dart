@@ -43,7 +43,7 @@ class _ArmpitState extends State<Armpit> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/Armpit.svg',
+              'assets/images/armpit.svg',
               fit: BoxFit.fill,
               width: 40,
               height: 40,

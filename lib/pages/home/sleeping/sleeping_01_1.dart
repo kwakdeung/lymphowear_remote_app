@@ -135,7 +135,7 @@ class _SleepingModeState extends State<SleepingMode> {
                           margin: const EdgeInsets.only(bottom: 80),
                           width: double.infinity,
                           child: SvgPicture.asset(
-                            'assets/images/Mode_image.svg',
+                            'assets/images/mode_image.svg',
                             fit: BoxFit.fill,
                           )),
                     ],

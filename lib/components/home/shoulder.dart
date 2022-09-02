@@ -43,7 +43,7 @@ class _ShoulderState extends State<Shoulder> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/Shoulder.svg',
+              'assets/images/shoulder.svg',
               width: 40,
               height: 40,
               fit: BoxFit.fill,

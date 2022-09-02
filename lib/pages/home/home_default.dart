@@ -37,7 +37,7 @@ class HomeDefault extends StatelessWidget {
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
           child: SvgPicture.asset(
-            'assets/images/LymphoWear.svg',
+            'assets/images/lymphowear.svg',
             fit: BoxFit.fill,
           ),
         ),

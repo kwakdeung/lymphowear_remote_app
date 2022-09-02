@@ -99,7 +99,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
                           child: SvgPicture.asset(
-                            'assets/images/Battery.svg',
+                            'assets/images/battery.svg',
                             width: 20,
                             height: 10,
                           ),

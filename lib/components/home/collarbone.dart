@@ -43,7 +43,7 @@ class _CollarboneState extends State<Collarbone> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/Collarbone.svg',
+              'assets/images/collarbone.svg',
               width: 40,
               height: 40,
               fit: BoxFit.fill,

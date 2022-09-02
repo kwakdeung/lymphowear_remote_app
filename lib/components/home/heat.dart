@@ -43,7 +43,7 @@ class _HeatState extends State<Heat> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: SvgPicture.asset(
-              'assets/images/Heat.svg',
+              'assets/images/heat.svg',
               width: 40,
               height: 40,
               fit: BoxFit.fill,

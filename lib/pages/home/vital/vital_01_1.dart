@@ -143,7 +143,7 @@ class _VitalModeState extends State<VitalMode> {
                           margin: const EdgeInsets.only(bottom: 128),
                           width: double.infinity,
                           child: SvgPicture.asset(
-                            'assets/images/Mode_image.svg',
+                            'assets/images/mode_image.svg',
                             fit: BoxFit.fill,
                           )),
                     ],

@@ -74,7 +74,7 @@ class _PairingFailedState extends State<PairingFailed> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
                 child: SvgPicture.asset(
-                  'assets/images/Pairing02_2_alert.svg',
+                  'assets/images/pairing02_2_alert.svg',
                 ),
               ),
               Container(

@@ -78,7 +78,7 @@ class _PairingConnectState extends State<PairingConnect> {
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 width: 234,
                 height: 166,
-                child: Image.asset('assets/images/2.0x/Pairing03_image.png'),
+                child: Image.asset('assets/images/2.0x/pairing03_image.png'),
               ),
               const Spacer(),
               Container(

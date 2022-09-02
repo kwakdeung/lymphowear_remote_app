@@ -63,7 +63,7 @@ class _PairingPageState extends State<PairingPage> {
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 59, 0, 32),
                   child: SvgPicture.asset(
-                    'assets/images/Pairing01_image.svg',
+                    'assets/images/pairing01_image.svg',
                   )),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),

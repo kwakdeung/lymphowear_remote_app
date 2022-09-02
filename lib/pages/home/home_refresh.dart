@@ -49,7 +49,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
         title: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
           child: SvgPicture.asset(
-            'assets/images/LymphoWear.svg',
+            'assets/images/lymphowear.svg',
             fit: BoxFit.fill,
           ),
         ),
@@ -89,7 +89,7 @@ class _HomeRefreshState extends State<HomeRefresh> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 56, 0, 32),
                   child: Image.asset(
-                    'assets/images/2.0x/Home_refresh_image.png',
+                    'assets/images/2.0x/home_refresh_image.png',
                     width: 240,
                     height: 184,
                     fit: BoxFit.fill,
