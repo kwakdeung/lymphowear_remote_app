@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 class CircularIndicator extends StatefulWidget {
   const CircularIndicator({Key? key}) : super(key: key);
@@ -166,11 +167,11 @@ class _CircularIndicatorState extends State<CircularIndicator>
                                     setState(() {
                                       circularvisible = true;
                                       isPlaying = true;
-                                      // Future.delayed(
-                                      //     const Duration(seconds: 900), () {
-                                      //   _timeAlertDialog(
-                                      //       context, "Total Time: 15mins");
-                                      // });
+                                      Future.delayed(const Duration(seconds: 1),
+                                          () {
+                                        _timeAlertDialog(
+                                            context, "Total Time: 15mins");
+                                      });
                                     });
                                   }
                                 },
@@ -222,12 +223,11 @@ Future _timeAlertDialog(BuildContext context, String message) async {
                 height: 100,
                 child: Column(
                   children: [
-                    Image.asset(
-                      "assets/images/time_complete.png",
-                      fit: BoxFit.fill,
+                    Lottie.asset(
+                      'assets/images/great_job.json',
                       width: 140,
                       height: 72,
-                    ),
+                    ), // width, height 조절 해서 다시 주신다하심
                     Text(
                       message,
                       textAlign: TextAlign.center,
