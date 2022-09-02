@@ -11,61 +11,69 @@ import 'package:lymphowear_remote_app/pages/home/vital/vital_01_1.dart';
 
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
-class HomeDefault extends StatelessWidget {
+class HomeDefault extends StatefulWidget {
   const HomeDefault({Key? key}) : super(key: key);
+
+  @override
+  State<HomeDefault> createState() => _HomeDefaultState();
+}
+
+class _HomeDefaultState extends State<HomeDefault> {
+  AppBar homedefaultappbar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      leading: Container(
+        margin: const EdgeInsets.only(left: 10),
+        child: IconButton(
+            icon: SvgPicture.asset(
+              'assets/icons/ic_power.svg',
+              fit: BoxFit.fill,
+            ),
+            onPressed: () {
+              _powerAlertDialog(
+                  context, "Are you sure you want\n to turn off?");
+            }),
+      ),
+      title: Container(
+        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        child: SvgPicture.asset(
+          'assets/images/lymphowear.svg',
+          fit: BoxFit.fill,
+        ),
+      ),
+      centerTitle: true,
+      bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[300],
+            height: 2.0,
+          )),
+      actions: <Widget>[
+        Container(
+          margin: const EdgeInsets.only(right: 4),
+          child: IconButton(
+              icon: SvgPicture.asset(
+                'assets/icons/ic_setting.svg',
+                fit: BoxFit.fill,
+              ),
+              color: Colors.grey[700],
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const SettingPage())));
+              }),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/icons/ic_power.svg',
-                fit: BoxFit.fill,
-              ),
-              onPressed: () {
-                debugPrint('기기 전원 OFF');
-                _powerAlertDialog(
-                    context, "Are you sure you want\n to turn off?");
-              }),
-        ),
-        title: Container(
-          margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: SvgPicture.asset(
-            'assets/images/lymphowear.svg',
-            fit: BoxFit.fill,
-          ),
-        ),
-        centerTitle: true,
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(
-              color: Colors.grey[300],
-              height: 2.0,
-            )),
-        actions: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(right: 4),
-            child: IconButton(
-                icon: SvgPicture.asset(
-                  'assets/icons/ic_setting.svg',
-                  fit: BoxFit.fill,
-                ),
-                color: Colors.grey[700],
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const SettingPage())));
-                }),
-          ),
-        ],
-      ),
+      appBar: homedefaultappbar(),
       body: Container(
         color: const Color(0xffF3F3F3),
         height: double.maxFinite,
