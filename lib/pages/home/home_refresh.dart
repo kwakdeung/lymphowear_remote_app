@@ -12,39 +12,41 @@ class HomeRefresh extends StatefulWidget {
 }
 
 class _HomeRefreshState extends State<HomeRefresh> {
-  AppBar homerefleshappbar() => AppBar(
-        automaticallyImplyLeading: false,
-        title: Container(
-          margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-          child: SvgPicture.asset(
-            'assets/images/lymphowear.svg',
-            fit: BoxFit.fill,
-          ),
+  AppBar homerefleshappbar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: Container(
+        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        child: SvgPicture.asset(
+          'assets/images/lymphowear.svg',
+          fit: BoxFit.fill,
         ),
-        centerTitle: true,
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(
-              color: Colors.grey[200],
-              height: 2.0,
-            )),
-        actions: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(right: 4),
-            child: IconButton(
-                icon: SvgPicture.asset(
-                  'assets/icons/ic_setting.svg',
-                  fit: BoxFit.fill,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const SettingPage())));
-                }),
-          ),
-        ],
-      );
+      ),
+      centerTitle: true,
+      bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[200],
+            height: 2.0,
+          )),
+      actions: <Widget>[
+        Container(
+          margin: const EdgeInsets.only(right: 4),
+          child: IconButton(
+              icon: SvgPicture.asset(
+                'assets/icons/ic_setting.svg',
+                fit: BoxFit.fill,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const SettingPage())));
+              }),
+        ),
+      ],
+    );
+  }
 
   Center homerefleshbody() {
     final homerefleshimage = Image.asset(

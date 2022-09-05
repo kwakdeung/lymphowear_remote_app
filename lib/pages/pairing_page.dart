@@ -21,34 +21,36 @@ class _PairingPageState extends State<PairingPage> {
     super.dispose();
   }
 
-  AppBar pairingappbar() => AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const HomeNone(),
-            ));
-          },
+  AppBar pairingappbar() {
+    return AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        color: Colors.grey[700],
+        onPressed: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => const HomeNone(),
+          ));
+        },
+      ),
+      backgroundColor: Colors.white,
+      shadowColor: Colors.black,
+      title: const Text(
+        'Add Device',
+        style: TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
         ),
-        backgroundColor: Colors.white,
-        shadowColor: Colors.black,
-        title: const Text(
-          'Add Device',
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(
-              color: Colors.grey[200],
-              height: 2.0,
-            )),
-        centerTitle: true,
-      );
+      ),
+      bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[200],
+            height: 2.0,
+          )),
+      centerTitle: true,
+    );
+  }
 
   Center pairingbody() {
     final pairingimage = SvgPicture.asset(

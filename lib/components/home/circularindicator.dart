@@ -141,7 +141,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
             } else {
               controller.reverse(
                   from: controller.value == 0 ? 1.0 : controller.value);
-
+              if (countText == "00:10") {
+                _timeAlertDialog(context, "Total Time: 15mins");
+              }
               setState(() {
                 circularvisible = true;
                 isPlaying = true;

@@ -19,35 +19,38 @@ class _PairingCompleteState extends State<PairingComplete> {
     super.dispose();
   }
 
-  AppBar pairingcompleteappbar() => AppBar(
-        automaticallyImplyLeading: false,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            color: Colors.grey[700],
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+  AppBar pairingcompleteappbar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      leading: Container(
+        margin: const EdgeInsets.only(left: 10),
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.grey[700],
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Add Device',
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-          ),
+      ),
+      backgroundColor: Colors.white,
+      title: const Text(
+        'Add Device',
+        style: TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
         ),
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(
-              color: Colors.grey[200],
-              height: 2.0,
-            )),
-        centerTitle: true,
-      );
+      ),
+      bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[200],
+            height: 2.0,
+          )),
+      centerTitle: true,
+    );
+  }
+
   Center pairingcompletebody() {
     final pairingcompleteimage = Image.asset(
       'assets/images/pairing04_image.png',

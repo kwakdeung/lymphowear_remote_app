@@ -26,38 +26,40 @@ class _PairingFailedState extends State<PairingFailed> {
     super.dispose();
   }
 
-  AppBar pairingfailedappbar() => AppBar(
-        automaticallyImplyLeading: false,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            color: Colors.grey[700],
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => const PairingFailed())));
-            },
-          ),
+  AppBar pairingfailedappbar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      leading: Container(
+        margin: const EdgeInsets.only(left: 10),
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          color: Colors.grey[700],
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const PairingFailed())));
+          },
         ),
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Add Device',
-          style: TextStyle(
-            fontSize: 16,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600,
-          ),
+      ),
+      backgroundColor: Colors.white,
+      title: const Text(
+        'Add Device',
+        style: TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
         ),
-        bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: Container(
-              color: Colors.grey[200],
-              height: 2.0,
-            )),
-        centerTitle: true,
-      );
+      ),
+      bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[200],
+            height: 2.0,
+          )),
+      centerTitle: true,
+    );
+  }
 
   Center pairingfailedbody() {
     final pairingfailedimage = SvgPicture.asset(
