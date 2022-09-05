@@ -21,29 +21,53 @@ class _PairingPageState extends State<PairingPage> {
     super.dispose();
   }
 
-  AppBar pairingappbar() {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: const PairingPageAppbar(),
+      body: PairingPageBody(),
+    );
+  }
+}
+
+class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const PairingPageAppbar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  IconButton appbariconbutton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.close),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const HomeNone(),
+        ));
+      },
+    );
+  }
+
+  static const appbartitle = Text(
+    'Add Device',
+    style: TextStyle(
+      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w600,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.close),
-        color: Colors.grey[700],
-        onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const HomeNone(),
-          ));
-        },
-      ),
+      leading: appbariconbutton(context),
       backgroundColor: Colors.white,
       shadowColor: Colors.black,
-      title: const Text(
-        'Add Device',
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      title: appbartitle,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: preferredSize,
           child: Container(
             color: Colors.grey[200],
             height: 2.0,
@@ -51,29 +75,73 @@ class _PairingPageState extends State<PairingPage> {
       centerTitle: true,
     );
   }
+}
 
-  Center pairingbody() {
-    final pairingimage = SvgPicture.asset(
-      'assets/images/pairing01_image.svg',
+class PairingPageBody extends StatelessWidget {
+  PairingPageBody({Key? key}) : super(key: key);
+
+  final image = SvgPicture.asset(
+    'assets/images/pairing01_image.svg',
+  );
+
+  static const title = Text(
+    'Turn on the power of LymphoWear',
+    style: TextStyle(
+        fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+  );
+
+  static const content = Text(
+    "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
+    textAlign: TextAlign.center,
+    style: TextStyle(
+        color: Color(0xff757575),
+        fontSize: 14,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 59, 0, 32),
+              child: image,
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+              child: title,
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: content,
+            ),
+            const Spacer(),
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white,
+              ),
+              child: const PairingPageBottomButton(),
+            ),
+          ],
+        ),
+      ),
     );
+  }
+}
 
-    const pairingtitle = Text(
-      'Turn on the power of LymphoWear',
-      style: TextStyle(
-          fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w400),
-    );
+class PairingPageBottomButton extends StatelessWidget {
+  const PairingPageBottomButton({Key? key}) : super(key: key);
 
-    const pairingcontent = Text(
-      "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
-      textAlign: TextAlign.center,
-      style: TextStyle(
-          color: Color(0xff757575),
-          fontSize: 14,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400),
-    );
-
-    final pairingbottombutton = ElevatedButton(
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         primary: const Color(0xff008A40),
@@ -91,48 +159,6 @@ class _PairingPageState extends State<PairingPage> {
       child: const Text(
         'Start',
       ),
-    );
-
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 59, 0, 32),
-              child: pairingimage,
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-              child: pairingtitle,
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: pairingcontent,
-            ),
-            const Spacer(),
-            Container(
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-              ),
-              child: pairingbottombutton,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: pairingappbar(),
-      body: pairingbody(),
     );
   }
 }

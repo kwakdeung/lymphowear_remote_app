@@ -10,28 +10,48 @@ class VitalMode extends StatefulWidget {
 }
 
 class _VitalModeState extends State<VitalMode> {
-  AppBar vitalmodeappbar() {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const VitalModeAppbar(),
+      body: VitalModeBody(),
+    );
+  }
+}
+
+class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const VitalModeAppbar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  IconButton appbaricon(context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  static const appbartitle = Text(
+    'Vital Mode',
+    style: TextStyle(
+      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w600,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      title: const Text(
-        'Vital Mode',
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+          margin: const EdgeInsets.only(left: 10), child: appbaricon(context)),
+      title: appbartitle,
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(0),
+        preferredSize: preferredSize,
         child: Container(
           color: Colors.grey[200],
           height: 2.0,
@@ -40,78 +60,89 @@ class _VitalModeState extends State<VitalMode> {
       centerTitle: true,
     );
   }
+}
 
-  Container vitalmodebody() {
-    Container vitalmodeindicator() {
-      return Container(
-        margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
-        width: 150.0,
-        height: 150.0,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(999.0)),
-          border: Border.all(
-            color: const Color(0xffE0E0E0),
-            width: 1,
-          ),
+class VitalModeBody extends StatelessWidget {
+  VitalModeBody({Key? key}) : super(key: key);
+
+  Container vitalmodeindicator() {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
+      width: 150.0,
+      height: 150.0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(999.0)),
+        border: Border.all(
+          color: const Color(0xffE0E0E0),
+          width: 1,
         ),
-        child: const CircularIndicator(),
-      );
-    }
+      ),
+      child: const CircularIndicator(),
+    );
+  }
 
-    Row vitalmodetitle() {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 8),
-            child: SvgPicture.asset(
-              'assets/icons/ic_vital2.svg',
-              width: 24,
-              height: 24,
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.all(0.0),
-            child: const Text(
-              'Vital Mode',
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: "Poppins",
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          const Spacer(),
-          Container(
-            margin: const EdgeInsets.all(0.0),
-            child: const Text(
-              'Total Time : 15 mins',
-              style: TextStyle(
-                  color: Color(0xff9E9E9E),
-                  fontSize: 10,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w400),
-            ),
-          ),
-        ],
-      );
-    }
+  Row vitalmodetitle() {
+    final titleimage = SvgPicture.asset(
+      'assets/icons/ic_vital2.svg',
+      width: 24,
+      height: 24,
+    );
 
-    const vitalmodetext = Text(
-      'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+    const title = Text(
+      'Vital Mode',
       style: TextStyle(
-          color: Color(0xff616161),
-          fontSize: 12,
+        fontSize: 14,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w600,
+      ),
+    );
+
+    const titlecontent = Text(
+      'Total Time : 15 mins',
+      style: TextStyle(
+          color: Color(0xff9E9E9E),
+          fontSize: 10,
           fontFamily: "Poppins",
           fontWeight: FontWeight.w400),
     );
 
-    final vitalmodeimage = SvgPicture.asset(
-      'assets/images/mode_image.svg',
-      fit: BoxFit.fill,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          margin: const EdgeInsets.only(right: 8),
+          child: titleimage,
+        ),
+        Container(
+          margin: const EdgeInsets.all(0.0),
+          child: title,
+        ),
+        const Spacer(),
+        Container(
+          margin: const EdgeInsets.all(0.0),
+          child: titlecontent,
+        ),
+      ],
     );
+  }
 
+  static const vitalmodecontent = Text(
+    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+    style: TextStyle(
+        color: Color(0xff616161),
+        fontSize: 12,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  final vitalmodeimage = SvgPicture.asset(
+    'assets/images/mode_image.svg',
+    fit: BoxFit.fill,
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       color: const Color(0xffF3F3F3),
       child: Center(
@@ -151,7 +182,7 @@ class _VitalModeState extends State<VitalMode> {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: vitalmodetext,
+                      child: vitalmodecontent,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 128),
@@ -164,14 +195,6 @@ class _VitalModeState extends State<VitalMode> {
           ),
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: vitalmodeappbar(),
-      body: vitalmodebody(),
     );
   }
 }

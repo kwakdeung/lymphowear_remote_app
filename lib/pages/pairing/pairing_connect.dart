@@ -21,30 +21,55 @@ class _PairingConnectState extends State<PairingConnect> {
     super.dispose();
   }
 
-  AppBar pairingconnectappbar() {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: const PairingConnectAppbar(),
+      body: PairingConnectBody(),
+    );
+  }
+}
+
+class PairingConnectAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const PairingConnectAppbar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  IconButton appbariconbutton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  static const appbartitle = Text(
+    'Add Device',
+    style: TextStyle(
+      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w600,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        child: appbariconbutton(context),
       ),
       backgroundColor: Colors.white,
-      title: const Text(
-        'Add Device',
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      title: appbartitle,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: preferredSize,
           child: Container(
             color: Colors.grey[200],
             height: 2.0,
@@ -52,22 +77,61 @@ class _PairingConnectState extends State<PairingConnect> {
       centerTitle: true,
     );
   }
+}
 
-  Center pairingconnectbody() {
-    const pairingconnecttitle = Text(
-      'Confirm on the device',
-      style: TextStyle(
-        color: Color(0xff006E33),
-        fontSize: 16,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400,
+class PairingConnectBody extends StatelessWidget {
+  PairingConnectBody({Key? key}) : super(key: key);
+
+  static const title = Text(
+    'Confirm on the device',
+    style: TextStyle(
+      color: Color(0xff006E33),
+      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w400,
+    ),
+  );
+  final image = Image.asset('assets/images/pairing03_image.png');
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
+              child: title,
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: image,
+            ),
+            const Spacer(),
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Colors.white,
+              ),
+              child: const PairingConnectBottomButton(),
+            ),
+          ],
+        ),
       ),
     );
+  }
+}
 
-    final pairingconnectimage =
-        Image.asset('assets/images/pairing03_image.png');
+class PairingConnectBottomButton extends StatelessWidget {
+  const PairingConnectBottomButton({Key? key}) : super(key: key);
 
-    final pairingbottombutton = ElevatedButton(
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         primary: const Color(0xff008A40),
@@ -78,53 +142,14 @@ class _PairingConnectState extends State<PairingConnect> {
           fontWeight: FontWeight.w600,
         ),
       ),
-      onPressed: () => showProgressDialog('Pairing...'),
+      onPressed: () => showProgressDialog(context, 'Pairing...'),
       child: const Text(
         'Connect',
       ),
     );
-
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
-              child: pairingconnecttitle,
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: pairingconnectimage,
-            ),
-            const Spacer(),
-            Container(
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.white,
-              ),
-              child: pairingbottombutton,
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: pairingconnectappbar(),
-      body: pairingconnectbody(),
-    );
-  }
-
-  Future showProgressDialog(String message) async {
+  Future showProgressDialog(BuildContext context, String message) async {
     await showDialog(
       context: context,
       builder: (BuildContext context) {

@@ -23,19 +23,52 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
     super.dispose();
   }
 
-  AppBar homebluetoothappbar() {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
+      appBar: HomeBluetoothAppbar(),
+      body: const HomeBluetoothBody(),
+    );
+  }
+}
+
+class HomeBluetoothAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  HomeBluetoothAppbar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  final appbarimage = SvgPicture.asset(
+    'assets/images/lymphowear.svg',
+    fit: BoxFit.fill,
+  );
+
+  IconButton appbariconbutton(BuildContext context) {
+    return IconButton(
+        icon: SvgPicture.asset(
+          'assets/icons/ic_setting.svg',
+          fit: BoxFit.fill,
+        ),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const SettingPage())));
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       title: Container(
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-        child: SvgPicture.asset(
-          'assets/images/lymphowear.svg',
-          fit: BoxFit.fill,
-        ),
+        child: appbarimage,
       ),
       centerTitle: true,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: preferredSize,
           child: Container(
             color: Colors.grey[200],
             height: 2.0,
@@ -43,23 +76,39 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/icons/ic_setting.svg',
-                fit: BoxFit.fill,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => const SettingPage())));
-              }),
+          child: appbariconbutton(context),
         ),
       ],
     );
   }
+}
 
-  Center homebluetoothbody() {
+class HomeBluetoothBody extends StatelessWidget {
+  const HomeBluetoothBody({Key? key}) : super(key: key);
+
+  IconButton bluetoothicon() {
+    return IconButton(
+        icon: SvgPicture.asset(
+          'assets/icons/ic_bluetooth_off.svg',
+          fit: BoxFit.fill,
+          width: 32,
+          height: 32,
+          color: Colors.grey[600],
+        ),
+        onPressed: () {});
+  }
+
+  static const title = Text(
+    'Not connected',
+    style: TextStyle(
+        fontFamily: "Poppins",
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: Colors.grey),
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
         color: const Color(0xffF3F3F3),
@@ -71,48 +120,17 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 78, 0, 8),
-                child: IconButton(
-                    icon: SvgPicture.asset(
-                      'assets/icons/ic_bluetooth_off.svg',
-                      fit: BoxFit.fill,
-                      width: 32,
-                      height: 32,
-                      color: Colors.grey[600],
-                    ),
-                    onPressed: () {}),
+                child: bluetoothicon(),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                child: const Text(
-                  'Not connected',
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey),
-                ),
+                child: title,
               ),
               const Spacer(),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                    primary: Colors.white,
-                    side: const BorderSide(color: Color(0xff008A40)),
-                  ),
-                  onPressed: () {
-                    showProgressDialog('Connecting...');
-                  },
-                  child: const Text(
-                    'Connect',
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff008A40)),
-                  ),
-                ),
+                child: const HomeBluetoothBottomButton(),
               ),
             ],
           ),
@@ -120,18 +138,33 @@ class _HomeBluetoothState extends State<HomeBluetooth> {
       ),
     );
   }
+}
+
+class HomeBluetoothBottomButton extends StatelessWidget {
+  const HomeBluetoothBottomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: false,
-      appBar: homebluetoothappbar(),
-      body: homebluetoothbody(),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: Colors.white,
+        side: const BorderSide(color: Color(0xff008A40)),
+      ),
+      onPressed: () {
+        showProgressDialog(context, 'Connecting...');
+      },
+      child: const Text(
+        'Connect',
+        style: TextStyle(
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.bold,
+            color: Color(0xff008A40)),
+      ),
     );
   }
 
-  Future showProgressDialog(String message) async {
+  Future showProgressDialog(BuildContext context, String message) async {
     const firstcupertinaactivityindicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,

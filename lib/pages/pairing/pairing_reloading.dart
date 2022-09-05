@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 
 class PairingReloading extends StatefulWidget {
   const PairingReloading({
@@ -18,7 +17,7 @@ class _PairingReloadingState extends State<PairingReloading> {
   void initState() {
     Timer(const Duration(seconds: 1), () {
       Navigator.push(context,
-          MaterialPageRoute(builder: ((context) => const PairingFailed())));
+          MaterialPageRoute(builder: ((context) => const PairingConnect())));
     });
     super.initState();
   }
@@ -28,30 +27,54 @@ class _PairingReloadingState extends State<PairingReloading> {
     super.dispose();
   }
 
-  AppBar pairingloadingappbar() {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      appBar: PairingReloadingAppbar(),
+      body: PairingReloadingBody(),
+    );
+  }
+}
+
+class PairingReloadingAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const PairingReloadingAppbar({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  IconButton appbariconbutton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  static const appbartitle = Text(
+    'Add Device',
+    style: TextStyle(
+      fontSize: 16,
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w600,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+          margin: const EdgeInsets.only(left: 10),
+          child: appbariconbutton(context)),
       backgroundColor: Colors.white,
-      title: const Text(
-        'Add Device',
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      title: appbartitle,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: preferredSize,
           child: Container(
             color: Colors.grey[200],
             height: 2.0,
@@ -59,44 +82,33 @@ class _PairingReloadingState extends State<PairingReloading> {
       centerTitle: true,
     );
   }
+}
 
-  Center pairingloadingbody() {
-    var circularprogressindicator = CircularProgressIndicator(
-      color: Colors.green,
-      backgroundColor: Colors.green[50],
-    );
+class PairingReloadingBody extends StatefulWidget {
+  const PairingReloadingBody({Key? key}) : super(key: key);
 
-    Center pairingcontent = const Center(
-        child: Text(
-      'Searching for device...',
-      style: TextStyle(
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400,
-        color: Colors.black,
-      ),
-    ));
+  @override
+  State<PairingReloadingBody> createState() => _PairingReloadingBodyState();
+}
 
-    final pairingloadingbottombutton = ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        // fixedSize: const Size(320, 48),
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: const Color(0xffE0E0E0),
-        onPrimary: const Color(0xff757575),
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const PairingFailed())));
-      },
-      child: const Text(
-        'Stop',
-      ),
-    );
+class _PairingReloadingBodyState extends State<PairingReloadingBody> {
+  var circularprogressindicator = CircularProgressIndicator(
+    color: Colors.green,
+    backgroundColor: Colors.green[50],
+  );
 
+  static const loadingtext = Center(
+      child: Text(
+    'Searching for device...',
+    style: TextStyle(
+      fontFamily: "Poppins",
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+    ),
+  ));
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
         margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
@@ -109,31 +121,46 @@ class _PairingReloadingState extends State<PairingReloading> {
             ),
             Container(
               margin: const EdgeInsets.all(0.0),
-              child: pairingcontent,
+              child: loadingtext,
             ),
             const Spacer(),
             Container(
-              // margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
               width: double.infinity,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: pairingloadingbottombutton,
+              child: const PairingLodingBottomButton(),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+class PairingLodingBottomButton extends StatelessWidget {
+  const PairingLodingBottomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      appBar: pairingloadingappbar(),
-      body: pairingloadingbody(),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        primary: const Color(0xffE0E0E0),
+        onPrimary: const Color(0xff757575),
+        textStyle: const TextStyle(
+          fontSize: 16,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      child: const Text(
+        'Stop',
+      ),
     );
   }
 }
