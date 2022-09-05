@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingReloading extends StatefulWidget {
   const PairingReloading({
@@ -50,7 +51,9 @@ class PairingReloadingAppbar extends StatelessWidget
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const PairingPage(),
+        ));
       },
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_reloading.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -51,8 +52,9 @@ class PairingFailedAppbar extends StatelessWidget
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const PairingFailed())));
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const PairingPage(),
+        ));
       },
     );
   }

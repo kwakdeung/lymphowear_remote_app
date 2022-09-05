@@ -93,7 +93,7 @@ class HomeBluetoothBody extends StatelessWidget {
           fit: BoxFit.fill,
           width: 32,
           height: 32,
-          color: Colors.grey[600],
+          color: const Color(0xff9E9E9E),
         ),
         onPressed: () {});
   }
@@ -104,7 +104,7 @@ class HomeBluetoothBody extends StatelessWidget {
         fontFamily: "Poppins",
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.grey),
+        color: Color(0xff9E9E9E)),
   );
 
   @override
