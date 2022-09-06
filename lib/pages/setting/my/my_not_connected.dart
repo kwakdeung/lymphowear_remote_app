@@ -25,10 +25,10 @@ class _MyNotConnectedState extends State<MyNotConnected> {
       setState(() {
         connecttext = "Connecting...";
       });
-      Timer(const Duration(seconds: 3), () {
-        debugPrint("Timer 테스트");
+      Future.delayed(const Duration(seconds: 3), () {
+        debugPrint("Future.delayed 테스트");
         setState(() {
-          debugPrint("Timer 후 결과");
+          debugPrint("Future.delayed 결과");
           _isLoading = false;
           _isConnected = true;
           connecttext = "Connected";
