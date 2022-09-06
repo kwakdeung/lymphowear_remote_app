@@ -16,7 +16,7 @@ class PairingReloading extends StatefulWidget {
 class _PairingReloadingState extends State<PairingReloading> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(context,
           MaterialPageRoute(builder: ((context) => const PairingConnect())));
     });

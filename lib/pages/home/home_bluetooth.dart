@@ -219,10 +219,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
             fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w600),
       ),
       onPressed: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeNone()),
-        );
+        Navigator.pop(context);
       },
       child: const Text('Cancel'),
     );
