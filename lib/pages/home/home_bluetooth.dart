@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/home/home_default.dart';
-import 'package:lymphowear_remote_app/pages/home_none.dart';
+
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class HomeBluetooth extends StatefulWidget {

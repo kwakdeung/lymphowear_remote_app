@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class MyNotConnected extends StatefulWidget {
   const MyNotConnected({Key? key}) : super(key: key);
@@ -364,7 +365,13 @@ class _MyNotConnectedState extends State<MyNotConnected> {
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w600),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => const SettingPage()),
+                              ));
+                        },
                         label: const Text('Delete'),
                       ),
                     ),
