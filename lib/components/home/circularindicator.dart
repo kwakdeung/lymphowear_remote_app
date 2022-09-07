@@ -58,17 +58,20 @@ class _CircularIndicatorState extends State<CircularIndicator>
       vsync: this,
       duration: const Duration(seconds: 10),
     );
+
     controller.addListener(() {
       if (controller.isAnimating) {
-        setState(() {
-          // progress = controller.value;
-        });
+        debugPrint(countText);
+
+        setState(() {});
       } else {
         setState(() {
-          progress = 0;
+          progress = 1;
+
           isPlaying = false;
         });
       }
+      timealertdialog();
     });
 
     super.initState();
@@ -78,6 +81,14 @@ class _CircularIndicatorState extends State<CircularIndicator>
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+
+  void timealertdialog() {
+    if (controller.value == 0.0) {
+      controller.stop();
+      debugPrint("체크");
+      _timeAlertDialog(context, "Total Time: 15mins");
+    }
   }
 
   Visibility circularprogressindicator() {
@@ -150,9 +161,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
             } else {
               controller.reverse(
                   from: controller.value == 0 ? 1.0 : controller.value);
-              if (countText == "00:10") {
-                _timeAlertDialog(context, "Total Time: 15mins");
-              }
+
               setState(() {
                 circularvisible = true;
                 isPlaying = true;
@@ -195,7 +204,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                           padding: const EdgeInsets.symmetric(
                               horizontal: 5, vertical: 10),
                           child: playpausebutton(),
-                        )
+                        ),
                       ],
                     ),
                   ),
