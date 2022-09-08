@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
@@ -22,6 +21,8 @@ class _CircularIndicatorState extends State<CircularIndicator>
   String get countText {
     // int seconds = (900.0 * controller.value).toInt();
     int seconds = (10.0 * controller.value).toInt();
+
+    print(seconds - 1);
 
     var initstate = controller.duration!;
 
@@ -109,27 +110,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
     height: 10,
   );
 
-  GestureDetector timer() {
-    return GestureDetector(
-      onTap: () {
-        if (controller.isDismissed) {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) => Container(
-              margin: const EdgeInsets.all(0.0),
-              height: 150,
-              child: CupertinoTimerPicker(
-                initialTimerDuration: controller.duration!,
-                onTimerDurationChanged: (time) {
-                  setState(() {
-                    controller.duration = time;
-                  });
-                },
-              ),
-            ),
-          );
-        }
-      },
+  Container timer() {
+    return Container(
+      margin: const EdgeInsets.all(0.0),
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) => Text(
