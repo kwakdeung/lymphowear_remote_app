@@ -15,20 +15,6 @@ class PairingReloading extends StatefulWidget {
 
 class _PairingReloadingState extends State<PairingReloading> {
   @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: ((context) => const PairingConnect())));
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       resizeToAvoidBottomInset: false,
@@ -94,11 +80,44 @@ class PairingReloadingBody extends StatefulWidget {
   State<PairingReloadingBody> createState() => _PairingReloadingBodyState();
 }
 
-class _PairingReloadingBodyState extends State<PairingReloadingBody> {
-  var circularprogressindicator = CircularProgressIndicator(
-    color: Colors.green,
-    backgroundColor: Colors.green[50],
-  );
+class _PairingReloadingBodyState extends State<PairingReloadingBody>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..addListener(() {
+        nextpage();
+        setState(() {});
+      });
+    controller.forward();
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  void nextpage() {
+    if (controller.value == 1) {
+      controller.stop();
+      Navigator.push(context,
+          MaterialPageRoute(builder: ((context) => const PairingConnect())));
+    }
+  }
+
+  CircularProgressIndicator circularprogressindicator() {
+    return CircularProgressIndicator(
+      value: controller.value,
+      color: Colors.green,
+      backgroundColor: Colors.green[50],
+    );
+  }
 
   static const loadingtext = Center(
       child: Text(
@@ -120,7 +139,7 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody> {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-              child: circularprogressindicator,
+              child: circularprogressindicator(),
             ),
             Container(
               margin: const EdgeInsets.all(0.0),
