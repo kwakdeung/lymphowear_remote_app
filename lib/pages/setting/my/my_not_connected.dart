@@ -312,7 +312,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
           Container(
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
             width: double.infinity,
-            child: MyNotConnectedBottomButton(),
+            child: const MyNotConnectedBottomButton(),
           ),
         ],
       ),
@@ -320,13 +320,8 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   }
 }
 
-class MyNotConnectedBottomButton extends StatelessWidget {
-  MyNotConnectedBottomButton({Key? key}) : super(key: key);
-
-  final iconimage = SvgPicture.asset(
-    "assets/icons/ic_trash.svg",
-    color: const Color(0xff757575),
-  );
+class MyNotConnectedBottomButton extends StatefulWidget {
+  const MyNotConnectedBottomButton({Key? key}) : super(key: key);
 
   static const buttontext = Text(
     'Delete device',
@@ -339,13 +334,25 @@ class MyNotConnectedBottomButton extends StatelessWidget {
   );
 
   @override
+  State<MyNotConnectedBottomButton> createState() =>
+      _MyNotConnectedBottomButtonState();
+}
+
+class _MyNotConnectedBottomButtonState
+    extends State<MyNotConnectedBottomButton> {
+  final iconimage = SvgPicture.asset(
+    "assets/icons/ic_trash.svg",
+    color: const Color(0xff757575),
+  );
+
+  @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
         showProgressDialog(context);
       },
       icon: iconimage,
-      label: buttontext,
+      label: MyNotConnectedBottomButton.buttontext,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         primary: const Color(0xffE0E0E0),
