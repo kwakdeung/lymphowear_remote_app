@@ -22,7 +22,8 @@ class _CircularIndicatorState extends State<CircularIndicator>
     // int seconds = (900.0 * controller.value).toInt();
     int seconds = (10.0 * controller.value).toInt();
 
-    print(seconds - 1);
+    print(seconds--);
+    print(seconds++);
 
     var initstate = controller.duration!;
 
@@ -43,6 +44,8 @@ class _CircularIndicatorState extends State<CircularIndicator>
     //     ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
     //     : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
   }
+
+  set countText(String value) {}
 
   double progress = 1.0;
 
@@ -188,6 +191,13 @@ class _CircularIndicatorState extends State<CircularIndicator>
                               horizontal: 5, vertical: 10),
                           child: playpausebutton(),
                         ),
+                        // ElevatedButton(
+                        //     child: Text("-"),
+                        //     onPressed: () {
+                        //       setState(() {
+                        //         // countText
+                        //       });
+                        //     }),
                       ],
                     ),
                   ),
@@ -278,3 +288,32 @@ Future _timeAlertDialog(BuildContext context, String message) async {
             child: timealertdialog);
       });
 }
+
+// String get countText {
+//   // int seconds = (900.0 * controller.value).toInt();
+//   int seconds = (10.0 * controller.value).toInt();
+
+//   print(seconds--);
+//   print(seconds++);
+
+//   var initstate = controller.duration!;
+
+//   var initstatemin = (initstate.inSeconds ~/ 60).toString().padLeft(2, '0');
+
+//   var initstatesec = (initstate.inSeconds % 60).toString().padLeft(2, '0');
+
+//   var min = (seconds ~/ 60).toString().padLeft(2, '0');
+//   var sec = (seconds % 60).toString().padLeft(2, '0');
+
+//   return controller.isDismissed ? '$initstatemin:$initstatesec' : '$min:$sec';
+
+//   // return "$min:$sec";
+
+//   // Duration count = controller.duration! * controller.value;
+
+//   // return controller.isDismissed
+//   //     ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
+//   //     : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
+// }
+
+

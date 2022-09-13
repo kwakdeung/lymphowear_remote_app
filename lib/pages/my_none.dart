@@ -23,8 +23,8 @@ class _MyNoneState extends State<MyNone> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: MyNoneAppbar(),
+    return Scaffold(
+      appBar: const MyNoneAppbar(),
       body: MyNoneBody(),
     );
   }
@@ -71,7 +71,32 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class MyNoneBody extends StatelessWidget {
-  const MyNoneBody({Key? key}) : super(key: key);
+  MyNoneBody({Key? key}) : super(key: key);
+
+  static const title = Text(
+    "There’s no device connected.",
+    textAlign: TextAlign.center,
+    style: TextStyle(
+        color: Color(0xff212121),
+        fontSize: 16,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  static const content = Text(
+    "Press the button and\nconnect to the device.",
+    textAlign: TextAlign.center,
+    style: TextStyle(
+        color: Color(0xff757575),
+        fontSize: 14,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  final image = SvgPicture.asset(
+    'assets/images/none_image.svg',
+    fit: BoxFit.fill,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -85,33 +110,15 @@ class MyNoneBody extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
-              child: const Text(
-                "There’s no device connected.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color(0xff212121),
-                    fontSize: 16,
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.w400),
-              ),
+              child: title,
             ),
             Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-                child: const Text(
-                  "Press the button and\nconnect to the device.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color(0xff757575),
-                      fontSize: 14,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400),
-                )),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+              child: content,
+            ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: SvgPicture.asset(
-                'assets/images/none_image.svg',
-                fit: BoxFit.fill,
-              ),
+              child: image,
             ),
             const Spacer(),
             Container(

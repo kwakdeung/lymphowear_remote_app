@@ -14,6 +14,25 @@ class OnboardingContents extends StatefulWidget {
 }
 
 class _OnboardingContentsState extends State<OnboardingContents> {
+  get image => Image.asset(
+        widget.image,
+      );
+
+  get title => Text(
+        widget.title,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      );
+
+  get description => Text(
+        widget.description,
+        textAlign: TextAlign.center,
+        style: const TextStyle(color: Colors.grey),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,29 +44,16 @@ class _OnboardingContentsState extends State<OnboardingContents> {
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
             padding: const EdgeInsets.all(0.0),
-            child: Image.asset(
-              widget.image,
-            ),
+            child: image,
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
             padding: const EdgeInsets.all(0.0),
-            child: Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: title,
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: Text(
-              widget.description,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.grey),
-            ),
+            child: description,
           ),
         ],
       ),

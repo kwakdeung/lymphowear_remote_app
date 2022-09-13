@@ -17,13 +17,37 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'LymphoWear',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: lightColorScheme,
-        ),
-        themeMode: ThemeMode.system,
-        home: const SplashScreenPage());
+      debugShowCheckedModeBanner: false,
+      title: 'LymphoWear',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: lightColorScheme,
+      ),
+      themeMode: ThemeMode.system,
+      home: const SplashScreenPage(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => const SplashScreenPage(),
+      //   '/onboarding': (context) => const OnboardingPage(),
+      //   '/homenone': (context) => const HomeNone(),
+      //   '/pairing': (context) => const PairingPage(),
+      //   '/loading': (context) => const PairingLoading(),
+      //   '/failed': (context) => const PairingFailed(),
+      //   '/reloading': (context) => const PairingReloading(), // settting
+      //   '/connect': (context) => const PairingConnect(),
+      //   '/complete': (context) => const PairingComplete(),
+      //   '/reflesh': (context) => const HomeRefresh(),
+      //   '/bluetooth': (context) => const HomeBluetooth(),
+      //   '/default': (context) => const HomeDefault(),
+      //   '/vital': (context) => const VitalMode(),
+      //   '/relaxing': (context) => const RelaxingMode(),
+      //   '/sleeping': (context) => const SleepingMode(),
+      //   '/setting': (context) => const SettingPage(),
+      //   '/mynone': (context) => const MyNone(),
+      //   '/mynotconnected': (context) => const MyNotConnected(),
+      //   '/alarmpage': (context) => const AlarmPage(),
+      //   '/morning': (context) => const Morning(),
+      // },
+    );
   }
 }
