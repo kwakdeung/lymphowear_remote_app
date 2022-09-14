@@ -16,7 +16,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   late CircularIndicator circularindicator;
 
   static const lymphowearstatetitle = Text(
-    'Manual Mode',
+    'Custom Mode',
     style: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
   );
   Timer? _timer;
@@ -174,7 +174,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                                 ),
                               ),
                               Container(
-                                margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                                margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                                 child: Text(
                                   text,
                                   style: const TextStyle(
