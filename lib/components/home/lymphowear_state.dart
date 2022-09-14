@@ -78,8 +78,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       child: ElevatedButton(
         onPressed: () {
           if (_countedSeconds > 0 &&
-              _timerStart == false &&
-              timerRunning == false) {
+              (_timerStart == false && timerRunning == false)) {
             setState(() {
               _countedSeconds--;
             });
@@ -112,8 +111,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       child: ElevatedButton(
         onPressed: () {
           if (_countedSeconds < 10 &&
-              _timerStart == false &&
-              timerRunning == false) {
+              (_timerStart == false && timerRunning == false)) {
             setState(() {
               _countedSeconds++;
             });
