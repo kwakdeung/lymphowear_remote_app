@@ -20,6 +20,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     'Custom Mode',
     style: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
   );
+
   Timer? _timer;
 
   int _countedSeconds = 10;
@@ -32,7 +33,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
   get text {
     var min = (_countedSeconds ~/ 60).toString().padLeft(2, '0');
-    var sec = _countedSeconds.remainder(60).toString().padLeft(2, '0');
+    var sec = (_countedSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
   }
 
@@ -179,7 +180,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                               backgroundColor:
                                   const Color(0xff0BB15D).withOpacity(0.16),
                               strokeWidth: 6,
-                              value: 1.0 - _countedSeconds.remainder(60) / 10,
+                              value: 1.0 - (_countedSeconds % 60) / 10,
                               valueColor: const AlwaysStoppedAnimation<Color>(
                                   Color(0xff0BB15D)),
                             ),
