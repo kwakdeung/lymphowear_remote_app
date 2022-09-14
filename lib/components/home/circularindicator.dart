@@ -109,8 +109,8 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
   final batteryimage = SvgPicture.asset(
     'assets/images/battery.svg',
-    width: 20,
-    height: 10,
+    width: 30,
+    height: 12,
   );
 
   Container timer() {
