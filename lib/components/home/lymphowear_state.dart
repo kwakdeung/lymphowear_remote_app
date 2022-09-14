@@ -87,15 +87,18 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color:
-                    _countedSeconds > 0 ? Color(0xff212121) : Color(0xffE0E0E0),
+                color: _countedSeconds > 0
+                    ? const Color(0xff212121)
+                    : const Color(0xffE0E0E0),
                 width: 2),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(8),
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
-          color: _countedSeconds > 0 ? Color(0xff212121) : Color(0xffE0E0E0),
+          color: _countedSeconds > 0
+              ? const Color(0xff212121)
+              : const Color(0xffE0E0E0),
         ),
       ),
     );
@@ -119,8 +122,8 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         style: ElevatedButton.styleFrom(
             side: BorderSide(
                 color: _countedSeconds < 10
-                    ? Color(0xff212121)
-                    : Color(0xffE0E0E0),
+                    ? const Color(0xff212121)
+                    : const Color(0xffE0E0E0),
                 width: 2),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(8),
@@ -129,7 +132,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
           'assets/icons/ic_plus.svg',
           color: _countedSeconds < 10
               ? const Color(0xff212121)
-              : Color(0xffE0E0E0),
+              : const Color(0xffE0E0E0),
         ),
       ),
     );
