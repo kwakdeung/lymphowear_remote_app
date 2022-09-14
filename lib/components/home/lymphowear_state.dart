@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
 
@@ -39,21 +40,34 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   void startTimer() {
     _timerStart = true;
     timerRunning = true;
-    _timer?.cancel();
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
+        print(text);
+        print(_countedSeconds);
         if (_countedSeconds > 0) {
           _countedSeconds--;
         }
         timedDuration = Duration(seconds: _countedSeconds);
+        timealertdialog();
       });
     });
+    print(text);
+    print(_countedSeconds);
+    timealertdialog();
   }
 
   void stopTimer() {
     timerRunning = false;
-    _timer?.cancel();
+    _timer!.cancel();
+  }
+
+  void timealertdialog() {
+    if (text == "00:00") {
+      _timer!.cancel();
+      debugPrint("체크");
+      _timeAlertDialog(context, "Total Time: 15mins");
+    }
   }
 
   Container minusbutton() {
@@ -72,12 +86,16 @@ class _LymphoWearStateState extends State<LymphoWearState> {
           }
         },
         style: ElevatedButton.styleFrom(
-            side: const BorderSide(color: Color(0xff212121), width: 2),
+            side: BorderSide(
+                color:
+                    _countedSeconds > 0 ? Color(0xff212121) : Color(0xffE0E0E0),
+                width: 2),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(8),
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
+          color: _countedSeconds > 0 ? Color(0xff212121) : Color(0xffE0E0E0),
         ),
       ),
     );
@@ -99,12 +117,19 @@ class _LymphoWearStateState extends State<LymphoWearState> {
           }
         },
         style: ElevatedButton.styleFrom(
-            side: const BorderSide(color: Color(0xff212121), width: 2),
+            side: BorderSide(
+                color: _countedSeconds < 10
+                    ? Color(0xff212121)
+                    : Color(0xffE0E0E0),
+                width: 2),
             shape: const CircleBorder(),
             padding: const EdgeInsets.all(8),
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_plus.svg',
+          color: _countedSeconds < 10
+              ? const Color(0xff212121)
+              : Color(0xffE0E0E0),
         ),
       ),
     );
@@ -239,4 +264,81 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       ],
     );
   }
+}
+
+Future _timeAlertDialog(BuildContext context, String message) async {
+  const timealertdialogtitle = Text(
+    "Great job!",
+    style: TextStyle(
+        color: Color(0xff212121),
+        fontSize: 20,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w600),
+  );
+
+  final timealertdialogimage = Lottie.asset(
+    'assets/images/great_job.json',
+    width: 140,
+    height: 72,
+  );
+
+  final timealertdialogcontent = Text(
+    message,
+    textAlign: TextAlign.center,
+    style: const TextStyle(
+        color: Color(0xff9E9E9E),
+        fontSize: 14,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  final timealertdialogbottombutton = ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(999),
+      ),
+      primary: const Color(0xff008A40),
+      onPrimary: Colors.white,
+      textStyle: const TextStyle(
+          fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w600),
+    ),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+    child: const Text('Done'),
+  );
+
+  var timealertdialog = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      title: const Center(child: timealertdialogtitle),
+      content: Container(
+        margin: const EdgeInsets.all(0.0),
+        height: 100,
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 7),
+              child: timealertdialogimage,
+            ),
+            timealertdialogcontent,
+          ],
+        ),
+      ),
+      actions: [
+        Container(
+          width: double.maxFinite,
+          margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+          child: timealertdialogbottombutton,
+        ),
+      ]);
+
+  await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Theme(
+            data: ThemeData(dialogBackgroundColor: Colors.white),
+            child: timealertdialog);
+      });
 }
