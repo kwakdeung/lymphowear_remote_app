@@ -24,7 +24,6 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
   int _countedSeconds = 10;
 
-  Duration timedDuration = const Duration(seconds: 10);
   bool _timerStart = false;
   bool timerRunning = false;
   bool circularVisible = false;
@@ -48,7 +47,6 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         if (_countedSeconds > 0) {
           _countedSeconds--;
         }
-        timedDuration = Duration(seconds: _countedSeconds);
         timealertdialog();
       });
     });
