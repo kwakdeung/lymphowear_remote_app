@@ -31,7 +31,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   bool isPlaying = false;
 
   get text {
-    var min = (_countedSeconds ~/ 60).toString();
+    var min = (_countedSeconds ~/ 60).toString().padLeft(2, '0');
     var sec = _countedSeconds.remainder(60).toString().padLeft(2, '0');
     return '$min:$sec';
   }
