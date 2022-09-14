@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
