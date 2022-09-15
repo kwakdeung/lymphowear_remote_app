@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
@@ -14,8 +12,8 @@ class RelaxingMode extends StatefulWidget {
 class _RelaxingModeState extends State<RelaxingMode> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const RelaxingModeAppbar(),
+    return const Scaffold(
+      appBar: RelaxingModeAppbar(),
       body: RelaxingModeBody(),
     );
   }
@@ -65,9 +63,22 @@ class RelaxingModeAppbar extends StatelessWidget
   }
 }
 
-class RelaxingModeBody extends StatelessWidget {
-  RelaxingModeBody({Key? key}) : super(key: key);
+class RelaxingModeBody extends StatefulWidget {
+  const RelaxingModeBody({Key? key}) : super(key: key);
 
+  static const relaxingmodetext = Text(
+      'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
+      style: TextStyle(
+          color: Color(0xff616161),
+          fontSize: 12,
+          fontFamily: "Poppins",
+          fontWeight: FontWeight.w400));
+
+  @override
+  State<RelaxingModeBody> createState() => _RelaxingModeBodyState();
+}
+
+class _RelaxingModeBodyState extends State<RelaxingModeBody> {
   Container relaxingmodeindicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
@@ -128,14 +139,6 @@ class RelaxingModeBody extends StatelessWidget {
     );
   }
 
-  static const relaxingmodetext = Text(
-      'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
-      style: TextStyle(
-          color: Color(0xff616161),
-          fontSize: 12,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400));
-
   final relaxingmodeimage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
@@ -181,7 +184,7 @@ class RelaxingModeBody extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.black12, width: 0),
                       ),
-                      child: relaxingmodetext,
+                      child: RelaxingModeBody.relaxingmodetext,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 96),

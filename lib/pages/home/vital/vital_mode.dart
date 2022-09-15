@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
@@ -14,8 +12,8 @@ class VitalMode extends StatefulWidget {
 class _VitalModeState extends State<VitalMode> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const VitalModeAppbar(),
+    return const Scaffold(
+      appBar: VitalModeAppbar(),
       body: VitalModeBody(),
     );
   }
@@ -62,9 +60,23 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class VitalModeBody extends StatelessWidget {
-  VitalModeBody({Key? key}) : super(key: key);
+class VitalModeBody extends StatefulWidget {
+  const VitalModeBody({Key? key}) : super(key: key);
 
+  static const vitalmodecontent = Text(
+    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+    style: TextStyle(
+        color: Color(0xff616161),
+        fontSize: 12,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  @override
+  State<VitalModeBody> createState() => _VitalModeBodyState();
+}
+
+class _VitalModeBodyState extends State<VitalModeBody> {
   Container vitalmodeindicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
@@ -125,15 +137,6 @@ class VitalModeBody extends StatelessWidget {
     );
   }
 
-  static const vitalmodecontent = Text(
-    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
-    style: TextStyle(
-        color: Color(0xff616161),
-        fontSize: 12,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
-
   final vitalmodeimage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
@@ -180,7 +183,7 @@ class VitalModeBody extends StatelessWidget {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: vitalmodecontent,
+                      child: VitalModeBody.vitalmodecontent,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 128),

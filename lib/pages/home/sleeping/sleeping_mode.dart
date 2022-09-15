@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
@@ -14,8 +12,8 @@ class SleepingMode extends StatefulWidget {
 class _SleepingModeState extends State<SleepingMode> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SleepingModeAppbar(),
+    return const Scaffold(
+      appBar: SleepingModeAppbar(),
       body: SleepingModeBody(),
     );
   }
@@ -64,9 +62,23 @@ class SleepingModeAppbar extends StatelessWidget
   }
 }
 
-class SleepingModeBody extends StatelessWidget {
-  SleepingModeBody({Key? key}) : super(key: key);
+class SleepingModeBody extends StatefulWidget {
+  const SleepingModeBody({Key? key}) : super(key: key);
 
+  static const sleepingmodetext = Text(
+    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
+    style: TextStyle(
+        color: Color(0xff616161),
+        fontSize: 12,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400),
+  );
+
+  @override
+  State<SleepingModeBody> createState() => _SleepingModeBodyState();
+}
+
+class _SleepingModeBodyState extends State<SleepingModeBody> {
   Container sleepingmodeindicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
@@ -127,15 +139,6 @@ class SleepingModeBody extends StatelessWidget {
     );
   }
 
-  static const sleepingmodetext = Text(
-    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
-    style: TextStyle(
-        color: Color(0xff616161),
-        fontSize: 12,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
-
   final sleepingmodeimage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
@@ -181,7 +184,7 @@ class SleepingModeBody extends StatelessWidget {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: sleepingmodetext,
+                      child: SleepingModeBody.sleepingmodetext,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 80),
