@@ -14,8 +14,6 @@ class PairingFailed extends StatefulWidget {
 class _PairingFailedState extends State<PairingFailed> {
   bool isButtonActive = true;
   late PageController pageController;
-  int pageIndex = 0;
-  int curIndex = 0;
 
   @override
   void initState() {

@@ -16,7 +16,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
   late AnimationController controller;
 
   bool isPlaying = false;
-  bool circularvisible = false;
+  bool circularVisible = false;
 
   String get countText {
     // int seconds = (900.0 * controller.value).toInt();
@@ -82,7 +82,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
   Visibility circularprogressIndicator() {
     return Visibility(
-      visible: circularvisible,
+      visible: circularVisible,
       child: CircularProgressIndicator(
         value: 1.0 - controller.value,
         backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
@@ -137,7 +137,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
                   from: controller.value == 0 ? 1.0 : controller.value);
 
               setState(() {
-                circularvisible = true;
+                circularVisible = true;
                 isPlaying = true;
               });
             }
