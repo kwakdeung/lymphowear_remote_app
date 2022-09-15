@@ -96,7 +96,7 @@ class HomeNoneBody extends StatelessWidget {
     return Text(
       "Press the button and\nconnect to the device.",
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyText1,
+      style: Theme.of(context).textTheme.bodyText2,
     );
   }
 

@@ -104,7 +104,7 @@ class PairingFailedBody extends StatelessWidget {
     return Text(
       "Make sure device is turned on\nand in range.",
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyText1,
+      style: Theme.of(context).textTheme.bodyText2,
     );
   }
 

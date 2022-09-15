@@ -93,7 +93,7 @@ class PairingPageBody extends StatelessWidget {
     return Text(
       "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyText1,
+      style: Theme.of(context).textTheme.bodyText2,
     );
   }
 

@@ -95,7 +95,7 @@ class PairingCompleteBody extends StatelessWidget {
   Text content(context) {
     return Text(
       "Let's start LymphoWear",
-      style: Theme.of(context).textTheme.bodyText1,
+      style: Theme.of(context).textTheme.bodyText2,
     );
   }
 
