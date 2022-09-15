@@ -108,6 +108,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       color: Color(0xff212121),
+                      fontFamily: "Poppins",
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
                 ),
@@ -130,7 +131,9 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                               primary: Colors.white,
                               onPrimary: const Color(0xff757575),
                               textStyle: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
+                                  fontFamily: "Poppins",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600),
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -149,7 +152,9 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                               primary: const Color(0xff008A40),
                               onPrimary: Colors.white,
                               textStyle: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
+                                  fontFamily: "Poppins",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600),
                             ),
                             onPressed: () {
                               Navigator.pop(context);

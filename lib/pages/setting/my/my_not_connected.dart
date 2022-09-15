@@ -366,7 +366,10 @@ class _MyNotConnectedBottomButtonState
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: const Text(
                   'Delete to this device',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ),
@@ -390,7 +393,9 @@ class _MyNotConnectedBottomButtonState
                           primary: Colors.white,
                           onPrimary: const Color(0xff757575),
                           textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600),
+                              fontFamily: "Poppins",
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -412,7 +417,9 @@ class _MyNotConnectedBottomButtonState
                           primary: Colors.white,
                           onPrimary: const Color(0xffBB0000),
                           textStyle: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600),
+                              fontFamily: "Poppins",
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(

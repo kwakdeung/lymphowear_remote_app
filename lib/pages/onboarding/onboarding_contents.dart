@@ -31,7 +31,9 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   get description => Text(
         widget.description,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: Colors.grey),
+        style: const TextStyle(
+          color: Colors.grey,
+        ),
       );
 
   @override

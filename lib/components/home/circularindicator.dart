@@ -196,7 +196,10 @@ Future _timeAlertDialog(BuildContext context, String message) async {
   const timealertdialogtitle = Text(
     "Great job!",
     style: TextStyle(
-        color: Color(0xff212121), fontSize: 20, fontWeight: FontWeight.w600),
+        fontFamily: "Poppins",
+        color: Color(0xff212121),
+        fontSize: 20,
+        fontWeight: FontWeight.w600),
   );
 
   final timealertdialogimage = Lottie.asset(
@@ -210,7 +213,10 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
-        color: Color(0xff9E9E9E), fontSize: 14, fontWeight: FontWeight.w400),
+        fontFamily: "Poppins",
+        color: Color(0xff9E9E9E),
+        fontSize: 14,
+        fontWeight: FontWeight.w400),
   );
 
   final timealertdialogbottombutton = ElevatedButton(
@@ -221,7 +227,8 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       ),
       primary: const Color(0xff008A40),
       onPrimary: Colors.white,
-      textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+      textStyle: const TextStyle(
+          fontFamily: "Poppins", fontSize: 14, fontWeight: FontWeight.w600),
     ),
     onPressed: () {
       Navigator.pop(context);

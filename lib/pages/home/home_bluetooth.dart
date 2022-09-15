@@ -194,9 +194,9 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
     );
 
-    const secondalertdialogtitle = Text(
+    Text secondalertdialogtitle = Text(
       'Failed to Connect',
-      style: TextStyle(fontSize: 14),
+      style: Theme.of(context).textTheme.subtitle1,
     );
 
     final secondcanclebutton = ElevatedButton(
@@ -233,7 +233,10 @@ class HomeBluetoothBottomButton extends StatelessWidget {
               builder: ((context) => const HomeDefault()),
             ));
       },
-      child: const Text('Try Again'),
+      child: const Text(
+        'Try Again',
+        style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+      ),
     );
 
     var secondalertdialog = AlertDialog(
