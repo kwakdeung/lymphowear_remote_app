@@ -156,8 +156,7 @@ class PairingFailedBottomButton extends StatelessWidget {
         primary: Colors.white,
         onPrimary: const Color(0xff008A40),
         surfaceTintColor: Colors.white,
-        textStyle: const TextStyle(
-            fontFamily: "Poppins", fontWeight: FontWeight.bold, fontSize: 16),
+        textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         side: const BorderSide(color: Color(0xff008A40)),
       ),
       onPressed: () {

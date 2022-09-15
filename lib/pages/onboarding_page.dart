@@ -98,9 +98,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       primary: const Color(0xff008A40),
                       onPrimary: Colors.white,
                       textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w600),
+                          fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                     child: const Text('Skip'),
                   ),

@@ -173,7 +173,6 @@ class MyNoneBottomButton extends StatelessWidget {
         style: TextStyle(
           color: Color(0xff008A40),
           fontSize: 16,
-          fontFamily: "Poppins",
           fontWeight: FontWeight.w600,
         ),
       ),

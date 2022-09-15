@@ -128,10 +128,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       },
       child: const Text(
         'Connect',
-        style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff008A40)),
+        style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xff008A40)),
       ),
     );
 
@@ -158,7 +155,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
                 style: const TextStyle(
                   color: Color(0xff616161),
                   fontSize: 12,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -195,7 +191,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff757575),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
       tileColor: Colors.white,
@@ -205,7 +200,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
     );
@@ -219,7 +213,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff757575),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
       tileColor: Colors.white,
@@ -229,7 +222,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
     );
@@ -243,7 +235,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff757575),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
       tileColor: Colors.white,
@@ -253,7 +244,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
     );
@@ -267,7 +257,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff757575),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
       tileColor: Colors.white,
@@ -277,7 +266,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 14,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
       ),
     );
@@ -332,7 +320,6 @@ class MyNotConnectedBottomButton extends StatefulWidget {
     style: TextStyle(
       color: Color(0xff757575),
       fontSize: 16,
-      fontFamily: "Poppins",
       fontWeight: FontWeight.w600,
     ),
   );
@@ -379,7 +366,7 @@ class _MyNotConnectedBottomButtonState
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: const Text(
                   'Delete to this device',
-                  style: TextStyle(fontSize: 14, fontFamily: "Poppins"),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
             ),
@@ -403,9 +390,7 @@ class _MyNotConnectedBottomButtonState
                           primary: Colors.white,
                           onPrimary: const Color(0xff757575),
                           textStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w600),
+                              fontSize: 14, fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -427,9 +412,7 @@ class _MyNotConnectedBottomButtonState
                           primary: Colors.white,
                           onPrimary: const Color(0xffBB0000),
                           textStyle: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w600),
+                              fontSize: 14, fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(

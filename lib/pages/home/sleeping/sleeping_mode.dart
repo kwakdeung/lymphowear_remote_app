@@ -68,10 +68,7 @@ class SleepingModeBody extends StatefulWidget {
   static const sleepingmodetext = Text(
     "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
     style: TextStyle(
-        color: Color(0xff616161),
-        fontSize: 12,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
+        color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400),
   );
 
   @override
@@ -113,10 +110,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
     const titlecontent = Text(
       'Total Time : 15 mins',
       style: TextStyle(
-          color: Color(0xff9E9E9E),
-          fontSize: 10,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400),
+          color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400),
     );
 
     return Row(

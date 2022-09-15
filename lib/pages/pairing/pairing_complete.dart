@@ -86,10 +86,7 @@ class PairingCompleteBody extends StatelessWidget {
   static const title = Text(
     'Pairing is complete',
     style: TextStyle(
-        color: Color(0xff006E33),
-        fontSize: 20,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w600),
+        color: Color(0xff006E33), fontSize: 20, fontWeight: FontWeight.w600),
   );
 
   Text content(context) {
@@ -147,7 +144,6 @@ class PairingConnectBottomButton extends StatelessWidget {
         onPrimary: Colors.white,
         textStyle: const TextStyle(
           fontSize: 16,
-          fontFamily: "Poppins",
           fontWeight: FontWeight.w600,
         ),
       ),

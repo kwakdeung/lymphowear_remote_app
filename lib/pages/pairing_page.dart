@@ -143,8 +143,7 @@ class PairingPageBottomButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         primary: const Color(0xff008A40),
         onPrimary: Colors.white,
-        textStyle: const TextStyle(
-            fontFamily: "Poppins", fontWeight: FontWeight.w600, fontSize: 16),
+        textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
       ),
       onPressed: () {
         Navigator.push(

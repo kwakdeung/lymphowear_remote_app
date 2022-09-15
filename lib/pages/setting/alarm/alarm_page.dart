@@ -88,7 +88,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 16,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
           ),
           Visibility(
@@ -98,7 +97,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
               style: const TextStyle(
                   color: Color(0xff0BB15D),
                   fontSize: 12,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),
             ),
           ),
@@ -143,7 +141,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 16,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
           ),
           Visibility(
@@ -153,7 +150,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
               style: const TextStyle(
                   color: Color(0xff0BB15D),
                   fontSize: 12,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),
             ),
           ),
@@ -200,7 +196,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             style: TextStyle(
                 color: Color(0xff212121),
                 fontSize: 16,
-                fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
           ),
           Visibility(
@@ -210,7 +205,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
               style: const TextStyle(
                   color: Color(0xff0BB15D),
                   fontSize: 12,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),
             ),
           ),
@@ -257,7 +251,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
               style: TextStyle(
                   color: Color(0xff212121),
                   fontSize: 16,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),
             ),
           ),
@@ -268,7 +261,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
               style: const TextStyle(
                   color: Color(0xff0BB15D),
                   fontSize: 12,
-                  fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),
             ),
           ),

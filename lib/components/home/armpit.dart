@@ -16,19 +16,13 @@ class _ArmpitState extends State<Armpit> {
       return const Text(
         '  Off',
         style: TextStyle(
-            fontSize: 10,
-            color: Colors.green,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600),
+            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
       );
     } else {
       return Text(
         '  ${armpitValue.round()}',
         style: const TextStyle(
-            fontSize: 10,
-            color: Colors.green,
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.w600),
+            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
       );
     }
   }
@@ -49,13 +43,11 @@ class _ArmpitState extends State<Armpit> {
           style: TextStyle(
               color: Color(0xff212121),
               fontSize: 14,
-              fontFamily: "Poppins",
               fontWeight: FontWeight.w400),
         ),
         const Spacer(),
         const Text('Intensity',
-            style: TextStyle(
-                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+            style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
         armpitvalue(),
       ],
     );
@@ -92,21 +84,13 @@ class _ArmpitState extends State<Armpit> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        Text('Off',
-            style: TextStyle(
-                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Text('Off', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
         Spacer(),
-        Text('1',
-            style: TextStyle(
-                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Text('1', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
         Spacer(),
-        Text('2',
-            style: TextStyle(
-                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Text('2', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
         Spacer(),
-        Text('3',
-            style: TextStyle(
-                color: Color(0xff9E9E9E), fontFamily: "Poppins", fontSize: 10)),
+        Text('3', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
       ],
     );
   }

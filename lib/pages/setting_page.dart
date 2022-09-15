@@ -55,8 +55,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: const Text(
         'My Device',
-        style: TextStyle(
-            fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
       ),
       tileColor: Colors.white,
       trailing: Container(
@@ -77,8 +76,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: const Text(
         'Alarm',
-        style: TextStyle(
-            fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
       ),
       tileColor: Colors.white,
       trailing: Container(
@@ -99,10 +97,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         child: SvgPicture.asset("assets/icons/ic_info.svg"),
       ),
       title: const Text('User Guide',
-          style: TextStyle(
-              fontSize: 16,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w400)),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
@@ -118,10 +113,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
           margin: const EdgeInsets.all(0.0),
           child: SvgPicture.asset("assets/icons/ic_help.svg")),
       title: const Text('FAQ',
-          style: TextStyle(
-              fontSize: 16,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w400)),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),

@@ -69,10 +69,7 @@ class RelaxingModeBody extends StatefulWidget {
   static const relaxingmodetext = Text(
       'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
       style: TextStyle(
-          color: Color(0xff616161),
-          fontSize: 12,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400));
+          color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400));
 
   @override
   State<RelaxingModeBody> createState() => _RelaxingModeBodyState();
@@ -113,10 +110,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
     const titlecontent = Text(
       'Total Time : 15 mins',
       style: TextStyle(
-          color: Color(0xff9E9E9E),
-          fontSize: 10,
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400),
+          color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400),
     );
 
     return Row(

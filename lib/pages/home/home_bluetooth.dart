@@ -101,10 +101,7 @@ class HomeBluetoothBody extends StatelessWidget {
   static const title = Text(
     'Not connected',
     style: TextStyle(
-        fontFamily: "Poppins",
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-        color: Color(0xff9E9E9E)),
+        fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff9E9E9E)),
   );
 
   @override
@@ -156,10 +153,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       },
       child: const Text(
         'Connect',
-        style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff008A40)),
+        style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xff008A40)),
       ),
     );
   }
@@ -202,7 +196,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
 
     const secondalertdialogtitle = Text(
       'Failed to Connect',
-      style: TextStyle(fontSize: 14, fontFamily: "Poppins"),
+      style: TextStyle(fontSize: 14),
     );
 
     final secondcanclebutton = ElevatedButton(
@@ -214,8 +208,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         side: const BorderSide(width: 1.0, color: Colors.grey),
         primary: Colors.white,
         onPrimary: const Color(0xff757575),
-        textStyle: const TextStyle(
-            fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       onPressed: () {
         Navigator.pop(context);
@@ -231,8 +224,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         ),
         primary: const Color(0xff008A40),
         onPrimary: Colors.white,
-        textStyle: const TextStyle(
-            fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       onPressed: () {
         Navigator.push(

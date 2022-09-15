@@ -88,7 +88,6 @@ class PairingConnectBody extends StatelessWidget {
     style: TextStyle(
       color: Color(0xff006E33),
       fontSize: 16,
-      fontFamily: "Poppins",
       fontWeight: FontWeight.w400,
     ),
   );
@@ -139,7 +138,6 @@ class PairingConnectBottomButton extends StatelessWidget {
         onPrimary: Colors.white,
         textStyle: const TextStyle(
           fontSize: 16,
-          fontFamily: "Poppins",
           fontWeight: FontWeight.w600,
         ),
       ),
