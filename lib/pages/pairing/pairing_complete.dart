@@ -92,14 +92,12 @@ class PairingCompleteBody extends StatelessWidget {
         fontWeight: FontWeight.w600),
   );
 
-  static const content = Text(
-    "Let's start LymphoWear",
-    style: TextStyle(
-        color: Color(0xff757575),
-        fontSize: 14,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text content(context) {
+    return Text(
+      "Let's start LymphoWear",
+      style: Theme.of(context).textTheme.bodyText1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +117,7 @@ class PairingCompleteBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: content,
+              child: content(context),
             ),
             const Spacer(),
             Container(

@@ -89,15 +89,13 @@ class PairingPageBody extends StatelessWidget {
     );
   }
 
-  static const content = Text(
-    "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: Color(0xff757575),
-        fontSize: 14,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text content(context) {
+    return Text(
+      "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.bodyText1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +115,7 @@ class PairingPageBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: content,
+              child: content(context),
             ),
             const Spacer(),
             Container(

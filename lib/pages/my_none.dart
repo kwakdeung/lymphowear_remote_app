@@ -84,15 +84,13 @@ class MyNoneBody extends StatelessWidget {
     );
   }
 
-  static const content = Text(
-    "Press the button and\nconnect to the device.",
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: Color(0xff757575),
-        fontSize: 14,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text content(context) {
+    return Text(
+      "Press the button and\nconnect to the device.",
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.bodyText1,
+    );
+  }
 
   final image = SvgPicture.asset(
     'assets/images/none_image.svg',
@@ -115,7 +113,7 @@ class MyNoneBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
-              child: content,
+              child: content(context),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),

@@ -100,15 +100,13 @@ class PairingFailedBody extends StatelessWidget {
     );
   }
 
-  static const content = Text(
-    "Make sure device is turned on\nand in range.",
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: Color(0xff757575),
-        fontSize: 14,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text content(context) {
+    return Text(
+      "Make sure device is turned on\nand in range.",
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.bodyText1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +126,7 @@ class PairingFailedBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.all(0.0),
-              child: content,
+              child: content(context),
             ),
             const Spacer(),
             Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lymphowear_remote_app/lib_color_schemes.g.dart';
 import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
 
 void main() {
@@ -36,8 +35,10 @@ class MyApp extends StatelessWidget {
               color: Color(0xff212121),
               fontSize: 14,
               fontWeight: FontWeight.w600),
-          // headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-          // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          bodyText1: TextStyle(
+              color: Color(0xff757575),
+              fontSize: 14,
+              fontWeight: FontWeight.w400),
         ),
       ),
       themeMode: ThemeMode.system,
