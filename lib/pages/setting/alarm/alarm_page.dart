@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lymphowear_remote_app/pages/reminder/morning.dart';
+import 'package:lymphowear_remote_app/pages/reminder/afternoon_reminder.dart';
+import 'package:lymphowear_remote_app/pages/reminder/evening_reminder.dart';
+import 'package:lymphowear_remote_app/pages/reminder/morning_reminder.dart';
+import 'package:lymphowear_remote_app/pages/reminder/night_reminder.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -119,7 +122,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const Morning())));
+            MaterialPageRoute(builder: ((context) => const MorningReminder())));
       },
     );
   }
@@ -172,8 +175,10 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         },
       ),
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const Morning())));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: ((context) => const AfternoonReminder())));
       },
     );
   }
@@ -227,7 +232,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const Morning())));
+            MaterialPageRoute(builder: ((context) => const EveningReminder())));
       },
     );
   }
@@ -284,7 +289,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const Morning())));
+            MaterialPageRoute(builder: ((context) => const NightReminder())));
       },
     );
   }

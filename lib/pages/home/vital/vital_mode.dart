@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
@@ -87,14 +89,12 @@ class VitalModeBody extends StatelessWidget {
       height: 24,
     );
 
-    const title = Text(
-      'Vital Mode',
-      style: TextStyle(
-        fontSize: 14,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w600,
-      ),
-    );
+    Text title(context) {
+      return Text(
+        'Vital Mode',
+        style: Theme.of(context).textTheme.headline3,
+      );
+    }
 
     const titlecontent = Text(
       'Total Time : 15 mins',
@@ -114,7 +114,7 @@ class VitalModeBody extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.all(0.0),
-          child: title,
+          child: title(context),
         ),
         const Spacer(),
         Container(

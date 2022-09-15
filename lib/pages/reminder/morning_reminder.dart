@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 
-class Morning extends StatefulWidget {
-  const Morning({Key? key}) : super(key: key);
+class MorningReminder extends StatefulWidget {
+  const MorningReminder({Key? key}) : super(key: key);
 
   @override
-  State<Morning> createState() => _MorningState();
+  State<MorningReminder> createState() => _MorningReminderState();
 }
 
-class _MorningState extends State<Morning> {
+class _MorningReminderState extends State<MorningReminder> {
   DateTime time = DateTime.now();
   // String fomattedDate = DateFormat.jm().format(DateTime.now());
 
