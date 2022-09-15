@@ -205,6 +205,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                                 child: Text(
                                   text,
                                   style: const TextStyle(
+                                      color: Color(0xff212121),
                                       fontSize: 24,
                                       fontWeight: FontWeight.w400,
                                       fontFamily: "Poppins"),

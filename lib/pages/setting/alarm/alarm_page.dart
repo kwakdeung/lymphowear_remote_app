@@ -86,6 +86,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           const Text(
             'Morning Reminder',
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 16,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
@@ -140,6 +141,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           const Text(
             'Afternoon Reminder',
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 16,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
@@ -196,6 +198,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           const Text(
             'Evening Reminder',
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 16,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400),
@@ -252,6 +255,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             child: const Text(
               'Night Reminder',
               style: TextStyle(
+                  color: Color(0xff212121),
                   fontSize: 16,
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w400),

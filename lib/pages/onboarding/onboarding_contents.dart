@@ -22,6 +22,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
         widget.title,
         textAlign: TextAlign.center,
         style: const TextStyle(
+          color: Color(0xff212121),
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),

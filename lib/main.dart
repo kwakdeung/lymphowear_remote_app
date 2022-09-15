@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w600),
           subtitle1: TextStyle(
               color: Color(0xff212121),
-              fontSize: 16,
+              // fontSize: 16,
               fontWeight: FontWeight.w400),
           subtitle2: TextStyle(
               color: Color(0xff212121),

@@ -203,6 +203,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         margin: const EdgeInsets.all(0.0),
         child: const Text("LymphoWear",
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 14,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
@@ -226,6 +227,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         margin: const EdgeInsets.all(0.0),
         child: const Text("LW-100",
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 14,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
@@ -249,6 +251,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         margin: const EdgeInsets.all(0.0),
         child: const Text("ABCDEFG1234",
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 14,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),
@@ -272,6 +275,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         margin: const EdgeInsets.all(0.0),
         child: const Text("1.1.1",
             style: TextStyle(
+                color: Color(0xff212121),
                 fontSize: 14,
                 fontFamily: "Poppins",
                 fontWeight: FontWeight.w400)),

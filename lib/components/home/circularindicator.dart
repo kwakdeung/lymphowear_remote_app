@@ -106,7 +106,10 @@ class _CircularIndicatorState extends State<CircularIndicator>
         builder: (context, child) => Text(
           countText,
           style: const TextStyle(
-              fontSize: 24, fontWeight: FontWeight.w400, fontFamily: "Poppins"),
+              color: Color(0xff212121),
+              fontSize: 24,
+              fontWeight: FontWeight.w400,
+              fontFamily: "Poppins"),
         ),
       ),
     );

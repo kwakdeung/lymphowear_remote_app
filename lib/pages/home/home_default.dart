@@ -190,7 +190,8 @@ class HomeDefaultBody extends StatelessWidget {
       const vitalmodetext = Text(
         "Vital\n Mode",
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 12, fontFamily: "Poppins"),
+        style: TextStyle(
+            color: Color(0xff212121), fontSize: 12, fontFamily: "Poppins"),
       );
 
       return GestureDetector(
@@ -226,7 +227,8 @@ class HomeDefaultBody extends StatelessWidget {
       const relaxingmodetext = Text(
         "Relaxing\n Mode",
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 12, fontFamily: "Poppins"),
+        style: TextStyle(
+            color: Color(0xff212121), fontSize: 12, fontFamily: "Poppins"),
       );
 
       return GestureDetector(
@@ -259,7 +261,8 @@ class HomeDefaultBody extends StatelessWidget {
       const sleepingmodetext = Text(
         "Sleeping\n Mode",
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 12, fontFamily: "Poppins"),
+        style: TextStyle(
+            color: Color(0xff212121), fontSize: 12, fontFamily: "Poppins"),
       );
 
       return GestureDetector(
