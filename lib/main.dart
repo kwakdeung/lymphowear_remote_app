@@ -31,8 +31,6 @@ class MyApp extends StatelessWidget {
           ),
           subtitle1: TextStyle(
             color: Color(0xff212121),
-            // fontSize: 16,
-            // fontWeight: FontWeight.w400,
           ),
           subtitle2: TextStyle(
             color: Color(0xff212121),
@@ -41,8 +39,6 @@ class MyApp extends StatelessWidget {
           ),
           bodyText2: TextStyle(
             color: Color(0xff757575),
-            // fontSize: 14,
-            // fontWeight: FontWeight.w400,
           ),
           button: TextStyle(
             color: Color(0xff008A40),
