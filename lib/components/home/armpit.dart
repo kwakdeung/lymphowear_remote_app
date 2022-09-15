@@ -47,7 +47,10 @@ class _ArmpitState extends State<Armpit> {
         const Text(
           'Armpit',
           style: TextStyle(
-              fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+              color: Color(0xff212121),
+              fontSize: 14,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w400),
         ),
         const Spacer(),
         const Text('Intensity',

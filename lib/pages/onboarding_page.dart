@@ -50,7 +50,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         bottom: false,
         child: Center(
           child: Container(
-            color: Colors.white,
+            color: Colors.transparent,
             margin: const EdgeInsets.all(0.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,

@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'LymphoWear',
       theme: ThemeData(
         useMaterial3: true,
-        // colorScheme: lightColorScheme,
+        brightness: Brightness.light,
+        primaryColor: Colors.transparent,
         fontFamily: 'Poppins',
         textTheme: const TextTheme(
           headline6: TextStyle(
