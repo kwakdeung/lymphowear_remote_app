@@ -23,7 +23,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   Text appbarTitle(context) {
     return Text(
       'Setting',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

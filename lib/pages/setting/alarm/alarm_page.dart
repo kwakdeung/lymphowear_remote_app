@@ -41,7 +41,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Text apppbarTitle(context) {
     return Text(
       'Alarm',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

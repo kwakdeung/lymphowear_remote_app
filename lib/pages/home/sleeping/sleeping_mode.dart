@@ -39,7 +39,7 @@ class SleepingModeAppbar extends StatelessWidget
   Text appbarTitle(context) {
     return Text(
       'Sleeping Mode',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

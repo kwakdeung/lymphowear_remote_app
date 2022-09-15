@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: lightColorScheme,
         fontFamily: 'Poppins',
         textTheme: const TextTheme(
-          headline1: TextStyle(
+          headline6: TextStyle(
               color: Color(0xff212121),
               fontSize: 16,
               fontWeight: FontWeight.w600),

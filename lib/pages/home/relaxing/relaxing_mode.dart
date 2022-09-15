@@ -39,7 +39,7 @@ class RelaxingModeAppbar extends StatelessWidget
   Text appbarTitle(context) {
     return Text(
       'Relaxing Mode',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

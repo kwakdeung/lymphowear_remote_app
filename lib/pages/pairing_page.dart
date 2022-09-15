@@ -53,7 +53,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Text appbarTitle(context) {
     return Text(
       'Add Device',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

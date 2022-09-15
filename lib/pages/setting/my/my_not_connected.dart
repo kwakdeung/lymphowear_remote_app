@@ -41,7 +41,7 @@ class MyNotConnectedAppbar extends StatelessWidget
   Text appbarTitle(context) {
     return Text(
       'My Device',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 

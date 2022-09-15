@@ -19,7 +19,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   Text stateTitle(context) {
     return Text(
       'Custom Mode',
-      style: Theme.of(context).textTheme.headline1,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 
