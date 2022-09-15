@@ -34,7 +34,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
   bool isPlaying = false;
 
-  get text {
+  get time {
     var min = (_countedSeconds ~/ 60).toString().padLeft(2, '0');
     var sec = (_countedSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
@@ -46,17 +46,13 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        print(text);
-        print(_countedSeconds);
         if (_countedSeconds > 0) {
           _countedSeconds--;
         }
-        timealertdialog();
+        alertEnd();
       });
     });
-    print(text);
-    print(_countedSeconds);
-    timealertdialog();
+    alertEnd();
   }
 
   void stopTimer() {
@@ -64,10 +60,9 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     _timer!.cancel();
   }
 
-  void timealertdialog() {
-    if (text == "00:00") {
+  void alertEnd() {
+    if (time == "00:00") {
       _timer!.cancel();
-      debugPrint("체크");
       _timeAlertDialog(context, "Total Time: 15mins");
     }
   }
@@ -204,7 +199,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                               Container(
                                 margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                                 child: Text(
-                                  text,
+                                  time,
                                   style: const TextStyle(
                                     color: Color(0xff212121),
                                     fontSize: 24,
@@ -228,14 +223,11 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                                 child: IconButton(
                                   onPressed: () {
                                     if (timerRunning) {
-                                      print("체크1");
-                                      print(timerRunning);
                                       stopTimer();
                                       setState(() {
                                         isPlaying = false;
                                       });
                                     } else {
-                                      print("체크");
                                       startTimer();
                                       setState(() {
                                         circularVisible = true;

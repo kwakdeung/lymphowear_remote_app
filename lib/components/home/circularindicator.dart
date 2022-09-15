@@ -18,12 +18,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
   bool isPlaying = false;
   bool circularVisible = false;
 
-  String get countText {
+  String get time {
     // int seconds = (900.0 * controller.value).toInt();
     int seconds = (10.0 * controller.value).toInt();
-
-    print(seconds--);
-    print(seconds++);
 
     var initstate = controller.duration!;
 
@@ -50,8 +47,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
     controller.addListener(() {
       if (controller.isAnimating) {
-        debugPrint(countText);
-
         setState(() {});
       } else {
         setState(() {
@@ -60,7 +55,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
           isPlaying = false;
         });
       }
-      timealertdialog();
+      alertEnd();
     });
 
     super.initState();
@@ -72,10 +67,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
     super.dispose();
   }
 
-  void timealertdialog() {
+  void alertEnd() {
     if (controller.value == 0.0) {
       controller.stop();
-      debugPrint("체크");
       _timeAlertDialog(context, "Total Time: 15mins");
     }
   }
@@ -104,7 +98,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) => Text(
-          countText,
+          time,
           style: const TextStyle(
             color: Color(0xff212121),
             fontSize: 24,
