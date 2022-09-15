@@ -35,21 +35,19 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  static const appbartitle = Text(
-    'Vital Mode',
-    style: TextStyle(
-      fontSize: 16,
-      fontFamily: "Poppins",
-      fontWeight: FontWeight.w600,
-    ),
-  );
+  Text appbarTitle(context) {
+    return Text(
+      'Vital Mode',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
           margin: const EdgeInsets.only(left: 10), child: appbaricon(context)),
-      title: appbartitle,
+      title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(

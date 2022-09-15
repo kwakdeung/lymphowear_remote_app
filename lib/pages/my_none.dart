@@ -46,9 +46,12 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  static const title = Text('My Device',
-      style: TextStyle(
-          fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600));
+  Text appbarTitle(context) {
+    return Text(
+      'My Device',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,7 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
         margin: const EdgeInsets.only(left: 10),
         child: appbariconbutton(context),
       ),
-      title: title,
+      title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(

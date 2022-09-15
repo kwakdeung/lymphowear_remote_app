@@ -35,9 +35,12 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  static const title = Text('Alarm',
-      style: TextStyle(
-          fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600));
+  Text apppbarTitle(context) {
+    return Text(
+      'Alarm',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
         margin: const EdgeInsets.only(left: 10),
         child: appbariconbutton(context),
       ),
-      title: title,
+      title: apppbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(

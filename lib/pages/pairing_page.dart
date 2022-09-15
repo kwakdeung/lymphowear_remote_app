@@ -50,14 +50,12 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  static const appbartitle = Text(
-    'Add Device',
-    style: TextStyle(
-      fontSize: 16,
-      fontFamily: "Poppins",
-      fontWeight: FontWeight.w600,
-    ),
-  );
+  Text appbarTitle(context) {
+    return Text(
+      'Add Device',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +63,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       leading: appbariconbutton(context),
       backgroundColor: Colors.white,
       shadowColor: Colors.black,
-      title: appbartitle,
+      title: appbarTitle(context),
       bottom: PreferredSize(
           preferredSize: preferredSize,
           child: Container(

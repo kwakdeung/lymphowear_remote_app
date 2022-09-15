@@ -21,9 +21,19 @@ class MyApp extends StatelessWidget {
       title: 'LymphoWear',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: lightColorScheme,
+        // colorScheme: lightColorScheme,
+        fontFamily: 'Poppins',
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+              color: Color(0xff212121),
+              fontSize: 16,
+              fontWeight: FontWeight.w600),
+          // headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
       ),
       themeMode: ThemeMode.system,
+
       home: const SplashScreenPage(),
       // initialRoute: '/',
       // routes: {

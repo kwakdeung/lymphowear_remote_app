@@ -36,11 +36,12 @@ class RelaxingModeAppbar extends StatelessWidget
     );
   }
 
-  static const appbartitle = Text(
-    'Relaxing Mode',
-    style: TextStyle(
-        fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600),
-  );
+  Text appbarTitle(context) {
+    return Text(
+      'Relaxing Mode',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class RelaxingModeAppbar extends StatelessWidget
         margin: const EdgeInsets.only(left: 10),
         child: appbaricon(context),
       ),
-      title: appbartitle,
+      title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(

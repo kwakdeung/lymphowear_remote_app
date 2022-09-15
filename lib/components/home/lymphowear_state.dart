@@ -118,7 +118,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: _countedSeconds < 10
+                color: _countedSeconds < 42
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),

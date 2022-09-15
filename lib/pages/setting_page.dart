@@ -4,28 +4,38 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/pages/my_none.dart';
 import 'package:lymphowear_remote_app/pages/setting/alarm/alarm01_1.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   const SettingPage({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(0);
+
+  IconButton appbaricon(context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  Text appbarTitle(context) {
+    return Text(
+      'Setting',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   AppBar settingpageappbar(context) {
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.grey[700],
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        child: appbaricon(context),
       ),
-      title: const Text(
-        'Setting',
-        style: TextStyle(
-            fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600),
-      ),
+      title: appbarTitle(context),
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(0.0),
+        preferredSize: preferredSize,
         child: Container(
           color: Colors.grey[200],
           height: 2.0,

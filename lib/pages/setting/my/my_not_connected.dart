@@ -38,11 +38,12 @@ class MyNotConnectedAppbar extends StatelessWidget
     );
   }
 
-  static const title = Text(
-    'My Device',
-    style: TextStyle(
-        fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w600),
-  );
+  Text appbarTitle(context) {
+    return Text(
+      'My Device',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class MyNotConnectedAppbar extends StatelessWidget
         margin: const EdgeInsets.only(left: 10),
         child: appbariconbutton(context),
       ),
-      title: title,
+      title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(0.0),
         child: Container(
