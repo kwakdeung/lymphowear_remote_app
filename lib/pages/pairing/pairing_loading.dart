@@ -83,7 +83,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
       vsync: this,
       duration: const Duration(seconds: 3),
     )..addListener(() {
-        nextpage();
+        loadPage();
         setState(() {});
       });
     controller.forward();
@@ -97,7 +97,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
     super.dispose();
   }
 
-  void nextpage() {
+  void loadPage() {
     if (controller.value == 1) {
       controller.stop();
       Navigator.push(context,
