@@ -168,13 +168,9 @@ class MyNoneBottomButton extends StatelessWidget {
         Icons.add_circle_outline_outlined,
         color: Color(0xff008A40),
       ),
-      label: const Text(
+      label: Text(
         'Add Device',
-        style: TextStyle(
-          color: Color(0xff008A40),
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),

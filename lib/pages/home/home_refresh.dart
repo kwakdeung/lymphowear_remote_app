@@ -130,12 +130,9 @@ class HomeRefleshBottomButton extends StatelessWidget {
         Icons.cached,
         color: Color(0xff008A40),
       ),
-      label: const Text(
+      label: Text(
         'Refresh',
-        style: TextStyle(
-            color: Color(0xff008A40),
-            fontSize: 16,
-            fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
           primary: Colors.white,

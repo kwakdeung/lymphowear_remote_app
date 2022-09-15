@@ -151,9 +151,9 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       onPressed: () {
         showProgressDialog(context, 'Connecting...');
       },
-      child: const Text(
+      child: Text(
         'Connect',
-        style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xff008A40)),
+        style: Theme.of(context).textTheme.button,
       ),
     );
   }
