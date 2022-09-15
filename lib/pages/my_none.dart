@@ -76,15 +76,13 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
 class MyNoneBody extends StatelessWidget {
   MyNoneBody({Key? key}) : super(key: key);
 
-  static const title = Text(
-    "There’s no device connected.",
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: Color(0xff212121),
-        fontSize: 16,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text title(context) {
+    return Text(
+      "There’s no device connected.",
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline2,
+    );
+  }
 
   static const content = Text(
     "Press the button and\nconnect to the device.",
@@ -113,7 +111,7 @@ class MyNoneBody extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(0, 56, 0, 15),
-              child: title,
+              child: title(context),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),

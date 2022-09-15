@@ -93,14 +93,12 @@ class PairingFailedBody extends StatelessWidget {
     'assets/images/pairing02_2_alert.svg',
   );
 
-  static const title = Text(
-    "No device found",
-    style: TextStyle(
-        color: Color(0xff212121),
-        fontSize: 16,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text title(context) {
+    return Text(
+      "No device found",
+      style: Theme.of(context).textTheme.headline2,
+    );
+  }
 
   static const content = Text(
     "Make sure device is turned on\nand in range.",
@@ -126,7 +124,7 @@ class PairingFailedBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-              child: title,
+              child: title(context),
             ),
             Container(
               margin: const EdgeInsets.all(0.0),

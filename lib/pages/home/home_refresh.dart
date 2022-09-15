@@ -79,15 +79,13 @@ class HomeRefreshBody extends StatelessWidget {
     fit: BoxFit.fill,
   );
 
-  static const content = Text(
-    'LymphoWear is turned off.\nTurn on LymphoWear',
-    textAlign: TextAlign.center,
-    style: TextStyle(
-        color: Color(0xff212121),
-        fontSize: 16,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w400),
-  );
+  Text title(context) {
+    return Text(
+      'LymphoWear is turned off.\nTurn on LymphoWear',
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.headline2,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +104,7 @@ class HomeRefreshBody extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: content,
+                child: title(context),
               ),
               const Spacer(),
               Container(

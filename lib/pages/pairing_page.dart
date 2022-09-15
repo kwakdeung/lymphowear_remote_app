@@ -82,11 +82,12 @@ class PairingPageBody extends StatelessWidget {
     'assets/images/pairing01_image.svg',
   );
 
-  static const title = Text(
-    'Turn on the power of LymphoWear',
-    style: TextStyle(
-        fontSize: 16, fontFamily: "Poppins", fontWeight: FontWeight.w400),
-  );
+  Text title(context) {
+    return Text(
+      'Turn on the power of LymphoWear',
+      style: Theme.of(context).textTheme.headline2,
+    );
+  }
 
   static const content = Text(
     "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
@@ -112,7 +113,7 @@ class PairingPageBody extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
-              child: title,
+              child: title(context),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),

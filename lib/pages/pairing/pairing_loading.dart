@@ -113,15 +113,13 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
     );
   }
 
-  static const loadingtext = Center(
-      child: Text(
-    'Searching for device...',
-    style: TextStyle(
-      fontFamily: "Poppins",
-      fontWeight: FontWeight.w400,
-      color: Colors.black,
-    ),
-  ));
+  Center loadingText(context) {
+    return Center(
+        child: Text(
+      'Searching for device...',
+      style: Theme.of(context).textTheme.headline2,
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +135,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
             ),
             Container(
               margin: const EdgeInsets.all(0.0),
-              child: loadingtext,
+              child: loadingText(context),
             ),
             const Spacer(),
             Container(
