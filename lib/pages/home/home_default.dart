@@ -36,7 +36,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton leadingiconButton(context) {
+  IconButton leadingIconButton(context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_power.svg',
@@ -52,7 +52,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
     fit: BoxFit.fill,
   );
 
-  IconButton actionsiconButton(context) {
+  IconButton actionsIconButton(context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -71,7 +71,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: leadingiconButton(context),
+        child: leadingIconButton(context),
       ),
       title: Container(
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -87,7 +87,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: actionsiconButton(context),
+          child: actionsIconButton(context),
         ),
       ],
     );

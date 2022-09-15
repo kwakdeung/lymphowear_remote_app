@@ -44,7 +44,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
     fit: BoxFit.fill,
   );
 
-  IconButton appbariconButton(BuildContext context) {
+  IconButton appbarIconButton(BuildContext context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -75,7 +75,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: appbariconButton(context),
+          child: appbarIconButton(context),
         ),
       ],
     );

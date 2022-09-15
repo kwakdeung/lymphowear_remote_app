@@ -80,7 +80,7 @@ class _ArmpitState extends State<Armpit> {
     );
   }
 
-  Row armpitsliderValue() {
+  Row armpitSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -128,7 +128,7 @@ class _ArmpitState extends State<Armpit> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: armpitsliderValue(),
+                  child: armpitSliderValue(),
                 ),
               ],
             ),

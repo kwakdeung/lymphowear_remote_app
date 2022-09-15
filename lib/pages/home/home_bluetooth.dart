@@ -46,7 +46,7 @@ class HomeBluetoothAppbar extends StatelessWidget
     fit: BoxFit.fill,
   );
 
-  IconButton appbariconButton(BuildContext context) {
+  IconButton appbarIconButton(BuildContext context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -76,7 +76,7 @@ class HomeBluetoothAppbar extends StatelessWidget
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: appbariconButton(context),
+          child: appbarIconButton(context),
         ),
       ],
     );
@@ -163,7 +163,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       radius: 12,
       animating: true,
     );
-    final firstalertdialogTextstyle = Text(
+    final firstAlertdialogTextstyle = Text(
       message,
       style: Theme.of(context).textTheme.subtitle1,
     );
@@ -185,7 +185,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
-                  child: firstalertdialogTextstyle,
+                  child: firstAlertdialogTextstyle,
                 ),
               ],
             ),
@@ -194,12 +194,12 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
     );
 
-    Text secondalertdialogTitle = Text(
+    Text secondAlertdialogTitle = Text(
       'Failed to Connect',
       style: Theme.of(context).textTheme.subtitle1,
     );
 
-    final secondcancleButton = ElevatedButton(
+    final secondCancleButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(112, 40),
         shape: RoundedRectangleBorder(
@@ -216,7 +216,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       child: const Text('Cancel'),
     );
 
-    final secondtryagainButton = ElevatedButton(
+    final secondTryagainButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(112, 40),
         shape: RoundedRectangleBorder(
@@ -244,7 +244,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       title: Center(
         child: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-          child: secondalertdialogTitle,
+          child: secondAlertdialogTitle,
         ),
       ),
       actions: [
@@ -256,11 +256,11 @@ class HomeBluetoothBottomButton extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
-                child: secondcancleButton,
+                child: secondCancleButton,
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
-                child: secondtryagainButton,
+                child: secondTryagainButton,
               ),
             ],
           ),

@@ -80,7 +80,7 @@ class _CollarboneState extends State<Collarbone> {
     );
   }
 
-  Row collarbonesliderValue() {
+  Row collarboneSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -128,7 +128,7 @@ class _CollarboneState extends State<Collarbone> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: collarbonesliderValue(),
+                  child: collarboneSliderValue(),
                 ),
               ],
             ),

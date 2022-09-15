@@ -80,7 +80,7 @@ class _ShoulderState extends State<Shoulder> {
     );
   }
 
-  Row shouldersliderValue() {
+  Row shoulderSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -121,7 +121,7 @@ class _ShoulderState extends State<Shoulder> {
                 ),
                 Container(
                     padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                    child: shouldersliderValue()),
+                    child: shoulderSliderValue()),
               ],
             ),
           ),

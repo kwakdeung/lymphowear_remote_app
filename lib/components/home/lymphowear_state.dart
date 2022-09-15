@@ -271,7 +271,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 }
 
 Future _timeAlertDialog(BuildContext context, String message) async {
-  const timealertdialogTitle = Text(
+  const timeAlertdialogTitle = Text(
     "Great job!",
     style: TextStyle(
         color: Color(0xff212121),
@@ -280,13 +280,13 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w600),
   );
 
-  final timealertdialogImage = Lottie.asset(
+  final timeAlertdialogImage = Lottie.asset(
     'assets/images/great_job.json',
     width: 140,
     height: 72,
   );
 
-  final timealertdialogContent = Text(
+  final timeAlertdialogContent = Text(
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
@@ -296,7 +296,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w400),
   );
 
-  final timealertdialogbottomButton = ElevatedButton(
+  final timeAlertdialogBottomButton = ElevatedButton(
     style: ElevatedButton.styleFrom(
       padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
       shape: RoundedRectangleBorder(
@@ -315,7 +315,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
 
   var timeAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: const Center(child: timealertdialogTitle),
+      title: const Center(child: timeAlertdialogTitle),
       content: Container(
         margin: const EdgeInsets.all(0.0),
         height: 100,
@@ -323,9 +323,9 @@ Future _timeAlertDialog(BuildContext context, String message) async {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 7),
-              child: timealertdialogImage,
+              child: timeAlertdialogImage,
             ),
-            timealertdialogContent,
+            timeAlertdialogContent,
           ],
         ),
       ),
@@ -333,7 +333,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         Container(
           width: double.maxFinite,
           margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          child: timealertdialogbottomButton,
+          child: timeAlertdialogBottomButton,
         ),
       ]);
 
