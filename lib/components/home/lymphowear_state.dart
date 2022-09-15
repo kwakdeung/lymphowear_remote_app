@@ -26,6 +26,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   Timer? _timer;
 
   int _countedSeconds = 10;
+  int maxSeconds = 10;
 
   bool _timerStart = false;
   bool timerRunning = false;
@@ -111,7 +112,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
       child: ElevatedButton(
         onPressed: () {
-          if (_countedSeconds < 10 &&
+          if (_countedSeconds < maxSeconds &&
               (_timerStart == false && timerRunning == false)) {
             setState(() {
               _countedSeconds++;
@@ -120,7 +121,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: _countedSeconds < 10
+                color: _countedSeconds < maxSeconds
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -129,7 +130,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_plus.svg',
-          color: _countedSeconds < 10
+          color: _countedSeconds < maxSeconds
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
