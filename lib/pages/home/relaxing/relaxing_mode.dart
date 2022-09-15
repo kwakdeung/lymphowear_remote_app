@@ -106,7 +106,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
     Text title(context) {
       return Text(
         'Relaxing Mode',
-        style: Theme.of(context).textTheme.headline3,
+        style: Theme.of(context).textTheme.subtitle2,
       );
     }
 

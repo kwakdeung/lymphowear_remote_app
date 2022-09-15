@@ -106,7 +106,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
     Text title(context) {
       return Text(
         'Sleeping Mode',
-        style: Theme.of(context).textTheme.headline3,
+        style: Theme.of(context).textTheme.subtitle2,
       );
     }
 

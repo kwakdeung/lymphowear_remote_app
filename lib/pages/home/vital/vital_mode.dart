@@ -104,7 +104,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
     Text title(context) {
       return Text(
         'Vital Mode',
-        style: Theme.of(context).textTheme.headline3,
+        style: Theme.of(context).textTheme.subtitle2,
       );
     }
 
