@@ -35,26 +35,11 @@ class _CircularIndicatorState extends State<CircularIndicator>
     var sec = (seconds % 60).toString().padLeft(2, '0');
 
     return controller.isDismissed ? '$initstatemin:$initstatesec' : '$min:$sec';
-
-    // return "$min:$sec";
-
-    // Duration count = controller.duration! * controller.value;
-
-    // return controller.isDismissed
-    //     ? '${(controller.duration!.inMinutes % 60).toString().padLeft(2, '0')}:${(controller.duration!.inSeconds % 60).toString().padLeft(2, '0')}'
-    //     : '${(count.inMinutes % 60).toString().padLeft(2, '0')}:${(count.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
   set countText(String value) {}
 
   double progress = 1.0;
-
-  void notify() {
-    // if (countText == "00:00") {}
-    // if (countText == "00:05") {
-    //   _timeAlertDialog(context, "Total Time: 15mins");
-    // } // 여기 로깅
-  }
 
   @override
   void initState() {
@@ -191,13 +176,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
                               horizontal: 5, vertical: 10),
                           child: playpausebutton(),
                         ),
-                        // ElevatedButton(
-                        //     child: Text("-"),
-                        //     onPressed: () {
-                        //       setState(() {
-                        //         // countText
-                        //       });
-                        //     }),
                       ],
                     ),
                   ),
@@ -225,7 +203,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     'assets/images/great_job.json',
     width: 140,
     height: 72,
-    // width, height 조절해서 다시 주신다하심
+    // 로티 이미지 width, height 조절해서 다시 주신다하심
   );
 
   final timealertdialogcontent = Text(
