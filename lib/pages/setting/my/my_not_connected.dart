@@ -89,9 +89,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         connecttext = "Connecting...";
       });
       Future.delayed(const Duration(seconds: 3), () {
-        debugPrint("Future.delayed 테스트");
         setState(() {
-          debugPrint("Future.delayed 결과");
           _isLoading = false;
           _isConnected = true;
           connecttext = "Connected";

@@ -109,11 +109,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             _morningButton = !_morningButton;
             if (_morningButton != false) {
               _morningVisible = true;
-              debugPrint('true 작동');
               _morningValue = "Scheduled for 08:00AM";
             } else {
               _morningVisible = false;
-              debugPrint('false 작동');
               _morningValue = "";
             }
           });
@@ -162,11 +160,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             _afternoonButton = !_afternoonButton;
             if (_afternoonButton != false) {
               _afternoonVisible = true;
-              debugPrint('true 작동');
               _afternoonValue = "Scheduled for 12:00PM";
             } else {
               _afternoonVisible = false;
-              debugPrint('false 작동');
               _afternoonValue = "";
             }
           });
@@ -217,11 +213,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             _eveningButton = !_eveningButton;
             if (_eveningButton != false) {
               _eveningVisible = true;
-              debugPrint('true 작동');
               _eveningValue = "Scheduled for 06:00PM";
             } else {
               _eveningVisible = false;
-              debugPrint('false 작동');
               _eveningValue = "";
             }
           });
@@ -272,11 +266,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           setState(() {
             _nightButton = !_nightButton;
             if (_nightButton != false) {
-              debugPrint('true 작동');
               _nightVisible = true;
               _nightValue = "Scheduled for 10:00PM";
             } else {
-              debugPrint('false 작동');
               _nightVisible = false;
               _nightValue = "";
             }
