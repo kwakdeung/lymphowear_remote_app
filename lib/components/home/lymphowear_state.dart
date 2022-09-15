@@ -16,10 +16,12 @@ class LymphoWearState extends StatefulWidget {
 class _LymphoWearStateState extends State<LymphoWearState> {
   late CircularIndicator circularindicator;
 
-  static const lymphowearstatetitle = Text(
-    'Custom Mode',
-    style: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.w600),
-  );
+  Text stateTitle(context) {
+    return Text(
+      'Custom Mode',
+      style: Theme.of(context).textTheme.headline1,
+    );
+  }
 
   Timer? _timer;
 
@@ -142,8 +144,8 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       children: [
         Container(
           margin: const EdgeInsets.fromLTRB(53, 20, 53, 20),
-          child: const FittedBox(
-            child: lymphowearstatetitle,
+          child: FittedBox(
+            child: stateTitle(context),
           ),
         ),
         FittedBox(
