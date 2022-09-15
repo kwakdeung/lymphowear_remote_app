@@ -80,7 +80,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
     }
   }
 
-  Visibility circularprogressindicator() {
+  Visibility circularprogressIndicator() {
     return Visibility(
       visible: circularvisible,
       child: CircularProgressIndicator(
@@ -92,7 +92,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
     );
   }
 
-  final batteryimage = SvgPicture.asset(
+  final batteryImage = SvgPicture.asset(
     'assets/images/battery.svg',
     width: 30,
     height: 12,
@@ -115,7 +115,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
     );
   }
 
-  Container playpausebutton() {
+  Container playpauseButton() {
     return Container(
       margin: const EdgeInsets.only(top: 0),
       width: 40.0,
@@ -163,7 +163,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
               fit: StackFit.expand,
               children: [
                 Positioned(
-                  child: circularprogressindicator(),
+                  child: circularprogressIndicator(),
                 ),
                 Positioned(
                   child: Center(
@@ -171,13 +171,13 @@ class _CircularIndicatorState extends State<CircularIndicator>
                       children: [
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
-                          child: batteryimage,
+                          child: batteryImage,
                         ),
                         timer(),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 5, vertical: 10),
-                          child: playpausebutton(),
+                          child: playpauseButton(),
                         ),
                       ],
                     ),
@@ -193,7 +193,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
 }
 
 Future _timeAlertDialog(BuildContext context, String message) async {
-  const timealertdialogtitle = Text(
+  const timealertdialogTitle = Text(
     "Great job!",
     style: TextStyle(
         fontFamily: "Poppins",
@@ -202,14 +202,14 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w600),
   );
 
-  final timealertdialogimage = Lottie.asset(
+  final timealertdialogImage = Lottie.asset(
     'assets/images/great_job.json',
     width: 140,
     height: 72,
     // 로티 이미지 width, height 조절해서 다시 주신다하심
   );
 
-  final timealertdialogcontent = Text(
+  final timealertdialogContent = Text(
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
@@ -219,7 +219,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w400),
   );
 
-  final timealertdialogbottombutton = ElevatedButton(
+  final timealertdialogbottomButton = ElevatedButton(
     style: ElevatedButton.styleFrom(
       padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
       shape: RoundedRectangleBorder(
@@ -236,9 +236,9 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     child: const Text('Done'),
   );
 
-  var timealertdialog = AlertDialog(
+  var timeAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: const Center(child: timealertdialogtitle),
+      title: const Center(child: timealertdialogTitle),
       content: Container(
         margin: const EdgeInsets.all(0.0),
         height: 100,
@@ -246,9 +246,9 @@ Future _timeAlertDialog(BuildContext context, String message) async {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 7),
-              child: timealertdialogimage,
+              child: timealertdialogImage,
             ),
-            timealertdialogcontent,
+            timealertdialogContent,
           ],
         ),
       ),
@@ -256,7 +256,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         Container(
           width: double.maxFinite,
           margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          child: timealertdialogbottombutton,
+          child: timealertdialogbottomButton,
         ),
       ]);
 
@@ -266,6 +266,6 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       builder: (BuildContext context) {
         return Theme(
             data: ThemeData(dialogBackgroundColor: Colors.white),
-            child: timealertdialog);
+            child: timeAlertdialog);
       });
 }

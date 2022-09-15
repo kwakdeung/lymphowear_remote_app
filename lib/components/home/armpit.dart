@@ -27,14 +27,14 @@ class _ArmpitState extends State<Armpit> {
     }
   }
 
-  final armpitimage = SvgPicture.asset(
+  final armpitImage = SvgPicture.asset(
     'assets/images/armpit.svg',
     fit: BoxFit.fill,
     width: 40,
     height: 40,
   );
 
-  Row armpittitle() {
+  Row armpitTitle() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -53,7 +53,7 @@ class _ArmpitState extends State<Armpit> {
     );
   }
 
-  SliderTheme armpitslider() {
+  SliderTheme armpitSlider() {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
@@ -80,7 +80,7 @@ class _ArmpitState extends State<Armpit> {
     );
   }
 
-  Row armpitslidervalue() {
+  Row armpitsliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -95,7 +95,7 @@ class _ArmpitState extends State<Armpit> {
     );
   }
 
-  final slidericon = SvgPicture.asset(
+  final sliderIcon = SvgPicture.asset(
     'assets/icons/ic_max.svg',
     width: 16,
     height: 16,
@@ -111,31 +111,31 @@ class _ArmpitState extends State<Armpit> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: armpitimage,
+            child: armpitImage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: armpittitle(),
+                  child: armpitTitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: armpitslider(),
+                  child: armpitSlider(),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: armpitslidervalue(),
+                  child: armpitsliderValue(),
                 ),
               ],
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
-            child: slidericon,
+            child: sliderIcon,
           ),
         ],
       ),

@@ -26,7 +26,7 @@ class RelaxingModeAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbaricon(context) {
+  IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -48,7 +48,7 @@ class RelaxingModeAppbar extends StatelessWidget
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbaricon(context),
+        child: appbarIcon(context),
       ),
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -66,7 +66,7 @@ class RelaxingModeAppbar extends StatelessWidget
 class RelaxingModeBody extends StatefulWidget {
   const RelaxingModeBody({Key? key}) : super(key: key);
 
-  static const relaxingmodetext = Text(
+  static const relaxingmodeText = Text(
       'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
       style: TextStyle(
           color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400));
@@ -76,7 +76,7 @@ class RelaxingModeBody extends StatefulWidget {
 }
 
 class _RelaxingModeBodyState extends State<RelaxingModeBody> {
-  Container relaxingmodeindicator() {
+  Container relaxingmodeIndicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
       width: 150.0,
@@ -93,8 +93,8 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
     );
   }
 
-  Row relaxingmodetitle() {
-    final titleimage = SvgPicture.asset(
+  Row relaxingmodeTitle() {
+    final titleImage = SvgPicture.asset(
       'assets/icons/ic_relaxing2.svg',
       width: 24,
       height: 24,
@@ -107,7 +107,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
       );
     }
 
-    const titlecontent = Text(
+    const titleContent = Text(
       'Total Time : 15 mins',
       style: TextStyle(
           color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400),
@@ -118,7 +118,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 8),
-          child: titleimage,
+          child: titleImage,
         ),
         Container(
           margin: const EdgeInsets.all(0.0),
@@ -127,13 +127,13 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
         const Spacer(),
         Container(
           margin: const EdgeInsets.all(0.0),
-          child: titlecontent,
+          child: titleContent,
         ),
       ],
     );
   }
 
-  final relaxingmodeimage = SvgPicture.asset(
+  final relaxingmodeImage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
   );
@@ -146,7 +146,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              relaxingmodeindicator(),
+              relaxingmodeIndicator(),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -168,7 +168,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
                   children: [
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                      child: relaxingmodetitle(),
+                      child: relaxingmodeTitle(),
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
@@ -178,12 +178,12 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.black12, width: 0),
                       ),
-                      child: RelaxingModeBody.relaxingmodetext,
+                      child: RelaxingModeBody.relaxingmodeText,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 96),
                         width: double.infinity,
-                        child: relaxingmodeimage),
+                        child: relaxingmodeImage),
                   ],
                 ),
               ),

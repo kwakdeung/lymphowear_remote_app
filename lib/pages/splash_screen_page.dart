@@ -32,7 +32,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     super.dispose();
   }
 
-  final splashscreen = Container(
+  final splashScreen = Container(
     margin: const EdgeInsets.all(0.0),
     child: SvgPicture.asset(
       alignment: Alignment.center,
@@ -51,7 +51,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              splashscreen,
+              splashScreen,
             ],
           ),
         ),

@@ -39,12 +39,12 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  final appbarlogo = SvgPicture.asset(
+  final appbarLogo = SvgPicture.asset(
     'assets/images/lymphowear.svg',
     fit: BoxFit.fill,
   );
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -63,7 +63,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       title: Container(
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-        child: appbarlogo,
+        child: appbarLogo,
       ),
       centerTitle: true,
       bottom: PreferredSize(
@@ -75,7 +75,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: appbariconbutton(context),
+          child: appbariconButton(context),
         ),
       ],
     );

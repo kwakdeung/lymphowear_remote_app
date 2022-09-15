@@ -26,7 +26,7 @@ class SleepingModeAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbaricon(context) {
+  IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -48,7 +48,7 @@ class SleepingModeAppbar extends StatelessWidget
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbaricon(context),
+        child: appbarIcon(context),
       ),
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -65,7 +65,7 @@ class SleepingModeAppbar extends StatelessWidget
 class SleepingModeBody extends StatefulWidget {
   const SleepingModeBody({Key? key}) : super(key: key);
 
-  static const sleepingmodetext = Text(
+  static const sleepingmodeText = Text(
     "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
     style: TextStyle(
         color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400),
@@ -76,7 +76,7 @@ class SleepingModeBody extends StatefulWidget {
 }
 
 class _SleepingModeBodyState extends State<SleepingModeBody> {
-  Container sleepingmodeindicator() {
+  Container sleepingmodeIndicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
       width: 150.0,
@@ -93,8 +93,8 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
     );
   }
 
-  Row sleepingmodetitle() {
-    final titleimage = SvgPicture.asset(
+  Row sleepingmodeTitle() {
+    final titleImage = SvgPicture.asset(
       "assets/icons/ic_sleeping2.svg",
       width: 24,
       height: 24,
@@ -107,7 +107,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
       );
     }
 
-    const titlecontent = Text(
+    const titleContent = Text(
       'Total Time : 15 mins',
       style: TextStyle(
           color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400),
@@ -118,7 +118,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 8),
-          child: titleimage,
+          child: titleImage,
         ),
         Container(
           margin: const EdgeInsets.all(0.0),
@@ -127,13 +127,13 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
         const Spacer(),
         Container(
           margin: const EdgeInsets.all(0.0),
-          child: titlecontent,
+          child: titleContent,
         ),
       ],
     );
   }
 
-  final sleepingmodeimage = SvgPicture.asset(
+  final sleepingmodeImage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
   );
@@ -146,7 +146,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              sleepingmodeindicator(),
+              sleepingmodeIndicator(),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -168,7 +168,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(0.0),
-                      child: sleepingmodetitle(),
+                      child: sleepingmodeTitle(),
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -178,12 +178,12 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: SleepingModeBody.sleepingmodetext,
+                      child: SleepingModeBody.sleepingmodeText,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 80),
                         width: double.infinity,
-                        child: sleepingmodeimage),
+                        child: sleepingmodeImage),
                   ],
                 ),
               ),

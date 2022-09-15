@@ -38,7 +38,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.close),
       color: Colors.grey[700],
@@ -60,7 +60,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: appbariconbutton(context),
+      leading: appbariconButton(context),
       backgroundColor: Colors.white,
       shadowColor: Colors.black,
       title: appbarTitle(context),

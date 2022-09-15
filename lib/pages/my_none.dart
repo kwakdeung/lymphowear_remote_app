@@ -36,7 +36,7 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(context) {
+  IconButton appbariconButton(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -58,7 +58,7 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbariconbutton(context),
+        child: appbariconButton(context),
       ),
       title: appbarTitle(context),
       bottom: PreferredSize(

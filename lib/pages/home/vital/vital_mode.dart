@@ -25,7 +25,7 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbaricon(context) {
+  IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -46,7 +46,7 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-          margin: const EdgeInsets.only(left: 10), child: appbaricon(context)),
+          margin: const EdgeInsets.only(left: 10), child: appbarIcon(context)),
       title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
@@ -63,7 +63,7 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
 class VitalModeBody extends StatefulWidget {
   const VitalModeBody({Key? key}) : super(key: key);
 
-  static const vitalmodecontent = Text(
+  static const vitalmodeContent = Text(
     'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
     style: TextStyle(
         color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400),
@@ -74,7 +74,7 @@ class VitalModeBody extends StatefulWidget {
 }
 
 class _VitalModeBodyState extends State<VitalModeBody> {
-  Container vitalmodeindicator() {
+  Container vitalmodeIndicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
       width: 150.0,
@@ -91,8 +91,8 @@ class _VitalModeBodyState extends State<VitalModeBody> {
     );
   }
 
-  Row vitalmodetitle() {
-    final titleimage = SvgPicture.asset(
+  Row vitalmodeTitle() {
+    final titleImage = SvgPicture.asset(
       'assets/icons/ic_vital2.svg',
       width: 24,
       height: 24,
@@ -105,7 +105,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
       );
     }
 
-    const titlecontent = Text(
+    const titleContent = Text(
       'Total Time : 15 mins',
       style: TextStyle(
           color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400),
@@ -116,7 +116,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
       children: [
         Container(
           margin: const EdgeInsets.only(right: 8),
-          child: titleimage,
+          child: titleImage,
         ),
         Container(
           margin: const EdgeInsets.all(0.0),
@@ -125,13 +125,13 @@ class _VitalModeBodyState extends State<VitalModeBody> {
         const Spacer(),
         Container(
           margin: const EdgeInsets.all(0.0),
-          child: titlecontent,
+          child: titleContent,
         ),
       ],
     );
   }
 
-  final vitalmodeimage = SvgPicture.asset(
+  final vitalmodeImage = SvgPicture.asset(
     'assets/images/mode_image.svg',
     fit: BoxFit.fill,
   );
@@ -144,7 +144,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              vitalmodeindicator(),
+              vitalmodeIndicator(),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -167,7 +167,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                     Container(
                       margin: const EdgeInsets.all(0.0),
                       color: Colors.transparent,
-                      child: vitalmodetitle(),
+                      child: vitalmodeTitle(),
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
@@ -177,12 +177,12 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: VitalModeBody.vitalmodecontent,
+                      child: VitalModeBody.vitalmodeContent,
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 128),
                         width: double.infinity,
-                        child: vitalmodeimage),
+                        child: vitalmodeImage),
                   ],
                 ),
               ),

@@ -10,7 +10,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(0);
 
-  IconButton appbaricon(context) {
+  IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -27,11 +27,11 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  AppBar settingpageappbar(context) {
+  AppBar settingpageAppbar(context) {
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbaricon(context),
+        child: appbarIcon(context),
       ),
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -45,7 +45,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  ListTile mydevice(context) {
+  ListTile myDevice(context) {
     return ListTile(
       leading: Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -90,7 +90,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  ListTile userguide() {
+  ListTile userGuide() {
     return ListTile(
       leading: Container(
         margin: const EdgeInsets.all(0.0),
@@ -123,7 +123,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Container settingpagebody(context) {
+  Container settingpageBody(context) {
     return Container(
       color: const Color(0xffF3F3F3),
       margin: const EdgeInsets.all(0.0),
@@ -132,7 +132,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Container(
             color: Colors.white,
-            child: mydevice(context),
+            child: myDevice(context),
           ),
           const Divider(
             height: 1,
@@ -148,7 +148,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
           ),
           Container(
             color: Colors.white,
-            child: userguide(),
+            child: userGuide(),
           ),
           const Divider(
             height: 1,
@@ -166,6 +166,6 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: settingpageappbar(context), body: settingpagebody(context));
+        appBar: settingpageAppbar(context), body: settingpageBody(context));
   }
 }

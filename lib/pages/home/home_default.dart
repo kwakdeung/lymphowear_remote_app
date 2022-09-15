@@ -36,7 +36,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton leadingiconbutton(context) {
+  IconButton leadingiconButton(context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_power.svg',
@@ -47,12 +47,12 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
         });
   }
 
-  final logo = SvgPicture.asset(
+  final appbarLogo = SvgPicture.asset(
     'assets/images/lymphowear.svg',
     fit: BoxFit.fill,
   );
 
-  IconButton actionsiconbutton(context) {
+  IconButton actionsiconButton(context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -71,11 +71,11 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: leadingiconbutton(context),
+        child: leadingiconButton(context),
       ),
       title: Container(
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-        child: logo,
+        child: appbarLogo,
       ),
       centerTitle: true,
       bottom: PreferredSize(
@@ -87,7 +87,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: actionsiconbutton(context),
+          child: actionsiconButton(context),
         ),
       ],
     );
@@ -174,20 +174,20 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
 class HomeDefaultBody extends StatelessWidget {
   const HomeDefaultBody({Key? key}) : super(key: key);
 
-  Container firstcontainer(context) {
-    const verticaldivider = VerticalDivider(
+  Container firstContainer(context) {
+    const verticalDivider = VerticalDivider(
       width: 1,
       thickness: 1,
       color: Color(0xffEEEEEE),
     );
 
-    GestureDetector vitalmodebutton(context) {
+    GestureDetector vitalmodeButton(context) {
       final vitalmodeimage = SvgPicture.asset(
         'assets/icons/ic_vital2.svg',
         fit: BoxFit.fill,
       );
 
-      const vitalmodetext = Text(
+      const vitalmodeText = Text(
         "Vital\n Mode",
         textAlign: TextAlign.center,
         style: TextStyle(color: Color(0xff212121), fontSize: 12),
@@ -210,20 +210,20 @@ class HomeDefaultBody extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                 child: vitalmodeimage,
               ),
-              vitalmodetext,
+              vitalmodeText,
             ],
           ),
         ),
       );
     }
 
-    GestureDetector relaxingmodebutton(context) {
-      final relaxingmodeimage = SvgPicture.asset(
+    GestureDetector relaxingmodeButton(context) {
+      final relaxingmodeImage = SvgPicture.asset(
         'assets/icons/ic_relaxing2.svg',
         fit: BoxFit.fill,
       );
 
-      const relaxingmodetext = Text(
+      const relaxingmodeText = Text(
         "Relaxing\n Mode",
         textAlign: TextAlign.center,
         style: TextStyle(color: Color(0xff212121), fontSize: 12),
@@ -241,22 +241,22 @@ class HomeDefaultBody extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
-                child: relaxingmodeimage,
+                child: relaxingmodeImage,
               ),
-              relaxingmodetext,
+              relaxingmodeText,
             ],
           ),
         ),
       );
     }
 
-    GestureDetector sleepingmodebutton(context) {
-      final sleepingmodeimage = SvgPicture.asset(
+    GestureDetector sleepingmodeButton(context) {
+      final sleepingmodeImage = SvgPicture.asset(
         'assets/icons/ic_sleeping2.svg',
         fit: BoxFit.fill,
       );
 
-      const sleepingmodetext = Text(
+      const sleepingmodeText = Text(
         "Sleeping\n Mode",
         textAlign: TextAlign.center,
         style: TextStyle(color: Color(0xff212121), fontSize: 12),
@@ -274,9 +274,9 @@ class HomeDefaultBody extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
-                child: sleepingmodeimage,
+                child: sleepingmodeImage,
               ),
-              sleepingmodetext,
+              sleepingmodeText,
             ],
           ),
         ),
@@ -303,27 +303,27 @@ class HomeDefaultBody extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.all(0.0),
-              child: vitalmodebutton(context),
+              child: vitalmodeButton(context),
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-            child: verticaldivider,
+            child: verticalDivider,
           ),
           Expanded(
             child: Container(
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: relaxingmodebutton(context),
+              child: relaxingmodeButton(context),
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-            child: verticaldivider,
+            child: verticalDivider,
           ),
           Expanded(
             child: Container(
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: sleepingmodebutton(context),
+              child: sleepingmodeButton(context),
             ),
           ),
         ],
@@ -331,7 +331,7 @@ class HomeDefaultBody extends StatelessWidget {
     );
   }
 
-  Container secondcontainer(context) {
+  Container secondContainer(context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
@@ -396,8 +396,8 @@ class HomeDefaultBody extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
               child: Column(
                 children: [
-                  firstcontainer(context),
-                  secondcontainer(context),
+                  firstContainer(context),
+                  secondContainer(context),
                 ],
               ),
             ),

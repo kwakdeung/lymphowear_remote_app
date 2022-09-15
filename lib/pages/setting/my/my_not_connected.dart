@@ -128,7 +128,10 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       },
       child: const Text(
         'Connect',
-        style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xff008A40)),
+        style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Color(0xff008A40)),
       ),
     );
 

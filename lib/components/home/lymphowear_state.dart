@@ -71,7 +71,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     }
   }
 
-  Container minusbutton() {
+  Container minusButton() {
     return Container(
       width: 32,
       height: 32,
@@ -104,7 +104,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     );
   }
 
-  Container plusbutton() {
+  Container plusButton() {
     return Container(
       width: 32,
       height: 32,
@@ -154,7 +154,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                minusbutton(),
+                minusButton(),
                 Container(
                   margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                   width: 150.0,
@@ -259,7 +259,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
                     ),
                   ),
                 ),
-                plusbutton(),
+                plusButton(),
               ],
             ),
           ),
@@ -270,7 +270,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 }
 
 Future _timeAlertDialog(BuildContext context, String message) async {
-  const timealertdialogtitle = Text(
+  const timealertdialogTitle = Text(
     "Great job!",
     style: TextStyle(
         color: Color(0xff212121),
@@ -279,13 +279,13 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w600),
   );
 
-  final timealertdialogimage = Lottie.asset(
+  final timealertdialogImage = Lottie.asset(
     'assets/images/great_job.json',
     width: 140,
     height: 72,
   );
 
-  final timealertdialogcontent = Text(
+  final timealertdialogContent = Text(
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
@@ -295,7 +295,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         fontWeight: FontWeight.w400),
   );
 
-  final timealertdialogbottombutton = ElevatedButton(
+  final timealertdialogbottomButton = ElevatedButton(
     style: ElevatedButton.styleFrom(
       padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
       shape: RoundedRectangleBorder(
@@ -312,9 +312,9 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     child: const Text('Done'),
   );
 
-  var timealertdialog = AlertDialog(
+  var timeAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: const Center(child: timealertdialogtitle),
+      title: const Center(child: timealertdialogTitle),
       content: Container(
         margin: const EdgeInsets.all(0.0),
         height: 100,
@@ -322,9 +322,9 @@ Future _timeAlertDialog(BuildContext context, String message) async {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 7),
-              child: timealertdialogimage,
+              child: timealertdialogImage,
             ),
-            timealertdialogcontent,
+            timealertdialogContent,
           ],
         ),
       ),
@@ -332,7 +332,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         Container(
           width: double.maxFinite,
           margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          child: timealertdialogbottombutton,
+          child: timealertdialogbottomButton,
         ),
       ]);
 
@@ -342,6 +342,6 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       builder: (BuildContext context) {
         return Theme(
             data: ThemeData(dialogBackgroundColor: Colors.white),
-            child: timealertdialog);
+            child: timeAlertdialog);
       });
 }

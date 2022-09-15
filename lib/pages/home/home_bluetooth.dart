@@ -41,12 +41,12 @@ class HomeBluetoothAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  final appbarimage = SvgPicture.asset(
+  final appbarLogo = SvgPicture.asset(
     'assets/images/lymphowear.svg',
     fit: BoxFit.fill,
   );
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_setting.svg',
@@ -64,7 +64,7 @@ class HomeBluetoothAppbar extends StatelessWidget
       automaticallyImplyLeading: false,
       title: Container(
         margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-        child: appbarimage,
+        child: appbarLogo,
       ),
       centerTitle: true,
       bottom: PreferredSize(
@@ -76,7 +76,7 @@ class HomeBluetoothAppbar extends StatelessWidget
       actions: <Widget>[
         Container(
           margin: const EdgeInsets.only(right: 4),
-          child: appbariconbutton(context),
+          child: appbariconButton(context),
         ),
       ],
     );
@@ -86,7 +86,7 @@ class HomeBluetoothAppbar extends StatelessWidget
 class HomeBluetoothBody extends StatelessWidget {
   const HomeBluetoothBody({Key? key}) : super(key: key);
 
-  IconButton bluetoothicon() {
+  IconButton bluetoothIcon() {
     return IconButton(
         icon: SvgPicture.asset(
           'assets/icons/ic_bluetooth_off.svg',
@@ -117,7 +117,7 @@ class HomeBluetoothBody extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 78, 0, 8),
-                child: bluetoothicon(),
+                child: bluetoothIcon(),
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
@@ -159,16 +159,16 @@ class HomeBluetoothBottomButton extends StatelessWidget {
   }
 
   Future showProgressDialog(BuildContext context, String message) async {
-    const firstcupertinaactivityindicator = CupertinoActivityIndicator(
+    const firstCupertinoactivityindicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,
     );
-    final firstalertdialogtextstyle = Text(
+    final firstalertdialogTextstyle = Text(
       message,
       style: Theme.of(context).textTheme.subtitle1,
     );
 
-    var firstalertdialog = AlertDialog(
+    var firstAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       content: Container(
         margin: const EdgeInsets.all(0.0),
@@ -181,11 +181,11 @@ class HomeBluetoothBottomButton extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
-                  child: firstcupertinaactivityindicator,
+                  child: firstCupertinoactivityindicator,
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
-                  child: firstalertdialogtextstyle,
+                  child: firstalertdialogTextstyle,
                 ),
               ],
             ),
@@ -194,12 +194,12 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
     );
 
-    Text secondalertdialogtitle = Text(
+    Text secondalertdialogTitle = Text(
       'Failed to Connect',
       style: Theme.of(context).textTheme.subtitle1,
     );
 
-    final secondcanclebutton = ElevatedButton(
+    final secondcancleButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(112, 40),
         shape: RoundedRectangleBorder(
@@ -216,7 +216,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       child: const Text('Cancel'),
     );
 
-    final secondtryagainbutton = ElevatedButton(
+    final secondtryagainButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(112, 40),
         shape: RoundedRectangleBorder(
@@ -239,12 +239,12 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
     );
 
-    var secondalertdialog = AlertDialog(
+    var secondAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       title: Center(
         child: Container(
           margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-          child: secondalertdialogtitle,
+          child: secondalertdialogTitle,
         ),
       ),
       actions: [
@@ -256,11 +256,11 @@ class HomeBluetoothBottomButton extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
-                child: secondcanclebutton,
+                child: secondcancleButton,
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
-                child: secondtryagainbutton,
+                child: secondtryagainButton,
               ),
             ],
           ),
@@ -277,7 +277,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: Container(
             margin: const EdgeInsets.fromLTRB(59, 246, 59, 246),
-            child: firstalertdialog,
+            child: firstAlertdialog,
           ),
         );
       },
@@ -288,7 +288,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       builder: (BuildContext context) {
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
-          child: secondalertdialog,
+          child: secondAlertdialog,
         );
       },
     );

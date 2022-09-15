@@ -27,14 +27,14 @@ class _CollarboneState extends State<Collarbone> {
     }
   }
 
-  final collarboneimage = SvgPicture.asset(
+  final collarboneImage = SvgPicture.asset(
     'assets/images/collarbone.svg',
     width: 40,
     height: 40,
     fit: BoxFit.fill,
   );
 
-  Row collarbonetitle() {
+  Row collarboneTitle() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -53,7 +53,7 @@ class _CollarboneState extends State<Collarbone> {
     );
   }
 
-  SliderTheme collarboneslider() {
+  SliderTheme collarboneSlider() {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
@@ -80,7 +80,7 @@ class _CollarboneState extends State<Collarbone> {
     );
   }
 
-  Row collarboneslidervalue() {
+  Row collarbonesliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -95,7 +95,7 @@ class _CollarboneState extends State<Collarbone> {
     );
   }
 
-  final slidericon = SvgPicture.asset(
+  final sliderIcon = SvgPicture.asset(
     'assets/icons/ic_max.svg',
     width: 16,
     height: 16,
@@ -111,31 +111,31 @@ class _CollarboneState extends State<Collarbone> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: collarboneimage,
+            child: collarboneImage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: collarbonetitle(),
+                  child: collarboneTitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: collarboneslider(),
+                  child: collarboneSlider(),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                  child: collarboneslidervalue(),
+                  child: collarbonesliderValue(),
                 ),
               ],
             ),
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
-            child: slidericon,
+            child: sliderIcon,
           ),
         ],
       ),

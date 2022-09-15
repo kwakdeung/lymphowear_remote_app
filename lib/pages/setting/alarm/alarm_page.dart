@@ -28,7 +28,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -50,7 +50,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbariconbutton(context),
+        child: appbariconButton(context),
       ),
       title: apppbarTitle(context),
       bottom: PreferredSize(
@@ -77,7 +77,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _morningVisible = false;
   String _morningValue = "";
 
-  ListTile morningreminder() {
+  ListTile morningReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -130,7 +130,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _afternoonVisible = false;
   String _afternoonValue = "";
 
-  ListTile afternoonreminder() {
+  ListTile afternoonReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -185,7 +185,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _eveningVisible = false;
   String _eveningValue = "";
 
-  ListTile eveningreminder() {
+  ListTile eveningReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -238,7 +238,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _nightVisible = false;
   String _nightValue = "";
 
-  ListTile nightreminder() {
+  ListTile nightReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -301,7 +301,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-            child: morningreminder(),
+            child: morningReminder(),
           ),
           const Divider(
             height: 1,
@@ -310,7 +310,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-            child: afternoonreminder(),
+            child: afternoonReminder(),
           ),
           const Divider(
             height: 1,
@@ -319,7 +319,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-            child: eveningreminder(),
+            child: eveningReminder(),
           ),
           const Divider(
             height: 1,
@@ -328,7 +328,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-            child: nightreminder(),
+            child: nightReminder(),
           ),
           const Divider(
             height: 1,

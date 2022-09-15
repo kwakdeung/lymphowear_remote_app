@@ -30,7 +30,7 @@ class PairingLoadingAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -53,7 +53,7 @@ class PairingLoadingAppbar extends StatelessWidget
       automaticallyImplyLeading: false,
       leading: Container(
           margin: const EdgeInsets.only(left: 10),
-          child: appbariconbutton(context)),
+          child: appbariconButton(context)),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -105,7 +105,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
     }
   }
 
-  CircularProgressIndicator circularprogressindicator() {
+  CircularProgressIndicator circularprogressIndicator() {
     return CircularProgressIndicator(
       value: controller.value,
       color: Colors.green,
@@ -131,7 +131,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
           children: [
             Container(
               margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-              child: circularprogressindicator(),
+              child: circularprogressIndicator(),
             ),
             Container(
               margin: const EdgeInsets.all(0.0),

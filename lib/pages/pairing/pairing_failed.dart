@@ -47,7 +47,7 @@ class PairingFailedAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbariconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -72,7 +72,7 @@ class PairingFailedAppbar extends StatelessWidget
       automaticallyImplyLeading: false,
       leading: Container(
           margin: const EdgeInsets.only(left: 10),
-          child: appbariconbutton(context)),
+          child: appbariconButton(context)),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(

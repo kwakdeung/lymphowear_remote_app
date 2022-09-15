@@ -27,14 +27,14 @@ class _ShoulderState extends State<Shoulder> {
     }
   }
 
-  final shoulderimage = SvgPicture.asset(
+  final shoulderImage = SvgPicture.asset(
     'assets/images/shoulder.svg',
     width: 40,
     height: 40,
     fit: BoxFit.fill,
   );
 
-  Row shoudertitle() {
+  Row shouderTitle() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -53,7 +53,7 @@ class _ShoulderState extends State<Shoulder> {
     );
   }
 
-  SliderTheme shoulderslider() {
+  SliderTheme shoulderSlider() {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
@@ -80,7 +80,7 @@ class _ShoulderState extends State<Shoulder> {
     );
   }
 
-  Row shoulderslidervalue() {
+  Row shouldersliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
@@ -104,24 +104,24 @@ class _ShoulderState extends State<Shoulder> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: shoulderimage,
+            child: shoulderImage,
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
-                  child: shoudertitle(),
+                  child: shouderTitle(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(0.0),
                   height: 18,
                   width: double.infinity,
-                  child: shoulderslider(),
+                  child: shoulderSlider(),
                 ),
                 Container(
                     padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
-                    child: shoulderslidervalue()),
+                    child: shouldersliderValue()),
               ],
             ),
           ),
