@@ -173,7 +173,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
           Navigator.pushReplacement(
             context,
             _createRoute(),
-          ); // Home_BT연결이 끊어진 경우
+          );
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),

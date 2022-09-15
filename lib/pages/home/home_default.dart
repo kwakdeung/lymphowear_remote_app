@@ -115,7 +115,6 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                 actions: [
                   Container(
                     margin: const EdgeInsets.all(0.0),
-                    // height: 70,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

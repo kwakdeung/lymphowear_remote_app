@@ -291,7 +291,6 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
           Container(
             color: Colors.white,
             child: modelname(),
-            // onTap: () {},
           ),
           divider,
           Container(
