@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
@@ -89,11 +91,12 @@ class SleepingModeBody extends StatelessWidget {
       height: 24,
     );
 
-    const title = Text(
-      'Sleeping Mode',
-      style: TextStyle(
-          fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w600),
-    );
+    Text title(context) {
+      return Text(
+        'Sleeping Mode',
+        style: Theme.of(context).textTheme.headline3,
+      );
+    }
 
     const titlecontent = Text(
       'Total Time : 15 mins',
@@ -113,7 +116,7 @@ class SleepingModeBody extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.all(0.0),
-          child: title,
+          child: title(context),
         ),
         const Spacer(),
         Container(
