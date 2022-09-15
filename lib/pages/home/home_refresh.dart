@@ -202,10 +202,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
                           margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                           child: Text(
                             message,
-                            style: const TextStyle(
-                                fontSize: 16,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w400),
+                            style: Theme.of(context).textTheme.headline2,
                           ),
                         ),
                       ],
