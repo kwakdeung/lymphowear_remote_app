@@ -85,7 +85,7 @@ class PairingPageBody extends StatelessWidget {
   Text title(context) {
     return Text(
       'Turn on the power of LymphoWear',
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 

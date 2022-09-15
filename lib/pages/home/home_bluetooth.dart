@@ -171,7 +171,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
     );
     final firstalertdialogtextstyle = Text(
       message,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
 
     var firstalertdialog = AlertDialog(

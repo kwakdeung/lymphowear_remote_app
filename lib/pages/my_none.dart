@@ -80,7 +80,7 @@ class MyNoneBody extends StatelessWidget {
     return Text(
       "There’s no device connected.",
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 

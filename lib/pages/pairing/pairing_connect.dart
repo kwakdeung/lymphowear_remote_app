@@ -185,7 +185,7 @@ class PairingConnectBottomButton extends StatelessWidget {
                           margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                           child: Text(
                             message,
-                            style: Theme.of(context).textTheme.headline2,
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
                       ],

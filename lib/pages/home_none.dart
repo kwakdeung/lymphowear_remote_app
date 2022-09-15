@@ -88,7 +88,7 @@ class HomeNoneBody extends StatelessWidget {
   Text title(context) {
     return Text(
       "There’s no device connected.",
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 

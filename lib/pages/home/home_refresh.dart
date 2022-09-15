@@ -83,7 +83,7 @@ class HomeRefreshBody extends StatelessWidget {
     return Text(
       'LymphoWear is turned off.\nTurn on LymphoWear',
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 
@@ -202,7 +202,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
                           margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                           child: Text(
                             message,
-                            style: Theme.of(context).textTheme.headline2,
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
                       ],

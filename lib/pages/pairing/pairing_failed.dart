@@ -96,7 +96,7 @@ class PairingFailedBody extends StatelessWidget {
   Text title(context) {
     return Text(
       "No device found",
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 

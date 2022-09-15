@@ -117,7 +117,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
     return Center(
         child: Text(
       'Searching for device...',
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.subtitle1,
     ));
   }
 
