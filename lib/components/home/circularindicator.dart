@@ -190,7 +190,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
   Text timeAlertdialogTitle(context) {
     return Text(
       "Great job!",
-      style: Theme.of(context).textTheme.headline6,
+      style: Theme.of(context).textTheme.headline5,
     );
   }
 
