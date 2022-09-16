@@ -10,10 +10,11 @@ class Armpit extends StatefulWidget {
 }
 
 class _ArmpitState extends State<Armpit> {
-  double armpitValue = 2;
+  double armpitValue = 2.0;
+  double minValue = 0.0;
 
   showValue() {
-    if (armpitValue == 0) {
+    if (armpitValue == minValue) {
       return Text(
         '  Off',
         style: intensityValueText,

@@ -78,6 +78,62 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _morningVisible = false;
   String _morningValue = "";
 
+  bool _afternoonButton = false;
+  bool _afternoonVisible = false;
+  String _afternoonValue = "";
+
+  bool _eveningButton = false;
+  bool _eveningVisible = false;
+  String _eveningValue = "";
+
+  bool _nightButton = false;
+  bool _nightVisible = false;
+  String _nightValue = "";
+
+  void showMorning() {
+    _morningButton = !_morningButton;
+    if (_morningButton != false) {
+      _morningVisible = true;
+      _morningValue = "Scheduled for 08:00AM";
+    } else {
+      _morningVisible = false;
+      _morningValue = "";
+    }
+  }
+
+  void showAfternoon() {
+    _afternoonButton = !_afternoonButton;
+    if (_afternoonButton != false) {
+      _afternoonVisible = true;
+      _afternoonValue = "Scheduled for 12:00PM";
+    } else {
+      _afternoonVisible = false;
+      _afternoonValue = "";
+    }
+  }
+
+  void showEvening() {
+    _eveningButton = !_eveningButton;
+    if (_eveningButton != false) {
+      _eveningVisible = true;
+      _eveningValue = "Scheduled for 06:00PM";
+    } else {
+      _eveningVisible = false;
+      _eveningValue = "";
+    }
+  }
+
+  void showNight() {
+    _nightButton = !_nightButton;
+    if (_nightButton != false) {
+      _nightVisible = true;
+      _nightValue = "Scheduled for 10:00PM";
+    } else {
+      _nightVisible = false;
+      _nightValue = "";
+    }
+  }
+
   ListTile morningReminder() {
     return ListTile(
       leading: Column(
@@ -101,14 +157,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _morningButton,
         onChanged: (bool value) {
           setState(() {
-            _morningButton = !_morningButton;
-            if (_morningButton != false) {
-              _morningVisible = true;
-              _morningValue = "Scheduled for 08:00AM";
-            } else {
-              _morningVisible = false;
-              _morningValue = "";
-            }
+            showMorning();
           });
         },
       ),
@@ -118,10 +167,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       },
     );
   }
-
-  bool _afternoonButton = false;
-  bool _afternoonVisible = false;
-  String _afternoonValue = "";
 
   ListTile afternoonReminder() {
     return ListTile(
@@ -146,14 +191,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _afternoonButton,
         onChanged: (bool value) {
           setState(() {
-            _afternoonButton = !_afternoonButton;
-            if (_afternoonButton != false) {
-              _afternoonVisible = true;
-              _afternoonValue = "Scheduled for 12:00PM";
-            } else {
-              _afternoonVisible = false;
-              _afternoonValue = "";
-            }
+            showAfternoon();
           });
         },
       ),
@@ -165,10 +203,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       },
     );
   }
-
-  bool _eveningButton = false;
-  bool _eveningVisible = false;
-  String _eveningValue = "";
 
   ListTile eveningReminder() {
     return ListTile(
@@ -193,14 +227,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _eveningButton,
         onChanged: (bool value) {
           setState(() {
-            _eveningButton = !_eveningButton;
-            if (_eveningButton != false) {
-              _eveningVisible = true;
-              _eveningValue = "Scheduled for 06:00PM";
-            } else {
-              _eveningVisible = false;
-              _eveningValue = "";
-            }
+            showEvening();
           });
         },
       ),
@@ -210,10 +237,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       },
     );
   }
-
-  bool _nightButton = false;
-  bool _nightVisible = false;
-  String _nightValue = "";
 
   ListTile nightReminder() {
     return ListTile(
@@ -241,14 +264,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _nightButton,
         onChanged: (bool value) {
           setState(() {
-            _nightButton = !_nightButton;
-            if (_nightButton != false) {
-              _nightVisible = true;
-              _nightValue = "Scheduled for 10:00PM";
-            } else {
-              _nightVisible = false;
-              _nightValue = "";
-            }
+            showNight();
           });
         },
       ),

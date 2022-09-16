@@ -10,10 +10,11 @@ class Heat extends StatefulWidget {
 }
 
 class _HeatState extends State<Heat> {
-  double heatValue = 1;
+  double heatValue = 1.0;
+  double minValue = 0.0;
 
   showValue() {
-    if (heatValue == 0) {
+    if (heatValue == minValue) {
       return Text(
         '  Off',
         style: intensityValueText,

@@ -47,9 +47,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        if (_countedSeconds > 0) {
-          _countedSeconds--;
-        }
+        passTime();
         alertEnd();
       });
     });
@@ -61,10 +59,49 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     _timer!.cancel();
   }
 
+  void passTime() {
+    if (_countedSeconds > 0) {
+      _countedSeconds--;
+    }
+  }
+
   void alertEnd() {
     if (time == "00:00") {
       _timer!.cancel();
       _timeAlertDialog(context, "Total Time: 15mins");
+    }
+  }
+
+  void minusControl() {
+    if (_countedSeconds > 0 &&
+        (_timerStart == false && timerRunning == false)) {
+      setState(() {
+        _countedSeconds--;
+      });
+    }
+  }
+
+  void plusControl() {
+    if (_countedSeconds < maxSeconds &&
+        (_timerStart == false && timerRunning == false)) {
+      setState(() {
+        _countedSeconds++;
+      });
+    }
+  }
+
+  void playpauseControl() {
+    if (timerRunning) {
+      stopTimer();
+      setState(() {
+        isPlaying = false;
+      });
+    } else {
+      startTimer();
+      setState(() {
+        circularVisible = true;
+        isPlaying = true;
+      });
     }
   }
 
@@ -75,12 +112,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
       child: ElevatedButton(
         onPressed: () {
-          if (_countedSeconds > 0 &&
-              (_timerStart == false && timerRunning == false)) {
-            setState(() {
-              _countedSeconds--;
-            });
-          }
+          minusControl();
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
@@ -108,12 +140,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       margin: const EdgeInsets.fromLTRB(0, 96, 0, 16),
       child: ElevatedButton(
         onPressed: () {
-          if (_countedSeconds < maxSeconds &&
-              (_timerStart == false && timerRunning == false)) {
-            setState(() {
-              _countedSeconds++;
-            });
-          }
+          plusControl();
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
@@ -179,18 +206,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       ),
       child: IconButton(
         onPressed: () {
-          if (timerRunning) {
-            stopTimer();
-            setState(() {
-              isPlaying = false;
-            });
-          } else {
-            startTimer();
-            setState(() {
-              circularVisible = true;
-              isPlaying = true;
-            });
-          }
+          playpauseControl();
         },
         color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
         icon: isPlaying

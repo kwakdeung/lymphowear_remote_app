@@ -10,10 +10,11 @@ class Collarbone extends StatefulWidget {
 }
 
 class _CollarboneState extends State<Collarbone> {
-  double colloarboneValue = 2;
+  double colloarboneValue = 2.0;
+  double minValue = 0.0;
 
   showValue() {
-    if (colloarboneValue == 0) {
+    if (colloarboneValue == minValue) {
       return Text(
         '  Off',
         style: intensityValueText,

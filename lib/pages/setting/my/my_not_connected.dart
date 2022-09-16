@@ -81,19 +81,23 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
 
   String connectText = "Not connected";
 
+  void delay() {
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        _isLoading = false;
+        _isConnected = true;
+        connectText = "Connected";
+      });
+    });
+  }
+
   void connect() {
     _isConnecting = !_isConnecting;
     if (_isConnecting == true) {
       setState(() {
         connectText = "Connecting...";
       });
-      Future.delayed(const Duration(seconds: 3), () {
-        setState(() {
-          _isLoading = false;
-          _isConnected = true;
-          connectText = "Connected";
-        });
-      });
+      delay();
     } else {
       setState(() {
         connectText = "Not connected";

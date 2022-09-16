@@ -79,6 +79,8 @@ class PairingReloadingBody extends StatefulWidget {
 class _PairingReloadingBodyState extends State<PairingReloadingBody>
     with TickerProviderStateMixin {
   late AnimationController controller;
+  double maxValue = 1.0;
+
   @override
   void initState() {
     controller = AnimationController(
@@ -100,7 +102,7 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody>
   }
 
   void loadPage() {
-    if (controller.value == 1) {
+    if (controller.value == maxValue) {
       controller.stop();
       Navigator.push(context,
           MaterialPageRoute(builder: ((context) => const PairingConnect())));

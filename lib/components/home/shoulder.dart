@@ -10,10 +10,11 @@ class Shoulder extends StatefulWidget {
 }
 
 class _ShoulderState extends State<Shoulder> {
-  double shoulderValue = 2;
+  double shoulderValue = 2.0;
+  double minValue = 0.0;
 
   showValue() {
-    if (shoulderValue == 0) {
+    if (shoulderValue == minValue) {
       return Text(
         '  Off',
         style: intensityValueText,
