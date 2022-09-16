@@ -24,27 +24,38 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.transparent,
         fontFamily: 'Poppins',
         textTheme: const TextTheme(
+          headline5: TextStyle(
+            color: Color(0xff212121),
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
           headline6: TextStyle(
             color: Color(0xff212121),
             fontSize: 16,
             fontWeight: FontWeight.w600,
+            letterSpacing: 0.0,
           ),
           subtitle1: TextStyle(
             color: Color(0xff212121),
+            letterSpacing: 0.0,
           ),
           subtitle2: TextStyle(
             color: Color(0xff212121),
             // fontSize: 14,
             fontWeight: FontWeight.w600,
+            letterSpacing: 0.0,
           ),
           bodyText2: TextStyle(
             color: Color(0xff757575),
+            letterSpacing: 0.0,
           ),
           button: TextStyle(
             color: Color(0xff008A40),
             fontSize: 16,
             fontWeight: FontWeight.w600,
+            letterSpacing: 0.0,
           ),
+          caption: TextStyle(color: Color(0xff616161), letterSpacing: 0.0),
         ),
       ),
       themeMode: ThemeMode.system,
