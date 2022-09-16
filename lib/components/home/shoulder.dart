@@ -12,7 +12,7 @@ class Shoulder extends StatefulWidget {
 class _ShoulderState extends State<Shoulder> {
   double shoulderValue = 2;
 
-  shouldervalue() {
+  showValue() {
     if (shoulderValue == 0) {
       return Text(
         '  Off',
@@ -43,7 +43,7 @@ class _ShoulderState extends State<Shoulder> {
         ),
         const Spacer(),
         Text('Intensity', style: intensityText),
-        shouldervalue(),
+        showValue(),
       ],
     );
   }

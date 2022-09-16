@@ -12,7 +12,7 @@ class Collarbone extends StatefulWidget {
 class _CollarboneState extends State<Collarbone> {
   double colloarboneValue = 2;
 
-  colloarbonevalue() {
+  showValue() {
     if (colloarboneValue == 0) {
       return Text(
         '  Off',
@@ -43,7 +43,7 @@ class _CollarboneState extends State<Collarbone> {
         ),
         const Spacer(),
         Text('Intensity', style: intensityText),
-        colloarbonevalue(),
+        showValue(),
       ],
     );
   }

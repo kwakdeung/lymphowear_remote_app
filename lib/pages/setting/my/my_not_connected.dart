@@ -83,7 +83,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
 
   var connected = "CONNECTED";
 
-  connecting() {
+  void connect() {
     _isConnecting = !_isConnecting;
     if (_isConnecting == true) {
       setState(() {
@@ -121,7 +121,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         side: const BorderSide(color: Color(0xff008A40)),
       ),
       onPressed: () {
-        connecting();
+        connect();
         _isVisible = false;
         _isLoading = true;
       },

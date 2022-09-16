@@ -12,7 +12,7 @@ class Heat extends StatefulWidget {
 class _HeatState extends State<Heat> {
   double heatValue = 1;
 
-  heatvalue() {
+  showValue() {
     if (heatValue == 0) {
       return Text(
         '  Off',
@@ -43,7 +43,7 @@ class _HeatState extends State<Heat> {
         ),
         const Spacer(),
         Text('Intensity', style: intensityText),
-        heatvalue(),
+        showValue(),
       ],
     );
   }

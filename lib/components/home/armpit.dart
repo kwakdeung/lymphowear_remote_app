@@ -12,7 +12,7 @@ class Armpit extends StatefulWidget {
 class _ArmpitState extends State<Armpit> {
   double armpitValue = 2;
 
-  armpitvalue() {
+  showValue() {
     if (armpitValue == 0) {
       return Text(
         '  Off',
@@ -43,7 +43,7 @@ class _ArmpitState extends State<Armpit> {
         ),
         const Spacer(),
         Text('Intensity', style: intensityText),
-        armpitvalue(),
+        showValue(),
       ],
     );
   }
