@@ -65,11 +65,12 @@ class SleepingModeAppbar extends StatelessWidget
 class SleepingModeBody extends StatefulWidget {
   const SleepingModeBody({Key? key}) : super(key: key);
 
-  static const sleepingmodeText = Text(
-    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
-    style: TextStyle(
-        color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400),
-  );
+  Text sleepingmodeText(context) {
+    return Text(
+      "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
+      style: Theme.of(context).textTheme.caption,
+    );
+  }
 
   @override
   State<SleepingModeBody> createState() => _SleepingModeBodyState();
@@ -178,7 +179,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: SleepingModeBody.sleepingmodeText,
+                      child: const SleepingModeBody().sleepingmodeText(context),
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 80),

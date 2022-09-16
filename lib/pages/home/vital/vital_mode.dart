@@ -63,11 +63,12 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
 class VitalModeBody extends StatefulWidget {
   const VitalModeBody({Key? key}) : super(key: key);
 
-  static const vitalmodeContent = Text(
-    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
-    style: TextStyle(
-        color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400),
-  );
+  Text vitalmodeContent(context) {
+    return Text(
+      'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+      style: Theme.of(context).textTheme.caption,
+    );
+  }
 
   @override
   State<VitalModeBody> createState() => _VitalModeBodyState();
@@ -177,7 +178,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                         border: Border.all(color: Colors.black12, width: 0),
                         color: const Color(0xffEEEEEE),
                       ),
-                      child: VitalModeBody.vitalmodeContent,
+                      child: const VitalModeBody().vitalmodeContent(context),
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 128),

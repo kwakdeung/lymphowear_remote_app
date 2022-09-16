@@ -66,10 +66,12 @@ class RelaxingModeAppbar extends StatelessWidget
 class RelaxingModeBody extends StatefulWidget {
   const RelaxingModeBody({Key? key}) : super(key: key);
 
-  static const relaxingmodeText = Text(
+  Text relaxingmodeText(context) {
+    return Text(
       'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
-      style: TextStyle(
-          color: Color(0xff616161), fontSize: 12, fontWeight: FontWeight.w400));
+      style: Theme.of(context).textTheme.caption,
+    );
+  }
 
   @override
   State<RelaxingModeBody> createState() => _RelaxingModeBodyState();
@@ -178,7 +180,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: Colors.black12, width: 0),
                       ),
-                      child: RelaxingModeBody.relaxingmodeText,
+                      child: const RelaxingModeBody().relaxingmodeText(context),
                     ),
                     Container(
                         margin: const EdgeInsets.only(bottom: 96),
