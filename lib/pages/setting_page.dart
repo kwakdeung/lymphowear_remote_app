@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/my_none.dart';
 import 'package:lymphowear_remote_app/pages/setting/alarm/alarm_page.dart';
@@ -53,9 +54,9 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
           "assets/icons/ic_my_device.svg",
         ),
       ),
-      title: const Text(
+      title: Text(
         'My Device',
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+        style: listTilebodyText1,
       ),
       tileColor: Colors.white,
       trailing: Container(
@@ -74,9 +75,9 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: SvgPicture.asset("assets/icons/ic_timer.svg"),
       ),
-      title: const Text(
+      title: Text(
         'Alarm',
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+        style: listTilebodyText1,
       ),
       tileColor: Colors.white,
       trailing: Container(
@@ -96,8 +97,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: const EdgeInsets.all(0.0),
         child: SvgPicture.asset("assets/icons/ic_info.svg"),
       ),
-      title: const Text('User Guide',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+      title: Text('User Guide', style: listTilebodyText1),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
@@ -112,8 +112,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       leading: Container(
           margin: const EdgeInsets.all(0.0),
           child: SvgPicture.asset("assets/icons/ic_help.svg")),
-      title: const Text('FAQ',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+      title: Text('FAQ', style: listTilebodyText1),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),

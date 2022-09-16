@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 
-var bottombuttonmargin =
-    const EdgeInsets.only(top: 80, bottom: 80, left: 20, right: 20);
+var intensityText = const TextStyle(color: Color(0xff9E9E9E), fontSize: 10);
 
-var bottombuttonpadding = const EdgeInsets.fromLTRB(12, 24, 12, 24);
+var intensityValueText = const TextStyle(
+    fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600);
 
-bool isMobileWidth(BuildContext context) =>
-    MediaQuery.of(context).size.width >= 360;
-bool isMobileHeight(BuildContext context) =>
-    MediaQuery.of(context).size.height >= 640;
+var alramValueText = const TextStyle(
+    color: Color(0xff0BB15D), fontSize: 12, fontWeight: FontWeight.w400);
+
+var listTilebodyText1 = const TextStyle(
+    color: Color(0xff212121), fontSize: 16, fontWeight: FontWeight.w400);
+
+var modebuttonText = const TextStyle(color: Color(0xff212121), fontSize: 12);
+
+var modebodyText = const TextStyle(
+    color: Color(0xff212121), fontSize: 14, fontWeight: FontWeight.w400);
+
+var firmwareText = const TextStyle(
+    color: Color(0xff757575), fontSize: 14, fontWeight: FontWeight.w400);
+
+var modeContentText = const TextStyle(
+    color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400);

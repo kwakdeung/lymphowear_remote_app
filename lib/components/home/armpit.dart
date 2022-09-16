@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class Armpit extends StatefulWidget {
   const Armpit({Key? key}) : super(key: key);
@@ -13,16 +14,14 @@ class _ArmpitState extends State<Armpit> {
 
   armpitvalue() {
     if (armpitValue == 0) {
-      return const Text(
+      return Text(
         '  Off',
-        style: TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     } else {
       return Text(
         '  ${armpitValue.round()}',
-        style: const TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     }
   }
@@ -38,16 +37,12 @@ class _ArmpitState extends State<Armpit> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Armpit',
-          style: TextStyle(
-              color: Color(0xff212121),
-              fontSize: 14,
-              fontWeight: FontWeight.w400),
+          style: modebodyText,
         ),
         const Spacer(),
-        const Text('Intensity',
-            style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+        Text('Intensity', style: intensityText),
         armpitvalue(),
       ],
     );
@@ -83,14 +78,14 @@ class _ArmpitState extends State<Armpit> {
   Row armpitSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text('Off', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('1', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('2', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('3', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+      children: [
+        Text('Off', style: intensityText),
+        const Spacer(),
+        Text('1', style: intensityText),
+        const Spacer(),
+        Text('2', style: intensityText),
+        const Spacer(),
+        Text('3', style: intensityText),
       ],
     );
   }
