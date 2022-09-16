@@ -43,6 +43,51 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     pageController = PageController(initialPage: 0, viewportFraction: 0.65);
 
+    PageView pageView() {
+      return PageView.builder(
+        scrollDirection: Axis.horizontal,
+        controller: pageController,
+        itemCount: onboardingData.length,
+        onPageChanged: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
+        itemBuilder: (BuildContext context, int index) => OnboardingContents(
+          image: onboardingData[index].image,
+          title: onboardingData[index].title,
+          description: onboardingData[index].description,
+        ),
+      );
+    }
+
+    Row dotIndicator() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(
+            onboardingData.length,
+            ((index) => Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: DotIndicator(isActive: index == pageIndex),
+                ))),
+      );
+    }
+
+    ElevatedButton onboardingPageBottomButton() {
+      return ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).push(_createRoute());
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+          backgroundColor: const Color(0xff008A40),
+          foregroundColor: Colors.white,
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        ),
+        child: const Text('Skip'),
+      );
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -56,52 +101,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Expanded(
-                  child: PageView.builder(
-                    scrollDirection: Axis.horizontal,
-                    controller: pageController,
-                    itemCount: onboardingData.length,
-                    onPageChanged: (index) {
-                      setState(() {
-                        pageIndex = index;
-                      });
-                    },
-                    itemBuilder: (BuildContext context, int index) =>
-                        OnboardingContents(
-                      image: onboardingData[index].image,
-                      title: onboardingData[index].title,
-                      description: onboardingData[index].description,
-                    ),
-                  ),
+                  child: pageView(),
                 ),
                 Container(
                   margin: const EdgeInsets.all(32),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                        onboardingData.length,
-                        ((index) => Padding(
-                              padding: const EdgeInsets.all(4),
-                              child: DotIndicator(isActive: index == pageIndex),
-                            ))),
-                  ),
+                  child: dotIndicator(),
                 ),
                 Container(
                   color: const Color.fromARGB(0, 231, 174, 174),
                   margin: const EdgeInsets.fromLTRB(20, 40, 20, 80),
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(_createRoute());
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                      backgroundColor: const Color(0xff008A40),
-                      foregroundColor: Colors.white,
-                      textStyle: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                    child: const Text('Skip'),
-                  ),
+                  child: onboardingPageBottomButton(),
                 ),
               ],
             ),

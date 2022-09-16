@@ -134,6 +134,109 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     );
   }
 
+  Container timer() {
+    Visibility circularprogressIndicator() {
+      return Visibility(
+        visible: circularVisible,
+        child: CircularProgressIndicator(
+          backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
+          strokeWidth: 6,
+          value: 1.0 - (_countedSeconds % 60) / 10,
+          valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
+        ),
+      );
+    }
+
+    final batteryImage = Container(
+      margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
+      child: SvgPicture.asset(
+        'assets/images/battery.svg',
+        width: 30,
+        height: 12,
+      ),
+    );
+
+    final showTime = Container(
+      margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+      child: Text(
+        time,
+        style: const TextStyle(
+          color: Color(0xff212121),
+          fontSize: 24,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+    );
+
+    final playpauseButton = Container(
+      margin: const EdgeInsets.only(top: 0),
+      width: 40.0,
+      height: 40.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(color: const Color(0xff0BB15D), width: 1.5),
+        color: isPlaying ? Colors.white : const Color(0xff0BB15D),
+      ),
+      child: IconButton(
+        onPressed: () {
+          if (timerRunning) {
+            stopTimer();
+            setState(() {
+              isPlaying = false;
+            });
+          } else {
+            startTimer();
+            setState(() {
+              circularVisible = true;
+              isPlaying = true;
+            });
+          }
+        },
+        color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
+        icon: isPlaying
+            ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
+            : SvgPicture.asset("assets/icons/ic_play_full.svg"),
+      ),
+    );
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      width: 150.0,
+      height: 150.0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(999.0)),
+        border: Border.all(
+          color: const Color(0xffE0E0E0),
+          width: 1,
+        ),
+      ),
+      child: Container(
+        margin: const EdgeInsets.all(2),
+        width: 144,
+        height: 144,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Positioned(
+              child: circularprogressIndicator(),
+            ),
+            Positioned(
+                child: Center(
+              child: Column(
+                children: [
+                  batteryImage,
+                  showTime,
+                  playpauseButton,
+                ],
+              ),
+            ))
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -152,107 +255,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 minusButton(),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                  width: 150.0,
-                  height: 150.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(999.0)),
-                    border: Border.all(
-                      color: const Color(0xffE0E0E0),
-                      width: 1,
-                    ),
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.all(2),
-                    width: 144,
-                    height: 144,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Positioned(
-                          child: Visibility(
-                            visible: circularVisible,
-                            child: CircularProgressIndicator(
-                              backgroundColor:
-                                  const Color(0xff0BB15D).withOpacity(0.16),
-                              strokeWidth: 6,
-                              value: 1.0 - (_countedSeconds % 60) / 10,
-                              valueColor: const AlwaysStoppedAnimation<Color>(
-                                  Color(0xff0BB15D)),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                            child: Center(
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
-                                child: SvgPicture.asset(
-                                  'assets/images/battery.svg',
-                                  width: 30,
-                                  height: 12,
-                                ),
-                              ),
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                                child: Text(
-                                  time,
-                                  style: const TextStyle(
-                                    color: Color(0xff212121),
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: const EdgeInsets.only(top: 0),
-                                width: 40.0,
-                                height: 40.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                      color: const Color(0xff0BB15D),
-                                      width: 1.5),
-                                  color: isPlaying
-                                      ? Colors.white
-                                      : const Color(0xff0BB15D),
-                                ),
-                                child: IconButton(
-                                  onPressed: () {
-                                    if (timerRunning) {
-                                      stopTimer();
-                                      setState(() {
-                                        isPlaying = false;
-                                      });
-                                    } else {
-                                      startTimer();
-                                      setState(() {
-                                        circularVisible = true;
-                                        isPlaying = true;
-                                      });
-                                    }
-                                  },
-                                  color: isPlaying
-                                      ? const Color(0xff0BB15D)
-                                      : Colors.white,
-                                  icon: isPlaying
-                                      ? SvgPicture.asset(
-                                          "assets/icons/ic_pause_full.svg")
-                                      : SvgPicture.asset(
-                                          "assets/icons/ic_play_full.svg"),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ))
-                      ],
-                    ),
-                  ),
-                ),
+                timer(),
                 plusButton(),
               ],
             ),

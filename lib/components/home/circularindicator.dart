@@ -87,13 +87,16 @@ class _CircularIndicatorState extends State<CircularIndicator>
     );
   }
 
-  final batteryImage = SvgPicture.asset(
-    'assets/images/battery.svg',
-    width: 30,
-    height: 12,
+  final batteryImage = Container(
+    margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
+    child: SvgPicture.asset(
+      'assets/images/battery.svg',
+      width: 30,
+      height: 12,
+    ),
   );
 
-  Container timer() {
+  Container showTime() {
     return Container(
       margin: const EdgeInsets.all(0.0),
       child: AnimatedBuilder(
@@ -110,37 +113,40 @@ class _CircularIndicatorState extends State<CircularIndicator>
     );
   }
 
-  Container playpauseButton() {
-    return Container(
-      margin: const EdgeInsets.only(top: 0),
-      width: 40.0,
-      height: 40.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        border: Border.all(color: const Color(0xff0BB15D), width: 1.5),
-        color: isPlaying ? Colors.white : const Color(0xff0BB15D),
-      ),
-      child: IconButton(
-          onPressed: () {
-            if (controller.isAnimating) {
-              controller.stop();
-              setState(() {
-                isPlaying = false;
-              });
-            } else {
-              controller.reverse(
-                  from: controller.value == 0 ? 1.0 : controller.value);
+  Padding playpauseButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      child: Container(
+        margin: const EdgeInsets.only(top: 0),
+        width: 40.0,
+        height: 40.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(color: const Color(0xff0BB15D), width: 1.5),
+          color: isPlaying ? Colors.white : const Color(0xff0BB15D),
+        ),
+        child: IconButton(
+            onPressed: () {
+              if (controller.isAnimating) {
+                controller.stop();
+                setState(() {
+                  isPlaying = false;
+                });
+              } else {
+                controller.reverse(
+                    from: controller.value == 0 ? 1.0 : controller.value);
 
-              setState(() {
-                circularVisible = true;
-                isPlaying = true;
-              });
-            }
-          },
-          color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
-          icon: isPlaying
-              ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
-              : SvgPicture.asset("assets/icons/ic_play_full.svg")),
+                setState(() {
+                  circularVisible = true;
+                  isPlaying = true;
+                });
+              }
+            },
+            color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
+            icon: isPlaying
+                ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
+                : SvgPicture.asset("assets/icons/ic_play_full.svg")),
+      ),
     );
   }
 
@@ -164,16 +170,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
                   child: Center(
                     child: Column(
                       children: [
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
-                          child: batteryImage,
-                        ),
-                        timer(),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 5, vertical: 10),
-                          child: playpauseButton(),
-                        ),
+                        batteryImage,
+                        showTime(),
+                        playpauseButton(),
                       ],
                     ),
                   ),

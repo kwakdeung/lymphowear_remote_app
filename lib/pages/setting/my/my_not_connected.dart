@@ -320,84 +320,91 @@ class _MyNotConnectedBottomButtonState
   }
 
   Future showProgressDialog(context) async {
+    const title = Text(
+      'Delete to this device',
+      style: TextStyle(
+          fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+    );
+
+    ElevatedButton cancelButton() {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(112, 40),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(999),
+          ),
+          side: const BorderSide(width: 1.0, color: Colors.grey),
+          backgroundColor: Colors.white,
+          foregroundColor: const Color(0xff757575),
+          textStyle: dialogButtonText,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('Cancel'),
+      );
+    }
+
+    ElevatedButton deleteButton() {
+      return ElevatedButton.icon(
+        icon: SvgPicture.asset("assets/icons/ic_delete.svg"),
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(112, 40),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(999),
+          ),
+          side: const BorderSide(width: 1.0, color: Color(0xffBB0000)),
+          backgroundColor: Colors.white,
+          foregroundColor: const Color(0xffBB0000),
+          textStyle: dialogButtonText,
+        ),
+        onPressed: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => const SettingPage()),
+              ));
+        },
+        label: const Text('Delete'),
+      );
+    }
+
+    var alertDialog = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      title: Center(
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          child: title,
+        ),
+      ),
+      actions: [
+        Container(
+          margin: const EdgeInsets.all(0.0),
+          height: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
+                child: cancelButton(),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
+                child: deleteButton(),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
     await showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
-          child: AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0)),
-            title: Center(
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: const Text(
-                  'Delete to this device',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w400),
-                ),
-              ),
-            ),
-            actions: [
-              Container(
-                margin: const EdgeInsets.all(0.0),
-                height: 80,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(112, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          side:
-                              const BorderSide(width: 1.0, color: Colors.grey),
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xff757575),
-                          textStyle: dialogButtonText,
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Cancel'),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),
-                      child: ElevatedButton.icon(
-                        icon: SvgPicture.asset("assets/icons/ic_delete.svg"),
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(112, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          side: const BorderSide(
-                              width: 1.0, color: Color(0xffBB0000)),
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xffBB0000),
-                          textStyle: dialogButtonText,
-                        ),
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => const SettingPage()),
-                              ));
-                        },
-                        label: const Text('Delete'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          child: alertDialog,
         );
       },
     );
