@@ -140,8 +140,8 @@ class PairingConnectBottomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: const Color(0xff008A40),
-        onPrimary: Colors.white,
+        backgroundColor: const Color(0xff008A40),
+        foregroundColor: Colors.white,
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,

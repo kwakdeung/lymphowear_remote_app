@@ -163,8 +163,8 @@ class PairingLodingBottomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: const Color(0xffE0E0E0),
-        onPrimary: const Color(0xff757575),
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xff757575),
         textStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,

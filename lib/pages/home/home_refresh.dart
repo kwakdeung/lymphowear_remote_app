@@ -135,7 +135,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
         style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
-          primary: Colors.white,
+          backgroundColor: Colors.white,
           padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
           side: const BorderSide(color: Color(0xff008A40))),
       onPressed: () => showProgressDialog(context, 'Loading...'),

@@ -145,7 +145,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: Colors.white,
+        backgroundColor: Colors.white,
         side: const BorderSide(color: Color(0xff008A40)),
       ),
       onPressed: () {
@@ -206,8 +206,8 @@ class HomeBluetoothBottomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(999),
         ),
         side: const BorderSide(width: 1.0, color: Colors.grey),
-        primary: Colors.white,
-        onPrimary: const Color(0xff757575),
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xff757575),
         textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       onPressed: () {
@@ -222,8 +222,8 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(999),
         ),
-        primary: const Color(0xff008A40),
-        onPrimary: Colors.white,
+        backgroundColor: const Color(0xff008A40),
+        foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       onPressed: () {

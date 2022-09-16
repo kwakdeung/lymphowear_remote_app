@@ -116,7 +116,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     final connectbutton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
-        primary: Colors.white,
+        backgroundColor: Colors.white,
         side: const BorderSide(color: Color(0xff008A40)),
       ),
       onPressed: () {
@@ -347,7 +347,7 @@ class _MyNotConnectedBottomButtonState
       label: MyNotConnectedBottomButton.buttontext,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: const Color(0xffE0E0E0),
+        backgroundColor: const Color(0xffE0E0E0),
       ),
     );
   }
@@ -391,8 +391,8 @@ class _MyNotConnectedBottomButtonState
                           ),
                           side:
                               const BorderSide(width: 1.0, color: Colors.grey),
-                          primary: Colors.white,
-                          onPrimary: const Color(0xff757575),
+                          backgroundColor: Colors.white,
+                          foregroundColor: const Color(0xff757575),
                           textStyle: const TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 14,
@@ -415,8 +415,8 @@ class _MyNotConnectedBottomButtonState
                           ),
                           side: const BorderSide(
                               width: 1.0, color: Color(0xffBB0000)),
-                          primary: Colors.white,
-                          onPrimary: const Color(0xffBB0000),
+                          backgroundColor: Colors.white,
+                          foregroundColor: const Color(0xff757575),
                           textStyle: const TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 14,

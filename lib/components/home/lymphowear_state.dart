@@ -294,8 +294,8 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(999),
       ),
-      primary: const Color(0xff008A40),
-      onPrimary: Colors.white,
+      backgroundColor: const Color(0xff008A40),
+      foregroundColor: Colors.white,
       textStyle: const TextStyle(
           fontFamily: "Poppins", fontSize: 14, fontWeight: FontWeight.w600),
     ),

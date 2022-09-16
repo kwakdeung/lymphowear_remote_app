@@ -128,8 +128,8 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                               ),
                               side: const BorderSide(
                                   width: 1.0, color: Colors.grey),
-                              primary: Colors.white,
-                              onPrimary: const Color(0xff757575),
+                              backgroundColor: Colors.white,
+                              foregroundColor: const Color(0xff757575),
                               textStyle: const TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 14,
@@ -149,8 +149,8 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(999),
                               ),
-                              primary: const Color(0xff008A40),
-                              onPrimary: Colors.white,
+                              backgroundColor: const Color(0xff008A40),
+                              foregroundColor: Colors.white,
                               textStyle: const TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 14,

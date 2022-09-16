@@ -151,8 +151,8 @@ class PairingFailedBottomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-        primary: Colors.white,
-        onPrimary: const Color(0xff008A40),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color(0xff008A40),
         surfaceTintColor: Colors.white,
         textStyle: Theme.of(context).textTheme.button,
         side: const BorderSide(color: Color(0xff008A40)),
