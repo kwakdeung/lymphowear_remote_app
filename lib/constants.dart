@@ -22,8 +22,5 @@ var firmwareText = const TextStyle(
 var modeContentText = const TextStyle(
     color: Color(0xff9E9E9E), fontSize: 10, fontWeight: FontWeight.w400);
 
-var bottomButtonText =
-    const TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
-
 var dialogButtonText =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 14);

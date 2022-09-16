@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
@@ -137,7 +136,7 @@ class PairingConnectBottomButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         backgroundColor: const Color(0xff008A40),
         foregroundColor: Colors.white,
-        textStyle: bottomButtonText,
+        textStyle: Theme.of(context).textTheme.button,
       ),
       onPressed: () => showProgressDialog(context, 'Pairing...'),
       child: const Text(

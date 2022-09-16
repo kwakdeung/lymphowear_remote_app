@@ -168,22 +168,22 @@ class HomeNoneBottomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-      onPressed: () {
-        Navigator.pushReplacement(context, _createroute());
-      },
       icon: const Icon(
         Icons.add_circle_outline_outlined,
         color: Color(0xff008A40),
-      ),
-      label: Text(
-        'Add Device',
-        style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xff008A40),
         side: const BorderSide(color: Color(0xff008A40)),
+        textStyle: Theme.of(context).textTheme.button,
+      ),
+      onPressed: () {
+        Navigator.pushReplacement(context, _createroute());
+      },
+      label: const Text(
+        'Add Device',
       ),
     );
   }
