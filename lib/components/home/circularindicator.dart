@@ -219,7 +219,6 @@ Future _timeAlertDialog(BuildContext context, String message) async {
         borderRadius: BorderRadius.circular(999),
       ),
       backgroundColor: const Color(0xff008A40),
-      // onPrimary: Colors.white,
       textStyle: dialogButtonText,
     ),
     onPressed: () {

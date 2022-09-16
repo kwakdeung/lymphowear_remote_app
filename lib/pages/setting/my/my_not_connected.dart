@@ -384,10 +384,6 @@ class _MyNotConnectedBottomButtonState
                           backgroundColor: Colors.white,
                           foregroundColor: const Color(0xffBB0000),
                           textStyle: dialogButtonText,
-                          // const TextStyle(
-                          //     fontFamily: "Poppins",
-                          //     fontSize: 14,
-                          //     fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(
