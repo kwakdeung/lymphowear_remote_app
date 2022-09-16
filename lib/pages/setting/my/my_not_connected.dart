@@ -29,7 +29,7 @@ class MyNotConnectedAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbariconbutton(BuildContext context) {
+  IconButton appbarIconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
@@ -51,7 +51,7 @@ class MyNotConnectedAppbar extends StatelessWidget
     return AppBar(
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: appbariconbutton(context),
+        child: appbarIconButton(context),
       ),
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -79,31 +79,29 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   bool _isLoading = false;
   bool _isConnected = false;
 
-  String connecttext = "Not connected";
-
-  var connected = "CONNECTED";
+  String connectText = "Not connected";
 
   void connect() {
     _isConnecting = !_isConnecting;
     if (_isConnecting == true) {
       setState(() {
-        connecttext = "Connecting...";
+        connectText = "Connecting...";
       });
       Future.delayed(const Duration(seconds: 3), () {
         setState(() {
           _isLoading = false;
           _isConnected = true;
-          connecttext = "Connected";
+          connectText = "Connected";
         });
       });
     } else {
       setState(() {
-        connecttext = "Not connected";
+        connectText = "Not connected";
       });
     }
   }
 
-  Row deviceconnect() {
+  Row deviceConnect() {
     final image = Image.asset(
       "assets/images/lymphowear_image.png",
       fit: BoxFit.fill,
@@ -114,7 +112,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       animating: true,
     );
 
-    final connectbutton = ElevatedButton(
+    final connectButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
         backgroundColor: Colors.white,
@@ -153,7 +151,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             Container(
               margin: const EdgeInsets.all(0.0),
               child: Text(
-                connecttext,
+                connectText,
                 style: const TextStyle(
                   color: Color(0xff616161),
                   fontSize: 12,
@@ -165,7 +163,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
               visible: _isVisible,
               child: Container(
                 margin: const EdgeInsets.only(left: 14, top: 8),
-                child: connectbutton,
+                child: connectButton,
               ),
             ),
             Visibility(
@@ -185,7 +183,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     color: Color(0xffE0E0E0),
   );
 
-  ListTile modelname() {
+  ListTile modelName() {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
@@ -199,7 +197,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     );
   }
 
-  ListTile modelnumber() {
+  ListTile modelNumber() {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
@@ -213,7 +211,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     );
   }
 
-  ListTile serialnumber() {
+  ListTile serialNumber() {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
@@ -248,21 +246,21 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(color: const Color(0xffF3F3F3), child: deviceconnect()),
+          Container(color: const Color(0xffF3F3F3), child: deviceConnect()),
           divider,
           Container(
             color: Colors.white,
-            child: modelname(),
+            child: modelName(),
           ),
           divider,
           Container(
             color: Colors.white,
-            child: modelnumber(),
+            child: modelNumber(),
           ),
           divider,
           Container(
             color: Colors.white,
-            child: serialnumber(),
+            child: serialNumber(),
           ),
           divider,
           Container(
@@ -285,7 +283,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
 class MyNotConnectedBottomButton extends StatefulWidget {
   const MyNotConnectedBottomButton({Key? key}) : super(key: key);
 
-  static const buttontext = Text(
+  static const buttonText = Text(
     'Delete device',
     style: TextStyle(
       color: Color(0xff757575),
@@ -301,7 +299,7 @@ class MyNotConnectedBottomButton extends StatefulWidget {
 
 class _MyNotConnectedBottomButtonState
     extends State<MyNotConnectedBottomButton> {
-  final iconimage = SvgPicture.asset(
+  final iconImage = SvgPicture.asset(
     "assets/icons/ic_trash.svg",
     color: const Color(0xff757575),
   );
@@ -312,8 +310,8 @@ class _MyNotConnectedBottomButtonState
       onPressed: () {
         showProgressDialog(context);
       },
-      icon: iconimage,
-      label: MyNotConnectedBottomButton.buttontext,
+      icon: iconImage,
+      label: MyNotConnectedBottomButton.buttonText,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         backgroundColor: const Color(0xffE0E0E0),

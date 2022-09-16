@@ -82,7 +82,7 @@ class _HeatState extends State<Heat> {
     fit: BoxFit.fill,
   );
 
-  Row heatslidervalue() {
+  Row heatSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -121,7 +121,7 @@ class _HeatState extends State<Heat> {
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(15, 0, 23, 0),
-                  child: heatslidervalue(),
+                  child: heatSliderValue(),
                 ),
               ],
             ),

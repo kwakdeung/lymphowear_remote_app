@@ -107,7 +107,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  ListTile faq() {
+  ListTile question() {
     return ListTile(
       leading: Container(
           margin: const EdgeInsets.all(0.0),
@@ -155,7 +155,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
           ),
           Container(
             color: Colors.white,
-            child: faq(),
+            child: question(),
           ),
         ],
       ),
