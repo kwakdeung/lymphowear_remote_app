@@ -24,3 +24,6 @@ var modeContentText = const TextStyle(
 
 var bottomButtonText =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
+
+var dialogButtonText =
+    const TextStyle(fontWeight: FontWeight.w600, fontSize: 14);

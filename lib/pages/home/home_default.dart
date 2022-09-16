@@ -131,10 +131,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                                   width: 1.0, color: Colors.grey),
                               backgroundColor: Colors.white,
                               foregroundColor: const Color(0xff757575),
-                              textStyle: const TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600),
+                              textStyle: dialogButtonText,
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -152,10 +149,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                               ),
                               backgroundColor: const Color(0xff008A40),
                               foregroundColor: Colors.white,
-                              textStyle: const TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600),
+                              textStyle: dialogButtonText,
                             ),
                             onPressed: () {
                               Navigator.pop(context);

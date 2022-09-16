@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_default.dart';
 
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
@@ -199,7 +200,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       style: Theme.of(context).textTheme.subtitle1,
     );
 
-    final secondCancleButton = ElevatedButton(
+    final secondCancelButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(112, 40),
         shape: RoundedRectangleBorder(
@@ -208,7 +209,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         side: const BorderSide(width: 1.0, color: Colors.grey),
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xff757575),
-        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+        textStyle: dialogButtonText,
       ),
       onPressed: () {
         Navigator.pop(context);
@@ -233,9 +234,9 @@ class HomeBluetoothBottomButton extends StatelessWidget {
               builder: ((context) => const HomeDefault()),
             ));
       },
-      child: const Text(
+      child: Text(
         'Try Again',
-        style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+        style: dialogButtonText,
       ),
     );
 
@@ -256,7 +257,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(10, 16, 4, 24),
-                child: secondCancleButton,
+                child: secondCancelButton,
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(4, 16, 10, 24),

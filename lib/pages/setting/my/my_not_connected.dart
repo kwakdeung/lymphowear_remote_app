@@ -362,10 +362,7 @@ class _MyNotConnectedBottomButtonState
                               const BorderSide(width: 1.0, color: Colors.grey),
                           backgroundColor: Colors.white,
                           foregroundColor: const Color(0xff757575),
-                          textStyle: const TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600),
+                          textStyle: dialogButtonText,
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -386,10 +383,11 @@ class _MyNotConnectedBottomButtonState
                               width: 1.0, color: Color(0xffBB0000)),
                           backgroundColor: Colors.white,
                           foregroundColor: const Color(0xffBB0000),
-                          textStyle: const TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600),
+                          textStyle: dialogButtonText,
+                          // const TextStyle(
+                          //     fontFamily: "Poppins",
+                          //     fontSize: 14,
+                          //     fontWeight: FontWeight.w600),
                         ),
                         onPressed: () {
                           Navigator.pushReplacement(

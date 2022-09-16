@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class LymphoWearState extends StatefulWidget {
   const LymphoWearState({Key? key}) : super(key: key);
@@ -294,8 +295,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       ),
       backgroundColor: const Color(0xff008A40),
       foregroundColor: Colors.white,
-      textStyle: const TextStyle(
-          fontFamily: "Poppins", fontSize: 14, fontWeight: FontWeight.w600),
+      textStyle: dialogButtonText,
     ),
     onPressed: () {
       Navigator.pop(context);
