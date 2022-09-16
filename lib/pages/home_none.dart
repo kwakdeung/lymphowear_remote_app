@@ -182,6 +182,7 @@ class HomeNoneBottomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         backgroundColor: Colors.white,
+        foregroundColor: const Color(0xff008A40),
         side: const BorderSide(color: Color(0xff008A40)),
       ),
     );

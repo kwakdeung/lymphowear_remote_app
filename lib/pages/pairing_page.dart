@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 
@@ -143,7 +144,7 @@ class PairingPageBottomButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
         backgroundColor: const Color(0xff008A40),
         foregroundColor: Colors.white,
-        textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+        textStyle: bottomButtonText,
       ),
       onPressed: () {
         Navigator.push(
