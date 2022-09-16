@@ -416,7 +416,7 @@ class _MyNotConnectedBottomButtonState
                           side: const BorderSide(
                               width: 1.0, color: Color(0xffBB0000)),
                           backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xff757575),
+                          foregroundColor: const Color(0xffBB0000),
                           textStyle: const TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 14,
