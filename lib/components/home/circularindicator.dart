@@ -187,14 +187,12 @@ class _CircularIndicatorState extends State<CircularIndicator>
 }
 
 Future _timeAlertDialog(BuildContext context, String message) async {
-  const timeAlertdialogTitle = Text(
-    "Great job!",
-    style: TextStyle(
-        fontFamily: "Poppins",
-        color: Color(0xff212121),
-        fontSize: 20,
-        fontWeight: FontWeight.w600),
-  );
+  Text timeAlertdialogTitle(context) {
+    return Text(
+      "Great job!",
+      style: Theme.of(context).textTheme.headline6,
+    );
+  }
 
   final timeAlertdialogImage = Lottie.asset(
     'assets/images/great_job.json',
@@ -219,8 +217,8 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(999),
       ),
-      primary: const Color(0xff008A40),
-      onPrimary: Colors.white,
+      // primary: const Color(0xff008A40),
+      // onPrimary: Colors.white,
       textStyle: const TextStyle(
           fontFamily: "Poppins", fontSize: 14, fontWeight: FontWeight.w600),
     ),
@@ -232,7 +230,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
 
   var timeAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: const Center(child: timeAlertdialogTitle),
+      title: Center(child: timeAlertdialogTitle(context)),
       content: Container(
         margin: const EdgeInsets.all(0.0),
         height: 100,
