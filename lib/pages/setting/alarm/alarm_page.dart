@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/reminder/afternoon_reminder.dart';
 import 'package:lymphowear_remote_app/pages/reminder/evening_reminder.dart';
 import 'package:lymphowear_remote_app/pages/reminder/morning_reminder.dart';
@@ -83,21 +84,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Morning Reminder',
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 16,
-                fontWeight: FontWeight.w400),
+            style: listTilebodyText1,
           ),
           Visibility(
             visible: _morningVisible,
             child: Text(
               _morningValue,
-              style: const TextStyle(
-                  color: Color(0xff0BB15D),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
+              style: alramValueText,
             ),
           ),
         ],
@@ -134,21 +129,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Afternoon Reminder',
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 16,
-                fontWeight: FontWeight.w400),
+            style: listTilebodyText1,
           ),
           Visibility(
             visible: _afternoonVisible,
             child: Text(
               _afternoonValue,
-              style: const TextStyle(
-                  color: Color(0xff0BB15D),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
+              style: alramValueText,
             ),
           ),
         ],
@@ -187,21 +176,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Evening Reminder',
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 16,
-                fontWeight: FontWeight.w400),
+            style: listTilebodyText1,
           ),
           Visibility(
             visible: _eveningVisible,
             child: Text(
               _eveningValue,
-              style: const TextStyle(
-                  color: Color(0xff0BB15D),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
+              style: alramValueText,
             ),
           ),
         ],
@@ -240,22 +223,16 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: const Text(
+            child: Text(
               'Night Reminder',
-              style: TextStyle(
-                  color: Color(0xff212121),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400),
+              style: listTilebodyText1,
             ),
           ),
           Visibility(
             visible: _nightVisible,
             child: Text(
               _nightValue,
-              style: const TextStyle(
-                  color: Color(0xff0BB15D),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
+              style: alramValueText,
             ),
           ),
         ],

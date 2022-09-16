@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class Shoulder extends StatefulWidget {
   const Shoulder({Key? key}) : super(key: key);
@@ -13,16 +14,14 @@ class _ShoulderState extends State<Shoulder> {
 
   shouldervalue() {
     if (shoulderValue == 0) {
-      return const Text(
+      return Text(
         '  Off',
-        style: TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     } else {
       return Text(
         '  ${shoulderValue.round()}',
-        style: const TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     }
   }
@@ -38,16 +37,12 @@ class _ShoulderState extends State<Shoulder> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Shoulder',
-          style: TextStyle(
-              color: Color(0xff212121),
-              fontSize: 14,
-              fontWeight: FontWeight.w400),
+          style: modebodyText,
         ),
         const Spacer(),
-        const Text('Intensity',
-            style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+        Text('Intensity', style: intensityText),
         shouldervalue(),
       ],
     );
@@ -83,14 +78,14 @@ class _ShoulderState extends State<Shoulder> {
   Row shoulderSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text('Off', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('1', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('2', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('3', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+      children: [
+        Text('Off', style: intensityText),
+        const Spacer(),
+        Text('1', style: intensityText),
+        const Spacer(),
+        Text('2', style: intensityText),
+        const Spacer(),
+        Text('3', style: intensityText),
       ],
     );
   }

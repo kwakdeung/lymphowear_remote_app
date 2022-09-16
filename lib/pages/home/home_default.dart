@@ -5,6 +5,7 @@ import 'package:lymphowear_remote_app/components/home/collarbone.dart';
 import 'package:lymphowear_remote_app/components/home/heat.dart';
 import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/home/shoulder.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/relaxing/relaxing_mode.dart';
 import 'package:lymphowear_remote_app/pages/home/sleeping/sleeping_mode.dart';
 import 'package:lymphowear_remote_app/pages/home/vital/vital_mode.dart';
@@ -187,11 +188,13 @@ class HomeDefaultBody extends StatelessWidget {
         fit: BoxFit.fill,
       );
 
-      const vitalmodeText = Text(
-        "Vital\n Mode",
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Color(0xff212121), fontSize: 12),
-      );
+      Text vitalmodeText() {
+        return Text(
+          "Vital\n Mode",
+          textAlign: TextAlign.center,
+          style: modebuttonText,
+        );
+      }
 
       return GestureDetector(
         onTap: () {
@@ -210,7 +213,7 @@ class HomeDefaultBody extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                 child: vitalmodeimage,
               ),
-              vitalmodeText,
+              vitalmodeText(),
             ],
           ),
         ),
@@ -223,11 +226,13 @@ class HomeDefaultBody extends StatelessWidget {
         fit: BoxFit.fill,
       );
 
-      const relaxingmodeText = Text(
-        "Relaxing\n Mode",
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Color(0xff212121), fontSize: 12),
-      );
+      Text relaxingmodeText() {
+        return Text(
+          "Relaxing\n Mode",
+          textAlign: TextAlign.center,
+          style: modebuttonText,
+        );
+      }
 
       return GestureDetector(
         onTap: () {
@@ -243,7 +248,7 @@ class HomeDefaultBody extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                 child: relaxingmodeImage,
               ),
-              relaxingmodeText,
+              relaxingmodeText(),
             ],
           ),
         ),
@@ -256,11 +261,13 @@ class HomeDefaultBody extends StatelessWidget {
         fit: BoxFit.fill,
       );
 
-      const sleepingmodeText = Text(
-        "Sleeping\n Mode",
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Color(0xff212121), fontSize: 12),
-      );
+      Text sleepingmodeText() {
+        return Text(
+          "Sleeping\n Mode",
+          textAlign: TextAlign.center,
+          style: modebuttonText,
+        );
+      }
 
       return GestureDetector(
         onTap: () {
@@ -276,7 +283,7 @@ class HomeDefaultBody extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
                 child: sleepingmodeImage,
               ),
-              sleepingmodeText,
+              sleepingmodeText(),
             ],
           ),
         ),

@@ -21,19 +21,13 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   get title => Text(
         widget.title,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Color(0xff212121),
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.headline5,
       );
 
   get description => Text(
         widget.description,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Colors.grey,
-        ),
+        style: Theme.of(context).textTheme.bodyText2,
       );
 
   @override

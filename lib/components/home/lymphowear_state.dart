@@ -263,14 +263,12 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 }
 
 Future _timeAlertDialog(BuildContext context, String message) async {
-  const timeAlertdialogTitle = Text(
-    "Great job!",
-    style: TextStyle(
-        color: Color(0xff212121),
-        fontFamily: "Poppins",
-        fontSize: 20,
-        fontWeight: FontWeight.w600),
-  );
+  Text timeAlertdialogTitle(context) {
+    return Text(
+      "Great job!",
+      style: Theme.of(context).textTheme.headline5,
+    );
+  }
 
   final timeAlertdialogImage = Lottie.asset(
     'assets/images/great_job.json',
@@ -307,7 +305,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
 
   var timeAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: const Center(child: timeAlertdialogTitle),
+      title: Center(child: timeAlertdialogTitle(context)),
       content: Container(
         margin: const EdgeInsets.all(0.0),
         height: 100,

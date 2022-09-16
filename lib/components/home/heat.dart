@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class Heat extends StatefulWidget {
   const Heat({Key? key}) : super(key: key);
@@ -13,16 +14,14 @@ class _HeatState extends State<Heat> {
 
   heatvalue() {
     if (heatValue == 0) {
-      return const Text(
+      return Text(
         '  Off',
-        style: TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     } else {
       return Text(
         '  ${heatValue.round()}',
-        style: const TextStyle(
-            fontSize: 10, color: Colors.green, fontWeight: FontWeight.w600),
+        style: intensityValueText,
       );
     }
   }
@@ -38,16 +37,12 @@ class _HeatState extends State<Heat> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Heat',
-          style: TextStyle(
-              color: Color(0xff212121),
-              fontSize: 14,
-              fontWeight: FontWeight.w400),
+          style: modebodyText,
         ),
         const Spacer(),
-        const Text('Intensity',
-            style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+        Text('Intensity', style: intensityText),
         heatvalue(),
       ],
     );
@@ -90,12 +85,12 @@ class _HeatState extends State<Heat> {
   Row heatslidervalue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text('Off', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('1', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
-        Spacer(),
-        Text('2', style: TextStyle(color: Color(0xff9E9E9E), fontSize: 10)),
+      children: [
+        Text('Off', style: intensityText),
+        const Spacer(),
+        Text('1', style: intensityText),
+        const Spacer(),
+        Text('2', style: intensityText),
       ],
     );
   }

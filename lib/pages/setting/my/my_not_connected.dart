@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class MyNotConnected extends StatefulWidget {
@@ -188,20 +189,12 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
-        child: const Text('Model name',
-            style: TextStyle(
-                color: Color(0xff757575),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text('Model name', style: firmwareText),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
-        child: const Text("LymphoWear",
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text("LymphoWear", style: modebodyText),
       ),
     );
   }
@@ -210,20 +203,12 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
-        child: const Text('Model number',
-            style: TextStyle(
-                color: Color(0xff757575),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text('Model number', style: firmwareText),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
-        child: const Text("LW-100",
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text("LW-100", style: modebodyText),
       ),
     );
   }
@@ -232,20 +217,12 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
-        child: const Text('Serial number',
-            style: TextStyle(
-                color: Color(0xff757575),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text('Serial number', style: firmwareText),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
-        child: const Text("ABCDEFG1234",
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text("ABCDEFG1234", style: modebodyText),
       ),
     );
   }
@@ -254,20 +231,12 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: const EdgeInsets.only(top: 14, bottom: 14),
-        child: const Text('Version',
-            style: TextStyle(
-                color: Color(0xff757575),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text('Version', style: firmwareText),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: const EdgeInsets.all(0.0),
-        child: const Text("1.1.1",
-            style: TextStyle(
-                color: Color(0xff212121),
-                fontSize: 14,
-                fontWeight: FontWeight.w400)),
+        child: Text("1.1.1", style: modebodyText),
       ),
     );
   }
