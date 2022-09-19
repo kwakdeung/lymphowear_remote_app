@@ -37,7 +37,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     margin: zeroMargin,
     child: SvgPicture.asset(
       alignment: Alignment.center,
-      logo,
+      'assets/images/splash_screen_logo.svg',
       fit: BoxFit.fill,
     ),
   );
