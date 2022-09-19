@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
@@ -125,12 +126,12 @@ class HomeNoneBody extends StatelessWidget {
                 child: content(context),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: zeroMargin,
                 child: image,
               ),
               const Spacer(),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: zeroMargin,
                 width: double.infinity,
                 child: const HomeNoneBottomButton(),
               ),
@@ -173,7 +174,7 @@ class HomeNoneBottomButton extends StatelessWidget {
         color: Color(0xff008A40),
       ),
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xff008A40),
         side: const BorderSide(color: Color(0xff008A40)),

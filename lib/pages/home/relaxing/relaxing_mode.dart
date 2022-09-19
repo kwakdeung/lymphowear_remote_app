@@ -125,12 +125,12 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
           child: titleImage,
         ),
         Container(
-          margin: const EdgeInsets.all(0.0),
+          margin: zeroMargin,
           child: title(context),
         ),
         const Spacer(),
         Container(
-          margin: const EdgeInsets.all(0.0),
+          margin: zeroMargin,
           child: titleContent(),
         ),
       ],
@@ -153,7 +153,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
               relaxingmodeIndicator(),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                padding: modePadding,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: const Color(0xffEEEEEE), width: 1),
@@ -176,7 +176,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
-                      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                      padding: modeTextPadding,
                       decoration: BoxDecoration(
                         color: const Color(0xffEEEEEE),
                         borderRadius: BorderRadius.circular(8),

@@ -115,7 +115,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 actions: [
                   Container(
-                    margin: const EdgeInsets.all(0.0),
+                    margin: zeroMargin,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -303,7 +303,7 @@ class HomeDefaultBody extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: zeroMargin,
               child: vitalmodeButton(context),
             ),
           ),
@@ -355,7 +355,6 @@ class HomeDefaultBody extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 32),
-            padding: const EdgeInsets.all(0.0),
             color: Colors.white,
             child: const LymphoWearState(),
           ),

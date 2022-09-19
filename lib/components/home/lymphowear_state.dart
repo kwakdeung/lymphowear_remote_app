@@ -266,7 +266,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         ),
         FittedBox(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: zeroMargin,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -308,7 +308,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
 
   final timeAlertdialogBottomButton = ElevatedButton(
     style: ElevatedButton.styleFrom(
-      padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+      padding: dialogButtonPadding,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(999),
       ),
@@ -326,7 +326,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       title: Center(child: timeAlertdialogTitle(context)),
       content: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         height: 100,
         child: Column(
           children: [

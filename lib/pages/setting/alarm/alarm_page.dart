@@ -245,7 +245,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: zeroMargin,
             child: Text(
               'Night Reminder',
               style: listTilebodyText1,
@@ -279,13 +279,13 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xffF3F3F3),
-      margin: const EdgeInsets.all(0.0),
+      margin: zeroMargin,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: morningReminder(),
           ),
           const Divider(
@@ -294,7 +294,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: afternoonReminder(),
           ),
           const Divider(
@@ -303,7 +303,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: eveningReminder(),
           ),
           const Divider(
@@ -312,7 +312,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: nightReminder(),
           ),
           const Divider(

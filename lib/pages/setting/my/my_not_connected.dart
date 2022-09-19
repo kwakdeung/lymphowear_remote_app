@@ -118,7 +118,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
 
     final connectButton = ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
+        padding: dialogButtonPadding,
         backgroundColor: Colors.white,
         side: const BorderSide(color: Color(0xff008A40)),
       ),
@@ -153,7 +153,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         Column(
           children: [
             Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: zeroMargin,
               child: Text(
                 connectText,
                 style: const TextStyle(
@@ -195,7 +195,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       ),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: Text("LymphoWear", style: modebodyText),
       ),
     );
@@ -209,7 +209,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       ),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: Text("LW-100", style: modebodyText),
       ),
     );
@@ -223,7 +223,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       ),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: Text("ABCDEFG1234", style: modebodyText),
       ),
     );
@@ -237,7 +237,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       ),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: Text("1.1.1", style: modebodyText),
       ),
     );
@@ -317,7 +317,7 @@ class _MyNotConnectedBottomButtonState
       icon: iconImage,
       label: MyNotConnectedBottomButton.buttonText,
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: const Color(0xffE0E0E0),
       ),
     );
@@ -377,13 +377,13 @@ class _MyNotConnectedBottomButtonState
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       title: Center(
         child: Container(
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: zeroMargin,
           child: title,
         ),
       ),
       actions: [
         Container(
-          margin: const EdgeInsets.all(0.0),
+          margin: zeroMargin,
           height: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

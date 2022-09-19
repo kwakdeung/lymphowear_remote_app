@@ -101,12 +101,12 @@ class _ArmpitState extends State<Armpit> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(0.0),
+      margin: zeroMargin,
       height: 54,
       child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: zeroMargin,
             child: armpitImage,
           ),
           Expanded(
@@ -117,13 +117,13 @@ class _ArmpitState extends State<Armpit> {
                   child: armpitTitle(),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(0.0),
+                  margin: zeroMargin,
                   height: 18,
                   width: double.infinity,
                   child: armpitSlider(),
                 ),
                 Container(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 22, 0),
+                  padding: sliderValuePadding,
                   child: armpitSliderValue(),
                 ),
               ],

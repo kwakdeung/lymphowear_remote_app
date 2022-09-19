@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
 
 class MyNone extends StatefulWidget {
@@ -116,12 +117,12 @@ class MyNoneBody extends StatelessWidget {
               child: content(context),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: zeroMargin,
               child: image,
             ),
             const Spacer(),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: zeroMargin,
               width: double.infinity,
               child: const MyNoneBottomButton(),
             ),
@@ -173,7 +174,7 @@ class MyNoneBottomButton extends StatelessWidget {
         style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: Colors.white,
         side: const BorderSide(color: Color(0xff008A40)),
       ),

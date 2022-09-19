@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_bluetooth.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
@@ -103,12 +104,12 @@ class HomeRefreshBody extends StatelessWidget {
                 child: image,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: zeroMargin,
                 child: title(context),
               ),
               const Spacer(),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: zeroMargin,
                 width: double.infinity,
                 child: const HomeRefleshBottomButton(),
               ),
@@ -136,7 +137,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
-          padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+          padding: buttonPadding,
           side: const BorderSide(color: Color(0xff008A40))),
       onPressed: () => showProgressDialog(context, 'Loading...'),
     );
@@ -176,7 +177,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
     var alertDialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       content: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         height: 62,
         child: Center(
           child: Container(

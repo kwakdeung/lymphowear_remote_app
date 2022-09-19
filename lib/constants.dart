@@ -24,3 +24,17 @@ var modeContentText = const TextStyle(
 
 var dialogButtonText =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 14);
+
+var zeroMargin = const EdgeInsets.all(0.0);
+
+var buttonPadding = const EdgeInsets.fromLTRB(24, 12, 24, 12);
+
+var dialogButtonPadding = const EdgeInsets.fromLTRB(24, 10, 24, 10);
+
+var sliderValuePadding = const EdgeInsets.fromLTRB(15, 0, 22, 0);
+
+var reminderPadding = const EdgeInsets.fromLTRB(5, 5, 5, 5);
+
+var modePadding = const EdgeInsets.fromLTRB(20, 20, 20, 20);
+
+var modeTextPadding = const EdgeInsets.fromLTRB(12, 10, 12, 10);

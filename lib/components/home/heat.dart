@@ -99,12 +99,12 @@ class _HeatState extends State<Heat> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(0.0),
+      margin: zeroMargin,
       height: 54,
       child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: zeroMargin,
             child: heatImage,
           ),
           Expanded(
@@ -115,7 +115,7 @@ class _HeatState extends State<Heat> {
                   child: heatTitle(),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(0.0),
+                  margin: zeroMargin,
                   height: 18,
                   width: double.infinity,
                   child: heatSlider(),

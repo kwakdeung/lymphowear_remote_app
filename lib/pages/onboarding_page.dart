@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home_none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
 
@@ -79,7 +80,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Navigator.of(context).push(_createRoute());
         },
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+          padding: buttonPadding,
           backgroundColor: const Color(0xff008A40),
           foregroundColor: Colors.white,
           textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
@@ -96,7 +97,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         child: Center(
           child: Container(
             color: Colors.transparent,
-            margin: const EdgeInsets.all(0.0),
+            margin: zeroMargin,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
@@ -107,7 +108,7 @@ class PairingConnectBody extends StatelessWidget {
               child: title,
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: zeroMargin,
               child: image,
             ),
             const Spacer(),
@@ -133,7 +134,7 @@ class PairingConnectBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: const Color(0xff008A40),
         foregroundColor: Colors.white,
         textStyle: Theme.of(context).textTheme.button,
@@ -159,7 +160,7 @@ class PairingConnectBottomButton extends StatelessWidget {
     var alertDialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       content: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         height: 62,
         child: Center(
           child: Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class OnboardingContents extends StatefulWidget {
   const OnboardingContents({
@@ -33,19 +34,17 @@ class _OnboardingContentsState extends State<OnboardingContents> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(0.0),
+      margin: zeroMargin,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
-            padding: const EdgeInsets.all(0.0),
             child: image,
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-            padding: const EdgeInsets.all(0.0),
             child: title,
           ),
           Container(

@@ -49,7 +49,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   ListTile myDevice(context) {
     return ListTile(
       leading: Container(
-        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_my_device.svg",
         ),
@@ -60,7 +60,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       tileColor: Colors.white,
       trailing: Container(
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: zeroMargin,
           child: SvgPicture.asset("assets/icons/ic_chevron_right.svg")),
       onTap: () {
         Navigator.push(
@@ -72,7 +72,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   ListTile alarm(context) {
     return ListTile(
       leading: Container(
-        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: zeroMargin,
         child: SvgPicture.asset("assets/icons/ic_timer.svg"),
       ),
       title: Text(
@@ -81,7 +81,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
       ),
       onTap: () {
@@ -94,13 +94,13 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   ListTile userGuide() {
     return ListTile(
       leading: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: SvgPicture.asset("assets/icons/ic_info.svg"),
       ),
       title: Text('User Guide', style: listTilebodyText1),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
       ),
       onTap: () {},
@@ -110,12 +110,12 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   ListTile question() {
     return ListTile(
       leading: Container(
-          margin: const EdgeInsets.all(0.0),
+          margin: zeroMargin,
           child: SvgPicture.asset("assets/icons/ic_help.svg")),
       title: Text('FAQ', style: listTilebodyText1),
       tileColor: Colors.white,
       trailing: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
       ),
       onTap: () {},
@@ -125,7 +125,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   Container settingpageBody(context) {
     return Container(
       color: const Color(0xffF3F3F3),
-      margin: const EdgeInsets.all(0.0),
+      margin: zeroMargin,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

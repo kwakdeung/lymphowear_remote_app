@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_reloading.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
@@ -123,7 +124,7 @@ class PairingFailedBody extends StatelessWidget {
               child: title(context),
             ),
             Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: zeroMargin,
               child: content(context),
             ),
             const Spacer(),
@@ -150,7 +151,7 @@ class PairingFailedBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xff008A40),
         surfaceTintColor: Colors.white,

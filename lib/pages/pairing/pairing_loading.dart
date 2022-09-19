@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 
@@ -136,7 +137,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
               child: circularprogressIndicator(),
             ),
             Container(
-              margin: const EdgeInsets.all(0.0),
+              margin: zeroMargin,
               child: loadingText(context),
             ),
             const Spacer(),
@@ -162,7 +163,7 @@ class PairingLodingBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: const Color(0xffE0E0E0),
         foregroundColor: const Color(0xff757575),
         textStyle: const TextStyle(

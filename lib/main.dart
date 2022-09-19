@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
+import 'package:lymphowear_remote_app/routes.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
 
       home: const SplashScreenPage(),
-      // initialRoute: '/',
+      // initialRoute: 'SplashScreenPage.routeName',
       // routes: {
       //   '/': (context) => const SplashScreenPage(),
       //   '/onboarding': (context) => const OnboardingPage(),
@@ -84,6 +85,7 @@ class MyApp extends StatelessWidget {
       //   '/alarmpage': (context) => const AlarmPage(),
       //   '/morning': (context) => const Morning(),
       // },
+      // routes: routes,
     );
   }
 }

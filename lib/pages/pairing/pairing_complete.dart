@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
 
 class PairingComplete extends StatefulWidget {
@@ -113,7 +114,7 @@ class PairingCompleteBody extends StatelessWidget {
               child: title,
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: zeroMargin,
               child: content(context),
             ),
             const Spacer(),
@@ -139,7 +140,7 @@ class PairingConnectBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: const Color(0xff008A40),
         foregroundColor: Colors.white,
         textStyle: Theme.of(context).textTheme.button,

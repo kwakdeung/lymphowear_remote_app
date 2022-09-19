@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/onboarding_page.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   }
 
   final splashScreen = Container(
-    margin: const EdgeInsets.all(0.0),
+    margin: zeroMargin,
     child: SvgPicture.asset(
       alignment: Alignment.center,
       'assets/images/splash_screen_logo.svg',

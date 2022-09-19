@@ -126,7 +126,7 @@ class HomeBluetoothBody extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: zeroMargin,
                 width: double.infinity,
                 child: const HomeBluetoothBottomButton(),
               ),
@@ -145,7 +145,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+        padding: buttonPadding,
         backgroundColor: Colors.white,
         side: const BorderSide(color: Color(0xff008A40)),
       ),
@@ -172,7 +172,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
     var firstAlertdialog = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       content: Container(
-        margin: const EdgeInsets.all(0.0),
+        margin: zeroMargin,
         height: 62,
         child: Center(
           child: Container(
@@ -250,7 +250,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
       actions: [
         Container(
-          margin: const EdgeInsets.all(0.0),
+          margin: zeroMargin,
           height: 80,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
