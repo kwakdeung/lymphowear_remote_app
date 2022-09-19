@@ -64,7 +64,7 @@ class HomeBluetoothAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       title: Container(
-        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        margin: logoMargin,
         child: appbarLogo,
       ),
       centerTitle: true,
@@ -76,7 +76,7 @@ class HomeBluetoothAppbar extends StatelessWidget
           )),
       actions: <Widget>[
         Container(
-          margin: const EdgeInsets.only(right: 4),
+          margin: appbarIconbuttonMargin,
           child: appbarIconButton(context),
         ),
       ],
@@ -111,7 +111,7 @@ class HomeBluetoothBody extends StatelessWidget {
       child: Container(
         color: const Color(0xffF3F3F3),
         child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+          margin: bodyMargin,
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -121,7 +121,7 @@ class HomeBluetoothBody extends StatelessWidget {
                 child: bluetoothIcon(),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                margin: const EdgeInsets.only(bottom: 24),
                 child: title,
               ),
               const Spacer(),
@@ -176,16 +176,16 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         height: 62,
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+            margin: dialogMargin,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                  margin: cupertinoIndicatorMargin,
                   child: firstCupertinoactivityindicator,
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
+                  margin: dialogTextMargin,
                   child: firstAlertdialogText,
                 ),
               ],
@@ -244,7 +244,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       title: Center(
         child: Container(
-          margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+          margin: const EdgeInsets.only(top: 16),
           child: secondAlertdialogTitle,
         ),
       ),

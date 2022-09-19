@@ -52,7 +52,7 @@ class HomeRefreshAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       title: Container(
-        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        margin: logoMargin,
         child: appbarLogo,
       ),
       centerTitle: true,
@@ -64,7 +64,7 @@ class HomeRefreshAppbar extends StatelessWidget implements PreferredSizeWidget {
           )),
       actions: <Widget>[
         Container(
-          margin: const EdgeInsets.only(right: 4),
+          margin: appbarIconbuttonMargin,
           child: appbarIconButton(context),
         ),
       ],
@@ -95,7 +95,7 @@ class HomeRefreshBody extends StatelessWidget {
         color: const Color(0xffF3F3F3),
         width: double.infinity,
         child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+          margin: bodyMargin,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -181,16 +181,16 @@ class HomeRefleshBottomButton extends StatelessWidget {
         height: 62,
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+            margin: dialogMargin,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                  margin: cupertinoIndicatorMargin,
                   child: cupertinoactivityIndicator,
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
+                  margin: dialogTextMargin,
                   child: alertdialogText,
                 ),
               ],
