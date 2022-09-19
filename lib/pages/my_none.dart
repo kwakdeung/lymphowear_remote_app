@@ -133,25 +133,25 @@ class MyNoneBody extends StatelessWidget {
   }
 }
 
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const MyNotConnected(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return ScaleTransition(
-          scale: Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Curves.fastOutSlowIn,
-            ),
-          ),
-          child: child);
-    },
-  );
-}
+// Route _createRoute() {
+//   return PageRouteBuilder(
+//     pageBuilder: (context, animation, secondaryAnimation) =>
+//         const MyNotConnected(),
+//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//       return ScaleTransition(
+//           scale: Tween<double>(
+//             begin: 0.0,
+//             end: 1.0,
+//           ).animate(
+//             CurvedAnimation(
+//               parent: animation,
+//               curve: Curves.fastOutSlowIn,
+//             ),
+//           ),
+//           child: child);
+//     },
+//   );
+// }
 
 class MyNoneBottomButton extends StatelessWidget {
   const MyNoneBottomButton({Key? key}) : super(key: key);
@@ -160,10 +160,15 @@ class MyNoneBottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
+        // Navigator.pushReplacement(
+        //   context,
+        //   _createRoute(),
+        // );
         Navigator.pushReplacement(
-          context,
-          _createRoute(),
-        );
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const MyNotConnected()),
+            ));
       },
       icon: const Icon(
         Icons.add_circle_outline_outlined,

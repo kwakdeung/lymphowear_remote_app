@@ -143,25 +143,25 @@ class HomeNoneBody extends StatelessWidget {
   }
 }
 
-Route _createroute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const PairingPage(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return ScaleTransition(
-          scale: Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Curves.fastOutSlowIn,
-            ),
-          ),
-          child: child);
-    },
-  );
-}
+// Route _createroute() {
+//   return PageRouteBuilder(
+//     pageBuilder: (context, animation, secondaryAnimation) =>
+//         const PairingPage(),
+//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//       return ScaleTransition(
+//           scale: Tween<double>(
+//             begin: 0.0,
+//             end: 1.0,
+//           ).animate(
+//             CurvedAnimation(
+//               parent: animation,
+//               curve: Curves.fastOutSlowIn,
+//             ),
+//           ),
+//           child: child);
+//     },
+//   );
+// }
 
 class HomeNoneBottomButton extends StatelessWidget {
   const HomeNoneBottomButton({Key? key}) : super(key: key);
@@ -181,7 +181,12 @@ class HomeNoneBottomButton extends StatelessWidget {
         textStyle: Theme.of(context).textTheme.button,
       ),
       onPressed: () {
-        Navigator.pushReplacement(context, _createroute());
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const PairingPage()),
+            ));
+        // Navigator.pushReplacement(context, _createroute());
       },
       label: const Text(
         'Add Device',

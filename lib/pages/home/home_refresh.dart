@@ -143,25 +143,25 @@ class HomeRefleshBottomButton extends StatelessWidget {
     );
   }
 
-  Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const HomeBluetooth(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return ScaleTransition(
-            scale: Tween<double>(
-              begin: 0.0,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.fastOutSlowIn,
-              ),
-            ),
-            child: child);
-      },
-    );
-  }
+  // Route _createRoute() {
+  //   return PageRouteBuilder(
+  //     pageBuilder: (context, animation, secondaryAnimation) =>
+  //         const HomeBluetooth(),
+  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  //       return ScaleTransition(
+  //           scale: Tween<double>(
+  //             begin: 0.0,
+  //             end: 1.0,
+  //           ).animate(
+  //             CurvedAnimation(
+  //               parent: animation,
+  //               curve: Curves.fastOutSlowIn,
+  //             ),
+  //           ),
+  //           child: child);
+  //     },
+  //   );
+  // }
 
   Future showProgressDialog(BuildContext context, String message) async {
     const cupertinoactivityIndicator = CupertinoActivityIndicator(
@@ -204,10 +204,15 @@ class HomeRefleshBottomButton extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         Future.delayed(const Duration(seconds: 1), () {
+          // Navigator.pushReplacement(
+          //   context,
+          //   _createRoute(),
+          // );
           Navigator.pushReplacement(
-            context,
-            _createRoute(),
-          );
+              context,
+              MaterialPageRoute(
+                builder: ((context) => const HomeBluetooth()),
+              ));
         });
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),

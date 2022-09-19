@@ -28,17 +28,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
     super.dispose();
   }
 
-  Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => const HomeNone(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return FadeTransition(
-          opacity: animation,
-          child: child,
-        );
-      },
-    );
-  }
+  // Route _createRoute() {
+  //   return PageRouteBuilder(
+  //     pageBuilder: (context, animation, secondaryAnimation) => const HomeNone(),
+  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  //       return FadeTransition(
+  //         opacity: animation,
+  //         child: child,
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
     ElevatedButton onboardingPageBottomButton() {
       return ElevatedButton(
         onPressed: () {
-          Navigator.of(context).push(_createRoute());
+          // Navigator.of(context).push(_createRoute());
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const HomeNone())));
         },
         style: ElevatedButton.styleFrom(
           padding: buttonPadding,

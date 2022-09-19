@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.light,
         primaryColor: Colors.transparent,
-        fontFamily: 'Poppins',
+        fontFamily: 'Po ppins',
         textTheme: const TextTheme(
           headline5: TextStyle(
             color: Color(0xff212121),
