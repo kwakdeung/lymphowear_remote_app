@@ -98,7 +98,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
 
   Row relaxingmodeTitle() {
     final titleImage = SvgPicture.asset(
-      'assets/icons/ic_relaxing2.svg',
+      'assets/icons/ic_relaxing.svg',
       width: 24,
       height: 24,
     );

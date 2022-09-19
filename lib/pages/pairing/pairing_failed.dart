@@ -88,7 +88,7 @@ class PairingFailedBody extends StatelessWidget {
   PairingFailedBody({Key? key}) : super(key: key);
 
   final image = SvgPicture.asset(
-    'assets/images/pairing02_2_alert.svg',
+    'assets/images/pairing_failed_alert.svg',
   );
 
   Text title(context) {

@@ -92,7 +92,7 @@ class PairingConnectBody extends StatelessWidget {
       fontWeight: FontWeight.w400,
     ),
   );
-  final image = Image.asset('assets/images/pairing03_image.png');
+  final image = Image.asset('assets/images/pairing_connect_image.png');
 
   @override
   Widget build(BuildContext context) {

@@ -97,7 +97,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
 
   Row sleepingmodeTitle() {
     final titleImage = SvgPicture.asset(
-      "assets/icons/ic_sleeping2.svg",
+      "assets/icons/ic_sleeping.svg",
       width: 24,
       height: 24,
     );

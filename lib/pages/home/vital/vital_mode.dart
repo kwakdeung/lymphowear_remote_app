@@ -97,7 +97,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
 
   Row vitalmodeTitle() {
     final titleImage = SvgPicture.asset(
-      'assets/icons/ic_vital2.svg',
+      'assets/icons/ic_vital.svg',
       width: 24,
       height: 24,
     );

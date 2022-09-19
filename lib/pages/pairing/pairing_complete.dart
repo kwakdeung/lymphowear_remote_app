@@ -80,7 +80,7 @@ class PairingCompleteBody extends StatelessWidget {
   PairingCompleteBody({Key? key}) : super(key: key);
 
   final image = Image.asset(
-    'assets/images/pairing04_image.png',
+    'assets/images/pairing_complete_image.png',
     fit: BoxFit.fill,
   );
 

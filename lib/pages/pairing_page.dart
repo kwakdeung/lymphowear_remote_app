@@ -80,7 +80,7 @@ class PairingPageBody extends StatelessWidget {
   PairingPageBody({Key? key}) : super(key: key);
 
   final image = SvgPicture.asset(
-    'assets/images/pairing01_image.svg',
+    'assets/images/pairing_page_image.svg',
   );
 
   Text title(context) {

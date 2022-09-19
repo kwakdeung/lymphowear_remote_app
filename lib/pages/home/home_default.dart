@@ -216,7 +216,7 @@ class HomeDefaultBody extends StatelessWidget {
 
     GestureDetector relaxingmodeButton(context) {
       final relaxingmodeImage = SvgPicture.asset(
-        'assets/icons/ic_relaxing2.svg',
+        'assets/icons/ic_relaxing.svg',
         fit: BoxFit.fill,
       );
 
@@ -251,7 +251,7 @@ class HomeDefaultBody extends StatelessWidget {
 
     GestureDetector sleepingmodeButton(context) {
       final sleepingmodeImage = SvgPicture.asset(
-        'assets/icons/ic_sleeping2.svg',
+        'assets/icons/ic_sleeping.svg',
         fit: BoxFit.fill,
       );
 
