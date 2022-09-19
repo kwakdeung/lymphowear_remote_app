@@ -71,11 +71,11 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: leadingIconButton(context),
       ),
       title: Container(
-        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        margin: logoMargin,
         child: appbarLogo,
       ),
       centerTitle: true,
@@ -87,7 +87,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
           )),
       actions: <Widget>[
         Container(
-          margin: const EdgeInsets.only(right: 4),
+          margin: appbarIconbuttonMargin,
           child: actionsIconButton(context),
         ),
       ],
@@ -204,7 +204,7 @@ class HomeDefaultBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                margin: modeImageMargin,
                 child: vitalmodeimage,
               ),
               vitalmodeText(),
@@ -239,7 +239,7 @@ class HomeDefaultBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                margin: modeImageMargin,
                 child: relaxingmodeImage,
               ),
               relaxingmodeText(),
@@ -274,7 +274,7 @@ class HomeDefaultBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                margin: modeImageMargin,
                 child: sleepingmodeImage,
               ),
               sleepingmodeText(),
@@ -334,7 +334,7 @@ class HomeDefaultBody extends StatelessWidget {
 
   Container secondContainer(context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
       width: double.infinity,
       decoration: BoxDecoration(
@@ -354,27 +354,27 @@ class HomeDefaultBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 32),
+            margin: const EdgeInsets.only(bottom: 32),
             color: Colors.white,
             child: const LymphoWearState(),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
+            margin: homeValueMargin,
             width: double.infinity,
             child: const Collarbone(),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
+            margin: homeValueMargin,
             width: double.infinity,
             child: const Armpit(),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
+            margin: homeValueMargin,
             width: double.infinity,
             child: const Shoulder(),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(24, 0, 0, 24),
+            margin: homeValueMargin,
             width: double.infinity,
             child: const Heat(),
           ),
@@ -393,7 +393,7 @@ class HomeDefaultBody extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.fromLTRB(20, 16, 20, 68),
             child: Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              margin: const EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
                   firstContainer(context),

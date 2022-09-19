@@ -50,7 +50,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIconButton(context),
       ),
       title: apppbarTitle(context),

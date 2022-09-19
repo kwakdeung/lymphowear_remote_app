@@ -63,7 +63,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       title: Container(
-        margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+        margin: logoMargin,
         child: appbarLogo,
       ),
       centerTitle: true,
@@ -75,7 +75,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
           )),
       actions: <Widget>[
         Container(
-          margin: const EdgeInsets.only(right: 4),
+          margin: appbarIconbuttonMargin,
           child: appbarIconButton(context),
         ),
       ],
@@ -112,7 +112,7 @@ class HomeNoneBody extends StatelessWidget {
       child: Container(
         color: const Color(0xffF3F3F3),
         child: Container(
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+          margin: bodyMargin,
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -122,7 +122,7 @@ class HomeNoneBody extends StatelessWidget {
                 child: title(context),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 24),
+                margin: const EdgeInsets.only(bottom: 24),
                 child: content(context),
               ),
               Container(

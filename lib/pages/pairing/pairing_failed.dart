@@ -70,8 +70,7 @@ class PairingFailedAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: appbarIconButton(context)),
+          margin: appbarleadingMargin, child: appbarIconButton(context)),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -111,7 +110,7 @@ class PairingFailedBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        margin: bodyMargin,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -120,7 +119,7 @@ class PairingFailedBody extends StatelessWidget {
               child: image,
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: title(context),
             ),
             Container(
@@ -129,7 +128,7 @@ class PairingFailedBody extends StatelessWidget {
             ),
             const Spacer(),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 156, 0, 0),
+              margin: const EdgeInsets.only(top: 156),
               width: double.infinity,
               decoration: const BoxDecoration(
                 shape: BoxShape.rectangle,

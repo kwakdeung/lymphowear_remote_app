@@ -40,15 +40,15 @@ class _OnboardingContentsState extends State<OnboardingContents> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
+            margin: const EdgeInsets.only(bottom: 18),
             child: image,
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+            margin: zeroMargin,
             child: title,
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 18, 10, 10),
             child: description,
           ),
         ],

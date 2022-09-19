@@ -47,7 +47,9 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-          margin: const EdgeInsets.only(left: 10), child: appbarIcon(context)),
+        margin: appbarleadingMargin,
+        child: appbarIcon(context),
+      ),
       title: appbarTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
@@ -78,7 +80,7 @@ class VitalModeBody extends StatefulWidget {
 class _VitalModeBodyState extends State<VitalModeBody> {
   Container vitalmodeIndicator() {
     return Container(
-      margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
+      margin: modeIndicatorMargin,
       width: 150.0,
       height: 150.0,
       decoration: BoxDecoration(
@@ -118,7 +120,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(right: 8),
+          margin: modeTitleImageMargin,
           child: titleImage,
         ),
         Container(
@@ -149,7 +151,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
             children: [
               vitalmodeIndicator(),
               Container(
-                margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
+                margin: modeBodyMargin,
                 padding: modePadding,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -173,7 +175,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                       child: vitalmodeTitle(),
                     ),
                     Container(
-                      margin: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                      margin: modeTextMargin,
                       padding: modeTextPadding,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),

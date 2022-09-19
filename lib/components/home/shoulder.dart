@@ -76,6 +76,13 @@ class _ShoulderState extends State<Shoulder> {
     );
   }
 
+  final sliderIcon = SvgPicture.asset(
+    'assets/icons/ic_max.svg',
+    width: 16,
+    height: 16,
+    fit: BoxFit.fill,
+  );
+
   Row shoulderSliderValue() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +113,7 @@ class _ShoulderState extends State<Shoulder> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
+                  margin: modeTitleMargin,
                   child: shouderTitle(),
                 ),
                 Container(
@@ -121,13 +128,8 @@ class _ShoulderState extends State<Shoulder> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
-            child: SvgPicture.asset(
-              'assets/icons/ic_max.svg',
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
+            margin: sliderIconMargin,
+            child: sliderIcon,
           ),
         ],
       ),

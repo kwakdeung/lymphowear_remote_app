@@ -113,7 +113,7 @@ class _ArmpitState extends State<Armpit> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
+                  margin: modeTitleMargin,
                   child: armpitTitle(),
                 ),
                 Container(
@@ -130,7 +130,7 @@ class _ArmpitState extends State<Armpit> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
+            margin: sliderIconMargin,
             child: sliderIcon,
           ),
         ],

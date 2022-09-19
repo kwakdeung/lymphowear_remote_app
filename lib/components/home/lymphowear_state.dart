@@ -196,7 +196,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     );
 
     final playpauseButton = Container(
-      margin: const EdgeInsets.only(top: 0),
+      margin: zeroMargin,
       width: 40.0,
       height: 40.0,
       decoration: BoxDecoration(

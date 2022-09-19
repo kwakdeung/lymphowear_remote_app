@@ -102,7 +102,7 @@ class PairingPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        margin: bodyMargin,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -111,7 +111,7 @@ class PairingPageBody extends StatelessWidget {
               child: image,
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
+              margin: const EdgeInsets.only(bottom: 16),
               child: title(context),
             ),
             Container(

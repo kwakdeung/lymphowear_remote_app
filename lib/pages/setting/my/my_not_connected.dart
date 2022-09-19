@@ -50,7 +50,7 @@ class MyNotConnectedAppbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIconButton(context),
       ),
       title: appbarTitle(context),
@@ -146,7 +146,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         Visibility(
           visible: _isLoading,
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+            margin: const EdgeInsets.only(right: 8),
             child: loading,
           ),
         ),
@@ -166,14 +166,14 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             Visibility(
               visible: _isVisible,
               child: Container(
-                margin: const EdgeInsets.only(left: 14, top: 8),
+                margin: const EdgeInsets.fromLTRB(14, 8, 0, 0),
                 child: connectButton,
               ),
             ),
             Visibility(
               visible: _isConnected,
               child: Container(
-                  margin: const EdgeInsets.only(right: 45, top: 8),
+                  margin: const EdgeInsets.fromLTRB(0, 8, 45, 0),
                   child: SvgPicture.asset("assets/images/battery_20%.svg")),
             ),
           ],
@@ -190,7 +190,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   ListTile modelName() {
     return ListTile(
       title: Container(
-        margin: const EdgeInsets.only(top: 14, bottom: 14),
+        margin: listTileTitleMargin,
         child: Text('Model name', style: firmwareText),
       ),
       tileColor: Colors.white,
@@ -204,7 +204,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   ListTile modelNumber() {
     return ListTile(
       title: Container(
-        margin: const EdgeInsets.only(top: 14, bottom: 14),
+        margin: listTileTitleMargin,
         child: Text('Model number', style: firmwareText),
       ),
       tileColor: Colors.white,
@@ -218,7 +218,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   ListTile serialNumber() {
     return ListTile(
       title: Container(
-        margin: const EdgeInsets.only(top: 14, bottom: 14),
+        margin: listTileTitleMargin,
         child: Text('Serial number', style: firmwareText),
       ),
       tileColor: Colors.white,
@@ -232,7 +232,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   ListTile version() {
     return ListTile(
       title: Container(
-        margin: const EdgeInsets.only(top: 14, bottom: 14),
+        margin: listTileTitleMargin,
         child: Text('Version', style: firmwareText),
       ),
       tileColor: Colors.white,

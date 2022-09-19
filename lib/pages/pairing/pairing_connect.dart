@@ -65,7 +65,7 @@ class PairingConnectAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIconButton(context),
       ),
       backgroundColor: Colors.white,
@@ -98,7 +98,7 @@ class PairingConnectBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        margin: bodyMargin,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -164,16 +164,16 @@ class PairingConnectBottomButton extends StatelessWidget {
         height: 62,
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(0, 2, 0, 2),
+            margin: dialogMargin,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                  margin: cupertinoIndicatorMargin,
                   child: cupertinoactivityIndicator,
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 4, 0, 0),
+                  margin: dialogTextMargin,
                   child: alertdialogText,
                 ),
               ],

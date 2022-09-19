@@ -111,7 +111,7 @@ class _HeatState extends State<Heat> {
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 0, 22, 0),
+                  margin: modeTitleMargin,
                   child: heatTitle(),
                 ),
                 Container(
@@ -128,7 +128,7 @@ class _HeatState extends State<Heat> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 35, 24, 0),
+            margin: sliderIconMargin,
             child: sliderIcon,
           ),
         ],

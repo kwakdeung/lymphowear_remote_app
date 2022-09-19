@@ -27,6 +27,38 @@ var dialogButtonText =
 
 var zeroMargin = const EdgeInsets.all(0.0);
 
+var dialogMargin = const EdgeInsets.fromLTRB(0, 2, 0, 2);
+
+var dialogTextMargin = const EdgeInsets.only(top: 4);
+
+var appbarleadingMargin = const EdgeInsets.only(left: 10);
+
+var appbarIconbuttonMargin = const EdgeInsets.only(right: 4);
+
+var logoMargin = const EdgeInsets.fromLTRB(0, 16, 0, 16);
+
+var modeBodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 112);
+
+var modeTitleMargin = const EdgeInsets.fromLTRB(20, 0, 22, 0);
+
+var modeTitleImageMargin = const EdgeInsets.only(right: 8);
+
+var modeIndicatorMargin = const EdgeInsets.fromLTRB(16, 56, 16, 32);
+
+var modeImageMargin = const EdgeInsets.fromLTRB(0, 4, 0, 4);
+
+var modeTextMargin = const EdgeInsets.fromLTRB(0, 16, 0, 16);
+
+var sliderIconMargin = const EdgeInsets.fromLTRB(0, 35, 24, 0);
+
+var bodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 80);
+
+var homeValueMargin = const EdgeInsets.fromLTRB(24, 0, 0, 24);
+
+var listTileTitleMargin = const EdgeInsets.fromLTRB(0, 14, 0, 14);
+
+var cupertinoIndicatorMargin = const EdgeInsets.only(bottom: 4);
+
 var buttonPadding = const EdgeInsets.fromLTRB(24, 12, 24, 12);
 
 var dialogButtonPadding = const EdgeInsets.fromLTRB(24, 10, 24, 10);

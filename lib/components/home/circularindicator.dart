@@ -88,7 +88,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
   }
 
   final batteryImage = Container(
-    margin: const EdgeInsets.fromLTRB(0, 22, 0, 7),
+    margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
     child: SvgPicture.asset(
       'assets/images/battery.svg',
       width: 30,
@@ -98,7 +98,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
   Container showTime() {
     return Container(
-      margin: zeroMargin,
+      margin: const EdgeInsets.only(top: 5),
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) => Text(
@@ -117,7 +117,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       child: Container(
-        margin: const EdgeInsets.only(top: 0),
+        margin: zeroMargin,
         width: 40.0,
         height: 40.0,
         decoration: BoxDecoration(

@@ -31,7 +31,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   AppBar settingpageAppbar(context) {
     return AppBar(
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIcon(context),
       ),
       title: appbarTitle(context),

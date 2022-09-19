@@ -48,7 +48,7 @@ class RelaxingModeAppbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIcon(context),
       ),
       title: appbarTitle(context),
@@ -81,7 +81,7 @@ class RelaxingModeBody extends StatefulWidget {
 class _RelaxingModeBodyState extends State<RelaxingModeBody> {
   Container relaxingmodeIndicator() {
     return Container(
-      margin: const EdgeInsets.fromLTRB(16, 56, 16, 32),
+      margin: modeIndicatorMargin,
       width: 150.0,
       height: 150.0,
       decoration: BoxDecoration(
@@ -121,7 +121,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(right: 8),
+          margin: modeTitleImageMargin,
           child: titleImage,
         ),
         Container(
@@ -152,7 +152,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
             children: [
               relaxingmodeIndicator(),
               Container(
-                margin: const EdgeInsets.fromLTRB(20, 0, 20, 112),
+                margin: modeBodyMargin,
                 padding: modePadding,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -171,11 +171,11 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                      margin: zeroMargin,
                       child: relaxingmodeTitle(),
                     ),
                     Container(
-                      margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
+                      margin: modeTextMargin,
                       padding: modeTextPadding,
                       decoration: BoxDecoration(
                         color: const Color(0xffEEEEEE),

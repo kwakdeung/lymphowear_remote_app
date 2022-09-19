@@ -60,7 +60,7 @@ class PairingCompleteAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-        margin: const EdgeInsets.only(left: 10),
+        margin: appbarleadingMargin,
         child: appbarIconButton(context),
       ),
       backgroundColor: Colors.white,
@@ -101,7 +101,7 @@ class PairingCompleteBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        margin: bodyMargin,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -110,7 +110,7 @@ class PairingCompleteBody extends StatelessWidget {
               child: image,
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              margin: const EdgeInsets.only(bottom: 8),
               child: title,
             ),
             Container(

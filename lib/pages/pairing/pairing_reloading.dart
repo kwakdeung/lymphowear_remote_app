@@ -55,8 +55,7 @@ class PairingReloadingAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: appbarIconButton(context)),
+          margin: appbarleadingMargin, child: appbarIconButton(context)),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -130,7 +129,7 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody>
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+        margin: bodyMargin,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
