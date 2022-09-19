@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// textStyle
+
 var intensityText = const TextStyle(color: Color(0xff9E9E9E), fontSize: 10);
 
 var intensityValueText = const TextStyle(
@@ -24,6 +26,8 @@ var modeContentText = const TextStyle(
 
 var dialogButtonText =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 14);
+
+// margin
 
 var zeroMargin = const EdgeInsets.all(0.0);
 
@@ -58,6 +62,8 @@ var homeValueMargin = const EdgeInsets.fromLTRB(24, 0, 0, 24);
 var listTileTitleMargin = const EdgeInsets.fromLTRB(0, 14, 0, 14);
 
 var cupertinoIndicatorMargin = const EdgeInsets.only(bottom: 4);
+
+// padding
 
 var buttonPadding = const EdgeInsets.fromLTRB(24, 12, 24, 12);
 
