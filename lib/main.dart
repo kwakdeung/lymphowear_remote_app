@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
           ),
           subtitle2: TextStyle(
             color: Color(0xff212121),
-            // fontSize: 14,
             fontWeight: FontWeight.w600,
             letterSpacing: 0.0,
           ),
