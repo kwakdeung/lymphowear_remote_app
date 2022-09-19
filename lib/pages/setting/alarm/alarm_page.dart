@@ -50,7 +50,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Container(
-        margin: appbarleadingMargin,
+        margin: const EdgeInsets.only(left: 10),
         child: appbarIconButton(context),
       ),
       title: apppbarTitle(context),
@@ -293,7 +293,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         children: [
           Container(
             color: Colors.white,
-            padding: reminderPadding,
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             child: morningReminder(),
           ),
           const Divider(
@@ -302,7 +302,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: reminderPadding,
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             child: afternoonReminder(),
           ),
           const Divider(
@@ -311,7 +311,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: reminderPadding,
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             child: eveningReminder(),
           ),
           const Divider(
@@ -320,7 +320,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
           Container(
             color: Colors.white,
-            padding: reminderPadding,
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             child: nightReminder(),
           ),
           const Divider(

@@ -53,17 +53,11 @@ class _EveningReminderState extends State<EveningReminder> {
               _DatePickerItem(
                 children: <Widget>[
                   const Text('Time'),
-                  CupertinoButton(
-                    onPressed: () {},
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: ((context) => DatePicker()))),
-                    child: Text(
-                      '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
-                      style: const TextStyle(
-                        fontSize: 22.0,
-                      ),
+                  Text(
+                    '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
+                    style: const TextStyle(
+                      fontSize: 22.0,
+                      color: Color(0xff0BB15D),
                     ),
                   ),
                 ],
