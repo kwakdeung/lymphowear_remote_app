@@ -153,7 +153,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
         ],
       ),
-      trailing: CupertinoSwitch(
+      trailing: Switch(
+        activeColor: Colors.white,
+        activeTrackColor: const Color(0xff0BB15D),
         value: _morningButton,
         onChanged: (bool value) {
           setState(() {
@@ -187,7 +189,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
         ],
       ),
-      trailing: CupertinoSwitch(
+      trailing: Switch(
+        activeColor: Colors.white,
+        activeTrackColor: const Color(0xff0BB15D),
         value: _afternoonButton,
         onChanged: (bool value) {
           setState(() {
@@ -223,7 +227,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
         ],
       ),
-      trailing: CupertinoSwitch(
+      trailing: Switch(
+        activeColor: Colors.white,
+        activeTrackColor: const Color(0xff0BB15D),
         value: _eveningButton,
         onChanged: (bool value) {
           setState(() {
@@ -260,7 +266,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           ),
         ],
       ),
-      trailing: CupertinoSwitch(
+      trailing: Switch(
+        activeColor: Colors.white,
+        activeTrackColor: const Color(0xff0BB15D),
         value: _nightButton,
         onChanged: (bool value) {
           setState(() {
