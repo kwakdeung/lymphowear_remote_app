@@ -178,7 +178,7 @@ class HomeDefaultBody extends StatelessWidget {
 
     GestureDetector vitalmodeButton(context) {
       final vitalmodeimage = SvgPicture.asset(
-        'assets/icons/ic_vital2.svg',
+        'assets/icons/ic_vital.svg',
         fit: BoxFit.fill,
       );
 
