@@ -40,7 +40,7 @@ class _EveningReminderState extends State<EveningReminder> {
           ),
         ),
         title: Text(
-          'Morning Reminder',
+          'Evening Reminder',
           style: Theme.of(context).textTheme.headline6,
         ),
         bottom: PreferredSize(
