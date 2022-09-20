@@ -1,8 +1,5 @@
-// import 'package:cupertino_datepicker/cupertinodatepicker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
 
 class MorningReminder extends StatefulWidget {
   const MorningReminder({Key? key}) : super(key: key);
@@ -14,15 +11,13 @@ class MorningReminder extends StatefulWidget {
 class _MorningReminderState extends State<MorningReminder> {
   DateTime time = DateTime.now();
 
-  String get alarmTime {
+  alarmTime() {
     var hours = (time.hour % 12).toString().padLeft(2, '0');
     var min = (time.minute).toString().padLeft(2, '0');
     var meridiem = time.hour >= 12 ? 'PM' : 'AM';
     return '$hours:$min$meridiem';
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
-
-  // String fomattedDate = DateFormat.jm().format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +76,7 @@ class _MorningReminderState extends State<MorningReminder> {
               children: <Widget>[
                 const Text('Time'),
                 Text(
-                  alarmTime,
+                  alarmTime(),
                   style: const TextStyle(
                     fontSize: 22.0,
                     color: Color(0xff0BB15D),
@@ -90,14 +85,12 @@ class _MorningReminderState extends State<MorningReminder> {
               ],
             ),
           ],
-          //     ),
         ),
       ),
     );
   }
 }
 
-// This class simply decorates a row of widgets.
 class _DatePickerItem extends StatelessWidget {
   const _DatePickerItem({required this.children});
 

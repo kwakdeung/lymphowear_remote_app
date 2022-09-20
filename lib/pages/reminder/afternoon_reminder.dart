@@ -1,8 +1,5 @@
-// import 'package:cupertino_datepicker/cupertinodatepicker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
 
 class AfternoonReminder extends StatefulWidget {
   const AfternoonReminder({Key? key}) : super(key: key);
@@ -21,8 +18,6 @@ class _AfternoonReminderState extends State<AfternoonReminder> {
     return '$hours:$min$meridiem';
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
-
-  // String fomattedDate = DateFormat.jm().format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +57,7 @@ class _AfternoonReminderState extends State<AfternoonReminder> {
                 padding: const EdgeInsets.only(top: 6.0),
                 margin: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
-                ), // margin 조절
+                ),
                 color: Colors.white,
                 child: SafeArea(
                   top: false,
@@ -90,14 +85,12 @@ class _AfternoonReminderState extends State<AfternoonReminder> {
               ],
             ),
           ],
-          //     ),
         ),
       ),
     );
   }
 }
 
-// This class simply decorates a row of widgets.
 class _DatePickerItem extends StatelessWidget {
   const _DatePickerItem({required this.children});
 
