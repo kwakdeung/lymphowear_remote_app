@@ -29,9 +29,7 @@ class SleepingModeAppbar extends StatelessWidget
 
   IconButton appbarIcon(context) {
     return IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios,
-      ),
+      icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -102,6 +100,7 @@ class _SleepingModeBodyState extends State<SleepingModeBody> {
   Row sleepingmodeTitle() {
     final titleImage = SvgPicture.asset(
       "assets/icons/ic_sleeping.svg",
+      fit: BoxFit.fill,
       width: 24,
       height: 24,
     );

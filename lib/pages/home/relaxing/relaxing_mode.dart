@@ -29,9 +29,7 @@ class RelaxingModeAppbar extends StatelessWidget
 
   IconButton appbarIcon(context) {
     return IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios,
-      ),
+      icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -103,6 +101,7 @@ class _RelaxingModeBodyState extends State<RelaxingModeBody> {
   Row relaxingmodeTitle() {
     final titleImage = SvgPicture.asset(
       'assets/icons/ic_relaxing.svg',
+      fit: BoxFit.fill,
       width: 24,
       height: 24,
     );

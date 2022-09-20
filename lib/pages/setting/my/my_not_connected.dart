@@ -31,9 +31,7 @@ class MyNotConnectedAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios,
-      ),
+      icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -176,7 +174,10 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
               visible: _isConnected,
               child: Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 45, 0),
-                  child: SvgPicture.asset("assets/images/battery_20%.svg")),
+                  child: SvgPicture.asset(
+                    "assets/images/battery_20%.svg",
+                    fit: BoxFit.fill,
+                  )),
             ),
           ],
         ),
@@ -334,6 +335,7 @@ class _MyNotConnectedBottomButtonState
     extends State<MyNotConnectedBottomButton> {
   final iconImage = SvgPicture.asset(
     "assets/icons/ic_trash.svg",
+    fit: BoxFit.fill,
     color: const Color(0xff757575),
   );
 
@@ -385,6 +387,7 @@ class _MyNotConnectedBottomButtonState
       return ElevatedButton.icon(
         icon: SvgPicture.asset(
           "assets/icons/ic_delete.svg",
+          fit: BoxFit.fill,
         ),
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(112, 40),

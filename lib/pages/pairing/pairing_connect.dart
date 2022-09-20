@@ -43,9 +43,7 @@ class PairingConnectAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios,
-      ),
+      icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -97,6 +95,7 @@ class PairingConnectBody extends StatelessWidget {
   );
   final image = Image.asset(
     'assets/images/pairing_connect_image.png',
+    fit: BoxFit.fill,
   );
 
   @override

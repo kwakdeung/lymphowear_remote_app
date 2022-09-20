@@ -126,6 +126,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
+          fit: BoxFit.fill,
           color: _countedSeconds > 0
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
@@ -154,6 +155,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
             surfaceTintColor: Colors.white),
         child: SvgPicture.asset(
           'assets/icons/ic_plus.svg',
+          fit: BoxFit.fill,
           color: _countedSeconds < maxSeconds
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
@@ -181,6 +183,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
       child: SvgPicture.asset(
         'assets/images/battery.svg',
+        fit: BoxFit.fill,
         width: 30,
         height: 12,
       ),
@@ -216,8 +219,14 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
         icon: isPlaying
-            ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
-            : SvgPicture.asset("assets/icons/ic_play_full.svg"),
+            ? SvgPicture.asset(
+                "assets/icons/ic_pause_full.svg",
+                fit: BoxFit.fill,
+              )
+            : SvgPicture.asset(
+                "assets/icons/ic_play_full.svg",
+                fit: BoxFit.fill,
+              ),
       ),
     );
 

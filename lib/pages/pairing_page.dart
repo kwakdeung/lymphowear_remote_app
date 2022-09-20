@@ -41,9 +41,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(
-        Icons.close,
-      ),
+      icon: const Icon(Icons.close),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.of(context).pushReplacement(
@@ -86,6 +84,7 @@ class PairingPageBody extends StatelessWidget {
 
   final image = SvgPicture.asset(
     'assets/images/pairing_page_image.svg',
+    fit: BoxFit.fill,
   );
 
   Text title(context) {

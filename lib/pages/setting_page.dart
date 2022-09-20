@@ -13,9 +13,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIcon(context) {
     return IconButton(
-      icon: const Icon(
-        Icons.arrow_back_ios,
-      ),
+      icon: const Icon(Icons.arrow_back_ios),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -54,6 +52,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_my_device.svg",
+          fit: BoxFit.fill,
         ),
       ),
       title: Text(
@@ -65,6 +64,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_chevron_right.svg",
+          fit: BoxFit.fill,
         ),
       ),
       onTap: () {
@@ -84,6 +84,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_timer.svg",
+          fit: BoxFit.fill,
         ),
       ),
       title: Text(
@@ -95,6 +96,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_chevron_right.svg",
+          fit: BoxFit.fill,
         ),
       ),
       onTap: () {
@@ -114,6 +116,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_info.svg",
+          fit: BoxFit.fill,
         ),
       ),
       title: Text(
@@ -125,6 +128,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_chevron_right.svg",
+          fit: BoxFit.fill,
         ),
       ),
       onTap: () {},
@@ -137,6 +141,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_help.svg",
+          fit: BoxFit.fill,
         ),
       ),
       title: Text(
@@ -148,6 +153,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         margin: zeroMargin,
         child: SvgPicture.asset(
           "assets/icons/ic_chevron_right.svg",
+          fit: BoxFit.fill,
         ),
       ),
       onTap: () {},

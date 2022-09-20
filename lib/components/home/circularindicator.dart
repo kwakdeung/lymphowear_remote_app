@@ -156,8 +156,14 @@ class _CircularIndicatorState extends State<CircularIndicator>
           },
           color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
           icon: isPlaying
-              ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
-              : SvgPicture.asset("assets/icons/ic_play_full.svg"),
+              ? SvgPicture.asset(
+                  "assets/icons/ic_pause_full.svg",
+                  fit: BoxFit.fill,
+                )
+              : SvgPicture.asset(
+                  "assets/icons/ic_play_full.svg",
+                  fit: BoxFit.fill,
+                ),
         ),
       ),
     );

@@ -17,6 +17,7 @@ class OnboardingContents extends StatefulWidget {
 class _OnboardingContentsState extends State<OnboardingContents> {
   get image => Image.asset(
         widget.image,
+        fit: BoxFit.fill,
       );
 
   get title => Text(
