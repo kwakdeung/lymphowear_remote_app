@@ -13,6 +13,15 @@ class MorningReminder extends StatefulWidget {
 
 class _MorningReminderState extends State<MorningReminder> {
   DateTime time = DateTime.now();
+
+  String get alarmTime {
+    var hours = (time.hour % 12).toString().padLeft(2, '0');
+    var min = (time.minute).toString().padLeft(2, '0');
+    var meridiem = time.hour >= 12 ? 'PM' : 'AM';
+    return '$hours:$min$meridiem';
+    // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
+  }
+
   // String fomattedDate = DateFormat.jm().format(DateTime.now());
 
   @override
@@ -72,7 +81,7 @@ class _MorningReminderState extends State<MorningReminder> {
               children: <Widget>[
                 const Text('Time'),
                 Text(
-                  '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
+                  alarmTime,
                   style: const TextStyle(
                     fontSize: 22.0,
                     color: Color(0xff0BB15D),
