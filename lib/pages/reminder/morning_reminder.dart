@@ -1,5 +1,6 @@
 // import 'package:cupertino_datepicker/cupertinodatepicker.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 // import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 
@@ -16,55 +17,71 @@ class _MorningReminderState extends State<MorningReminder> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Reminder'),
-      ),
-      child: DefaultTextStyle(
-        style: TextStyle(
-          color: CupertinoColors.label.resolveFrom(context),
-          fontSize: 22.0,
+    return Scaffold(
+      appBar: AppBar(
+        surfaceTintColor: Colors.white,
+        leading: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            color: Colors.grey[700],
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CupertinoPageScaffold(
-                child: Container(
-                  height: 216,
-                  padding: const EdgeInsets.only(top: 6.0),
-                  margin: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ), // margin 조절
-                  color: CupertinoColors.systemBackground.resolveFrom(context),
-                  child: SafeArea(
-                    top: false,
-                    child: CupertinoDatePicker(
-                      initialDateTime: time,
-                      mode: CupertinoDatePickerMode.time,
-                      use24hFormat: false,
-                      onDateTimeChanged: (DateTime newTime) {
-                        setState(() => time = newTime);
-                      },
-                    ),
+        title: Text(
+          'Morning Reminder',
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: Container(
+            color: Colors.grey[200],
+            height: 2.0,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            CupertinoPageScaffold(
+              child: Container(
+                height: 216,
+                padding: const EdgeInsets.only(top: 6.0),
+                margin: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ), // margin 조절
+                color: Colors.white,
+                child: SafeArea(
+                  top: false,
+                  child: CupertinoDatePicker(
+                    initialDateTime: time,
+                    mode: CupertinoDatePickerMode.time,
+                    use24hFormat: false,
+                    onDateTimeChanged: (DateTime newTime) {
+                      setState(() => time = newTime);
+                    },
                   ),
                 ),
               ),
-              _DatePickerItem(
-                children: <Widget>[
-                  const Text('Time'),
-                  Text(
-                    '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
-                    style: const TextStyle(
-                      fontSize: 22.0,
-                      color: Color(0xff0BB15D),
-                    ),
+            ),
+            _DatePickerItem(
+              children: <Widget>[
+                const Text('Time'),
+                Text(
+                  '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
+                  style: const TextStyle(
+                    fontSize: 22.0,
+                    color: Color(0xff0BB15D),
                   ),
-                ],
-              ),
-            ],
-            //     ),
-          ),
+                ),
+              ],
+            ),
+          ],
+          //     ),
         ),
       ),
     );
