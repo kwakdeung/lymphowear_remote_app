@@ -12,10 +12,11 @@ class _MorningReminderState extends State<MorningReminder> {
   DateTime time = DateTime.now();
 
   alarmTime() {
-    var hours = (time.hour % 12).toString().padLeft(2, '0');
+    var hrs = (time.hour % 12).toString().padLeft(2, '0');
     var min = (time.minute).toString().padLeft(2, '0');
-    var meridiem = time.hour >= 12 ? 'PM' : 'AM';
-    return '$hours:$min$meridiem';
+    var mrd = time.hour >= 12 ? 'PM' : 'AM';
+
+    return '$hrs:$min$mrd';
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
