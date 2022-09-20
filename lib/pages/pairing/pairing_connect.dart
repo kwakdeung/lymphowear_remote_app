@@ -148,9 +148,7 @@ class PairingConnectBottomButton extends StatelessWidget {
         context,
         'Pairing...',
       ),
-      child: const Text(
-        'Connect',
-      ),
+      child: const Text('Connect'),
     );
   }
 

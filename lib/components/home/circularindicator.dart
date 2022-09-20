@@ -244,9 +244,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     onPressed: () {
       Navigator.pop(context);
     },
-    child: const Text(
-      'Done',
-    ),
+    child: const Text('Done'),
   );
 
   var timeAlertdialog = AlertDialog(

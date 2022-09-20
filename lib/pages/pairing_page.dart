@@ -159,9 +159,7 @@ class PairingPageBottomButton extends StatelessWidget {
           ),
         );
       },
-      child: const Text(
-        'Start',
-      ),
+      child: const Text('Start'),
     );
   }
 }

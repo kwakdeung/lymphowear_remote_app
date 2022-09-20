@@ -18,9 +18,7 @@ class _MorningReminderState extends State<MorningReminder> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text(
-          'Reminder',
-        ),
+        middle: Text('Reminder'),
       ),
       child: DefaultTextStyle(
         style: TextStyle(
@@ -54,9 +52,7 @@ class _MorningReminderState extends State<MorningReminder> {
               ),
               _DatePickerItem(
                 children: <Widget>[
-                  const Text(
-                    'Time',
-                  ),
+                  const Text('Time'),
                   Text(
                     '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}',
                     style: const TextStyle(

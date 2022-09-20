@@ -104,9 +104,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        child: const Text(
-          'Skip',
-        ),
+        child: const Text('Skip'),
       );
     }
 

@@ -176,9 +176,7 @@ class PairingFailedBottomButton extends StatelessWidget {
           ),
         );
       },
-      child: const Text(
-        'Try Again',
-      ),
+      child: const Text('Try Again'),
     );
   }
 }

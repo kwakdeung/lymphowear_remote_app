@@ -356,7 +356,10 @@ class _MyNotConnectedBottomButtonState
     const title = Text(
       'Delete to this device',
       style: TextStyle(
-          fontSize: 14, fontFamily: "Poppins", fontWeight: FontWeight.w400),
+        fontSize: 14,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w400,
+      ),
     );
 
     ElevatedButton cancelButton() {
@@ -374,9 +377,7 @@ class _MyNotConnectedBottomButtonState
         onPressed: () {
           Navigator.pop(context);
         },
-        child: const Text(
-          'Cancel',
-        ),
+        child: const Text('Cancel'),
       );
     }
 
@@ -390,7 +391,10 @@ class _MyNotConnectedBottomButtonState
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(999),
           ),
-          side: const BorderSide(width: 1.0, color: Color(0xffBB0000)),
+          side: const BorderSide(
+            width: 1.0,
+            color: Color(0xffBB0000),
+          ),
           backgroundColor: Colors.white,
           foregroundColor: const Color(0xffBB0000),
           textStyle: dialogButtonText,
@@ -402,9 +406,7 @@ class _MyNotConnectedBottomButtonState
                 builder: ((context) => const SettingPage()),
               ));
         },
-        label: const Text(
-          'Delete',
-        ),
+        label: const Text('Delete'),
       );
     }
 

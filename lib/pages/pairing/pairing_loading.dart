@@ -183,9 +183,7 @@ class PairingLodingBottomButton extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child: const Text(
-        'Stop',
-      ),
+      child: const Text('Stop'),
     );
   }
 }

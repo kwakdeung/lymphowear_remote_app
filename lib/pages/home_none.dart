@@ -199,9 +199,7 @@ class HomeNoneBottomButton extends StatelessWidget {
         );
         // Navigator.pushReplacement(context, _createroute());
       },
-      label: const Text(
-        'Add Device',
-      ),
+      label: const Text('Add Device'),
     );
   }
 }

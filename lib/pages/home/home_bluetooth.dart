@@ -224,9 +224,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child: const Text(
-        'Cancel',
-      ),
+      child: const Text('Cancel'),
     );
 
     final secondTryagainButton = ElevatedButton(
@@ -237,7 +235,10 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         ),
         backgroundColor: const Color(0xff008A40),
         foregroundColor: Colors.white,
-        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+        textStyle: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
       ),
       onPressed: () {
         Navigator.push(

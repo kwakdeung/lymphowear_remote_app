@@ -150,9 +150,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text(
-                          'No',
-                        ),
+                        child: const Text('No'),
                       ),
                     ),
                     Container(
@@ -170,9 +168,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text(
-                          'Yes',
-                        ),
+                        child: const Text('Yes'),
                       ),
                     ),
                   ],
