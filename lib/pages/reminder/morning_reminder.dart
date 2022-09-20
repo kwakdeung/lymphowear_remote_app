@@ -57,7 +57,7 @@ class _MorningReminderState extends State<MorningReminder> {
                 padding: const EdgeInsets.only(top: 6.0),
                 margin: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
-                ), // margin 조절
+                ),
                 color: Colors.white,
                 child: SafeArea(
                   top: false,
