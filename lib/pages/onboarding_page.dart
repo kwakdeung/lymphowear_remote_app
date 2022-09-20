@@ -53,9 +53,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         controller: pageController,
         itemCount: onboardingData.length,
         onPageChanged: (index) {
-          setState(() {
-            pageIndex = index;
-          });
+          setState(() => pageIndex = index);
         },
         itemBuilder: (
           BuildContext context,

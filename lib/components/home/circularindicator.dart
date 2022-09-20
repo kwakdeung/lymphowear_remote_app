@@ -52,7 +52,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
       } else {
         setState(() {
           progress = 1;
-
           isPlaying = false;
         });
       }
@@ -144,21 +143,15 @@ class _CircularIndicatorState extends State<CircularIndicator>
           onPressed: () {
             if (controller.isAnimating) {
               controller.stop();
-              setState(
-                () {
-                  isPlaying = false;
-                },
-              );
+              setState(() => isPlaying = false);
             } else {
               controller.reverse(
                 from: controller.value == 0 ? 1.0 : controller.value,
               );
-              setState(
-                () {
-                  circularVisible = true;
-                  isPlaying = true;
-                },
-              );
+              setState(() {
+                circularVisible = true;
+                isPlaying = true;
+              });
             }
           },
           color: isPlaying ? const Color(0xff0BB15D) : Colors.white,

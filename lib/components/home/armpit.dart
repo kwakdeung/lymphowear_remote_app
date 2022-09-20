@@ -71,9 +71,7 @@ class _ArmpitState extends State<Armpit> {
         value: armpitValue,
         divisions: 3,
         onChanged: (value) {
-          setState(() {
-            armpitValue = value;
-          });
+          setState(() => armpitValue = value);
         },
       ),
     );

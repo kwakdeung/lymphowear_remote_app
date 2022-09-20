@@ -71,11 +71,7 @@ class _ShoulderState extends State<Shoulder> {
         value: shoulderValue,
         divisions: 3,
         onChanged: (value) {
-          setState(
-            () {
-              shoulderValue = value;
-            },
-          );
+          setState(() => shoulderValue = value);
         },
       ),
     );

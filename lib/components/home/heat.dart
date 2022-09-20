@@ -71,11 +71,7 @@ class _HeatState extends State<Heat> {
         value: heatValue,
         divisions: 2,
         onChanged: (value) {
-          setState(
-            () {
-              heatValue = value;
-            },
-          );
+          setState(() => heatValue = value);
         },
       ),
     );

@@ -199,11 +199,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _afternoonButton,
         onChanged: (bool value) {
-          setState(
-            () {
-              showAfternoon();
-            },
-          );
+          setState(() {
+            showAfternoon();
+          });
         },
       ),
       onTap: () {
@@ -241,11 +239,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _eveningButton,
         onChanged: (bool value) {
-          setState(
-            () {
-              showEvening();
-            },
-          );
+          setState(() {
+            showEvening();
+          });
         },
       ),
       onTap: () {
@@ -286,11 +282,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _nightButton,
         onChanged: (bool value) {
-          setState(
-            () {
-              showNight();
-            },
-          );
+          setState(() {
+            showNight();
+          });
         },
       ),
       onTap: () {

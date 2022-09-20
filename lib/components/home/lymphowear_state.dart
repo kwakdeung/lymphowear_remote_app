@@ -96,9 +96,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   void playpauseControl() {
     if (timerRunning) {
       stopTimer();
-      setState(() {
-        isPlaying = false;
-      });
+      setState(() => isPlaying = false);
     } else {
       startTimer();
       setState(() {
