@@ -43,7 +43,10 @@ class _ArmpitState extends State<Armpit> {
           style: modebodyText,
         ),
         const Spacer(),
-        Text('Intensity', style: intensityText),
+        Text(
+          'Intensity',
+          style: intensityText,
+        ),
         showValue(),
       ],
     );
@@ -80,13 +83,25 @@ class _ArmpitState extends State<Armpit> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Off', style: intensityText),
+        Text(
+          'Off',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('1', style: intensityText),
+        Text(
+          '1',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('2', style: intensityText),
+        Text(
+          '2',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('3', style: intensityText),
+        Text(
+          '3',
+          style: intensityText,
+        ),
       ],
     );
   }
@@ -177,7 +192,15 @@ class CircleThumbShape extends SliderComponentShape {
       ..strokeWidth = 3
       ..style = PaintingStyle.stroke;
 
-    canvas.drawCircle(center, thumbRadius, fillPaint);
-    canvas.drawCircle(center, thumbRadius, borderPaint);
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      fillPaint,
+    );
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      borderPaint,
+    );
   }
 }

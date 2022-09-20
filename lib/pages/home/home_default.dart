@@ -39,13 +39,17 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton leadingIconButton(context) {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_power.svg',
-          fit: BoxFit.fill,
-        ),
-        onPressed: () {
-          _powerAlertDialog(context, "Are you sure you want\n to turn off?");
-        });
+      icon: SvgPicture.asset(
+        'assets/icons/ic_power.svg',
+        fit: BoxFit.fill,
+      ),
+      onPressed: () {
+        _powerAlertDialog(
+          context,
+          "Are you sure you want\n to turn off?",
+        );
+      },
+    );
   }
 
   final appbarLogo = SvgPicture.asset(
@@ -55,15 +59,20 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton actionsIconButton(context) {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_setting.svg',
-          fit: BoxFit.fill,
-        ),
-        color: Colors.grey[700],
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const SettingPage())));
-        });
+      icon: SvgPicture.asset(
+        'assets/icons/ic_setting.svg',
+        fit: BoxFit.fill,
+      ),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const SettingPage()),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -80,11 +89,12 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[300],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[300],
+          height: 2.0,
+        ),
+      ),
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
@@ -96,73 +106,83 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   Future _powerAlertDialog(BuildContext context, String message) async {
     await showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return Theme(
-            data: ThemeData(dialogBackgroundColor: Colors.white),
-            child: AlertDialog(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0)),
-                title: Text(
-                  message,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      color: Color(0xff212121),
-                      fontFamily: "Poppins",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400),
-                ),
-                actions: [
-                  Container(
-                    margin: zeroMargin,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(10, 0, 4, 20),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(112, 40),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(999),
-                              ),
-                              side: const BorderSide(
-                                  width: 1.0, color: Colors.grey),
-                              backgroundColor: Colors.white,
-                              foregroundColor: const Color(0xff757575),
-                              textStyle: dialogButtonText,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('No'),
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Theme(
+          data: ThemeData(
+            dialogBackgroundColor: Colors.white,
+          ),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            title: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(0xff212121),
+                fontFamily: "Poppins",
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            actions: [
+              Container(
+                margin: zeroMargin,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(10, 0, 4, 20),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(112, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(999),
                           ),
+                          side:
+                              const BorderSide(width: 1.0, color: Colors.grey),
+                          backgroundColor: Colors.white,
+                          foregroundColor: const Color(0xff757575),
+                          textStyle: dialogButtonText,
                         ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(4, 0, 10, 20),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(112, 40),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(999),
-                              ),
-                              backgroundColor: const Color(0xff008A40),
-                              foregroundColor: Colors.white,
-                              textStyle: dialogButtonText,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Yes'),
-                          ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          'No',
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ]),
-          );
-        });
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(4, 0, 10, 20),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(112, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          backgroundColor: const Color(0xff008A40),
+                          foregroundColor: Colors.white,
+                          textStyle: dialogButtonText,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(
+                          'Yes',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -194,7 +214,9 @@ class HomeDefaultBody extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const VitalMode()),
+            MaterialPageRoute(
+              builder: (context) => const VitalMode(),
+            ),
           );
         },
         child: Container(
@@ -230,8 +252,12 @@ class HomeDefaultBody extends StatelessWidget {
 
       return GestureDetector(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const RelaxingMode())));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const RelaxingMode()),
+            ),
+          );
         },
         child: Container(
           color: Colors.transparent,
@@ -265,8 +291,12 @@ class HomeDefaultBody extends StatelessWidget {
 
       return GestureDetector(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const SleepingMode())));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const SleepingMode()),
+            ),
+          );
         },
         child: Container(
           color: Colors.transparent,

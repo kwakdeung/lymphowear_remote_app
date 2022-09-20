@@ -43,7 +43,9 @@ class PairingConnectAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -71,11 +73,12 @@ class PairingConnectAppbar extends StatelessWidget
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[200],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[200],
+          height: 2.0,
+        ),
+      ),
       centerTitle: true,
     );
   }
@@ -92,7 +95,9 @@ class PairingConnectBody extends StatelessWidget {
       fontWeight: FontWeight.w400,
     ),
   );
-  final image = Image.asset('assets/images/pairing_connect_image.png');
+  final image = Image.asset(
+    'assets/images/pairing_connect_image.png',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +144,10 @@ class PairingConnectBottomButton extends StatelessWidget {
         foregroundColor: Colors.white,
         textStyle: Theme.of(context).textTheme.button,
       ),
-      onPressed: () => showProgressDialog(context, 'Pairing...'),
+      onPressed: () => showProgressDialog(
+        context,
+        'Pairing...',
+      ),
       child: const Text(
         'Connect',
       ),
@@ -158,7 +166,9 @@ class PairingConnectBottomButton extends StatelessWidget {
     );
 
     var alertDialog = AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
       content: Container(
         margin: zeroMargin,
         height: 62,
@@ -187,11 +197,17 @@ class PairingConnectBottomButton extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         Future.delayed(const Duration(seconds: 1), () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const PairingComplete()));
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PairingComplete(),
+            ),
+          );
         });
         return Theme(
-          data: ThemeData(dialogBackgroundColor: Colors.white),
+          data: ThemeData(
+            dialogBackgroundColor: Colors.white,
+          ),
           child: Container(
             margin: const EdgeInsets.fromLTRB(70, 246, 70, 246),
             child: alertDialog,

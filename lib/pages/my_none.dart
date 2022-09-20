@@ -39,7 +39,9 @@ class MyNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -165,10 +167,11 @@ class MyNoneBottomButton extends StatelessWidget {
         //   _createRoute(),
         // );
         Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const MyNotConnected()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const MyNotConnected()),
+          ),
+        );
       },
       icon: const Icon(
         Icons.add_circle_outline_outlined,
@@ -181,7 +184,9 @@ class MyNoneBottomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: buttonPadding,
         backgroundColor: Colors.white,
-        side: const BorderSide(color: Color(0xff008A40)),
+        side: const BorderSide(
+          color: Color(0xff008A40),
+        ),
       ),
     );
   }

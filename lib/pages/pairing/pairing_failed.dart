@@ -48,12 +48,18 @@ class PairingFailedAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const PairingPage(),
-        ));
+        Navigator.of(
+          context,
+        ).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const PairingPage(),
+          ),
+        );
       },
     );
   }
@@ -70,7 +76,9 @@ class PairingFailedAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-          margin: appbarleadingMargin, child: appbarIconButton(context)),
+        margin: appbarleadingMargin,
+        child: appbarIconButton(context),
+      ),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -155,12 +163,18 @@ class PairingFailedBottomButton extends StatelessWidget {
         foregroundColor: const Color(0xff008A40),
         surfaceTintColor: Colors.white,
         textStyle: Theme.of(context).textTheme.button,
-        side: const BorderSide(color: Color(0xff008A40)),
+        side: const BorderSide(
+          color: Color(0xff008A40),
+        ),
       ),
       onPressed: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const PairingReloading(),
-        ));
+        Navigator.of(
+          context,
+        ).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const PairingReloading(),
+          ),
+        );
       },
       child: const Text(
         'Try Again',

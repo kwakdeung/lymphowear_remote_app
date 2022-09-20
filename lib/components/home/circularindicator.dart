@@ -71,7 +71,10 @@ class _CircularIndicatorState extends State<CircularIndicator>
   void alertEnd() {
     if (controller.value == 0.0) {
       controller.stop();
-      _timeAlertDialog(context, "Total Time: 15mins");
+      _timeAlertDialog(
+        context,
+        "Total Time: 15mins",
+      );
     }
   }
 
@@ -82,7 +85,9 @@ class _CircularIndicatorState extends State<CircularIndicator>
         value: 1.0 - controller.value,
         backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
         strokeWidth: 6,
-        valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
+        valueColor: const AlwaysStoppedAnimation<Color>(
+          Color(0xff0BB15D),
+        ),
       ),
     );
   }
@@ -101,7 +106,11 @@ class _CircularIndicatorState extends State<CircularIndicator>
       margin: const EdgeInsets.only(top: 5),
       child: AnimatedBuilder(
         animation: controller,
-        builder: (context, child) => Text(
+        builder: (
+          context,
+          child,
+        ) =>
+            Text(
           time,
           style: const TextStyle(
             color: Color(0xff212121),
@@ -115,37 +124,48 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
   Padding playpauseButton() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 5,
+        vertical: 10,
+      ),
       child: Container(
         margin: zeroMargin,
         width: 40.0,
         height: 40.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          border: Border.all(color: const Color(0xff0BB15D), width: 1.5),
+          border: Border.all(
+            color: const Color(0xff0BB15D),
+            width: 1.5,
+          ),
           color: isPlaying ? Colors.white : const Color(0xff0BB15D),
         ),
         child: IconButton(
-            onPressed: () {
-              if (controller.isAnimating) {
-                controller.stop();
-                setState(() {
+          onPressed: () {
+            if (controller.isAnimating) {
+              controller.stop();
+              setState(
+                () {
                   isPlaying = false;
-                });
-              } else {
-                controller.reverse(
-                    from: controller.value == 0 ? 1.0 : controller.value);
-
-                setState(() {
+                },
+              );
+            } else {
+              controller.reverse(
+                from: controller.value == 0 ? 1.0 : controller.value,
+              );
+              setState(
+                () {
                   circularVisible = true;
                   isPlaying = true;
-                });
-              }
-            },
-            color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
-            icon: isPlaying
-                ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
-                : SvgPicture.asset("assets/icons/ic_play_full.svg")),
+                },
+              );
+            }
+          },
+          color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
+          icon: isPlaying
+              ? SvgPicture.asset("assets/icons/ic_pause_full.svg")
+              : SvgPicture.asset("assets/icons/ic_play_full.svg"),
+        ),
       ),
     );
   }
@@ -205,10 +225,11 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
-        fontFamily: "Poppins",
-        color: Color(0xff9E9E9E),
-        fontSize: 14,
-        fontWeight: FontWeight.w400),
+      fontFamily: "Poppins",
+      color: Color(0xff9E9E9E),
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    ),
   );
 
   final timeAlertdialogBottomButton = ElevatedButton(
@@ -223,39 +244,50 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     onPressed: () {
       Navigator.pop(context);
     },
-    child: const Text('Done'),
+    child: const Text(
+      'Done',
+    ),
   );
 
   var timeAlertdialog = AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: Center(child: timeAlertdialogTitle(context)),
-      content: Container(
-        margin: zeroMargin,
-        height: 100,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 7),
-              child: timeAlertdialogImage,
-            ),
-            timeAlertdialogContent,
-          ],
-        ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    title: Center(
+      child: timeAlertdialogTitle(context),
+    ),
+    content: Container(
+      margin: zeroMargin,
+      height: 100,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(bottom: 7),
+            child: timeAlertdialogImage,
+          ),
+          timeAlertdialogContent,
+        ],
       ),
-      actions: [
-        Container(
-          width: double.maxFinite,
-          margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          child: timeAlertdialogBottomButton,
-        ),
-      ]);
+    ),
+    actions: [
+      Container(
+        width: double.maxFinite,
+        margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+        child: timeAlertdialogBottomButton,
+      ),
+    ],
+  );
 
   await showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return Theme(
-            data: ThemeData(dialogBackgroundColor: Colors.white),
-            child: timeAlertdialog);
-      });
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return Theme(
+        data: ThemeData(
+          dialogBackgroundColor: Colors.white,
+        ),
+        child: timeAlertdialog,
+      );
+    },
+  );
 }

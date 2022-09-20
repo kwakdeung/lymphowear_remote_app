@@ -28,7 +28,9 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIcon(context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -85,7 +87,9 @@ class _VitalModeBodyState extends State<VitalModeBody> {
       height: 150.0,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(999.0)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(999.0),
+        ),
         border: Border.all(
           color: const Color(0xffE0E0E0),
           width: 1,
@@ -155,7 +159,10 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                 padding: modePadding,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: const Color(0xffEEEEEE), width: 1),
+                  border: Border.all(
+                    color: const Color(0xffEEEEEE),
+                    width: 1,
+                  ),
                   color: Colors.white,
                   boxShadow: const [
                     BoxShadow(
@@ -179,15 +186,19 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                       padding: modeTextPadding,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.black12, width: 0),
+                        border: Border.all(
+                          color: Colors.black12,
+                          width: 0,
+                        ),
                         color: const Color(0xffEEEEEE),
                       ),
                       child: const VitalModeBody().vitalmodeContent(context),
                     ),
                     Container(
-                        margin: const EdgeInsets.only(bottom: 128),
-                        width: double.infinity,
-                        child: vitalmodeImage),
+                      margin: const EdgeInsets.only(bottom: 128),
+                      width: double.infinity,
+                      child: vitalmodeImage,
+                    ),
                   ],
                 ),
               ),

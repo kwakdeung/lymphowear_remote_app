@@ -43,7 +43,10 @@ class _ShoulderState extends State<Shoulder> {
           style: modebodyText,
         ),
         const Spacer(),
-        Text('Intensity', style: intensityText),
+        Text(
+          'Intensity',
+          style: intensityText,
+        ),
         showValue(),
       ],
     );
@@ -68,9 +71,11 @@ class _ShoulderState extends State<Shoulder> {
         value: shoulderValue,
         divisions: 3,
         onChanged: (value) {
-          setState(() {
-            shoulderValue = value;
-          });
+          setState(
+            () {
+              shoulderValue = value;
+            },
+          );
         },
       ),
     );
@@ -87,13 +92,25 @@ class _ShoulderState extends State<Shoulder> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Off', style: intensityText),
+        Text(
+          'Off',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('1', style: intensityText),
+        Text(
+          '1',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('2', style: intensityText),
+        Text(
+          '2',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('3', style: intensityText),
+        Text(
+          '3',
+          style: intensityText,
+        ),
       ],
     );
   }
@@ -123,7 +140,9 @@ class _ShoulderState extends State<Shoulder> {
                   child: shoulderSlider(),
                 ),
                 Container(
-                    padding: sliderValuePadding, child: shoulderSliderValue()),
+                  padding: sliderValuePadding,
+                  child: shoulderSliderValue(),
+                ),
               ],
             ),
           ),
@@ -175,7 +194,15 @@ class CircleThumbShape extends SliderComponentShape {
       ..strokeWidth = 3
       ..style = PaintingStyle.stroke;
 
-    canvas.drawCircle(center, thumbRadius, fillPaint);
-    canvas.drawCircle(center, thumbRadius, borderPaint);
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      fillPaint,
+    );
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      borderPaint,
+    );
   }
 }

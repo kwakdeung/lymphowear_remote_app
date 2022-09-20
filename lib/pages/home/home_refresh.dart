@@ -37,14 +37,19 @@ class HomeRefreshAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_setting.svg',
-          fit: BoxFit.fill,
-        ),
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const SettingPage())));
-        });
+      icon: SvgPicture.asset(
+        'assets/icons/ic_setting.svg',
+        fit: BoxFit.fill,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const SettingPage()),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -57,11 +62,12 @@ class HomeRefreshAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[200],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[200],
+          height: 2.0,
+        ),
+      ),
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
@@ -136,9 +142,12 @@ class HomeRefleshBottomButton extends StatelessWidget {
         style: Theme.of(context).textTheme.button,
       ),
       style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          padding: buttonPadding,
-          side: const BorderSide(color: Color(0xff008A40))),
+        backgroundColor: Colors.white,
+        padding: buttonPadding,
+        side: const BorderSide(
+          color: Color(0xff008A40),
+        ),
+      ),
       onPressed: () => showProgressDialog(context, 'Loading...'),
     );
   }
@@ -175,7 +184,9 @@ class HomeRefleshBottomButton extends StatelessWidget {
     );
 
     var alertDialog = AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
       content: Container(
         margin: zeroMargin,
         height: 62,
@@ -215,7 +226,9 @@ class HomeRefleshBottomButton extends StatelessWidget {
               ));
         });
         return Theme(
-          data: ThemeData(dialogBackgroundColor: Colors.white),
+          data: ThemeData(
+            dialogBackgroundColor: Colors.white,
+          ),
           child: Container(
             margin: const EdgeInsets.fromLTRB(70, 246, 70, 246),
             child: alertDialog,

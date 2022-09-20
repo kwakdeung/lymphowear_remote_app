@@ -31,7 +31,9 @@ class MyNotConnectedAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -191,12 +193,18 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: listTileTitleMargin,
-        child: Text('Model name', style: firmwareText),
+        child: Text(
+          'Model name',
+          style: firmwareText,
+        ),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: Text("LymphoWear", style: modebodyText),
+        child: Text(
+          "LymphoWear",
+          style: modebodyText,
+        ),
       ),
     );
   }
@@ -205,12 +213,18 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: listTileTitleMargin,
-        child: Text('Model number', style: firmwareText),
+        child: Text(
+          'Model number',
+          style: firmwareText,
+        ),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: Text("LW-100", style: modebodyText),
+        child: Text(
+          "LW-100",
+          style: modebodyText,
+        ),
       ),
     );
   }
@@ -219,12 +233,18 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: listTileTitleMargin,
-        child: Text('Serial number', style: firmwareText),
+        child: Text(
+          'Serial number',
+          style: firmwareText,
+        ),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: Text("ABCDEFG1234", style: modebodyText),
+        child: Text(
+          "ABCDEFG1234",
+          style: modebodyText,
+        ),
       ),
     );
   }
@@ -233,12 +253,18 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     return ListTile(
       title: Container(
         margin: listTileTitleMargin,
-        child: Text('Version', style: firmwareText),
+        child: Text(
+          'Version',
+          style: firmwareText,
+        ),
       ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: Text("1.1.1", style: modebodyText),
+        child: Text(
+          "1.1.1",
+          style: modebodyText,
+        ),
       ),
     );
   }
@@ -250,7 +276,10 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(color: const Color(0xffF3F3F3), child: deviceConnect()),
+          Container(
+            color: const Color(0xffF3F3F3),
+            child: deviceConnect(),
+          ),
           divider,
           Container(
             color: Colors.white,
@@ -345,13 +374,17 @@ class _MyNotConnectedBottomButtonState
         onPressed: () {
           Navigator.pop(context);
         },
-        child: const Text('Cancel'),
+        child: const Text(
+          'Cancel',
+        ),
       );
     }
 
     ElevatedButton deleteButton() {
       return ElevatedButton.icon(
-        icon: SvgPicture.asset("assets/icons/ic_delete.svg"),
+        icon: SvgPicture.asset(
+          "assets/icons/ic_delete.svg",
+        ),
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(112, 40),
           shape: RoundedRectangleBorder(
@@ -369,7 +402,9 @@ class _MyNotConnectedBottomButtonState
                 builder: ((context) => const SettingPage()),
               ));
         },
-        label: const Text('Delete'),
+        label: const Text(
+          'Delete',
+        ),
       );
     }
 

@@ -43,7 +43,10 @@ class _HeatState extends State<Heat> {
           style: modebodyText,
         ),
         const Spacer(),
-        Text('Intensity', style: intensityText),
+        Text(
+          'Intensity',
+          style: intensityText,
+        ),
         showValue(),
       ],
     );
@@ -68,9 +71,11 @@ class _HeatState extends State<Heat> {
         value: heatValue,
         divisions: 2,
         onChanged: (value) {
-          setState(() {
-            heatValue = value;
-          });
+          setState(
+            () {
+              heatValue = value;
+            },
+          );
         },
       ),
     );
@@ -87,11 +92,20 @@ class _HeatState extends State<Heat> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Off', style: intensityText),
+        Text(
+          'Off',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('1', style: intensityText),
+        Text(
+          '1',
+          style: intensityText,
+        ),
         const Spacer(),
-        Text('2', style: intensityText),
+        Text(
+          '2',
+          style: intensityText,
+        ),
       ],
     );
   }
@@ -175,7 +189,15 @@ class CircleThumbShape extends SliderComponentShape {
       ..strokeWidth = 3
       ..style = PaintingStyle.stroke;
 
-    canvas.drawCircle(center, thumbRadius, fillPaint);
-    canvas.drawCircle(center, thumbRadius, borderPaint);
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      fillPaint,
+    );
+    canvas.drawCircle(
+      center,
+      thumbRadius,
+      borderPaint,
+    );
   }
 }

@@ -40,7 +40,9 @@ class PairingCompleteAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -87,7 +89,10 @@ class PairingCompleteBody extends StatelessWidget {
   static const title = Text(
     'Pairing is complete',
     style: TextStyle(
-        color: Color(0xff006E33), fontSize: 20, fontWeight: FontWeight.w600),
+      color: Color(0xff006E33),
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+    ),
   );
 
   Text content(context) {
@@ -147,10 +152,11 @@ class PairingConnectBottomButton extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const HomeRefresh()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeRefresh()),
+          ),
+        );
       },
       child: const Text(
         'Start',

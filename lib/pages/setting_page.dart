@@ -13,7 +13,9 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIcon(context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -60,11 +62,18 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       tileColor: Colors.white,
       trailing: Container(
-          margin: zeroMargin,
-          child: SvgPicture.asset("assets/icons/ic_chevron_right.svg")),
+        margin: zeroMargin,
+        child: SvgPicture.asset(
+          "assets/icons/ic_chevron_right.svg",
+        ),
+      ),
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: ((context) => const MyNone())));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const MyNone()),
+          ),
+        );
       },
     );
   }
@@ -73,7 +82,9 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     return ListTile(
       leading: Container(
         margin: zeroMargin,
-        child: SvgPicture.asset("assets/icons/ic_timer.svg"),
+        child: SvgPicture.asset(
+          "assets/icons/ic_timer.svg",
+        ),
       ),
       title: Text(
         'Alarm',
@@ -82,11 +93,17 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
+        child: SvgPicture.asset(
+          "assets/icons/ic_chevron_right.svg",
+        ),
       ),
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const AlarmPage())));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const AlarmPage()),
+          ),
+        );
       },
     );
   }
@@ -95,13 +112,20 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     return ListTile(
       leading: Container(
         margin: zeroMargin,
-        child: SvgPicture.asset("assets/icons/ic_info.svg"),
+        child: SvgPicture.asset(
+          "assets/icons/ic_info.svg",
+        ),
       ),
-      title: Text('User Guide', style: listTilebodyText1),
+      title: Text(
+        'User Guide',
+        style: listTilebodyText1,
+      ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
+        child: SvgPicture.asset(
+          "assets/icons/ic_chevron_right.svg",
+        ),
       ),
       onTap: () {},
     );
@@ -110,13 +134,21 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   ListTile question() {
     return ListTile(
       leading: Container(
-          margin: zeroMargin,
-          child: SvgPicture.asset("assets/icons/ic_help.svg")),
-      title: Text('FAQ', style: listTilebodyText1),
+        margin: zeroMargin,
+        child: SvgPicture.asset(
+          "assets/icons/ic_help.svg",
+        ),
+      ),
+      title: Text(
+        'FAQ',
+        style: listTilebodyText1,
+      ),
       tileColor: Colors.white,
       trailing: Container(
         margin: zeroMargin,
-        child: SvgPicture.asset("assets/icons/ic_chevron_right.svg"),
+        child: SvgPicture.asset(
+          "assets/icons/ic_chevron_right.svg",
+        ),
       ),
       onTap: () {},
     );
@@ -165,6 +197,8 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: settingpageAppbar(context), body: settingpageBody(context));
+      appBar: settingpageAppbar(context),
+      body: settingpageBody(context),
+    );
   }
 }

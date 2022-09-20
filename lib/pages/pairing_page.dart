@@ -41,12 +41,16 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.close),
+      icon: const Icon(
+        Icons.close,
+      ),
       color: Colors.grey[700],
       onPressed: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const HomeNone(),
-        ));
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const HomeNone(),
+          ),
+        );
       },
     );
   }
@@ -66,11 +70,12 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       shadowColor: Colors.black,
       title: appbarTitle(context),
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[200],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[200],
+          height: 2.0,
+        ),
+      ),
       centerTitle: true,
     );
   }
@@ -148,10 +153,11 @@ class PairingPageBottomButton extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const PairingLoading()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const PairingLoading()),
+          ),
+        );
       },
       child: const Text(
         'Start',

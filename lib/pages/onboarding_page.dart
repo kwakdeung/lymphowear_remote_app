@@ -42,7 +42,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    pageController = PageController(initialPage: 0, viewportFraction: 0.65);
+    pageController = PageController(
+      initialPage: 0,
+      viewportFraction: 0.65,
+    );
 
     PageView pageView() {
       return PageView.builder(
@@ -54,7 +57,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
             pageIndex = index;
           });
         },
-        itemBuilder: (BuildContext context, int index) => OnboardingContents(
+        itemBuilder: (
+          BuildContext context,
+          int index,
+        ) =>
+            OnboardingContents(
           image: onboardingData[index].image,
           title: onboardingData[index].title,
           description: onboardingData[index].description,
@@ -66,11 +73,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
-            onboardingData.length,
-            ((index) => Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: DotIndicator(isActive: index == pageIndex),
-                ))),
+          onboardingData.length,
+          ((index) => Padding(
+                padding: const EdgeInsets.all(4),
+                child: DotIndicator(
+                  isActive: index == pageIndex,
+                ),
+              )),
+        ),
       );
     }
 
@@ -78,16 +88,25 @@ class _OnboardingPageState extends State<OnboardingPage> {
       return ElevatedButton(
         onPressed: () {
           // Navigator.of(context).push(_createRoute());
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const HomeNone())));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const HomeNone()),
+            ),
+          );
         },
         style: ElevatedButton.styleFrom(
           padding: buttonPadding,
           backgroundColor: const Color(0xff008A40),
           foregroundColor: Colors.white,
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        child: const Text('Skip'),
+        child: const Text(
+          'Skip',
+        ),
       );
     }
 

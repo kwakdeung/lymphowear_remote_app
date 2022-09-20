@@ -33,12 +33,18 @@ class PairingReloadingAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const PairingPage(),
-        ));
+        Navigator.of(
+          context,
+        ).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const PairingPage(),
+          ),
+        );
       },
     );
   }
@@ -59,11 +65,12 @@ class PairingReloadingAppbar extends StatelessWidget
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[200],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[200],
+          height: 2.0,
+        ),
+      ),
       centerTitle: true,
     );
   }
@@ -104,8 +111,12 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody>
   void loadPage() {
     if (controller.value == maxValue) {
       controller.stop();
-      Navigator.push(context,
-          MaterialPageRoute(builder: ((context) => const PairingConnect())));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: ((context) => const PairingConnect()),
+        ),
+      );
     }
   }
 

@@ -68,7 +68,10 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   void alertEnd() {
     if (time == "00:00") {
       _timer!.cancel();
-      _timeAlertDialog(context, "Total Time: 15mins");
+      _timeAlertDialog(
+        context,
+        "Total Time: 15mins",
+      );
     }
   }
 
@@ -169,7 +172,9 @@ class _LymphoWearStateState extends State<LymphoWearState> {
           backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
           strokeWidth: 6,
           value: 1.0 - (_countedSeconds % 60) / 10,
-          valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff0BB15D)),
+          valueColor: const AlwaysStoppedAnimation<Color>(
+            Color(0xff0BB15D),
+          ),
         ),
       );
     }
@@ -201,7 +206,10 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       height: 40.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        border: Border.all(color: const Color(0xff0BB15D), width: 1.5),
+        border: Border.all(
+          color: const Color(0xff0BB15D),
+          width: 1.5,
+        ),
         color: isPlaying ? Colors.white : const Color(0xff0BB15D),
       ),
       child: IconButton(
@@ -221,7 +229,9 @@ class _LymphoWearStateState extends State<LymphoWearState> {
       height: 150.0,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(999.0)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(999.0),
+        ),
         border: Border.all(
           color: const Color(0xffE0E0E0),
           width: 1,
@@ -300,10 +310,11 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     message,
     textAlign: TextAlign.center,
     style: const TextStyle(
-        color: Color(0xff9E9E9E),
-        fontFamily: "Poppins",
-        fontSize: 14,
-        fontWeight: FontWeight.w400),
+      color: Color(0xff9E9E9E),
+      fontFamily: "Poppins",
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    ),
   );
 
   final timeAlertdialogBottomButton = ElevatedButton(
@@ -319,39 +330,50 @@ Future _timeAlertDialog(BuildContext context, String message) async {
     onPressed: () {
       Navigator.pop(context);
     },
-    child: const Text('Done'),
+    child: const Text(
+      'Done',
+    ),
   );
 
   var timeAlertdialog = AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      title: Center(child: timeAlertdialogTitle(context)),
-      content: Container(
-        margin: zeroMargin,
-        height: 100,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 7),
-              child: timeAlertdialogImage,
-            ),
-            timeAlertdialogContent,
-          ],
-        ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    title: Center(
+      child: timeAlertdialogTitle(context),
+    ),
+    content: Container(
+      margin: zeroMargin,
+      height: 100,
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(bottom: 7),
+            child: timeAlertdialogImage,
+          ),
+          timeAlertdialogContent,
+        ],
       ),
-      actions: [
-        Container(
-          width: double.maxFinite,
-          margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          child: timeAlertdialogBottomButton,
-        ),
-      ]);
+    ),
+    actions: [
+      Container(
+        width: double.maxFinite,
+        margin: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+        child: timeAlertdialogBottomButton,
+      ),
+    ],
+  );
 
   await showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return Theme(
-            data: ThemeData(dialogBackgroundColor: Colors.white),
-            child: timeAlertdialog);
-      });
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return Theme(
+        data: ThemeData(
+          dialogBackgroundColor: Colors.white,
+        ),
+        child: timeAlertdialog,
+      );
+    },
+  );
 }

@@ -49,14 +49,19 @@ class HomeBluetoothAppbar extends StatelessWidget
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_setting.svg',
-          fit: BoxFit.fill,
-        ),
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const SettingPage())));
-        });
+      icon: SvgPicture.asset(
+        'assets/icons/ic_setting.svg',
+        fit: BoxFit.fill,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const SettingPage()),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -69,11 +74,12 @@ class HomeBluetoothAppbar extends StatelessWidget
       ),
       centerTitle: true,
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: Colors.grey[200],
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: Colors.grey[200],
+          height: 2.0,
+        ),
+      ),
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
@@ -89,20 +95,24 @@ class HomeBluetoothBody extends StatelessWidget {
 
   IconButton bluetoothIcon() {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_bluetooth_off.svg',
-          fit: BoxFit.fill,
-          width: 32,
-          height: 32,
-          color: const Color(0xff9E9E9E),
-        ),
-        onPressed: () {});
+      icon: SvgPicture.asset(
+        'assets/icons/ic_bluetooth_off.svg',
+        fit: BoxFit.fill,
+        width: 32,
+        height: 32,
+        color: const Color(0xff9E9E9E),
+      ),
+      onPressed: () {},
+    );
   }
 
   static const title = Text(
     'Not connected',
     style: TextStyle(
-        fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff9E9E9E)),
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: Color(0xff9E9E9E),
+    ),
   );
 
   @override
@@ -214,7 +224,9 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       onPressed: () {
         Navigator.pop(context);
       },
-      child: const Text('Cancel'),
+      child: const Text(
+        'Cancel',
+      ),
     );
 
     final secondTryagainButton = ElevatedButton(

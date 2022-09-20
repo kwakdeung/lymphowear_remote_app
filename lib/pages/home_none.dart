@@ -47,15 +47,23 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-        icon: SvgPicture.asset(
-          'assets/icons/ic_setting.svg',
-          fit: BoxFit.fill,
-        ),
-        color: Colors.grey[700],
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const SettingPage())));
-        });
+      icon: SvgPicture.asset(
+        'assets/icons/ic_setting.svg',
+        fit: BoxFit.fill,
+      ),
+      color: Colors.grey[700],
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((
+              context,
+            ) =>
+                const SettingPage()),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -76,7 +84,9 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
-          child: appbarIconButton(context),
+          child: appbarIconButton(
+            context,
+          ),
         ),
       ],
     );
@@ -182,10 +192,11 @@ class HomeNoneBottomButton extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const PairingPage()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const PairingPage()),
+          ),
+        );
         // Navigator.pushReplacement(context, _createroute());
       },
       label: const Text(

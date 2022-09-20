@@ -30,7 +30,9 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
+      icon: const Icon(
+        Icons.arrow_back_ios,
+      ),
       color: Colors.grey[700],
       onPressed: () {
         Navigator.pop(context);
@@ -163,8 +165,12 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         },
       ),
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const MorningReminder())));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const MorningReminder()),
+          ),
+        );
       },
     );
   }
@@ -193,16 +199,20 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _afternoonButton,
         onChanged: (bool value) {
-          setState(() {
-            showAfternoon();
-          });
+          setState(
+            () {
+              showAfternoon();
+            },
+          );
         },
       ),
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: ((context) => const AfternoonReminder())));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const AfternoonReminder()),
+          ),
+        );
       },
     );
   }
@@ -231,14 +241,20 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _eveningButton,
         onChanged: (bool value) {
-          setState(() {
-            showEvening();
-          });
+          setState(
+            () {
+              showEvening();
+            },
+          );
         },
       ),
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const EveningReminder())));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const EveningReminder()),
+          ),
+        );
       },
     );
   }
@@ -270,14 +286,20 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xff0BB15D),
         value: _nightButton,
         onChanged: (bool value) {
-          setState(() {
-            showNight();
-          });
+          setState(
+            () {
+              showNight();
+            },
+          );
         },
       ),
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => const NightReminder())));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const NightReminder()),
+          ),
+        );
       },
     );
   }

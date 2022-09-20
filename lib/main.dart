@@ -54,7 +54,10 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
             letterSpacing: 0.0,
           ),
-          caption: TextStyle(color: Color(0xff616161), letterSpacing: 0.0),
+          caption: TextStyle(
+            color: Color(0xff616161),
+            letterSpacing: 0.0,
+          ),
         ),
       ),
       themeMode: ThemeMode.system,
