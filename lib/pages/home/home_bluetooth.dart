@@ -170,6 +170,12 @@ class HomeBluetoothBottomButton extends StatelessWidget {
   }
 
   Future showProgressDialog(BuildContext context, String message) async {
+    void delay() {
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.pop(context);
+      });
+    }
+
     const firstCupertinoactivityindicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,
@@ -284,9 +290,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 1), () {
-          Navigator.pop(context);
-        });
+        delay();
         return Theme(
           data: ThemeData(dialogBackgroundColor: Colors.white),
           child: Container(

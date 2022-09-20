@@ -173,6 +173,20 @@ class HomeRefleshBottomButton extends StatelessWidget {
   // }
 
   Future showProgressDialog(BuildContext context, String message) async {
+    void delay() {
+      Future.delayed(const Duration(seconds: 1), () {
+        // Navigator.pushReplacement(
+        //   context,
+        //   _createRoute(),
+        // );
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const HomeBluetooth()),
+            ));
+      });
+    }
+
     const cupertinoactivityIndicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,
@@ -214,17 +228,7 @@ class HomeRefleshBottomButton extends StatelessWidget {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 1), () {
-          // Navigator.pushReplacement(
-          //   context,
-          //   _createRoute(),
-          // );
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: ((context) => const HomeBluetooth()),
-              ));
-        });
+        delay();
         return Theme(
           data: ThemeData(
             dialogBackgroundColor: Colors.white,

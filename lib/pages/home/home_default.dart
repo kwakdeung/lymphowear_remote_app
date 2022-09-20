@@ -105,6 +105,79 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Future _powerAlertDialog(BuildContext context, String message) async {
+    final title = Text(
+      message,
+      textAlign: TextAlign.center,
+      style: const TextStyle(
+        color: Color(0xff212121),
+        fontFamily: "Poppins",
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
+    );
+
+    ElevatedButton noButton() {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(112, 40),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(999),
+          ),
+          side: const BorderSide(width: 1.0, color: Colors.grey),
+          backgroundColor: Colors.white,
+          foregroundColor: const Color(0xff757575),
+          textStyle: dialogButtonText,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('No'),
+      );
+    }
+
+    ElevatedButton yesButton() {
+      return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(112, 40),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(999),
+          ),
+          backgroundColor: const Color(0xff008A40),
+          foregroundColor: Colors.white,
+          textStyle: dialogButtonText,
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('Yes'),
+      );
+    }
+
+    var alertDialog = AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      title: title,
+      actions: [
+        Container(
+          margin: zeroMargin,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(10, 0, 4, 20),
+                child: noButton(),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(4, 0, 10, 20),
+                child: yesButton(),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
     await showDialog(
       context: context,
       barrierDismissible: false,
@@ -113,69 +186,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
           data: ThemeData(
             dialogBackgroundColor: Colors.white,
           ),
-          child: AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-            title: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Color(0xff212121),
-                fontFamily: "Poppins",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            actions: [
-              Container(
-                margin: zeroMargin,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(10, 0, 4, 20),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(112, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          side:
-                              const BorderSide(width: 1.0, color: Colors.grey),
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xff757575),
-                          textStyle: dialogButtonText,
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('No'),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.fromLTRB(4, 0, 10, 20),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(112, 40),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(999),
-                          ),
-                          backgroundColor: const Color(0xff008A40),
-                          foregroundColor: Colors.white,
-                          textStyle: dialogButtonText,
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Yes'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          child: alertDialog,
         );
       },
     );

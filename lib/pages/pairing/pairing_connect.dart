@@ -152,6 +152,17 @@ class PairingConnectBottomButton extends StatelessWidget {
   }
 
   Future showProgressDialog(BuildContext context, String message) async {
+    void delay() {
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const PairingComplete(),
+          ),
+        );
+      });
+    }
+
     const cupertinoactivityIndicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,
@@ -193,14 +204,7 @@ class PairingConnectBottomButton extends StatelessWidget {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        Future.delayed(const Duration(seconds: 1), () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const PairingComplete(),
-            ),
-          );
-        });
+        delay();
         return Theme(
           data: ThemeData(
             dialogBackgroundColor: Colors.white,
