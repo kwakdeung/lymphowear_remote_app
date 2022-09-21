@@ -2,103 +2,103 @@ import 'package:flutter/material.dart';
 
 // textStyle
 
-const intensityText = TextStyle(
+var intensityText = const TextStyle(
   color: Color(0xff9E9E9E),
   fontSize: 10,
 );
 
-const intensityValueText = TextStyle(
+var intensityValueText = const TextStyle(
   fontSize: 10,
   color: Colors.green,
   fontWeight: FontWeight.w600,
 );
 
-const alramValueText = TextStyle(
+var alramValueText = const TextStyle(
   color: Color(0xff0BB15D),
   fontSize: 12,
   fontWeight: FontWeight.w400,
 );
 
-const listTilebodyText1 = TextStyle(
+var listTilebodyText1 = const TextStyle(
   color: Color(0xff212121),
   fontSize: 16,
   fontWeight: FontWeight.w400,
 );
 
-const modebuttonText = TextStyle(
+var modebuttonText = const TextStyle(
   color: Color(0xff212121),
   fontSize: 12,
 );
 
-const modebodyText = TextStyle(
+var modebodyText = const TextStyle(
   color: Color(0xff212121),
   fontSize: 14,
   fontWeight: FontWeight.w400,
 );
 
-const firmwareText = TextStyle(
+var firmwareText = const TextStyle(
   color: Color(0xff757575),
   fontSize: 14,
   fontWeight: FontWeight.w400,
 );
 
-const modeContentText = TextStyle(
+var modeContentText = const TextStyle(
   color: Color(0xff9E9E9E),
   fontSize: 10,
   fontWeight: FontWeight.w400,
 );
 
-const dialogButtonText = TextStyle(
+var dialogButtonText = const TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 14,
 );
 
 // margin
 
-const zeroMargin = EdgeInsets.all(0.0);
+var zeroMargin = const EdgeInsets.all(0.0);
 
-const dialogMargin = EdgeInsets.fromLTRB(0, 2, 0, 2);
+var dialogMargin = const EdgeInsets.fromLTRB(0, 2, 0, 2);
 
-const dialogTextMargin = EdgeInsets.only(top: 4);
+var dialogTextMargin = const EdgeInsets.only(top: 4);
 
-const appbarleadingMargin = EdgeInsets.only(left: 10);
+var appbarleadingMargin = const EdgeInsets.only(left: 10);
 
-const appbarIconbuttonMargin = EdgeInsets.only(right: 4);
+var appbarIconbuttonMargin = const EdgeInsets.only(right: 4);
 
-const logoMargin = EdgeInsets.fromLTRB(0, 16, 0, 16);
+var logoMargin = const EdgeInsets.fromLTRB(0, 16, 0, 16);
 
-const modeBodyMargin = EdgeInsets.fromLTRB(20, 0, 20, 112);
+var modeBodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 112);
 
-const modeTitleMargin = EdgeInsets.fromLTRB(20, 0, 22, 0);
+var modeTitleMargin = const EdgeInsets.fromLTRB(20, 0, 22, 0);
 
-const modeTitleImageMargin = EdgeInsets.only(right: 8);
+var modeTitleImageMargin = const EdgeInsets.only(right: 8);
 
-const modeIndicatorMargin = EdgeInsets.fromLTRB(16, 56, 16, 32);
+var modeIndicatorMargin = const EdgeInsets.fromLTRB(16, 56, 16, 32);
 
-const modeImageMargin = EdgeInsets.fromLTRB(0, 4, 0, 4);
+var modeImageMargin = const EdgeInsets.fromLTRB(0, 4, 0, 4);
 
-const modeTextMargin = EdgeInsets.fromLTRB(0, 16, 0, 16);
+var modeTextMargin = const EdgeInsets.fromLTRB(0, 16, 0, 16);
 
-const sliderIconMargin = EdgeInsets.fromLTRB(0, 35, 24, 0);
+var sliderIconMargin = const EdgeInsets.fromLTRB(0, 35, 24, 0);
 
-const bodyMargin = EdgeInsets.fromLTRB(20, 0, 20, 80);
+var bodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 80);
 
-const homeValueMargin = EdgeInsets.fromLTRB(24, 0, 0, 24);
+var homeValueMargin = const EdgeInsets.fromLTRB(24, 0, 0, 24);
 
-const listTileTitleMargin = EdgeInsets.fromLTRB(0, 14, 0, 14);
+var listTileTitleMargin = const EdgeInsets.fromLTRB(0, 14, 0, 14);
 
-const cupertinoIndicatorMargin = EdgeInsets.only(bottom: 4);
+var cupertinoIndicatorMargin = const EdgeInsets.only(bottom: 4);
 
 // padding
 
-const buttonPadding = EdgeInsets.fromLTRB(24, 12, 24, 12);
+var buttonPadding = const EdgeInsets.fromLTRB(24, 12, 24, 12);
 
-const dialogButtonPadding = EdgeInsets.fromLTRB(24, 10, 24, 10);
+var dialogButtonPadding = const EdgeInsets.fromLTRB(24, 10, 24, 10);
 
-const sliderValuePadding = EdgeInsets.fromLTRB(15, 0, 22, 0);
+var sliderValuePadding = const EdgeInsets.fromLTRB(15, 0, 22, 0);
 
-const reminderPadding = EdgeInsets.fromLTRB(5, 5, 5, 5);
+var reminderPadding = const EdgeInsets.fromLTRB(5, 5, 5, 5);
 
-const modePadding = EdgeInsets.fromLTRB(20, 20, 20, 20);
+var modePadding = const EdgeInsets.fromLTRB(20, 20, 20, 20);
 
-const modeTextPadding = EdgeInsets.fromLTRB(12, 10, 12, 10);
+var modeTextPadding = const EdgeInsets.fromLTRB(12, 10, 12, 10);
