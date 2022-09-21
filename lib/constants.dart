@@ -102,3 +102,5 @@ var reminderPadding = const EdgeInsets.fromLTRB(5, 5, 5, 5);
 var modePadding = const EdgeInsets.fromLTRB(20, 20, 20, 20);
 
 var modeTextPadding = const EdgeInsets.fromLTRB(12, 10, 12, 10);
+
+var TestPadding = const EdgeInsets.fromLTRB(12, 12, 12, 12);
