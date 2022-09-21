@@ -114,7 +114,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
           style: const TextStyle(
             color: Color(0xff212121),
             fontSize: 24,
-            fontWeight: FontWeight.w400,
+            fontWeight: regular,
           ),
         ),
       ),
@@ -227,7 +227,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       fontFamily: "Poppins",
       color: Color(0xff9E9E9E),
       fontSize: 14,
-      fontWeight: FontWeight.w400,
+      fontWeight: regular,
     ),
   );
 

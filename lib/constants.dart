@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 // textStyle
 
+const regular = FontWeight.w400;
+const semiBold = FontWeight.w600;
+
 var intensityText = const TextStyle(
   color: Color(0xff9E9E9E),
   fontSize: 10,
@@ -10,19 +13,19 @@ var intensityText = const TextStyle(
 var intensityValueText = const TextStyle(
   fontSize: 10,
   color: Color(0xff0BB15D),
-  fontWeight: FontWeight.w600,
+  fontWeight: semiBold,
 );
 
 var alramValueText = const TextStyle(
   color: Color(0xff0BB15D),
   fontSize: 12,
-  fontWeight: FontWeight.w400,
+  fontWeight: regular,
 );
 
 var listTilebodyText1 = const TextStyle(
   color: Color(0xff212121),
   fontSize: 16,
-  fontWeight: FontWeight.w400,
+  fontWeight: regular,
 );
 
 var modebuttonText = const TextStyle(
@@ -33,23 +36,23 @@ var modebuttonText = const TextStyle(
 var modebodyText = const TextStyle(
   color: Color(0xff212121),
   fontSize: 14,
-  fontWeight: FontWeight.w400,
+  fontWeight: regular,
 );
 
 var firmwareText = const TextStyle(
   color: Color(0xff757575),
   fontSize: 14,
-  fontWeight: FontWeight.w400,
+  fontWeight: regular,
 );
 
 var modeContentText = const TextStyle(
   color: Color(0xff9E9E9E),
   fontSize: 10,
-  fontWeight: FontWeight.w400,
+  fontWeight: regular,
 );
 
 var dialogButtonText = const TextStyle(
-  fontWeight: FontWeight.w600,
+  fontWeight: semiBold,
   fontSize: 14,
 );
 

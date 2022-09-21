@@ -112,7 +112,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
         color: Color(0xff212121),
         fontFamily: "Poppins",
         fontSize: 14,
-        fontWeight: FontWeight.w400,
+        fontWeight: regular,
       ),
     );
 

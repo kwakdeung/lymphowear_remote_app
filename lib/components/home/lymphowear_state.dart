@@ -196,7 +196,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         style: const TextStyle(
           color: Color(0xff212121),
           fontSize: 24,
-          fontWeight: FontWeight.w400,
+          fontWeight: regular,
         ),
       ),
     );
@@ -320,7 +320,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       color: Color(0xff9E9E9E),
       fontFamily: "Poppins",
       fontSize: 14,
-      fontWeight: FontWeight.w400,
+      fontWeight: regular,
     ),
   );
 

@@ -159,7 +159,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
                 style: const TextStyle(
                   color: Color(0xff616161),
                   fontSize: 12,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: regular,
                 ),
               ),
             ),
@@ -322,7 +322,7 @@ class MyNotConnectedBottomButton extends StatefulWidget {
     style: TextStyle(
       color: Color(0xff757575),
       fontSize: 16,
-      fontWeight: FontWeight.w600,
+      fontWeight: semiBold,
     ),
   );
 
@@ -360,7 +360,7 @@ class _MyNotConnectedBottomButtonState
       style: TextStyle(
         fontSize: 14,
         fontFamily: "Poppins",
-        fontWeight: FontWeight.w400,
+        fontWeight: regular,
       ),
     );
 

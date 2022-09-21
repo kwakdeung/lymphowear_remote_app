@@ -110,7 +110,7 @@ class HomeBluetoothBody extends StatelessWidget {
     'Not connected',
     style: TextStyle(
       fontSize: 16,
-      fontWeight: FontWeight.w400,
+      fontWeight: regular,
       color: Color(0xff9E9E9E),
     ),
   );
@@ -242,7 +242,7 @@ class HomeBluetoothBottomButton extends StatelessWidget {
         foregroundColor: Colors.white,
         textStyle: const TextStyle(
           fontSize: 14,
-          fontWeight: FontWeight.w600,
+          fontWeight: semiBold,
         ),
       ),
       onPressed: () {
