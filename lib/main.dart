@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
 
 void main() {
@@ -27,12 +28,12 @@ class MyApp extends StatelessWidget {
           headline5: TextStyle(
             color: Color(0xff212121),
             fontSize: 20,
-            fontWeight: FontWeight.w600,
+            fontWeight: semiBold,
           ),
           headline6: TextStyle(
             color: Color(0xff212121),
             fontSize: 16,
-            fontWeight: FontWeight.w600,
+            fontWeight: semiBold,
             letterSpacing: 0.0,
           ),
           subtitle1: TextStyle(
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
           ),
           subtitle2: TextStyle(
             color: Color(0xff212121),
-            fontWeight: FontWeight.w600,
+            fontWeight: semiBold,
             letterSpacing: 0.0,
           ),
           bodyText2: TextStyle(
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
           ),
           button: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w600,
+            fontWeight: semiBold,
             letterSpacing: 0.0,
           ),
           caption: TextStyle(

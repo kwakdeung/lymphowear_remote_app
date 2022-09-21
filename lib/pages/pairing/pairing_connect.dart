@@ -90,7 +90,7 @@ class PairingConnectBody extends StatelessWidget {
     style: TextStyle(
       color: Color(0xff006E33),
       fontSize: 16,
-      fontWeight: FontWeight.w400,
+      fontWeight: regular,
     ),
   );
   final image = Image.asset(

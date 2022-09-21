@@ -99,7 +99,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           foregroundColor: Colors.white,
           textStyle: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w600,
+            fontWeight: semiBold,
           ),
         ),
         child: const Text('Skip'),

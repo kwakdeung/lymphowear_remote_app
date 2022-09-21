@@ -89,7 +89,7 @@ class PairingCompleteBody extends StatelessWidget {
     style: TextStyle(
       color: Color(0xff006E33),
       fontSize: 20,
-      fontWeight: FontWeight.w600,
+      fontWeight: semiBold,
     ),
   );
 

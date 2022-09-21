@@ -175,7 +175,7 @@ class PairingLodingBottomButton extends StatelessWidget {
         foregroundColor: const Color(0xff757575),
         textStyle: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: semiBold,
         ),
       ),
       onPressed: () {
