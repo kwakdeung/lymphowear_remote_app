@@ -180,34 +180,5 @@ class MyNoneBottomButton extends StatelessWidget {
       },
       label: const Text('Add Device'),
     );
-    ElevatedButton.icon(
-      onPressed: () {
-        // Navigator.pushReplacement(
-        //   context,
-        //   _createRoute(),
-        // );
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const MyNotConnected()),
-          ),
-        );
-      },
-      icon: const Icon(
-        Icons.add_circle_outline_outlined,
-        color: Color(0xff008A40),
-      ),
-      label: Text(
-        'Add Device',
-        style: Theme.of(context).textTheme.button,
-      ),
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        backgroundColor: Colors.white,
-        side: const BorderSide(
-          color: Color(0xff008A40),
-        ),
-      ),
-    );
   }
 }
