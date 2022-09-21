@@ -31,7 +31,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
-      color: Colors.grey[700],
+      color: const Color(0xff616161),
       onPressed: () {
         Navigator.pop(context);
       },
@@ -56,7 +56,7 @@ class AlarmPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: Colors.grey[200],
+          color: const Color(0xffEEEEEE),
           height: 2.0,
         ),
       ),

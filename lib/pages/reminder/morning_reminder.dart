@@ -29,7 +29,7 @@ class _MorningReminderState extends State<MorningReminder> {
           margin: const EdgeInsets.only(left: 10),
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            color: Colors.grey[700],
+            color: const Color(0xff616161),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -42,7 +42,7 @@ class _MorningReminderState extends State<MorningReminder> {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: Container(
-            color: Colors.grey[200],
+            color: const Color(0xffEEEEEE),
             height: 2.0,
           ),
         ),

@@ -34,7 +34,7 @@ class PairingReloadingAppbar extends StatelessWidget
   IconButton appbarIconButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
-      color: Colors.grey[700],
+      color: const Color(0xff616161),
       onPressed: () {
         Navigator.of(
           context,
@@ -65,7 +65,7 @@ class PairingReloadingAppbar extends StatelessWidget
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: Colors.grey[200],
+          color: const Color(0xffEEEEEE),
           height: 2.0,
         ),
       ),
@@ -121,8 +121,8 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody>
   CircularProgressIndicator circularprogressIndicator() {
     return CircularProgressIndicator(
       value: controller.value,
-      color: Colors.green,
-      backgroundColor: Colors.green[50],
+      color: const Color(0xff0BB15D),
+      backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
     );
   }
 
