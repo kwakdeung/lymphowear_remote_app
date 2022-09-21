@@ -29,7 +29,7 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
-      color: Colors.grey[700],
+      color: const Color(0xff616161),
       onPressed: () {
         Navigator.pop(context);
       },
@@ -54,7 +54,7 @@ class VitalModeAppbar extends StatelessWidget implements PreferredSizeWidget {
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: Colors.grey[200],
+          color: const Color(0xffEEEEEE),
           height: 2.0,
         ),
       ),
@@ -186,7 +186,7 @@ class _VitalModeBodyState extends State<VitalModeBody> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: Colors.black12,
+                          color: const Color(0xffEEEEEE),
                           width: 0,
                         ),
                         color: const Color(0xffEEEEEE),

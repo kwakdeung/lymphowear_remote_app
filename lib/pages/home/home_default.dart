@@ -63,7 +63,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
         'assets/icons/ic_setting.svg',
         fit: BoxFit.fill,
       ),
-      color: Colors.grey[700],
+      color: const Color(0xff616161),
       onPressed: () {
         Navigator.push(
           context,
@@ -91,7 +91,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: Colors.grey[300],
+          color: const Color(0xffEEEEEE),
           height: 2.0,
         ),
       ),
@@ -123,7 +123,7 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(999),
           ),
-          side: const BorderSide(width: 1.0, color: Colors.grey),
+          side: const BorderSide(width: 1.0, color: Color(0xff757575)),
           backgroundColor: Colors.white,
           foregroundColor: const Color(0xff757575),
           textStyle: dialogButtonText,

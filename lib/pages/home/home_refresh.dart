@@ -64,7 +64,7 @@ class HomeRefreshAppbar extends StatelessWidget implements PreferredSizeWidget {
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: Colors.grey[200],
+          color: const Color(0xffEEEEEE),
           height: 2.0,
         ),
       ),

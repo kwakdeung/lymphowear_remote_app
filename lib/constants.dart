@@ -9,7 +9,7 @@ var intensityText = const TextStyle(
 
 var intensityValueText = const TextStyle(
   fontSize: 10,
-  color: Colors.green,
+  color: Color(0xff0BB15D),
   fontWeight: FontWeight.w600,
 );
 
