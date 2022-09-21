@@ -159,6 +159,28 @@ class MyNoneBottomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
+      icon: const Icon(
+        Icons.add_circle_outline_outlined,
+        color: Color(0xff008A40),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: buttonPadding,
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xff008A40),
+        side: const BorderSide(color: Color(0xff008A40)),
+        textStyle: Theme.of(context).textTheme.button,
+      ),
+      onPressed: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const MyNotConnected()),
+          ),
+        );
+      },
+      label: const Text('Add Device'),
+    );
+    ElevatedButton.icon(
       onPressed: () {
         // Navigator.pushReplacement(
         //   context,

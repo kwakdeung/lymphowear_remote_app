@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
             letterSpacing: 0.0,
           ),
           button: TextStyle(
-            color: Color(0xff008A40),
             fontSize: 16,
             fontWeight: FontWeight.w600,
             letterSpacing: 0.0,

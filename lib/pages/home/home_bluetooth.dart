@@ -156,16 +156,15 @@ class HomeBluetoothBottomButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         padding: buttonPadding,
+        foregroundColor: const Color(0xff008A40),
         backgroundColor: Colors.white,
+        textStyle: Theme.of(context).textTheme.button,
         side: const BorderSide(color: Color(0xff008A40)),
       ),
       onPressed: () {
         showProgressDialog(context, 'Connecting...');
       },
-      child: Text(
-        'Connect',
-        style: Theme.of(context).textTheme.button,
-      ),
+      child: const Text('Connect'),
     );
   }
 

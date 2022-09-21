@@ -137,18 +137,17 @@ class HomeRefleshBottomButton extends StatelessWidget {
         Icons.cached,
         color: Color(0xff008A40),
       ),
-      label: Text(
-        'Refresh',
-        style: Theme.of(context).textTheme.button,
-      ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
         padding: buttonPadding,
-        side: const BorderSide(
-          color: Color(0xff008A40),
-        ),
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0xff008A40),
+        side: const BorderSide(color: Color(0xff008A40)),
+        textStyle: Theme.of(context).textTheme.button,
       ),
-      onPressed: () => showProgressDialog(context, 'Loading...'),
+      onPressed: () {
+        showProgressDialog(context, 'Loading...');
+      },
+      label: const Text('Refresh'),
     );
   }
 
