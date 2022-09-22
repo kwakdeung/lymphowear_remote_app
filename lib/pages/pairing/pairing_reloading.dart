@@ -59,7 +59,9 @@ class PairingReloadingAppbar extends StatelessWidget
     return AppBar(
       automaticallyImplyLeading: false,
       leading: Container(
-          margin: appbarleadingMargin, child: appbarIconButton(context)),
+        margin: appbarleadingMargin,
+        child: appbarIconButton(context),
+      ),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
@@ -128,10 +130,11 @@ class _PairingReloadingBodyState extends State<PairingReloadingBody>
 
   Center loadingText(context) {
     return Center(
-        child: Text(
-      'Searching for device...',
-      style: Theme.of(context).textTheme.subtitle1,
-    ));
+      child: Text(
+        'Searching for device...',
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+    );
   }
 
   @override

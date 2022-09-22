@@ -74,9 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           onboardingData.length,
           ((index) => Padding(
                 padding: const EdgeInsets.all(4),
-                child: DotIndicator(
-                  isActive: index == pageIndex,
-                ),
+                child: DotIndicator(isActive: index == pageIndex),
               )),
         ),
       );

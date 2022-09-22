@@ -4,10 +4,12 @@ import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/splash_screen_page.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarBrightness: Brightness.light,
-    statusBarColor: Colors.white,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      statusBarColor: Colors.white,
+    ),
+  );
   runApp((const MyApp()));
 }
 

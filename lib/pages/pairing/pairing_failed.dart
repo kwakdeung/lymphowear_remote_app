@@ -80,11 +80,12 @@ class PairingFailedAppbar extends StatelessWidget
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: const Color(0xffEEEEEE),
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: const Color(0xffEEEEEE),
+          height: 2.0,
+        ),
+      ),
       centerTitle: true,
     );
   }

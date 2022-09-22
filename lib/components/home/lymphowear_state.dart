@@ -255,15 +255,16 @@ class _LymphoWearStateState extends State<LymphoWearState> {
               child: circularprogressIndicator(),
             ),
             Positioned(
-                child: Center(
-              child: Column(
-                children: [
-                  batteryImage,
-                  showTime,
-                  playpauseButton,
-                ],
+              child: Center(
+                child: Column(
+                  children: [
+                    batteryImage,
+                    showTime,
+                    playpauseButton,
+                  ],
+                ),
               ),
-            ))
+            )
           ],
         ),
       ),

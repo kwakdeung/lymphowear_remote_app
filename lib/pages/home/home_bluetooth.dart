@@ -247,10 +247,11 @@ class HomeBluetoothBottomButton extends StatelessWidget {
       ),
       onPressed: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const HomeDefault()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeDefault()),
+          ),
+        );
       },
       child: Text(
         'Try Again',

@@ -179,10 +179,11 @@ class HomeRefleshBottomButton extends StatelessWidget {
         //   _createRoute(),
         // );
         Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => const HomeBluetooth()),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeBluetooth()),
+          ),
+        );
       });
     }
 

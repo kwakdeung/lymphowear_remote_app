@@ -173,11 +173,12 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             Visibility(
               visible: _isConnected,
               child: Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 45, 0),
-                  child: SvgPicture.asset(
-                    "assets/images/battery_20%.svg",
-                    fit: BoxFit.fill,
-                  )),
+                margin: const EdgeInsets.fromLTRB(0, 8, 45, 0),
+                child: SvgPicture.asset(
+                  "assets/images/battery_20%.svg",
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
           ],
         ),
@@ -404,10 +405,11 @@ class _MyNotConnectedBottomButtonState
         ),
         onPressed: () {
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: ((context) => const SettingPage()),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: ((context) => const SettingPage()),
+            ),
+          );
         },
         label: const Text('Delete'),
       );

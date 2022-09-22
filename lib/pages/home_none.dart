@@ -56,10 +56,7 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((
-              context,
-            ) =>
-                const SettingPage()),
+            builder: ((context) => const SettingPage()),
           ),
         );
       },
@@ -76,11 +73,12 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       bottom: PreferredSize(
-          preferredSize: preferredSize,
-          child: Container(
-            color: const Color(0xffEEEEEE),
-            height: 2.0,
-          )),
+        preferredSize: preferredSize,
+        child: Container(
+          color: const Color(0xffEEEEEE),
+          height: 2.0,
+        ),
+      ),
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
