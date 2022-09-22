@@ -296,6 +296,11 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     );
   }
 
+  static const divider = Divider(
+    height: 1,
+    color: Color(0xffE0E0E0),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -306,40 +311,28 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         children: [
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: morningReminder(),
           ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
+          divider,
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: afternoonReminder(),
           ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
+          divider,
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: eveningReminder(),
           ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
+          divider,
           Container(
             color: Colors.white,
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+            padding: reminderPadding,
             child: nightReminder(),
           ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
+          divider,
         ],
       ),
     );
