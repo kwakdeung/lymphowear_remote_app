@@ -9,6 +9,68 @@ class MorningReminder extends StatefulWidget {
 }
 
 class _MorningReminderState extends State<MorningReminder> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      appBar: MorningReminderAppbar(),
+      body: MorningReminderBody(),
+    );
+  }
+}
+
+class MorningReminderAppbar extends StatelessWidget
+    implements PreferredSizeWidget {
+  const MorningReminderAppbar({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
+
+  IconButton appbarIconButton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: const Color(0xff616161),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  Text title(context) {
+    return Text(
+      'Morning Reminder',
+      style: Theme.of(context).textTheme.headline6,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      surfaceTintColor: Colors.white,
+      leading: Container(
+        margin: const EdgeInsets.only(left: 10),
+        child: appbarIconButton(context),
+      ),
+      title: title(context),
+      bottom: PreferredSize(
+        preferredSize: preferredSize,
+        child: Container(
+          color: const Color(0xffEEEEEE),
+          height: 2.0,
+        ),
+      ),
+      centerTitle: true,
+    );
+  }
+}
+
+class MorningReminderBody extends StatefulWidget {
+  const MorningReminderBody({super.key});
+
+  @override
+  State<MorningReminderBody> createState() => _MorningReminderBodyState();
+}
+
+class _MorningReminderBodyState extends State<MorningReminderBody> {
   DateTime time = DateTime.now();
 
   alarmTime() {
@@ -20,104 +82,44 @@ class _MorningReminderState extends State<MorningReminder> {
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        surfaceTintColor: Colors.white,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            color: const Color(0xff616161),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        title: Text(
-          'Morning Reminder',
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
-          child: Container(
-            color: const Color(0xffEEEEEE),
-            height: 2.0,
-          ),
-        ),
-        centerTitle: true,
+  Container datePicker() {
+    return Container(
+      height: 216,
+      padding: const EdgeInsets.only(top: 6.0),
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            CupertinoPageScaffold(
-              child: Container(
-                height: 216,
-                padding: const EdgeInsets.only(top: 6.0),
-                margin: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom,
-                ),
-                color: Colors.white,
-                child: SafeArea(
-                  top: false,
-                  child: CupertinoDatePicker(
-                    initialDateTime: time,
-                    mode: CupertinoDatePickerMode.time,
-                    use24hFormat: false,
-                    onDateTimeChanged: (DateTime newTime) {
-                      setState(() => time = newTime);
-                    },
-                  ),
-                ),
-              ),
-            ),
-            _DatePickerItem(
-              children: <Widget>[
-                const Text('Time'),
-                Text(
-                  alarmTime(),
-                  style: const TextStyle(
-                    fontSize: 22.0,
-                    color: Color(0xff0BB15D),
-                  ),
-                ),
-              ],
-            ),
-          ],
+      color: Colors.white,
+      child: SafeArea(
+        top: false,
+        child: CupertinoDatePicker(
+          initialDateTime: time,
+          mode: CupertinoDatePickerMode.time,
+          use24hFormat: false,
+          onDateTimeChanged: (DateTime newTime) {
+            setState(() => time = newTime);
+          },
         ),
       ),
     );
   }
-}
-
-class _DatePickerItem extends StatelessWidget {
-  const _DatePickerItem({required this.children});
-
-  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        border: Border(
-          top: BorderSide(
-            color: CupertinoColors.inactiveGray,
-            width: 0.0,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          datePicker(),
+          const Text('Time'),
+          Text(
+            alarmTime(),
+            style: const TextStyle(
+              fontSize: 22.0,
+              color: Color(0xff0BB15D),
+            ),
           ),
-          bottom: BorderSide(
-            color: CupertinoColors.inactiveGray,
-            width: 0.0,
-          ),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: children,
-        ),
+        ],
       ),
     );
   }
