@@ -35,7 +35,7 @@ class AfternoonReminderAppbar extends StatelessWidget
     );
   }
 
-  Text title(context) {
+  Text afternoonTitle(context) {
     return Text(
       'Afternoon Reminder',
       style: Theme.of(context).textTheme.headline6,
@@ -50,7 +50,7 @@ class AfternoonReminderAppbar extends StatelessWidget
         margin: const EdgeInsets.only(left: 10),
         child: appbarIconButton(context),
       ),
-      title: title(context),
+      title: afternoonTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
@@ -73,7 +73,7 @@ class AfternoonReminderBody extends StatefulWidget {
 class _AfternoonReminderBodyState extends State<AfternoonReminderBody> {
   DateTime time = DateTime.now();
 
-  String get alarmTime {
+  String get afternoonAlarmTime {
     var hrs = (time.hour % 12).toString().padLeft(2, '0');
     var min = (time.minute).toString().padLeft(2, '0');
     var mrd = time.hour >= 12 ? 'PM' : 'AM';
@@ -81,7 +81,7 @@ class _AfternoonReminderBodyState extends State<AfternoonReminderBody> {
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
-  Container datePicker() {
+  Container afternoonDatePicker() {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6.0),
@@ -109,10 +109,10 @@ class _AfternoonReminderBodyState extends State<AfternoonReminderBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          datePicker(),
+          afternoonDatePicker(),
           const Text('Time'),
           Text(
-            alarmTime,
+            afternoonAlarmTime,
             style: const TextStyle(
               fontSize: 22.0,
               color: Color(0xff0BB15D),

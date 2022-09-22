@@ -25,24 +25,32 @@ class NightReminderAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
+  IconButton appbarIconButton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      color: const Color(0xff616161),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+
+  Text nightTitle(context) {
+    return Text(
+      'Night Reminder',
+      style: Theme.of(context).textTheme.headline6,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       surfaceTintColor: Colors.white,
       leading: Container(
         margin: const EdgeInsets.only(left: 10),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          color: const Color(0xff616161),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        child: appbarIconButton(context),
       ),
-      title: Text(
-        'Night Reminder',
-        style: Theme.of(context).textTheme.headline6,
-      ),
+      title: nightTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
@@ -65,7 +73,7 @@ class NightReminderBody extends StatefulWidget {
 class _NightReminderBodyState extends State<NightReminderBody> {
   DateTime time = DateTime.now();
 
-  String get alarmTime {
+  String get nightAlarmTime {
     var hrs = (time.hour % 12).toString().padLeft(2, '0');
     var min = (time.minute).toString().padLeft(2, '0');
     var mrd = time.hour >= 12 ? 'PM' : 'AM';
@@ -73,7 +81,7 @@ class _NightReminderBodyState extends State<NightReminderBody> {
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
-  Container datePicker() {
+  Container nightDatePicker() {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6.0),
@@ -101,10 +109,10 @@ class _NightReminderBodyState extends State<NightReminderBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          datePicker(),
+          nightDatePicker(),
           const Text('Time'),
           Text(
-            alarmTime,
+            nightAlarmTime,
             style: const TextStyle(
               fontSize: 22.0,
               color: Color(0xff0BB15D),
