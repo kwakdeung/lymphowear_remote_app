@@ -27,6 +27,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   Timer? _timer;
 
   int _countedSeconds = 10;
+  int minSeconds = 0;
   int maxSeconds = 10;
 
   bool _timerStart = false;
@@ -60,7 +61,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   }
 
   void passTime() {
-    if (_countedSeconds > 0) {
+    if (_countedSeconds > minSeconds) {
       _countedSeconds--;
     }
   }
@@ -76,7 +77,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   }
 
   void minusControl() {
-    if (_countedSeconds > 0 &&
+    if (_countedSeconds > minSeconds &&
         (_timerStart == false && timerRunning == false)) {
       setState(() {
         _countedSeconds--;
@@ -117,7 +118,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: (_countedSeconds > 0) && _timerStart == false
+                color: (_countedSeconds > minSeconds) && _timerStart == false
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -127,7 +128,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
           fit: BoxFit.fill,
-          color: (_countedSeconds > 0) && _timerStart == false
+          color: (_countedSeconds > minSeconds) && _timerStart == false
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
