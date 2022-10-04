@@ -120,19 +120,9 @@ class _ReminderBodyState extends State<ReminderBody> {
   }
 
   Future<void> _showNotification() async {
-    const AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails(
-      'your channel id',
-      'your channel name',
-      channelDescription: 'your channel description',
-      importance: Importance.max,
-      priority: Priority.high,
-      ticker: 'ticker',
-    );
-    const NotificationDetails notificationDetails =
-        NotificationDetails(android: androidNotificationDetails);
+    const NotificationDetails notificationDetails = NotificationDetails();
     await flutterLocalNotificationsPlugin.show(
-      id++,
+      0,
       alarmTime(),
       widget.title,
       notificationDetails,
@@ -141,15 +131,11 @@ class _ReminderBodyState extends State<ReminderBody> {
 
   Future<void> _scheduleDailyTenAMNotification() async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
-      0,
+      1,
       alarmTime(),
       widget.title,
       _selectNotification(),
-      const NotificationDetails(
-        android: AndroidNotificationDetails(
-            'daily notification channel id', 'daily notification channel name',
-            channelDescription: 'daily notification description'),
-      ),
+      const NotificationDetails(),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
@@ -158,7 +144,11 @@ class _ReminderBodyState extends State<ReminderBody> {
   }
 
   Future<void> _cancelNotification() async {
-    await flutterLocalNotificationsPlugin.cancel(--id);
+    await flutterLocalNotificationsPlugin.cancel(0);
+  }
+
+  Future<void> _cancelSelectedPushNotification() async {
+    await flutterLocalNotificationsPlugin.cancel(1);
   }
 
   tz.TZDateTime _selectNotification() {
@@ -203,9 +193,15 @@ class _ReminderBodyState extends State<ReminderBody> {
             },
           ),
           ElevatedButton(
-            child: const Text('Cancel latest notification'),
+            child: const Text('Cancel ImmediatelyPush notification'),
             onPressed: () async {
               await _cancelNotification();
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Cancel Selected Push notification'),
+            onPressed: () async {
+              await _cancelSelectedPushNotification();
             },
           ),
         ],
