@@ -21,7 +21,9 @@ class _ReminderState extends State<Reminder> {
       appBar: ReminderAppbar(
         title: widget.title,
       ),
-      body: const ReminderBody(),
+      body: ReminderBody(
+        title: widget.title,
+      ),
     );
   }
 }
@@ -74,8 +76,8 @@ class ReminderAppbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class ReminderBody extends StatefulWidget {
-  const ReminderBody({super.key});
-
+  const ReminderBody({super.key, required this.title});
+  final String title;
   @override
   State<ReminderBody> createState() => _ReminderBodyState();
 }
@@ -86,7 +88,7 @@ class _ReminderBodyState extends State<ReminderBody> {
   get hrs => (time.hour);
   get min => (time.minute);
 
-  morningAlarmTime() {
+  alarmTime() {
     var setHrs = (hrs % 12).toString().padLeft(2, '0');
     var setMin = min.toString().padLeft(2, '0');
     var mrd = hrs >= 12 ? 'PM' : 'AM';
@@ -131,8 +133,8 @@ class _ReminderBodyState extends State<ReminderBody> {
         NotificationDetails(android: androidNotificationDetails);
     await flutterLocalNotificationsPlugin.show(
       id++,
-      morningAlarmTime(),
-      'Morning Alarm',
+      alarmTime(),
+      widget.title,
       notificationDetails,
     );
   }
@@ -140,8 +142,8 @@ class _ReminderBodyState extends State<ReminderBody> {
   Future<void> _scheduleDailyTenAMNotification() async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
       0,
-      morningAlarmTime(),
-      'Morning Alarm',
+      alarmTime(),
+      widget.title,
       _selectNotification(),
       const NotificationDetails(
         android: AndroidNotificationDetails(
@@ -180,7 +182,7 @@ class _ReminderBodyState extends State<ReminderBody> {
           morningDatePicker(),
           const Text('Time'),
           Text(
-            morningAlarmTime(),
+            alarmTime(),
             style: const TextStyle(
               fontSize: 22.0,
               color: Color(0xff0BB15D),
