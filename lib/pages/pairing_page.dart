@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/home_none.dart';
+import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class PairingPage extends StatefulWidget {
   const PairingPage({Key? key}) : super(key: key);
@@ -46,7 +47,28 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       onPressed: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const HomeNone(),
+            builder: (context) => None(
+              logoTitle: SvgPicture.asset(
+                'assets/images/lymphowear.svg',
+                fit: BoxFit.fill,
+              ),
+              appbarIcon: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/icons/ic_setting.svg',
+                  fit: BoxFit.fill,
+                ),
+                color: const Color(0xff616161),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const SettingPage()),
+                    ),
+                  );
+                },
+              ),
+              leadingButton: Container(),
+            ),
           ),
         );
       },
