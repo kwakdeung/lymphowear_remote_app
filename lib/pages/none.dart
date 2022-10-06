@@ -3,16 +3,21 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
-import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
-class HomeNone extends StatefulWidget {
-  const HomeNone({Key? key}) : super(key: key);
+class None extends StatefulWidget {
+  const None(
+      {Key? key,
+      required this.appbarIcon,
+      required this.logoTitle,
+      required this.leadingButton})
+      : super(key: key);
+  final Widget logoTitle, appbarIcon, leadingButton;
 
   @override
-  State<HomeNone> createState() => _HomeNoneState();
+  State<None> createState() => _NoneState();
 }
 
-class _HomeNoneState extends State<HomeNone> {
+class _NoneState extends State<None> {
   @override
   void initState() {
     super.initState();
@@ -28,48 +33,61 @@ class _HomeNoneState extends State<HomeNone> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: HomeNoneAppbar(),
-      body: HomeNoneBody(),
+      appBar: NoneAppbar(
+        logoTitle: widget.logoTitle,
+        appbarIcon: widget.appbarIcon,
+        leadingButton: widget.leadingButton,
+      ),
+      body: NoneBody(),
     );
   }
 }
 
-class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
-  HomeNoneAppbar({Key? key}) : super(key: key);
-
+class NoneAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const NoneAppbar(
+      {Key? key,
+      required this.appbarIcon,
+      required this.logoTitle,
+      required this.leadingButton})
+      : super(key: key);
+  final Widget logoTitle, appbarIcon, leadingButton;
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  final appbarLogo = SvgPicture.asset(
-    'assets/images/lymphowear.svg',
-    fit: BoxFit.fill,
-  );
+  // final appbarLogo = SvgPicture.asset(
+  //   'assets/images/lymphowear.svg',
+  //   fit: BoxFit.fill,
+  // );
 
-  IconButton appbarIconButton(BuildContext context) {
-    return IconButton(
-      icon: SvgPicture.asset(
-        'assets/icons/ic_setting.svg',
-        fit: BoxFit.fill,
-      ),
-      color: const Color(0xff616161),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const SettingPage()),
-          ),
-        );
-      },
-    );
-  }
+  // IconButton appbarIconButton(BuildContext context) {
+  //   return IconButton(
+  //     icon: SvgPicture.asset(
+  //       appbarIcon,
+  //       fit: BoxFit.fill,
+  //     ),
+  //     color: const Color(0xff616161),
+  //     onPressed: () {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: ((context) => const SettingPage()),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: Container(
+        margin: appbarleadingMargin,
+        child: leadingButton,
+      ),
       automaticallyImplyLeading: false,
       title: Container(
         margin: logoMargin,
-        child: appbarLogo,
+        child: logoTitle,
       ),
       centerTitle: true,
       bottom: PreferredSize(
@@ -82,17 +100,15 @@ class HomeNoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         Container(
           margin: appbarIconbuttonMargin,
-          child: appbarIconButton(
-            context,
-          ),
+          child: appbarIcon,
         ),
       ],
     );
   }
 }
 
-class HomeNoneBody extends StatelessWidget {
-  HomeNoneBody({Key? key}) : super(key: key);
+class NoneBody extends StatelessWidget {
+  NoneBody({Key? key}) : super(key: key);
 
   Text title(context) {
     return Text(
@@ -141,7 +157,7 @@ class HomeNoneBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: const HomeNoneBottomButton(),
+                child: const NoneBottomButton(),
               ),
             ],
           ),
@@ -171,8 +187,8 @@ class HomeNoneBody extends StatelessWidget {
 //   );
 // }
 
-class HomeNoneBottomButton extends StatelessWidget {
-  const HomeNoneBottomButton({Key? key}) : super(key: key);
+class NoneBottomButton extends StatelessWidget {
+  const NoneBottomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

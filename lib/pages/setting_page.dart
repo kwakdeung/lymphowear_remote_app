@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
-import 'package:lymphowear_remote_app/pages/my_none.dart';
+import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/setting/alarm/alarm_page.dart';
 
 class SettingPage extends StatelessWidget implements PreferredSizeWidget {
@@ -71,7 +71,20 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const MyNone()),
+            builder: ((context) => None(
+                  logoTitle: Text(
+                    'My Device',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  appbarIcon: Container(),
+                  leadingButton: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    color: const Color(0xff616161),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                )),
           ),
         );
       },

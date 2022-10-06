@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/home_none.dart';
+import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
+import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 import '../models/onboarding_model.dart';
 
@@ -87,7 +89,28 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((context) => const HomeNone()),
+              builder: ((context) => None(
+                    logoTitle: SvgPicture.asset(
+                      'assets/images/lymphowear.svg',
+                      fit: BoxFit.fill,
+                    ),
+                    appbarIcon: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_setting.svg',
+                        fit: BoxFit.fill,
+                      ),
+                      color: const Color(0xff616161),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const SettingPage()),
+                          ),
+                        );
+                      },
+                    ),
+                    leadingButton: Container(),
+                  )),
             ),
           );
         },
