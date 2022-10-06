@@ -68,6 +68,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
               leadingButton: Container(),
+              routePairing: const PairingPage(),
             ),
           ),
         );

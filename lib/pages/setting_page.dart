@@ -4,6 +4,7 @@ import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/setting/alarm/alarm_page.dart';
+import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
 
 class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -84,6 +85,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
                       Navigator.pop(context);
                     },
                   ),
+                  routePairing: const MyNotConnected(),
                 )),
           ),
         );

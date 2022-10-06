@@ -4,6 +4,7 @@ import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 import '../models/onboarding_model.dart';
@@ -110,6 +111,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       },
                     ),
                     leadingButton: Container(),
+                    routePairing: const PairingPage(),
                   )),
             ),
           );

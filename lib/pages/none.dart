@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
-
 class None extends StatefulWidget {
-  const None(
-      {Key? key,
-      required this.appbarIcon,
-      required this.logoTitle,
-      required this.leadingButton})
-      : super(key: key);
-  final Widget logoTitle, appbarIcon, leadingButton;
+  const None({
+    Key? key,
+    required this.appbarIcon,
+    required this.logoTitle,
+    required this.leadingButton,
+    required this.routePairing,
+  }) : super(key: key);
+  final Widget logoTitle, appbarIcon, leadingButton, routePairing;
 
   @override
   State<None> createState() => _NoneState();
@@ -38,7 +37,9 @@ class _NoneState extends State<None> {
         appbarIcon: widget.appbarIcon,
         leadingButton: widget.leadingButton,
       ),
-      body: NoneBody(),
+      body: NoneBody(
+        routePairing: widget.routePairing,
+      ),
     );
   }
 }
@@ -108,7 +109,8 @@ class NoneAppbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class NoneBody extends StatelessWidget {
-  NoneBody({Key? key}) : super(key: key);
+  NoneBody({Key? key, required this.routePairing}) : super(key: key);
+  final Widget routePairing;
 
   Text title(context) {
     return Text(
@@ -157,7 +159,9 @@ class NoneBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: const NoneBottomButton(),
+                child: NoneBottomButton(
+                  routePairing: routePairing,
+                ),
               ),
             ],
           ),
@@ -188,8 +192,9 @@ class NoneBody extends StatelessWidget {
 // }
 
 class NoneBottomButton extends StatelessWidget {
-  const NoneBottomButton({Key? key}) : super(key: key);
-
+  const NoneBottomButton({Key? key, required this.routePairing})
+      : super(key: key);
+  final Widget routePairing;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
@@ -208,7 +213,7 @@ class NoneBottomButton extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: ((context) => const PairingPage()),
+            builder: ((context) => routePairing),
           ),
         );
         // Navigator.pushReplacement(context, _createroute());
