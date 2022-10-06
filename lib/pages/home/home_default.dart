@@ -6,9 +6,7 @@ import 'package:lymphowear_remote_app/components/home/heat.dart';
 import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/components/home/shoulder.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/home/relaxing/relaxing_mode.dart';
-import 'package:lymphowear_remote_app/pages/home/sleeping/sleeping_mode.dart';
-import 'package:lymphowear_remote_app/pages/home/vital/vital_mode.dart';
+import 'package:lymphowear_remote_app/pages/home/mode.dart';
 
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
@@ -222,7 +220,13 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const VitalMode(),
+              builder: (context) => const Mode(
+                title: 'Vital Mode',
+                modeIcon: 'assets/icons/ic_vital.svg',
+                modeTitle: 'Vital Mode',
+                modeContent:
+                    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+              ),
             ),
           );
         },
@@ -262,7 +266,13 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((context) => const RelaxingMode()),
+              builder: (context) => const Mode(
+                title: 'Relaxing Mode',
+                modeIcon: 'assets/icons/ic_relaxing.svg',
+                modeTitle: 'Relaxing Mode',
+                modeContent:
+                    'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
+              ),
             ),
           );
         },
@@ -301,7 +311,13 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((context) => const SleepingMode()),
+              builder: (context) => const Mode(
+                title: 'Sleeping Mode',
+                modeIcon: 'assets/icons/ic_sleeping.svg',
+                modeTitle: 'Sleeping Mode',
+                modeContent:
+                    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
+              ),
             ),
           );
         },

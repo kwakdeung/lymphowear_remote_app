@@ -9,9 +9,6 @@ import 'package:rxdart/subjects.dart'; //  ReactiveX 기반의 Dart 언어 용 R
 import 'package:timezone/data/latest_all.dart' as tz; // 시간 설정
 import 'package:timezone/timezone.dart' as tz;
 
-// 순서
-int id = 0;
-
 // 알림 플러그인
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
