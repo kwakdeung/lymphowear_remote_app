@@ -47,7 +47,7 @@ class ReminderAppbar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Text morningTitle(context) {
+  Text timezoneTitle(context) {
     return Text(
       title,
       style: Theme.of(context).textTheme.headline6,
@@ -62,7 +62,7 @@ class ReminderAppbar extends StatelessWidget implements PreferredSizeWidget {
         margin: const EdgeInsets.only(left: 10),
         child: appbarIconButton(context),
       ),
-      title: morningTitle(context),
+      title: timezoneTitle(context),
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
@@ -97,7 +97,11 @@ class _ReminderBodyState extends State<ReminderBody> {
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
-  Container morningDatePicker() {
+  int showInstantNum = 0;
+  int showReservativeNum = 1;
+  int notificationCycle = 1;
+
+  Container timezoneDatePicker() {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6.0),
@@ -122,7 +126,7 @@ class _ReminderBodyState extends State<ReminderBody> {
   Future<void> _showNotification() async {
     const NotificationDetails notificationDetails = NotificationDetails();
     await flutterLocalNotificationsPlugin.show(
-      0,
+      showInstantNum,
       alarmTime(),
       widget.title,
       notificationDetails,
@@ -131,7 +135,7 @@ class _ReminderBodyState extends State<ReminderBody> {
 
   Future<void> _scheduleDailyTenAMNotification() async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
-      1,
+      showReservativeNum,
       alarmTime(),
       widget.title,
       _selectNotification(),
@@ -144,11 +148,11 @@ class _ReminderBodyState extends State<ReminderBody> {
   }
 
   Future<void> _cancelNotification() async {
-    await flutterLocalNotificationsPlugin.cancel(0);
+    await flutterLocalNotificationsPlugin.cancel(showInstantNum);
   }
 
   Future<void> _cancelSelectedPushNotification() async {
-    await flutterLocalNotificationsPlugin.cancel(1);
+    await flutterLocalNotificationsPlugin.cancel(showReservativeNum);
   }
 
   tz.TZDateTime _selectNotification() {
@@ -157,7 +161,7 @@ class _ReminderBodyState extends State<ReminderBody> {
         tz.TZDateTime(tz.local, now.year, now.month, now.day, hrs, min);
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(
-        const Duration(days: 1),
+        Duration(days: notificationCycle),
       );
     }
     return scheduledDate;
@@ -169,7 +173,7 @@ class _ReminderBodyState extends State<ReminderBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          morningDatePicker(),
+          timezoneDatePicker(),
           const Text('Time'),
           Text(
             alarmTime(),
