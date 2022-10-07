@@ -179,6 +179,7 @@ class PairingPageBottomButton extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: ((context) => const PairingLoading(
+                  navigator: PairingPage(),
                   routePairing: PairingFailed(),
                 )),
           ),

@@ -6,8 +6,9 @@ class PairingLoading extends StatefulWidget {
   const PairingLoading({
     Key? key,
     required this.routePairing,
+    required this.navigator,
   }) : super(key: key);
-  final Widget routePairing;
+  final Widget routePairing, navigator;
   @override
   State<PairingLoading> createState() => _PairingLoadingState();
 }
@@ -18,7 +19,9 @@ class _PairingLoadingState extends State<PairingLoading> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const PairingLoadingAppbar(),
+      appBar: PairingLoadingAppbar(
+        navigator: widget.navigator,
+      ),
       body: PairingLoadingBody(
         routePairing: widget.routePairing,
       ),
@@ -28,8 +31,11 @@ class _PairingLoadingState extends State<PairingLoading> {
 
 class PairingLoadingAppbar extends StatelessWidget
     implements PreferredSizeWidget {
-  const PairingLoadingAppbar({Key? key}) : super(key: key);
-
+  const PairingLoadingAppbar({
+    Key? key,
+    required this.navigator,
+  }) : super(key: key);
+  final Widget navigator;
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
@@ -38,7 +44,12 @@ class PairingLoadingAppbar extends StatelessWidget
       icon: const Icon(Icons.arrow_back_ios),
       color: const Color(0xff616161),
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => navigator,
+          ),
+        );
       },
     );
   }

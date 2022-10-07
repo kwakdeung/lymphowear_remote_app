@@ -173,6 +173,7 @@ class PairingFailedBottomButton extends StatelessWidget {
         ).pushReplacement(
           MaterialPageRoute(
             builder: (context) => const PairingLoading(
+              navigator: PairingPage(),
               routePairing: PairingConnect(),
             ),
           ),
