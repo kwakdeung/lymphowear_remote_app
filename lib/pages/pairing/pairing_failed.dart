@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-
-import 'package:lymphowear_remote_app/pages/pairing/pairing_reloading.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingFailed extends StatefulWidget {
@@ -172,7 +172,9 @@ class PairingFailedBottomButton extends StatelessWidget {
           context,
         ).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const PairingReloading(),
+            builder: (context) => const PairingLoading(
+              routePairing: PairingConnect(),
+            ),
           ),
         );
       },

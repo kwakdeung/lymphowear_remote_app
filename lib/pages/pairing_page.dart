@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/none.dart';
+import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
@@ -177,7 +178,9 @@ class PairingPageBottomButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const PairingLoading()),
+            builder: ((context) => const PairingLoading(
+                  routePairing: PairingFailed(),
+                )),
           ),
         );
       },

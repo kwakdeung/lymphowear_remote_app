@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
+import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingLoading extends StatefulWidget {
   const PairingLoading({
     Key? key,
+    required this.routePairing,
   }) : super(key: key);
-
+  final Widget routePairing;
   @override
   State<PairingLoading> createState() => _PairingLoadingState();
 }
@@ -15,11 +17,13 @@ class PairingLoading extends StatefulWidget {
 class _PairingLoadingState extends State<PairingLoading> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: PairingLoadingAppbar(),
-      body: PairingLoadingBody(),
+      appBar: const PairingLoadingAppbar(),
+      body: PairingLoadingBody(
+        routePairing: widget.routePairing,
+      ),
     );
   }
 }
@@ -71,8 +75,10 @@ class PairingLoadingAppbar extends StatelessWidget
 }
 
 class PairingLoadingBody extends StatefulWidget {
-  const PairingLoadingBody({Key? key}) : super(key: key);
+  const PairingLoadingBody({Key? key, required this.routePairing})
+      : super(key: key);
 
+  final Widget routePairing;
   @override
   State<PairingLoadingBody> createState() => _PairingLoadingBodyState();
 }
@@ -108,7 +114,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const PairingFailed(),
+          builder: (context) => widget.routePairing,
         ),
       );
     }
@@ -179,7 +185,12 @@ class PairingLodingBottomButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const PairingPage()),
+          ),
+        );
       },
       child: const Text('Stop'),
     );
