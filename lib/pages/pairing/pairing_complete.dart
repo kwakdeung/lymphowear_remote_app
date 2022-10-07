@@ -38,16 +38,6 @@ class PairingCompleteAppbar extends StatelessWidget
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  IconButton appbarIconButton(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
-      color: const Color(0xff616161),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    );
-  }
-
   Text appbarTitle(context) {
     return Text(
       'Add Device',
@@ -59,10 +49,6 @@ class PairingCompleteAppbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      leading: Container(
-        margin: appbarleadingMargin,
-        child: appbarIconButton(context),
-      ),
       backgroundColor: Colors.white,
       title: appbarTitle(context),
       bottom: PreferredSize(
