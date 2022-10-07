@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
+import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingLoading extends StatefulWidget {
@@ -19,66 +20,10 @@ class _PairingLoadingState extends State<PairingLoading> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: PairingLoadingAppbar(
-        navigator: widget.navigator,
-      ),
+      appBar: const AddDeviceAppbar(),
       body: PairingLoadingBody(
         routePairing: widget.routePairing,
       ),
-    );
-  }
-}
-
-class PairingLoadingAppbar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const PairingLoadingAppbar({
-    Key? key,
-    required this.navigator,
-  }) : super(key: key);
-  final Widget navigator;
-  @override
-  Size get preferredSize => const Size.fromHeight(56);
-
-  IconButton appbarIconButton(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
-      color: const Color(0xff616161),
-      onPressed: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => navigator,
-          ),
-        );
-      },
-    );
-  }
-
-  Text appbarTitle(context) {
-    return Text(
-      'Add Device',
-      style: Theme.of(context).textTheme.headline6,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      leading: Container(
-        margin: appbarleadingMargin,
-        child: appbarIconButton(context),
-      ),
-      backgroundColor: Colors.white,
-      title: appbarTitle(context),
-      bottom: PreferredSize(
-        preferredSize: preferredSize,
-        child: Container(
-          color: const Color(0xffEEEEEE),
-          height: 2.0,
-        ),
-      ),
-      centerTitle: true,
     );
   }
 }

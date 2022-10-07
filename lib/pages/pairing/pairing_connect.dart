@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-
+import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingConnect extends StatefulWidget {
   const PairingConnect({Key? key}) : super(key: key);
@@ -28,56 +27,8 @@ class _PairingConnectState extends State<PairingConnect> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const PairingConnectAppbar(),
+      appBar: const AddDeviceAppbar(),
       body: PairingConnectBody(),
-    );
-  }
-}
-
-class PairingConnectAppbar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const PairingConnectAppbar({Key? key}) : super(key: key);
-
-  @override
-  Size get preferredSize => const Size.fromHeight(56);
-
-  IconButton appbarIconButton(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back_ios),
-      color: const Color(0xff616161),
-      onPressed: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const PairingPage(),
-        ));
-      },
-    );
-  }
-
-  Text appbarTitle(context) {
-    return Text(
-      'Add Device',
-      style: Theme.of(context).textTheme.headline6,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      leading: Container(
-        margin: appbarleadingMargin,
-        child: appbarIconButton(context),
-      ),
-      backgroundColor: Colors.white,
-      title: appbarTitle(context),
-      bottom: PreferredSize(
-        preferredSize: preferredSize,
-        child: Container(
-          color: const Color(0xffEEEEEE),
-          height: 2.0,
-        ),
-      ),
-      centerTitle: true,
     );
   }
 }
