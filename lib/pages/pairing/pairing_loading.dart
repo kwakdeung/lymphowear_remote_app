@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-
-import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 
 class PairingLoading extends StatefulWidget {
