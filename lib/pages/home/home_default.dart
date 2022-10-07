@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/components/home/armpit.dart';
-import 'package:lymphowear_remote_app/components/home/collarbone.dart';
+import 'package:lymphowear_remote_app/components/home/body_parts.dart';
 import 'package:lymphowear_remote_app/components/home/heat.dart';
 import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
-import 'package:lymphowear_remote_app/components/home/shoulder.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/mode.dart';
-
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class HomeDefault extends StatefulWidget {
@@ -414,17 +411,35 @@ class HomeDefaultBody extends StatelessWidget {
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child: const Collarbone(),
+            child:
+                // const Collarbone(),
+                BodyParts(
+              bpValue: 2.0,
+              image: 'assets/images/collarbone.svg',
+              title: 'Collarbone',
+            ),
           ),
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child: const Armpit(),
+            child:
+                // const Armpit(),
+                BodyParts(
+              bpValue: 2.0,
+              image: 'assets/images/armpit.svg',
+              title: 'Armpit',
+            ),
           ),
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child: const Shoulder(),
+            child:
+                // const Shoulder(),
+                BodyParts(
+              bpValue: 2.0,
+              image: 'assets/images/shoulder.svg',
+              title: 'Shoulder',
+            ),
           ),
           Container(
             margin: homeValueMargin,
