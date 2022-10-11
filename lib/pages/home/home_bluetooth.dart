@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_default.dart';
 import 'package:lymphowear_remote_app/pages/lymphowear_appbar.dart';
+import 'package:lymphowear_remote_app/pages/white_bottom_button.dart';
 
 class HomeBluetooth extends StatefulWidget {
   const HomeBluetooth({Key? key}) : super(key: key);
@@ -82,33 +83,17 @@ class HomeBluetoothBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: const HomeBluetoothBottomButton(),
+                child: WhiteBottomButton(
+                  buttonText: 'Connect',
+                  onPressed: () {
+                    showProgressDialog(context, 'Connecting...');
+                  },
+                ),
               ),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class HomeBluetoothBottomButton extends StatelessWidget {
-  const HomeBluetoothBottomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        foregroundColor: const Color(0xff008A40),
-        backgroundColor: Colors.white,
-        textStyle: Theme.of(context).textTheme.button,
-        side: const BorderSide(color: Color(0xff008A40)),
-      ),
-      onPressed: () {
-        showProgressDialog(context, 'Connecting...');
-      },
-      child: const Text('Connect'),
     );
   }
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_bluetooth.dart';
 import 'package:lymphowear_remote_app/pages/lymphowear_appbar.dart';
+import 'package:lymphowear_remote_app/pages/white_bottom_button.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);
@@ -62,37 +63,17 @@ class HomeRefreshBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: const HomeRefleshBottomButton(),
+                child: WhiteBottomButton(
+                  buttonText: 'Refresh',
+                  onPressed: () {
+                    showProgressDialog(context, 'Loading...');
+                  },
+                ),
               ),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class HomeRefleshBottomButton extends StatelessWidget {
-  const HomeRefleshBottomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      icon: const Icon(
-        Icons.cached,
-        color: Color(0xff008A40),
-      ),
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        backgroundColor: Colors.white,
-        foregroundColor: const Color(0xff008A40),
-        side: const BorderSide(color: Color(0xff008A40)),
-        textStyle: Theme.of(context).textTheme.button,
-      ),
-      onPressed: () {
-        showProgressDialog(context, 'Loading...');
-      },
-      label: const Text('Refresh'),
     );
   }
 

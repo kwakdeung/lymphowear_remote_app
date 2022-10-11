@@ -5,6 +5,7 @@ import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_connect.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
+import 'package:lymphowear_remote_app/pages/white_bottom_button.dart';
 
 class PairingFailed extends StatefulWidget {
   const PairingFailed({Key? key}) : super(key: key);
@@ -91,44 +92,25 @@ class PairingFailedBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: const PairingFailedBottomButton(),
+              child: WhiteBottomButton(
+                buttonText: 'Try Again',
+                onPressed: () {
+                  Navigator.of(
+                    context,
+                  ).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const PairingLoading(
+                        navigator: PairingPage(),
+                        routePairing: PairingConnect(),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class PairingFailedBottomButton extends StatelessWidget {
-  const PairingFailedBottomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        backgroundColor: Colors.white,
-        foregroundColor: const Color(0xff008A40),
-        surfaceTintColor: Colors.white,
-        textStyle: Theme.of(context).textTheme.button,
-        side: const BorderSide(
-          color: Color(0xff008A40),
-        ),
-      ),
-      onPressed: () {
-        Navigator.of(
-          context,
-        ).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => const PairingLoading(
-              navigator: PairingPage(),
-              routePairing: PairingConnect(),
-            ),
-          ),
-        );
-      },
-      child: const Text('Try Again'),
     );
   }
 }
