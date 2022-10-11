@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
-import 'package:lymphowear_remote_app/pages/pairing_bottom_button.dart';
+import 'package:lymphowear_remote_app/pages/green_bottom_button.dart';
 
 class PairingComplete extends StatefulWidget {
   const PairingComplete({Key? key}) : super(key: key);
@@ -115,7 +115,7 @@ class PairingCompleteBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: PairingBottomButton(
+              child: GreenBottomButton(
                 buttonText: 'Start',
                 onPressed: () {
                   Navigator.pushReplacement(
