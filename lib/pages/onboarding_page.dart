@@ -4,6 +4,7 @@ import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
+import 'package:lymphowear_remote_app/pages/pairing_bottom_button.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
@@ -30,18 +31,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController.dispose();
     super.dispose();
   }
-
-  // Route _createRoute() {
-  //   return PageRouteBuilder(
-  //     pageBuilder: (context, animation, secondaryAnimation) => const HomeNone(),
-  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-  //       return FadeTransition(
-  //         opacity: animation,
-  //         child: child,
-  //       );
-  //     },
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,52 +72,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
       );
     }
 
-    ElevatedButton onboardingPageBottomButton() {
-      return ElevatedButton(
-        onPressed: () {
-          // Navigator.of(context).push(_createRoute());
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: ((context) => None(
-                    logoTitle: SvgPicture.asset(
-                      'assets/images/lymphowear.svg',
-                      fit: BoxFit.fill,
-                    ),
-                    appbarIcon: IconButton(
-                      icon: SvgPicture.asset(
-                        'assets/icons/ic_setting.svg',
-                        fit: BoxFit.fill,
-                      ),
-                      color: const Color(0xff616161),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: ((context) => const SettingPage()),
-                          ),
-                        );
-                      },
-                    ),
-                    leadingButton: Container(),
-                    routePairing: const PairingPage(),
-                  )),
-            ),
-          );
-        },
-        style: ElevatedButton.styleFrom(
-          padding: buttonPadding,
-          backgroundColor: const Color(0xff008A40),
-          foregroundColor: Colors.white,
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: semiBold,
-          ),
-        ),
-        child: const Text('Skip'),
-      );
-    }
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -152,7 +95,40 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   color: const Color.fromARGB(0, 231, 174, 174),
                   margin: const EdgeInsets.fromLTRB(20, 40, 20, 80),
                   width: double.infinity,
-                  child: onboardingPageBottomButton(),
+                  child: PairingBottomButton(
+                    buttonText: 'Skip',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => None(
+                                logoTitle: SvgPicture.asset(
+                                  'assets/images/lymphowear.svg',
+                                  fit: BoxFit.fill,
+                                ),
+                                appbarIcon: IconButton(
+                                  icon: SvgPicture.asset(
+                                    'assets/icons/ic_setting.svg',
+                                    fit: BoxFit.fill,
+                                  ),
+                                  color: const Color(0xff616161),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: ((context) =>
+                                            const SettingPage()),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                leadingButton: Container(),
+                                routePairing: const PairingPage(),
+                              )),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

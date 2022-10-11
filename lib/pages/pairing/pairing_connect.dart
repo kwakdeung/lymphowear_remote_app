@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
+import 'package:lymphowear_remote_app/pages/pairing_bottom_button.dart';
 
 class PairingConnect extends StatefulWidget {
   const PairingConnect({Key? key}) : super(key: key);
@@ -73,32 +74,19 @@ class PairingConnectBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: const PairingConnectBottomButton(),
+              child: PairingBottomButton(
+                buttonText: 'Connect',
+                onPressed: () {
+                  showProgressDialog(
+                    context,
+                    'Pairing...',
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class PairingConnectBottomButton extends StatelessWidget {
-  const PairingConnectBottomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        backgroundColor: const Color(0xff008A40),
-        foregroundColor: Colors.white,
-        textStyle: Theme.of(context).textTheme.button,
-      ),
-      onPressed: () => showProgressDialog(
-        context,
-        'Pairing...',
-      ),
-      child: const Text('Connect'),
     );
   }
 

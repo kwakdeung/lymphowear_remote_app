@@ -4,6 +4,7 @@ import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/none.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
+import 'package:lymphowear_remote_app/pages/pairing_bottom_button.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
 class PairingPage extends StatefulWidget {
@@ -153,39 +154,24 @@ class PairingPageBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: const PairingPageBottomButton(),
+              child: PairingBottomButton(
+                buttonText: 'Start',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const PairingLoading(
+                            navigator: PairingPage(),
+                            routePairing: PairingFailed(),
+                          )),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class PairingPageBottomButton extends StatelessWidget {
-  const PairingPageBottomButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        padding: buttonPadding,
-        backgroundColor: const Color(0xff008A40),
-        foregroundColor: Colors.white,
-        textStyle: Theme.of(context).textTheme.button,
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const PairingLoading(
-                  navigator: PairingPage(),
-                  routePairing: PairingFailed(),
-                )),
-          ),
-        );
-      },
-      child: const Text('Start'),
     );
   }
 }
