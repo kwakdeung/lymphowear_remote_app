@@ -35,7 +35,6 @@ class _BodyPartsState extends State<BodyParts> {
   }
 
   bodypartsImage() => SvgPicture.asset(
-        // 인수
         widget.image,
         width: 40,
         height: 40,
@@ -47,7 +46,7 @@ class _BodyPartsState extends State<BodyParts> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
-          widget.title, // 인수
+          widget.title,
           style: modebodyText,
         ),
         const Spacer(),

@@ -411,9 +411,7 @@ class HomeDefaultBody extends StatelessWidget {
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child:
-                // const Collarbone(),
-                BodyParts(
+            child: BodyParts(
               bpValue: 2.0,
               image: 'assets/images/collarbone.svg',
               title: 'Collarbone',
@@ -422,9 +420,7 @@ class HomeDefaultBody extends StatelessWidget {
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child:
-                // const Armpit(),
-                BodyParts(
+            child: BodyParts(
               bpValue: 2.0,
               image: 'assets/images/armpit.svg',
               title: 'Armpit',
@@ -433,9 +429,7 @@ class HomeDefaultBody extends StatelessWidget {
           Container(
             margin: homeValueMargin,
             width: double.infinity,
-            child:
-                // const Shoulder(),
-                BodyParts(
+            child: BodyParts(
               bpValue: 2.0,
               image: 'assets/images/shoulder.svg',
               title: 'Shoulder',

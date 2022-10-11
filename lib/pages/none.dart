@@ -55,29 +55,6 @@ class NoneAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  // final appbarLogo = SvgPicture.asset(
-  //   'assets/images/lymphowear.svg',
-  //   fit: BoxFit.fill,
-  // );
-
-  // IconButton appbarIconButton(BuildContext context) {
-  //   return IconButton(
-  //     icon: SvgPicture.asset(
-  //       appbarIcon,
-  //       fit: BoxFit.fill,
-  //     ),
-  //     color: const Color(0xff616161),
-  //     onPressed: () {
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: ((context) => const SettingPage()),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -171,26 +148,6 @@ class NoneBody extends StatelessWidget {
   }
 }
 
-// Route _createroute() {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) =>
-//         const PairingPage(),
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       return ScaleTransition(
-//           scale: Tween<double>(
-//             begin: 0.0,
-//             end: 1.0,
-//           ).animate(
-//             CurvedAnimation(
-//               parent: animation,
-//               curve: Curves.fastOutSlowIn,
-//             ),
-//           ),
-//           child: child);
-//     },
-//   );
-// }
-
 class NoneBottomButton extends StatelessWidget {
   const NoneBottomButton({Key? key, required this.routePairing})
       : super(key: key);
@@ -216,7 +173,6 @@ class NoneBottomButton extends StatelessWidget {
             builder: ((context) => routePairing),
           ),
         );
-        // Navigator.pushReplacement(context, _createroute());
       },
       label: const Text('Add Device'),
     );
