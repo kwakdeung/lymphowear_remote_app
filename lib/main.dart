@@ -18,7 +18,7 @@ final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
 final BehaviorSubject<String?> selectNotificationSubject =
     BehaviorSubject<String?>();
 
-Future<void> main() async {
+void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarBrightness: Brightness.light,
@@ -28,7 +28,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await _configureLocalTimeZone();
+  _configureLocalTimeZone();
 
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('app_icon');
@@ -55,7 +55,7 @@ Future<void> main() async {
     iOS: initializationSettingsDarwin,
   );
 
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+  flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onDidReceiveNotificationResponse:
           (NotificationResponse notificationResponse) {});
 
