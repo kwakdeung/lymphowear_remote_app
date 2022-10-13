@@ -3,32 +3,31 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class BodyParts extends StatefulWidget {
-  BodyParts(
-      {Key? key,
-      required this.image,
-      required this.title,
-      required this.bpValue})
-      : super(key: key);
+  const BodyParts({
+    Key? key,
+    required this.image,
+    required this.title,
+  }) : super(key: key);
 
   final String image;
   final String title;
-  double bpValue;
+
   @override
   State<BodyParts> createState() => _BodyPartsState();
 }
 
 class _BodyPartsState extends State<BodyParts> {
   double minValue = 0.0;
-
+  double bpValue = 2.0;
   showValue() {
-    if (widget.bpValue == minValue) {
+    if (bpValue == minValue) {
       return Text(
         '  Off',
         style: intensityValueText,
       );
     } else {
       return Text(
-        '  ${widget.bpValue.round()}',
+        '  ${bpValue.round()}',
         style: intensityValueText,
       );
     }
@@ -75,11 +74,11 @@ class _BodyPartsState extends State<BodyParts> {
       child: Slider(
         min: 0.0,
         max: 3.0,
-        value: widget.bpValue,
+        value: bpValue,
         divisions: 3,
         onChanged: (value) {
           setState(() {
-            widget.bpValue = value;
+            bpValue = value;
           });
         },
       ),
