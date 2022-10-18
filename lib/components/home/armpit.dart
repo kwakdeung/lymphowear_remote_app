@@ -12,6 +12,9 @@ class Armpit extends StatefulWidget {
 class _ArmpitState extends State<Armpit> {
   double armpitValue = 2.0;
   double minValue = 0.0;
+  double sliderMin = 0.0;
+  double sliderMax = 3.0;
+  int sliderDivisions = 3;
 
   showValue() {
     if (armpitValue == minValue) {
@@ -66,10 +69,10 @@ class _ArmpitState extends State<Armpit> {
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
       ),
       child: Slider(
-        min: 0.0,
-        max: 3.0,
+        min: sliderMin,
+        max: sliderMax,
         value: armpitValue,
-        divisions: 3,
+        divisions: sliderDivisions,
         onChanged: (value) {
           setState(() => armpitValue = value);
         },

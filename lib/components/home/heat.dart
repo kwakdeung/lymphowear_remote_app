@@ -12,6 +12,9 @@ class Heat extends StatefulWidget {
 class _HeatState extends State<Heat> {
   double heatValue = 1.0;
   double minValue = 0.0;
+  double sliderMin = 0.0;
+  double sliderMax = 3.0;
+  int sliderDivisions = 2;
 
   showValue() {
     if (heatValue == minValue) {
@@ -66,10 +69,10 @@ class _HeatState extends State<Heat> {
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
       ),
       child: Slider(
-        min: 0.0,
-        max: 2.0,
+        min: sliderMin,
+        max: sliderMax,
         value: heatValue,
-        divisions: 2,
+        divisions: sliderDivisions,
         onChanged: (value) {
           setState(() => heatValue = value);
         },

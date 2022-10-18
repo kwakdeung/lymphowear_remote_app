@@ -12,6 +12,9 @@ class Collarbone extends StatefulWidget {
 class _CollarboneState extends State<Collarbone> {
   double colloarboneValue = 2.0;
   double minValue = 0.0;
+  double sliderMin = 0.0;
+  double sliderMax = 3.0;
+  int sliderDivisions = 3;
 
   showValue() {
     if (colloarboneValue == minValue) {
@@ -66,10 +69,10 @@ class _CollarboneState extends State<Collarbone> {
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
       ),
       child: Slider(
-        min: 0.0,
-        max: 3.0,
+        min: sliderMin,
+        max: sliderMax,
         value: colloarboneValue,
-        divisions: 3,
+        divisions: sliderDivisions,
         onChanged: (value) {
           setState(() {
             colloarboneValue = value;

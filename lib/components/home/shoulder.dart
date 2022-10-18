@@ -12,6 +12,9 @@ class Shoulder extends StatefulWidget {
 class _ShoulderState extends State<Shoulder> {
   double shoulderValue = 2.0;
   double minValue = 0.0;
+  double sliderMin = 0.0;
+  double sliderMax = 3.0;
+  int sliderDivisions = 3;
 
   showValue() {
     if (shoulderValue == minValue) {
@@ -66,10 +69,10 @@ class _ShoulderState extends State<Shoulder> {
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
       ),
       child: Slider(
-        min: 0.0,
-        max: 3.0,
+        min: sliderMin,
+        max: sliderMax,
         value: shoulderValue,
-        divisions: 3,
+        divisions: sliderDivisions,
         onChanged: (value) {
           setState(() => shoulderValue = value);
         },

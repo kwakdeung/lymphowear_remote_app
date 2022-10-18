@@ -35,8 +35,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
     return controller.isDismissed ? '$initstatemin:$initstatesec' : '$min:$sec';
   }
 
-  set countText(String value) {}
-
   double progress = 1.0;
 
   @override
@@ -48,7 +46,6 @@ class _CircularIndicatorState extends State<CircularIndicator>
 
     controller.addListener(() {
       if (controller.isAnimating) {
-        setState(() {});
       } else {
         setState(() {
           progress = 1;
