@@ -12,12 +12,12 @@ var intensityText = const TextStyle(
 
 var intensityValueText = const TextStyle(
   fontSize: 10,
-  color: Color(0xff0BB15D),
+  color: Color(0xffED711A),
   fontWeight: semiBold,
 );
 
 var alramValueText = const TextStyle(
-  color: Color(0xff0BB15D),
+  color: Color(0xffED711A),
   fontSize: 12,
   fontWeight: regular,
 );
