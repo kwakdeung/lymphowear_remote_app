@@ -167,7 +167,7 @@ class HomeBluetoothBody extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(999),
         ),
-        backgroundColor: const Color(0xff008A40),
+        backgroundColor: const Color(0xffED711A),
         foregroundColor: Colors.white,
         textStyle: const TextStyle(
           fontSize: 14,
