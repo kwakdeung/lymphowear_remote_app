@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_refresh.dart';
-import 'package:lymphowear_remote_app/pages/green_bottom_button.dart';
+import 'package:lymphowear_remote_app/pages/orange_bottom_button.dart';
 
 class PairingComplete extends StatefulWidget {
   const PairingComplete({Key? key}) : super(key: key);
