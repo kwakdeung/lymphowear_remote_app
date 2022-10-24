@@ -25,7 +25,7 @@ class LymphoPartSliderWidget extends StatefulWidget {
 }
 
 class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
-  double currentValue = 0.0;
+  double currentValue = 1.0;
 
   showValue() {
     return Text(
