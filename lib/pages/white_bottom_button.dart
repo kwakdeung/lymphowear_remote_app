@@ -15,9 +15,9 @@ class WhiteBottomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         padding: buttonPadding,
         backgroundColor: Colors.white,
-        foregroundColor: const Color(0xff008A40),
+        foregroundColor: const Color(0xffEB790C),
         textStyle: Theme.of(context).textTheme.button,
-        side: const BorderSide(color: Color(0xff008A40)),
+        side: const BorderSide(color: Color(0xffEB790C)),
       ),
       onPressed: onPressed,
       child: Text(buttonText),
