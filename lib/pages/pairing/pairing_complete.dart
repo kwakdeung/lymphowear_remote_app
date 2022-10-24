@@ -75,7 +75,7 @@ class PairingCompleteBody extends StatelessWidget {
   static const title = Text(
     'Pairing is complete',
     style: TextStyle(
-      color: Color(0xff006E33),
+      color: Color(0xffEB790C),
       fontSize: 20,
       fontWeight: semiBold,
     ),
