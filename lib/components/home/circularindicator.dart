@@ -79,10 +79,10 @@ class _CircularIndicatorState extends State<CircularIndicator>
       visible: circularVisible,
       child: CircularProgressIndicator(
         value: 1.0 - controller.value,
-        backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
+        backgroundColor: const Color(0xffED711A).withOpacity(0.16),
         strokeWidth: 6,
         valueColor: const AlwaysStoppedAnimation<Color>(
-          Color(0xff0BB15D),
+          Color(0xffED711A),
         ),
       ),
     );
@@ -131,10 +131,10 @@ class _CircularIndicatorState extends State<CircularIndicator>
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           border: Border.all(
-            color: const Color(0xff0BB15D),
+            color: const Color(0xffED711A),
             width: 1.5,
           ),
-          color: isPlaying ? Colors.white : const Color(0xff0BB15D),
+          color: isPlaying ? Colors.white : const Color(0xffED711A),
         ),
         child: IconButton(
           onPressed: () {
@@ -151,7 +151,7 @@ class _CircularIndicatorState extends State<CircularIndicator>
               });
             }
           },
-          color: isPlaying ? const Color(0xff0BB15D) : Colors.white,
+          color: isPlaying ? const Color(0xffED711A) : Colors.white,
           icon: isPlaying
               ? SvgPicture.asset(
                   "assets/icons/ic_pause_full.svg",
@@ -234,7 +234,7 @@ Future _timeAlertDialog(BuildContext context, String message) async {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(999),
       ),
-      backgroundColor: const Color(0xff008A40),
+      backgroundColor: const Color(0xffED711A),
       textStyle: dialogButtonText,
     ),
     onPressed: () {
