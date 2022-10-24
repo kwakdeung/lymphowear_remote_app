@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/components/home/body_parts.dart';
-import 'package:lymphowear_remote_app/components/home/heat.dart';
+import 'package:lymphowear_remote_app/components/home/lympho_part_slider.dart';
 import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/mode.dart';
@@ -408,34 +407,37 @@ class HomeDefaultBody extends StatelessWidget {
             color: Colors.white,
             child: const LymphoWearState(),
           ),
-          Container(
-            margin: homeValueMargin,
-            width: double.infinity,
-            child: const BodyParts(
-              image: 'assets/images/collarbone.svg',
-              title: 'Collarbone',
-            ),
+          LymphoPartSliderWidget(
+            title: 'Collarbone',
+            image: 'assets/images/collarbone.svg',
+            maxValue: 3,
+            divisions: 3,
+            icon: 'assets/icons/ic_max.svg',
+            onValueChanged: (value) {},
           ),
-          Container(
-            margin: homeValueMargin,
-            width: double.infinity,
-            child: const BodyParts(
-              image: 'assets/images/armpit.svg',
-              title: 'Armpit',
-            ),
+          LymphoPartSliderWidget(
+            title: 'Armpit',
+            image: 'assets/images/armpit.svg',
+            maxValue: 3,
+            divisions: 3,
+            icon: 'assets/icons/ic_max.svg',
+            onValueChanged: (value) {},
           ),
-          Container(
-            margin: homeValueMargin,
-            width: double.infinity,
-            child: const BodyParts(
-              image: 'assets/images/shoulder.svg',
-              title: 'Shoulder',
-            ),
+          LymphoPartSliderWidget(
+            title: 'Shoulder',
+            image: 'assets/images/shoulder.svg',
+            maxValue: 3,
+            divisions: 3,
+            icon: 'assets/icons/ic_max.svg',
+            onValueChanged: (value) {},
           ),
-          Container(
-            margin: homeValueMargin,
-            width: double.infinity,
-            child: const Heat(),
+          LymphoPartSliderWidget(
+            title: 'Heat',
+            image: 'assets/images/heat.svg',
+            maxValue: 2,
+            divisions: 2,
+            icon: 'assets/icons/ic_heat_max.svg',
+            onValueChanged: (value) {},
           ),
         ],
       ),
