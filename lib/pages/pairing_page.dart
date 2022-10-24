@@ -107,8 +107,8 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
 class PairingPageBody extends StatelessWidget {
   PairingPageBody({Key? key}) : super(key: key);
 
-  final image = SvgPicture.asset(
-    'assets/images/pairing_page_image.svg',
+  final image = Image.asset(
+    'assets/images/pairing_page_image.png',
     fit: BoxFit.fill,
   );
 
