@@ -12,9 +12,11 @@ class DotIndicator extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       height: 8,
-      width: 8,
+      width: isActive ? 16 : 8,
       decoration: BoxDecoration(
-        color: isActive ? Colors.black : Colors.black.withOpacity(0.4),
+        color: isActive
+            ? const Color(0xffEB790C)
+            : const Color(0xffEB790C).withOpacity(0.2),
         borderRadius: const BorderRadius.all(
           Radius.circular(10),
         ),
