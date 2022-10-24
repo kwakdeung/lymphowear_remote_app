@@ -40,9 +40,9 @@ class PairingConnectBody extends StatelessWidget {
   static const title = Text(
     'Confirm on the device',
     style: TextStyle(
-      color: Color(0xff006E33),
+      color: Color(0xffEB790C),
       fontSize: 16,
-      fontWeight: regular,
+      fontWeight: semiBold,
     ),
   );
   final image = Image.asset(
