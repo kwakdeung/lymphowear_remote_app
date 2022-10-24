@@ -47,7 +47,7 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
           'Intensity',
           style: intensityText,
         ),
-        Container(width: 3),
+        Container(width: 6),
         showValue(),
       ],
     );
@@ -58,10 +58,10 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
         trackShape: const RoundedRectSliderTrackShape(),
-        activeTrackColor: const Color(0xff0BB15D),
+        activeTrackColor: const Color(0xffED711A),
         inactiveTrackColor: const Color(0xffEEEEEE),
         thumbShape: const CircleThumbShape(thumbRadius: 6),
-        thumbColor: const Color(0xff0BB15D),
+        thumbColor: const Color(0xffED711A),
         tickMarkShape: const RoundSliderTickMarkShape(),
         activeTickMarkColor: const Color(0xff212121).withOpacity(0.12),
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
