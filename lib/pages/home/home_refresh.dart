@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/home/home_bluetooth.dart';
 import 'package:lymphowear_remote_app/pages/lymphowear_appbar.dart';
-import 'package:lymphowear_remote_app/pages/white_bottom_button.dart';
 
 class HomeRefresh extends StatefulWidget {
   const HomeRefresh({Key? key}) : super(key: key);
@@ -40,6 +40,11 @@ class HomeRefreshBody extends StatelessWidget {
     );
   }
 
+  final iconImage = SvgPicture.asset(
+    "assets/icons/ic_refresh.svg",
+    fit: BoxFit.fill,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -63,11 +68,19 @@ class HomeRefreshBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: WhiteBottomButton(
-                  buttonText: 'Refresh',
+                child: ElevatedButton.icon(
+                  icon: iconImage,
+                  style: ElevatedButton.styleFrom(
+                    padding: buttonPadding,
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xff008A40),
+                    side: const BorderSide(color: Color(0xff008A40)),
+                    textStyle: Theme.of(context).textTheme.button,
+                  ),
                   onPressed: () {
                     showProgressDialog(context, 'Loading...');
                   },
+                  label: const Text('Refresh'),
                 ),
               ),
             ],
