@@ -120,7 +120,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       style: ElevatedButton.styleFrom(
         padding: dialogButtonPadding,
         backgroundColor: Colors.white,
-        side: const BorderSide(color: Color(0xff008A40)),
+        side: const BorderSide(color: Color(0xffED711A)),
       ),
       onPressed: () {
         connect();
@@ -132,7 +132,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
         style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Color(0xff008A40)),
+            color: Color(0xffED711A)),
       ),
     );
 
