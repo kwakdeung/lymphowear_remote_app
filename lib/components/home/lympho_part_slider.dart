@@ -2,49 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
-class BodyParts extends StatefulWidget {
-  const BodyParts({
-    Key? key,
-    required this.image,
-    required this.title,
-  }) : super(key: key);
-
-  final String image;
+class LymphoPartSliderWidget extends StatefulWidget {
   final String title;
+  final String image;
+  final double maxValue;
+  final int divisions;
+  final String icon;
+  final ValueChanged<int> onValueChanged;
+
+  const LymphoPartSliderWidget(
+      {Key? key,
+      required this.title,
+      required this.onValueChanged,
+      required this.image,
+      required this.maxValue,
+      required this.icon,
+      required this.divisions})
+      : super(key: key);
 
   @override
-  State<BodyParts> createState() => _BodyPartsState();
+  State<LymphoPartSliderWidget> createState() => _LymphoPartSliderWidgetState();
 }
 
-class _BodyPartsState extends State<BodyParts> {
-  double minValue = 0.0;
-  double bpValue = 2.0;
-  double sliderMin = 0.0;
-  double sliderMax = 3.0;
-  int sliderDivisions = 3;
+class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
+  double currentValue = 0.0;
 
   showValue() {
-    if (bpValue == minValue) {
-      return Text(
-        '  Off',
-        style: intensityValueText,
-      );
-    } else {
-      return Text(
-        '  ${bpValue.round()}',
-        style: intensityValueText,
-      );
-    }
+    return Text(
+      currentValue == 0.0 ? 'Off' : '${currentValue.round()}',
+      style: intensityValueText,
+    );
   }
 
-  bodypartsImage() => SvgPicture.asset(
-        widget.image,
-        width: 40,
-        height: 40,
-        fit: BoxFit.fill,
-      );
-
-  Row bodypartsTitle() {
+  Row sliderTitle() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -57,12 +47,13 @@ class _BodyPartsState extends State<BodyParts> {
           'Intensity',
           style: intensityText,
         ),
+        Container(width: 3),
         showValue(),
       ],
     );
   }
 
-  SliderTheme bodypartsSlider() {
+  SliderTheme slider() {
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
@@ -76,20 +67,21 @@ class _BodyPartsState extends State<BodyParts> {
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
       ),
       child: Slider(
-        min: sliderMin,
-        max: sliderMax,
-        value: bpValue,
-        divisions: sliderDivisions,
+        min: 0.0,
+        max: widget.maxValue,
+        value: currentValue,
+        divisions: widget.divisions,
         onChanged: (value) {
           setState(() {
-            bpValue = value;
+            currentValue = value;
+            widget.onValueChanged.call(currentValue.round());
           });
         },
       ),
     );
   }
 
-  Row bodypartsSliderValue() {
+  Row sliderText() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -107,56 +99,60 @@ class _BodyPartsState extends State<BodyParts> {
           '2',
           style: intensityText,
         ),
-        const Spacer(),
-        Text(
-          '3',
-          style: intensityText,
-        ),
+        if (widget.divisions == 3) const Spacer(),
+        if (widget.divisions == 3)
+          Text(
+            '3',
+            style: intensityText,
+          ),
       ],
     );
   }
 
-  final sliderIcon = SvgPicture.asset(
-    'assets/icons/ic_max.svg',
-    width: 16,
-    height: 16,
-    fit: BoxFit.fill,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: zeroMargin,
+      margin: homeValueMargin,
       height: 54,
       child: Row(
         children: [
           Container(
             margin: zeroMargin,
-            child: bodypartsImage(),
+            child: SvgPicture.asset(
+              widget.image,
+              fit: BoxFit.fill,
+              width: 40,
+              height: 40,
+            ),
           ),
           Expanded(
             child: Column(
               children: [
                 Container(
                   margin: modeTitleMargin,
-                  child: bodypartsTitle(),
+                  child: sliderTitle(),
                 ),
                 Container(
                   margin: zeroMargin,
                   height: 18,
                   width: double.infinity,
-                  child: bodypartsSlider(),
+                  child: slider(),
                 ),
                 Container(
                   padding: sliderValuePadding,
-                  child: bodypartsSliderValue(),
+                  child: sliderText(),
                 ),
               ],
             ),
           ),
           Container(
             margin: sliderIconMargin,
-            child: sliderIcon,
+            child: SvgPicture.asset(
+              widget.icon,
+              width: 16,
+              height: 16,
+              fit: BoxFit.fill,
+            ),
           ),
         ],
       ),
