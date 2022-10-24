@@ -151,7 +151,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       trailing: Switch(
         activeColor: Colors.white,
-        activeTrackColor: const Color(0xff0BB15D),
+        activeTrackColor: const Color(0xffED711A),
         value: _morningButton,
         onChanged: (bool value) {
           setState(() {
@@ -191,7 +191,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       trailing: Switch(
         activeColor: Colors.white,
-        activeTrackColor: const Color(0xff0BB15D),
+        activeTrackColor: const Color(0xffED711A),
         value: _afternoonButton,
         onChanged: (bool value) {
           setState(() {
@@ -231,7 +231,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       trailing: Switch(
         activeColor: Colors.white,
-        activeTrackColor: const Color(0xff0BB15D),
+        activeTrackColor: const Color(0xffED711A),
         value: _eveningButton,
         onChanged: (bool value) {
           setState(() {
@@ -274,7 +274,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       ),
       trailing: Switch(
         activeColor: Colors.white,
-        activeTrackColor: const Color(0xff0BB15D),
+        activeTrackColor: const Color(0xffED711A),
         value: _nightButton,
         onChanged: (bool value) {
           setState(() {
