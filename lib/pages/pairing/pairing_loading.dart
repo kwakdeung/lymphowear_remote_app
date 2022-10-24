@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
@@ -74,11 +75,11 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
     }
   }
 
-  CircularProgressIndicator circularprogressIndicator() {
-    return CircularProgressIndicator(
-      value: controller.value,
-      color: const Color(0xff0BB15D),
-      backgroundColor: const Color(0xff0BB15D).withOpacity(0.16),
+  loadingImage() {
+    return Lottie.asset(
+      "assets/images/searching.json",
+      width: 300,
+      height: 300,
     );
   }
 
@@ -100,8 +101,8 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 80, 0, 16),
-              child: circularprogressIndicator(),
+              margin: const EdgeInsets.fromLTRB(0, 45, 0, 16),
+              child: loadingImage(),
             ),
             Container(
               margin: zeroMargin,
