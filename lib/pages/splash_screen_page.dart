@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/onboarding_page.dart';
 
@@ -18,7 +19,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     // 부분 세로모드 고정하기 - SystemChrome.setPreferredOrientations를 initState에 세로고정 모드 삽입과 dispose에 원 상태 복귀 삽입
     // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       // 시간 제한
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => const OnboardingPage(),
@@ -35,9 +36,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   final splashScreen = Container(
     margin: zeroMargin,
-    child: SvgPicture.asset(
+    child: Lottie.asset(
       alignment: Alignment.center,
-      'assets/images/splash_screen_logo.svg',
+      'assets/images/splash_fin.json',
+      width: 160,
+      height: 160,
       fit: BoxFit.fill,
     ),
   );
@@ -47,6 +50,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return Scaffold(
+      backgroundColor: const Color(0xffDAEFF3),
       body: SafeArea(
         child: Center(
           child: Row(
