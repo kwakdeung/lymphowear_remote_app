@@ -74,6 +74,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       body: SafeArea(
         top: true,
         bottom: false,
