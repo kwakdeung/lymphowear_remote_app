@@ -217,11 +217,13 @@ class HomeDefaultBody extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => const Mode(
-                title: 'Vital Mode',
-                modeIcon: 'assets/icons/ic_vital.svg',
+                backgroundImage: 'assets/images/background_vital.json',
+                title: '',
                 modeTitle: 'Vital Mode',
+                modeColor: Color(0xffED711A),
+                iconColor: Color(0xff212121),
                 modeContent:
-                    'Mode to start the day lightly after waking up to reduce swelling. Mode to start the day lightly after waking up to reduce swelling.',
+                    'Reduce swelling and facial puffiness and\n boost your energy levels in the morning.',
               ),
             ),
           );
@@ -263,11 +265,13 @@ class HomeDefaultBody extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => const Mode(
-                title: 'Relaxing Mode',
-                modeIcon: 'assets/icons/ic_relaxing.svg',
+                backgroundImage: 'assets/images/background_relaxing.json',
+                title: '',
                 modeTitle: 'Relaxing Mode',
+                modeColor: Color(0xff007DA7),
+                iconColor: Color(0xff212121),
                 modeContent:
-                    'A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon. A mode that relieves fatigue and restores energy by removing toxins that are piled up late in the afternoon.',
+                    'Decrease stress and increase ease tension\n throughout your body in the daytime.',
               ),
             ),
           );
@@ -308,11 +312,13 @@ class HomeDefaultBody extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => const Mode(
-                title: 'Sleeping Mode',
-                modeIcon: 'assets/icons/ic_sleeping.svg',
+                backgroundImage: 'assets/images/background_sleeping.json',
+                title: '',
                 modeTitle: 'Sleeping Mode',
+                modeColor: Color(0xffF6DA6B),
+                iconColor: Color(0xffFFFFFF),
                 modeContent:
-                    "A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed. A mode that helps you sleep well by lowering your body's tension through gentle lymph stimulation before going to bed.",
+                    "Experience the full sleep-promoting\n effects before bedtime.",
               ),
             ),
           );

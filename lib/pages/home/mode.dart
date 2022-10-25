@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class Mode extends StatefulWidget {
-  const Mode(
-      {super.key,
-      required this.title,
-      required this.modeTitle,
-      required this.modeIcon,
-      required this.modeContent});
+  const Mode({
+    super.key,
+    required this.backgroundImage,
+    required this.title,
+    required this.modeTitle,
+    required this.modeColor,
+    required this.iconColor,
+    required this.modeContent,
+  });
 
-  final String title, modeIcon, modeTitle, modeContent;
+  final String backgroundImage, title, modeTitle, modeContent;
+  final Color modeColor, iconColor;
 
   @override
   State<Mode> createState() => _ModeState();
@@ -23,10 +27,13 @@ class _ModeState extends State<Mode> {
     return Scaffold(
       appBar: ModeAppbar(
         title: widget.title,
+        iconColor: widget.iconColor,
       ),
+      extendBodyBehindAppBar: true,
       body: ModeBody(
+        backgroundImage: widget.backgroundImage,
         modeTitle: widget.modeTitle,
-        modeIcon: widget.modeIcon,
+        modeColor: widget.modeColor,
         modeContent: widget.modeContent,
       ),
     );
@@ -37,16 +44,18 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   const ModeAppbar({
     Key? key,
     required this.title,
+    required this.iconColor,
   }) : super(key: key);
 
   final String title;
+  final Color iconColor;
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
   IconButton appbarIcon(context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios),
-      color: const Color(0xff616161),
+      color: iconColor,
       onPressed: () {
         Navigator.pop(context);
       },
@@ -69,10 +78,11 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: appbarTitle(context),
       centerTitle: true,
+      backgroundColor: Colors.transparent,
       bottom: PreferredSize(
         preferredSize: preferredSize,
         child: Container(
-          color: const Color(0xffEEEEEE),
+          color: Colors.transparent,
           height: 2.0,
         ),
       ),
@@ -83,24 +93,28 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
 class ModeBody extends StatefulWidget {
   const ModeBody(
       {Key? key,
+      required this.backgroundImage,
       required this.modeTitle,
-      required this.modeIcon,
+      required this.modeColor,
       required this.modeContent})
       : super(key: key);
-  final String modeIcon, modeTitle, modeContent;
+  final String backgroundImage, modeTitle, modeContent;
+  final Color modeColor;
 
   @override
   State<ModeBody> createState() => _ModeBodyState();
 }
 
 class _ModeBodyState extends State<ModeBody> {
+  final int _countedSeconds = 10;
   Container modeIndicator() {
     return Container(
-      margin: modeIndicatorMargin,
+      margin: const EdgeInsets.fromLTRB(0, 88, 0, 0),
       width: 150.0,
       height: 150.0,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.5),
+        // color: Colors.white,
         borderRadius: const BorderRadius.all(
           Radius.circular(999.0),
         ),
@@ -108,116 +122,76 @@ class _ModeBodyState extends State<ModeBody> {
           color: const Color(0xffE0E0E0),
           width: 1,
         ),
+        //  border: Border.all(
+        //   color: const Color(0xffE0E0E0),
+        //   width: 1,
+        // ),
       ),
-      child: const CircularIndicator(),
+      child: CircularIndicator(
+        indicatorValue: 1.0 - (_countedSeconds % 60) / 10,
+      ),
     );
   }
 
   Row modeHeadline() {
-    Text titleContent() {
-      return Text(
-        'Total Time : 15 mins',
-        style: modeContentText,
-      );
-    }
-
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: modeTitleImageMargin,
-          child: SvgPicture.asset(
-            widget.modeIcon,
-            fit: BoxFit.fill,
-            width: 24,
-            height: 24,
-          ),
-        ),
-        Container(
-          margin: zeroMargin,
+          margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
           child: Text(
             widget.modeTitle,
-            style: Theme.of(context).textTheme.subtitle2,
+            style: TextStyle(
+                color: widget.modeColor, fontWeight: semiBold, fontSize: 24),
+            // style: Theme.of(context).textTheme.subtitle2,
           ),
-        ),
-        const Spacer(),
-        Container(
-          margin: zeroMargin,
-          child: titleContent(),
         ),
       ],
     );
   }
 
-  final modeImage = SvgPicture.asset(
-    'assets/images/mode_image.svg',
-    fit: BoxFit.fill,
-  );
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xffF3F3F3),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              modeIndicator(),
-              Container(
-                margin: modeBodyMargin,
-                padding: modePadding,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: const Color(0xffEEEEEE),
-                    width: 1,
+    return Stack(
+      children: [
+        Lottie.asset(widget.backgroundImage, fit: BoxFit.cover),
+        SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(30, 16, 29, 0),
+                  // padding: modePadding,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.transparent,
                   ),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.08),
-                      spreadRadius: 0,
-                      offset: Offset(4, 1),
-                      blurRadius: 8.0,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: zeroMargin,
-                      color: Colors.transparent,
-                      child: modeHeadline(),
-                    ),
-                    Container(
-                      margin: modeTextMargin,
-                      padding: modeTextPadding,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: const Color(0xffEEEEEE),
-                          width: 0,
-                        ),
-                        color: const Color(0xffEEEEEE),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: zeroMargin,
+                        color: Colors.transparent,
+                        child: modeHeadline(),
                       ),
-                      child: Text(
+                      Text(
                         widget.modeContent,
-                        style: Theme.of(context).textTheme.caption,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: widget.modeColor,
+                            fontWeight: regular,
+                            fontSize: 16),
+                        // style: Theme.of(context).textTheme.caption,
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 128),
-                      width: double.infinity,
-                      child: modeImage,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                modeIndicator(),
+              ],
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
