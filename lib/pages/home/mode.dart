@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
+import 'package:lymphowear_remote_app/components/home/lympho_circularprogressindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class Mode extends StatefulWidget {
@@ -106,7 +106,7 @@ class ModeBody extends StatefulWidget {
 }
 
 class _ModeBodyState extends State<ModeBody> {
-  final int _countedSeconds = 10;
+  final int countedSeconds = 10;
   Container modeIndicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 88, 0, 0),
@@ -114,22 +114,11 @@ class _ModeBodyState extends State<ModeBody> {
       height: 150.0,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.5),
-        // color: Colors.white,
         borderRadius: const BorderRadius.all(
           Radius.circular(999.0),
         ),
-        border: Border.all(
-          color: const Color(0xffE0E0E0),
-          width: 1,
-        ),
-        //  border: Border.all(
-        //   color: const Color(0xffE0E0E0),
-        //   width: 1,
-        // ),
       ),
-      child: CircularIndicator(
-        indicatorValue: 1.0 - (_countedSeconds % 60) / 10,
-      ),
+      child: const LymphoCircularProgressIndicatorWidget(),
     );
   }
 
@@ -161,7 +150,6 @@ class _ModeBodyState extends State<ModeBody> {
               children: [
                 Container(
                   margin: const EdgeInsets.fromLTRB(30, 16, 29, 0),
-                  // padding: modePadding,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.transparent,
@@ -178,9 +166,10 @@ class _ModeBodyState extends State<ModeBody> {
                         widget.modeContent,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: widget.modeColor,
-                            fontWeight: regular,
-                            fontSize: 16),
+                          color: widget.modeColor,
+                          fontWeight: regular,
+                          fontSize: 16,
+                        ),
                         // style: Theme.of(context).textTheme.caption,
                       ),
                     ],

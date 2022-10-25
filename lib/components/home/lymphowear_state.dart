@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:lymphowear_remote_app/components/home/circularindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class LymphoWearState extends StatefulWidget {
@@ -15,8 +14,6 @@ class LymphoWearState extends StatefulWidget {
 }
 
 class _LymphoWearStateState extends State<LymphoWearState> {
-  late CircularIndicator circularindicator;
-
   Text stateTitle(context) {
     return Text(
       'Custom Mode',
