@@ -143,7 +143,11 @@ class _ModeBodyState extends State<ModeBody> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Lottie.asset(widget.backgroundImage, fit: BoxFit.cover),
+        Lottie.asset(
+          widget.backgroundImage,
+          fit: BoxFit.cover,
+          height: double.infinity,
+        ),
         SafeArea(
           child: SingleChildScrollView(
             child: Column(
