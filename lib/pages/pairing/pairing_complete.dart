@@ -75,7 +75,7 @@ class PairingCompleteBody extends StatelessWidget {
   static const title = Text(
     'Pairing is complete',
     style: TextStyle(
-      color: Color(0xffEB790C),
+      color: Color(0xffED711A),
       fontSize: 20,
       fontWeight: semiBold,
     ),
@@ -115,7 +115,7 @@ class PairingCompleteBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: GreenBottomButton(
+              child: OrangeBottomButton(
                 buttonText: 'Start',
                 onPressed: () {
                   Navigator.pushReplacement(

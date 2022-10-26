@@ -73,8 +73,8 @@ class HomeRefreshBody extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     padding: buttonPadding,
                     backgroundColor: Colors.white,
-                    foregroundColor: const Color(0xffEB790C),
-                    side: const BorderSide(color: Color(0xffEB790C)),
+                    foregroundColor: const Color(0xffED711A),
+                    side: const BorderSide(color: Color(0xffED711A)),
                     textStyle: Theme.of(context).textTheme.button,
                   ),
                   onPressed: () {

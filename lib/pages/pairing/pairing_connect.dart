@@ -40,7 +40,7 @@ class PairingConnectBody extends StatelessWidget {
   static const title = Text(
     'Confirm on the device',
     style: TextStyle(
-      color: Color(0xffEB790C),
+      color: Color(0xffED711A),
       fontSize: 16,
       fontWeight: semiBold,
     ),
@@ -74,7 +74,7 @@ class PairingConnectBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: GreenBottomButton(
+              child: OrangeBottomButton(
                 buttonText: 'Connect',
                 onPressed: () {
                   showProgressDialog(

@@ -157,13 +157,13 @@ class NoneBottomButton extends StatelessWidget {
     return ElevatedButton.icon(
       icon: const Icon(
         Icons.add_circle_outline_outlined,
-        color: Color(0xffEB790C),
+        color: Color(0xffED711A),
       ),
       style: ElevatedButton.styleFrom(
         padding: buttonPadding,
         backgroundColor: Colors.white,
-        foregroundColor: const Color(0xffEB790C),
-        side: const BorderSide(color: Color(0xffEB790C)),
+        foregroundColor: const Color(0xffED711A),
+        side: const BorderSide(color: Color(0xffED711A)),
         textStyle: Theme.of(context).textTheme.button,
       ),
       onPressed: () {

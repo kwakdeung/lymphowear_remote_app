@@ -154,7 +154,7 @@ class PairingPageBody extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: GreenBottomButton(
+              child: OrangeBottomButton(
                 buttonText: 'Start',
                 onPressed: () {
                   Navigator.push(
