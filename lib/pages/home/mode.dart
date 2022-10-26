@@ -154,6 +154,7 @@ class _ModeBodyState extends State<ModeBody> {
         Lottie.asset(
           widget.backgroundImage,
           fit: BoxFit.cover,
+          width: double.infinity,
           height: double.infinity,
         ),
         SafeArea(
