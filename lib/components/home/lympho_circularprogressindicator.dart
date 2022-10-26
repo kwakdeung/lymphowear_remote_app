@@ -129,8 +129,8 @@ class _LymphoCircularProgressIndicatorWidgetState
                         margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                         child: Text(
                           time,
-                          style: const TextStyle(
-                            color: Color(0xff212121),
+                          style: TextStyle(
+                            color: widget.iconColor,
                             fontSize: 24,
                             fontWeight: regular,
                           ),
