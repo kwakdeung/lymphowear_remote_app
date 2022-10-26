@@ -4,6 +4,9 @@ import 'package:lymphowear_remote_app/components/home/lympho_circularprogressind
 import 'package:lymphowear_remote_app/constants.dart';
 
 class Mode extends StatefulWidget {
+  final String backgroundImage, title, modeTitle, modeContent;
+  final Color modeColor, iconColor;
+
   const Mode({
     super.key,
     required this.backgroundImage,
@@ -13,9 +16,6 @@ class Mode extends StatefulWidget {
     required this.iconColor,
     required this.modeContent,
   });
-
-  final String backgroundImage, title, modeTitle, modeContent;
-  final Color modeColor, iconColor;
 
   @override
   State<Mode> createState() => _ModeState();
@@ -34,6 +34,7 @@ class _ModeState extends State<Mode> {
         backgroundImage: widget.backgroundImage,
         modeTitle: widget.modeTitle,
         modeColor: widget.modeColor,
+        iconColor: widget.iconColor,
         modeContent: widget.modeContent,
       ),
     );
@@ -41,14 +42,15 @@ class _ModeState extends State<Mode> {
 }
 
 class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final Color iconColor;
+
   const ModeAppbar({
     Key? key,
     required this.title,
     required this.iconColor,
   }) : super(key: key);
 
-  final String title;
-  final Color iconColor;
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
@@ -91,15 +93,17 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class ModeBody extends StatefulWidget {
+  final String backgroundImage, modeTitle, modeContent;
+  final Color modeColor, iconColor;
+
   const ModeBody(
       {Key? key,
       required this.backgroundImage,
       required this.modeTitle,
       required this.modeColor,
+      required this.iconColor,
       required this.modeContent})
       : super(key: key);
-  final String backgroundImage, modeTitle, modeContent;
-  final Color modeColor;
 
   @override
   State<ModeBody> createState() => _ModeBodyState();
@@ -107,6 +111,7 @@ class ModeBody extends StatefulWidget {
 
 class _ModeBodyState extends State<ModeBody> {
   final int countedSeconds = 10;
+
   Container modeIndicator() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 88, 0, 0),
@@ -118,7 +123,10 @@ class _ModeBodyState extends State<ModeBody> {
           Radius.circular(999.0),
         ),
       ),
-      child: const LymphoCircularProgressIndicatorWidget(),
+      child: LymphoCircularProgressIndicatorWidget(
+        modeColor: widget.modeColor,
+        iconColor: widget.iconColor,
+      ),
     );
   }
 

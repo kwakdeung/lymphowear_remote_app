@@ -6,7 +6,13 @@ import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class LymphoCircularProgressIndicatorWidget extends StatefulWidget {
-  const LymphoCircularProgressIndicatorWidget({super.key});
+  final Color modeColor, iconColor;
+
+  const LymphoCircularProgressIndicatorWidget({
+    super.key,
+    required this.modeColor,
+    required this.iconColor,
+  });
 
   @override
   State<LymphoCircularProgressIndicatorWidget> createState() =>
@@ -80,96 +86,91 @@ class _LymphoCircularProgressIndicatorWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Center(
+    return Center(
+      child: Container(
+        margin: zeroMargin,
+        width: 150.0,
+        height: 150.0,
         child: Container(
-          margin: zeroMargin,
-          width: 150.0,
-          height: 150.0,
-          child: Container(
-            margin: const EdgeInsets.all(2),
-            width: 144,
-            height: 144,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Positioned(
-                  child: Visibility(
-                    visible: circularVisible,
-                    child: CircularProgressIndicator(
-                      backgroundColor:
-                          const Color(0xffED711A).withOpacity(0.16),
-                      strokeWidth: 6,
-                      value: 1.0 - (countedSeconds % 60) / 10,
-                      valueColor: const AlwaysStoppedAnimation<Color>(
-                        Color(0xffED711A),
-                      ),
+          margin: const EdgeInsets.all(2),
+          width: 144,
+          height: 144,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Positioned(
+                child: Visibility(
+                  visible: circularVisible,
+                  child: CircularProgressIndicator(
+                    backgroundColor: widget.modeColor.withOpacity(0.16),
+                    strokeWidth: 6,
+                    value: 1.0 - (countedSeconds % 60) / 10,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      widget.modeColor,
                     ),
                   ),
                 ),
-                Positioned(
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
-                          child: SvgPicture.asset(
-                            'assets/images/battery.svg',
-                            fit: BoxFit.fill,
-                            width: 30,
-                            height: 12,
+              ),
+              Positioned(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 22, 0, 2),
+                        child: SvgPicture.asset(
+                          'assets/images/battery.svg',
+                          fit: BoxFit.fill,
+                          color: widget.iconColor,
+                          width: 30,
+                          height: 12,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                        child: Text(
+                          time,
+                          style: const TextStyle(
+                            color: Color(0xff212121),
+                            fontSize: 24,
+                            fontWeight: regular,
                           ),
                         ),
-                        Container(
-                          margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                          child: Text(
-                            time,
-                            style: const TextStyle(
-                              color: Color(0xff212121),
-                              fontSize: 24,
-                              fontWeight: regular,
-                            ),
+                      ),
+                      Container(
+                        margin: zeroMargin,
+                        width: 40.0,
+                        height: 40.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: widget.modeColor,
+                            width: 1.5,
                           ),
+                          color:
+                              isPlaying ? Colors.transparent : widget.modeColor,
                         ),
-                        Container(
-                          margin: zeroMargin,
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                              color: const Color(0xffED711A),
-                              width: 1.5,
-                            ),
-                            color: isPlaying
-                                ? Colors.transparent
-                                : const Color(0xffED711A),
-                          ),
-                          child: IconButton(
-                            onPressed: () {
-                              playpauseControl();
-                            },
-                            color: isPlaying
-                                ? const Color(0xffED711A)
-                                : Colors.white,
-                            icon: isPlaying
-                                ? SvgPicture.asset(
-                                    "assets/icons/ic_pause_full.svg",
-                                    fit: BoxFit.fill,
-                                  )
-                                : SvgPicture.asset(
-                                    "assets/icons/ic_play_full.svg",
-                                    fit: BoxFit.fill,
-                                  ),
-                          ),
+                        child: IconButton(
+                          onPressed: () {
+                            playpauseControl();
+                          },
+                          color: isPlaying ? widget.modeColor : Colors.white,
+                          icon: isPlaying
+                              ? SvgPicture.asset(
+                                  "assets/icons/ic_pause_full.svg",
+                                  fit: BoxFit.fill,
+                                  color: widget.modeColor,
+                                )
+                              : SvgPicture.asset(
+                                  "assets/icons/ic_play_full.svg",
+                                  fit: BoxFit.fill,
+                                ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),
