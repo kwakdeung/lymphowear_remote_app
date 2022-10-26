@@ -21,29 +21,29 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     );
   }
 
-  Timer? _timer;
+  Timer? timer;
 
-  int _countedSeconds = 10;
+  int countedSeconds = 10;
   int minSeconds = 0;
   int maxSeconds = 10;
 
-  bool _timerStart = false;
+  bool timerStart = false;
   bool timerRunning = false;
   bool circularVisible = false;
 
   bool isPlaying = false;
 
   get time {
-    var min = (_countedSeconds ~/ 60).toString().padLeft(2, '0');
-    var sec = (_countedSeconds % 60).toString().padLeft(2, '0');
+    var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
+    var sec = (countedSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
   }
 
   void startTimer() {
-    _timerStart = true;
+    timerStart = true;
     timerRunning = true;
 
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         passTime();
         alertEnd();
@@ -54,19 +54,19 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
   void stopTimer() {
     timerRunning = false;
-    _timer!.cancel();
+    timer!.cancel();
   }
 
   void passTime() {
-    if (_countedSeconds > minSeconds) {
-      _countedSeconds--;
+    if (countedSeconds > minSeconds) {
+      countedSeconds--;
     }
   }
 
   void alertEnd() {
     if (time == "00:00") {
-      _timer!.cancel();
-      _timeAlertDialog(
+      timer!.cancel();
+      timeAlertDialog(
         context,
         "Total Time: 15mins",
       );
@@ -74,19 +74,19 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   }
 
   void minusControl() {
-    if (_countedSeconds > minSeconds &&
-        (_timerStart == false && timerRunning == false)) {
+    if (countedSeconds > minSeconds &&
+        (timerStart == false && timerRunning == false)) {
       setState(() {
-        _countedSeconds--;
+        countedSeconds--;
       });
     }
   }
 
   void plusControl() {
-    if (_countedSeconds < maxSeconds &&
-        (_timerStart == false && timerRunning == false)) {
+    if (countedSeconds < maxSeconds &&
+        (timerStart == false && timerRunning == false)) {
       setState(() {
-        _countedSeconds++;
+        countedSeconds++;
       });
     }
   }
@@ -115,7 +115,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: (_countedSeconds > minSeconds) && _timerStart == false
+                color: (countedSeconds > minSeconds) && timerStart == false
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -125,7 +125,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
           fit: BoxFit.fill,
-          color: (_countedSeconds > minSeconds) && _timerStart == false
+          color: (countedSeconds > minSeconds) && timerStart == false
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
@@ -144,7 +144,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: (_countedSeconds < maxSeconds) && _timerStart == false
+                color: (countedSeconds < maxSeconds) && timerStart == false
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -154,7 +154,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         child: SvgPicture.asset(
           'assets/icons/ic_plus.svg',
           fit: BoxFit.fill,
-          color: (_countedSeconds < maxSeconds) && _timerStart == false
+          color: (countedSeconds < maxSeconds) && timerStart == false
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
@@ -162,14 +162,14 @@ class _LymphoWearStateState extends State<LymphoWearState> {
     );
   }
 
-  Container timer() {
+  Container circleTimer() {
     Visibility circularprogressIndicator() {
       return Visibility(
         visible: circularVisible,
         child: CircularProgressIndicator(
           backgroundColor: const Color(0xffED711A).withOpacity(0.16),
           strokeWidth: 6,
-          value: 1.0 - (_countedSeconds % 60) / 10,
+          value: 1.0 - (countedSeconds % 60) / 10,
           valueColor: const AlwaysStoppedAnimation<Color>(
             Color(0xffED711A),
           ),
@@ -287,7 +287,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 minusButton(),
-                timer(),
+                circleTimer(),
                 plusButton(),
               ],
             ),
@@ -298,7 +298,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
   }
 }
 
-Future _timeAlertDialog(BuildContext context, String message) async {
+Future timeAlertDialog(BuildContext context, String message) async {
   Text timeAlertdialogTitle(context) {
     return Text(
       "Great job!",
