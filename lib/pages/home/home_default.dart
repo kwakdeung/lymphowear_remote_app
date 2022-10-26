@@ -388,6 +388,8 @@ class HomeDefaultBody extends StatelessWidget {
   }
 
   Container secondContainer(context) {
+    double homeValueHeight = 52;
+
     return Container(
       margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
@@ -413,37 +415,53 @@ class HomeDefaultBody extends StatelessWidget {
             color: Colors.white,
             child: const LymphoWearState(),
           ),
-          LymphoPartSliderWidget(
-            title: 'Collarbone',
-            image: 'assets/images/collarbone.svg',
-            maxValue: 3,
-            divisions: 3,
-            icon: 'assets/icons/ic_max.svg',
-            onValueChanged: (value) {},
+          Container(
+            margin: homeValueMargin,
+            height: homeValueHeight,
+            child: LymphoPartSliderWidget(
+              title: 'Collarbone',
+              image: 'assets/images/collarbone.svg',
+              maxValue: 3,
+              divisions: 3,
+              icon: 'assets/icons/ic_max.svg',
+              onValueChanged: (value) {},
+            ),
           ),
-          LymphoPartSliderWidget(
-            title: 'Armpit',
-            image: 'assets/images/armpit.svg',
-            maxValue: 3,
-            divisions: 3,
-            icon: 'assets/icons/ic_max.svg',
-            onValueChanged: (value) {},
+          Container(
+            margin: homeValueMargin,
+            height: homeValueHeight,
+            child: LymphoPartSliderWidget(
+              title: 'Armpit',
+              image: 'assets/images/armpit.svg',
+              maxValue: 3,
+              divisions: 3,
+              icon: 'assets/icons/ic_max.svg',
+              onValueChanged: (value) {},
+            ),
           ),
-          LymphoPartSliderWidget(
-            title: 'Shoulder',
-            image: 'assets/images/shoulder.svg',
-            maxValue: 3,
-            divisions: 3,
-            icon: 'assets/icons/ic_max.svg',
-            onValueChanged: (value) {},
+          Container(
+            margin: homeValueMargin,
+            height: homeValueHeight,
+            child: LymphoPartSliderWidget(
+              title: 'Shoulder',
+              image: 'assets/images/shoulder.svg',
+              maxValue: 3,
+              divisions: 3,
+              icon: 'assets/icons/ic_max.svg',
+              onValueChanged: (value) {},
+            ),
           ),
-          LymphoPartSliderWidget(
-            title: 'Heat',
-            image: 'assets/images/heat.svg',
-            maxValue: 2,
-            divisions: 2,
-            icon: 'assets/icons/ic_heat_max.svg',
-            onValueChanged: (value) {},
+          Container(
+            margin: homeValueMargin,
+            height: homeValueHeight,
+            child: LymphoPartSliderWidget(
+              title: 'Heat',
+              image: 'assets/images/heat.svg',
+              maxValue: 2,
+              divisions: 2,
+              icon: 'assets/icons/ic_heat_max.svg',
+              onValueChanged: (value) {},
+            ),
           ),
         ],
       ),

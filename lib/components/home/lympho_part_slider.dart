@@ -111,51 +111,47 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: homeValueMargin,
-      height: 54,
-      child: Row(
-        children: [
-          Container(
-            margin: zeroMargin,
-            child: SvgPicture.asset(
-              widget.image,
-              fit: BoxFit.fill,
-              width: 40,
-              height: 40,
-            ),
+    return Row(
+      children: [
+        Container(
+          margin: zeroMargin,
+          child: SvgPicture.asset(
+            widget.image,
+            fit: BoxFit.fill,
+            width: 40,
+            height: 40,
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Container(
-                  margin: modeTitleMargin,
-                  child: sliderTitle(),
-                ),
-                Container(
-                  margin: zeroMargin,
-                  height: 18,
-                  width: double.infinity,
-                  child: slider(),
-                ),
-                Container(
-                  padding: sliderValuePadding,
-                  child: sliderText(),
-                ),
-              ],
-            ),
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Container(
+                margin: modeTitleMargin,
+                child: sliderTitle(),
+              ),
+              Container(
+                margin: zeroMargin,
+                height: 18,
+                width: double.infinity,
+                child: slider(),
+              ),
+              Container(
+                padding: sliderValuePadding,
+                child: sliderText(),
+              ),
+            ],
           ),
-          Container(
-            margin: sliderIconMargin,
-            child: SvgPicture.asset(
-              widget.icon,
-              width: 16,
-              height: 16,
-              fit: BoxFit.fill,
-            ),
+        ),
+        Container(
+          margin: sliderIconMargin,
+          child: SvgPicture.asset(
+            widget.icon,
+            width: 16,
+            height: 16,
+            fit: BoxFit.fill,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
