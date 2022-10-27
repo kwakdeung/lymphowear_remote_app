@@ -36,7 +36,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     pageController = PageController(
       initialPage: 0,
-      viewportFraction: 0.65,
     );
 
     PageView pageView() {
@@ -53,8 +52,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ) =>
             OnboardingContents(
           image: onboardingData[index].image,
-          title: onboardingData[index].title,
           description: onboardingData[index].description,
+          marginTop: onboardingData[index].marginTop,
         ),
       );
     }
@@ -76,7 +75,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
-        top: true,
+        top: false,
         bottom: false,
         child: Center(
           child: Container(
@@ -89,12 +88,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: pageView(),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(32),
+                  margin: const EdgeInsets.all(0),
                   child: dotIndicator(),
                 ),
                 Container(
                   color: const Color.fromARGB(0, 231, 174, 174),
-                  margin: const EdgeInsets.fromLTRB(20, 40, 20, 80),
+                  margin: const EdgeInsets.fromLTRB(20, 24, 20, 80),
                   width: double.infinity,
                   child: OrangeBottomButton(
                     buttonText: 'Skip',

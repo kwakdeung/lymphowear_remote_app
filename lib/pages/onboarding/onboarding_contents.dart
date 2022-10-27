@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class OnboardingContents extends StatefulWidget {
+  final String image, description;
+  final double marginTop;
+
   const OnboardingContents({
     Key? key,
     required this.image,
-    required this.title,
+    required this.marginTop,
     required this.description,
   }) : super(key: key);
-  final String image, title, description;
 
   @override
   State<OnboardingContents> createState() => _OnboardingContentsState();
@@ -17,19 +19,18 @@ class OnboardingContents extends StatefulWidget {
 class _OnboardingContentsState extends State<OnboardingContents> {
   get image => Image.asset(
         widget.image,
+        width: double.infinity,
         fit: BoxFit.fill,
-      );
-
-  get title => Text(
-        widget.title,
-        textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.headline5,
       );
 
   get description => Text(
         widget.description,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.bodyText2,
+        style: const TextStyle(
+            fontWeight: FontWeight.w500,
+            color: Color(0xff005784),
+            fontSize: 18),
+        // style: Theme.of(context).textTheme.bodyText2,
       );
 
   @override
@@ -38,18 +39,14 @@ class _OnboardingContentsState extends State<OnboardingContents> {
       margin: zeroMargin,
       width: double.infinity,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(bottom: 18),
+            margin: const EdgeInsets.only(bottom: 0),
             child: image,
           ),
           Container(
-            margin: zeroMargin,
-            child: title,
-          ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(10, 18, 10, 10),
+            margin: EdgeInsets.fromLTRB(20, widget.marginTop, 20, 10),
             child: description,
           ),
         ],
