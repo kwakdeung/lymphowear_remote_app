@@ -471,7 +471,7 @@ class HomeDefaultBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xffF3F3F3),
+      color: const Color(0xffE9F2F4),
       height: double.maxFinite,
       child: SingleChildScrollView(
         child: Center(
