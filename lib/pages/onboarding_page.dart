@@ -54,6 +54,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           image: onboardingData[index].image,
           description: onboardingData[index].description,
           marginTop: onboardingData[index].marginTop,
+          pageIndex: pageIndex,
         ),
       );
     }
