@@ -36,7 +36,51 @@ class _OnboardingContentsState extends State<OnboardingContents> {
             fontWeight: FontWeight.w500,
             color: Color(0xff005784),
             fontSize: 18),
-        // style: Theme.of(context).textTheme.bodyText2,
+      );
+
+  get skipButton => Positioned(
+        top: 42,
+        right: 35,
+        child: TextButton(
+          child: const Text(
+            'Skip',
+            style: TextStyle(
+              fontWeight: semiBold,
+              fontSize: 16,
+              color: Color(0xffED711A),
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => None(
+                      logoTitle: SvgPicture.asset(
+                        'assets/images/lymphowear.svg',
+                        fit: BoxFit.fill,
+                      ),
+                      appbarIcon: IconButton(
+                        icon: SvgPicture.asset(
+                          'assets/icons/ic_setting.svg',
+                          fit: BoxFit.fill,
+                        ),
+                        color: const Color(0xff616161),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => const SettingPage()),
+                            ),
+                          );
+                        },
+                      ),
+                      leadingButton: Container(),
+                      routePairing: const PairingPage(),
+                    )),
+              ),
+            );
+          },
+        ),
       );
 
   @override
@@ -53,52 +97,7 @@ class _OnboardingContentsState extends State<OnboardingContents> {
                 margin: const EdgeInsets.only(bottom: 0),
                 child: image,
               ),
-              widget.pageIndex == 2
-                  ? Container()
-                  : Positioned(
-                      top: 42,
-                      right: 35,
-                      child: TextButton(
-                        child: const Text(
-                          'Skip',
-                          style: TextStyle(
-                              fontWeight: semiBold,
-                              fontSize: 16,
-                              color: Color(0xffED711A)),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: ((context) => None(
-                                    logoTitle: SvgPicture.asset(
-                                      'assets/images/lymphowear.svg',
-                                      fit: BoxFit.fill,
-                                    ),
-                                    appbarIcon: IconButton(
-                                      icon: SvgPicture.asset(
-                                        'assets/icons/ic_setting.svg',
-                                        fit: BoxFit.fill,
-                                      ),
-                                      color: const Color(0xff616161),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: ((context) =>
-                                                const SettingPage()),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    leadingButton: Container(),
-                                    routePairing: const PairingPage(),
-                                  )),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+              widget.pageIndex == 2 ? Container() : skipButton,
             ],
           ),
           Container(
