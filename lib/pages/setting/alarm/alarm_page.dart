@@ -70,80 +70,50 @@ class AlarmPageBody extends StatefulWidget {
 }
 
 class _AlarmPageBodyState extends State<AlarmPageBody> {
-  bool _morningButton = false;
-  bool _morningVisible = false;
-  String _morningValue = "";
+  bool _firstAlarmButton = false;
+  bool _firstAlarmVisible = false;
+  String _firstAlarmValue = "";
 
-  bool _afternoonButton = false;
-  bool _afternoonVisible = false;
-  String _afternoonValue = "";
+  bool _secondAlarmButton = false;
+  bool _secondAlarmVisible = false;
+  String _secondAlarmValue = "";
 
-  bool _eveningButton = false;
-  bool _eveningVisible = false;
-  String _eveningValue = "";
-
-  bool _nightButton = false;
-  bool _nightVisible = false;
-  String _nightValue = "";
-
-  void showMorning() {
-    _morningButton = !_morningButton;
-    if (_morningButton != false) {
-      _morningVisible = true;
-      _morningValue = "Scheduled for 08:00AM";
+  void showFirstAlarm() {
+    _firstAlarmButton = !_firstAlarmButton;
+    if (_firstAlarmButton != false) {
+      _firstAlarmVisible = true;
+      _firstAlarmValue = "Scheduled for 08:00AM";
     } else {
-      _morningVisible = false;
-      _morningValue = "";
+      _firstAlarmVisible = false;
+      _firstAlarmValue = "";
     }
   }
 
-  void showAfternoon() {
-    _afternoonButton = !_afternoonButton;
-    if (_afternoonButton != false) {
-      _afternoonVisible = true;
-      _afternoonValue = "Scheduled for 12:00PM";
+  void showSecondAlarm() {
+    _secondAlarmButton = !_secondAlarmButton;
+    if (_secondAlarmButton != false) {
+      _secondAlarmVisible = true;
+      _secondAlarmValue = "Scheduled for 12:00PM";
     } else {
-      _afternoonVisible = false;
-      _afternoonValue = "";
+      _secondAlarmVisible = false;
+      _secondAlarmValue = "";
     }
   }
 
-  void showEvening() {
-    _eveningButton = !_eveningButton;
-    if (_eveningButton != false) {
-      _eveningVisible = true;
-      _eveningValue = "Scheduled for 06:00PM";
-    } else {
-      _eveningVisible = false;
-      _eveningValue = "";
-    }
-  }
-
-  void showNight() {
-    _nightButton = !_nightButton;
-    if (_nightButton != false) {
-      _nightVisible = true;
-      _nightValue = "Scheduled for 10:00PM";
-    } else {
-      _nightVisible = false;
-      _nightValue = "";
-    }
-  }
-
-  ListTile morningReminder() {
+  ListTile firstAlarmReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Morning Reminder',
+            'Alarm 1',
             style: listTilebodyText1,
           ),
           Visibility(
-            visible: _morningVisible,
+            visible: _firstAlarmVisible,
             child: Text(
-              _morningValue,
+              _firstAlarmValue,
               style: alramValueText,
             ),
           ),
@@ -152,10 +122,10 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       trailing: Switch(
         activeColor: Colors.white,
         activeTrackColor: const Color(0xffED711A),
-        value: _morningButton,
+        value: _firstAlarmButton,
         onChanged: (bool value) {
           setState(() {
-            showMorning();
+            showFirstAlarm();
           });
         },
       ),
@@ -170,20 +140,20 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     );
   }
 
-  ListTile afternoonReminder() {
+  ListTile secondAlarmReminder() {
     return ListTile(
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Afternoon Reminder',
+            'Alarm 2',
             style: listTilebodyText1,
           ),
           Visibility(
-            visible: _afternoonVisible,
+            visible: _secondAlarmVisible,
             child: Text(
-              _afternoonValue,
+              _secondAlarmValue,
               style: alramValueText,
             ),
           ),
@@ -192,10 +162,10 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       trailing: Switch(
         activeColor: Colors.white,
         activeTrackColor: const Color(0xffED711A),
-        value: _afternoonButton,
+        value: _secondAlarmButton,
         onChanged: (bool value) {
           setState(() {
-            showAfternoon();
+            showSecondAlarm();
           });
         },
       ),
@@ -204,89 +174,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           context,
           MaterialPageRoute(
             builder: ((context) => const Reminder(title: 'Afternoon Reminder')),
-          ),
-        );
-      },
-    );
-  }
-
-  ListTile eveningReminder() {
-    return ListTile(
-      leading: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Evening Reminder',
-            style: listTilebodyText1,
-          ),
-          Visibility(
-            visible: _eveningVisible,
-            child: Text(
-              _eveningValue,
-              style: alramValueText,
-            ),
-          ),
-        ],
-      ),
-      trailing: Switch(
-        activeColor: Colors.white,
-        activeTrackColor: const Color(0xffED711A),
-        value: _eveningButton,
-        onChanged: (bool value) {
-          setState(() {
-            showEvening();
-          });
-        },
-      ),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const Reminder(title: 'Evening Reminder')),
-          ),
-        );
-      },
-    );
-  }
-
-  ListTile nightReminder() {
-    return ListTile(
-      leading: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: zeroMargin,
-            child: Text(
-              'Night Reminder',
-              style: listTilebodyText1,
-            ),
-          ),
-          Visibility(
-            visible: _nightVisible,
-            child: Text(
-              _nightValue,
-              style: alramValueText,
-            ),
-          ),
-        ],
-      ),
-      trailing: Switch(
-        activeColor: Colors.white,
-        activeTrackColor: const Color(0xffED711A),
-        value: _nightButton,
-        onChanged: (bool value) {
-          setState(() {
-            showNight();
-          });
-        },
-      ),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const Reminder(title: 'Night Reminder')),
           ),
         );
       },
@@ -309,25 +196,13 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           Container(
             color: Colors.white,
             padding: reminderPadding,
-            child: morningReminder(),
+            child: firstAlarmReminder(),
           ),
           divider,
           Container(
             color: Colors.white,
             padding: reminderPadding,
-            child: afternoonReminder(),
-          ),
-          divider,
-          Container(
-            color: Colors.white,
-            padding: reminderPadding,
-            child: eveningReminder(),
-          ),
-          divider,
-          Container(
-            color: Colors.white,
-            padding: reminderPadding,
-            child: nightReminder(),
+            child: secondAlarmReminder(),
           ),
           divider,
         ],
