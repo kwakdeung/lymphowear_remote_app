@@ -139,8 +139,10 @@ class _ModeBodyState extends State<ModeBody> {
           child: Text(
             widget.modeTitle,
             style: TextStyle(
-                color: widget.modeColor, fontWeight: semiBold, fontSize: 24),
-            // style: Theme.of(context).textTheme.subtitle2,
+              color: widget.modeColor,
+              fontWeight: semiBold,
+              fontSize: 24,
+            ),
           ),
         ),
       ],
@@ -183,7 +185,6 @@ class _ModeBodyState extends State<ModeBody> {
                           fontWeight: regular,
                           fontSize: 16,
                         ),
-                        // style: Theme.of(context).textTheme.caption,
                       ),
                     ],
                   ),
