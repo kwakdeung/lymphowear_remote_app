@@ -71,6 +71,50 @@ class _OnboardingPageState extends State<OnboardingPage> {
       );
     }
 
+    final nextButton = OrangeBottomButton(
+      buttonText: 'Next',
+      onPressed: () {
+        pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.linear,
+        );
+      },
+    );
+
+    final startButton = OrangeBottomButton(
+      buttonText: 'Get Started',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => None(
+                  logoTitle: SvgPicture.asset(
+                    'assets/images/lymphowear.svg',
+                    fit: BoxFit.fill,
+                  ),
+                  appbarIcon: IconButton(
+                    icon: SvgPicture.asset(
+                      'assets/icons/ic_setting.svg',
+                      fit: BoxFit.fill,
+                    ),
+                    color: const Color(0xff616161),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const SettingPage()),
+                        ),
+                      );
+                    },
+                  ),
+                  leadingButton: Container(),
+                  routePairing: const PairingPage(),
+                )),
+          ),
+        );
+      },
+    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -95,50 +139,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   color: const Color.fromARGB(0, 231, 174, 174),
                   margin: const EdgeInsets.fromLTRB(20, 24, 20, 80),
                   width: double.infinity,
-                  child: pageIndex == 2
-                      ? OrangeBottomButton(
-                          buttonText: 'Get Started',
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => None(
-                                      logoTitle: SvgPicture.asset(
-                                        'assets/images/lymphowear.svg',
-                                        fit: BoxFit.fill,
-                                      ),
-                                      appbarIcon: IconButton(
-                                        icon: SvgPicture.asset(
-                                          'assets/icons/ic_setting.svg',
-                                          fit: BoxFit.fill,
-                                        ),
-                                        color: const Color(0xff616161),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: ((context) =>
-                                                  const SettingPage()),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                      leadingButton: Container(),
-                                      routePairing: const PairingPage(),
-                                    )),
-                              ),
-                            );
-                          },
-                        )
-                      : OrangeBottomButton(
-                          buttonText: 'Next',
-                          onPressed: () {
-                            pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.linear,
-                            );
-                          },
-                        ),
+                  child: pageIndex == 2 ? startButton : nextButton,
                 ),
               ],
             ),
