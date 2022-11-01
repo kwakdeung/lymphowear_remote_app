@@ -20,9 +20,11 @@ class LymphoCircularProgressIndicatorWidget extends StatefulWidget {
 }
 
 class _LymphoCircularProgressIndicatorWidgetState
-    extends State<LymphoCircularProgressIndicatorWidget> {
+    extends State<LymphoCircularProgressIndicatorWidget>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
   Timer? timer;
-  int countedSeconds = 10;
+  int countedSeconds = 900;
   int minSeconds = 0;
   int maxSeconds = 10;
 
@@ -35,6 +37,24 @@ class _LymphoCircularProgressIndicatorWidgetState
     var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
     var sec = (countedSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
+  }
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: countedSeconds),
+    )..addListener(() {
+        setState(() {});
+      });
+    controller.forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   void startTimer() {
@@ -104,7 +124,7 @@ class _LymphoCircularProgressIndicatorWidgetState
                   child: CircularProgressIndicator(
                     backgroundColor: widget.modeColor.withOpacity(0.16),
                     strokeWidth: 6,
-                    value: 1.0 - (countedSeconds % 60) / 10,
+                    value: controller.value,
                     valueColor: AlwaysStoppedAnimation<Color>(
                       widget.modeColor,
                     ),

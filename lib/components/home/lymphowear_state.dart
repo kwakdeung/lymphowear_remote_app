@@ -13,7 +13,8 @@ class LymphoWearState extends StatefulWidget {
   State<LymphoWearState> createState() => _LymphoWearStateState();
 }
 
-class _LymphoWearStateState extends State<LymphoWearState> {
+class _LymphoWearStateState extends State<LymphoWearState>
+    with TickerProviderStateMixin {
   Text stateTitle(context) {
     return Text(
       'Custom Mode',
@@ -23,15 +24,35 @@ class _LymphoWearStateState extends State<LymphoWearState> {
 
   Timer? timer;
 
-  int countedSeconds = 10;
+  int countedSeconds = 900;
+
   int minSeconds = 0;
-  int maxSeconds = 10;
+  int maxSeconds = 900;
 
   bool timerStart = false;
   bool timerRunning = false;
   bool circularVisible = false;
 
   bool isPlaying = false;
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: countedSeconds),
+    )..addListener(() {
+        setState(() {});
+      });
+    controller.forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   get time {
     var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
@@ -169,7 +190,7 @@ class _LymphoWearStateState extends State<LymphoWearState> {
         child: CircularProgressIndicator(
           backgroundColor: const Color(0xffED711A).withOpacity(0.16),
           strokeWidth: 6,
-          value: 1.0 - (countedSeconds % 60) / 10,
+          value: controller.value,
           valueColor: const AlwaysStoppedAnimation<Color>(
             Color(0xffED711A),
           ),
