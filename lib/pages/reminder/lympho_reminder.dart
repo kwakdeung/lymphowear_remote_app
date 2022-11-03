@@ -7,11 +7,9 @@ import 'package:timezone/timezone.dart' as tz;
 
 class ReminderWidget extends StatefulWidget {
   final void Function(DateTime) onDateTimeChanged;
-  // final DateTime time;
   const ReminderWidget({
     super.key,
     required this.title,
-    // required this.time,
     required this.onDateTimeChanged,
   });
 
@@ -30,7 +28,6 @@ class _ReminderWidgetState extends State<ReminderWidget> {
       ),
       body: ReminderWidgetBody(
         title: widget.title,
-        // time: widget.time,
         onDateTimeChanged: widget.onDateTimeChanged,
       ),
     );
