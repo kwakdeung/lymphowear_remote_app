@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
+import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
 import 'package:lymphowear_remote_app/pages/reminder/reminder.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -70,6 +72,42 @@ class AlarmPageBody extends StatefulWidget {
 }
 
 class _AlarmPageBodyState extends State<AlarmPageBody> {
+  // late int timer = DateTime.now().millisecondsSinceEpoch;
+  // late c prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    // getSharedPreferences();
+  }
+
+  // getSharedPreferences() async {
+  //   prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     timer = (prefs.getInt("timer") ?? 0);
+  //   });
+  // }
+
+  void onDateTimeChanged(DateTime newTime) {
+    setState(() {
+      time = newTime;
+    });
+  }
+
+  DateTime time = DateTime.now();
+
+  get hrs => (time.hour);
+  get min => (time.minute);
+
+  get alarmTime {
+    var setHrs = (hrs % 12).toString().padLeft(2, '0');
+    var setMin = min.toString().padLeft(2, '0');
+    var mrd = hrs >= 12 ? 'PM' : 'AM';
+
+    return '$setHrs:$setMin$mrd';
+    // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
+  }
+
   bool _firstAlarmButton = false;
   bool _firstAlarmVisible = false;
   String _firstAlarmValue = "";
@@ -82,7 +120,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     _firstAlarmButton = !_firstAlarmButton;
     if (_firstAlarmButton != false) {
       _firstAlarmVisible = true;
-      _firstAlarmValue = "Scheduled for 08:00AM";
+      _firstAlarmValue = "Scheduled for " + alarmTime;
     } else {
       _firstAlarmVisible = false;
       _firstAlarmValue = "";
@@ -133,7 +171,10 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const Reminder(title: 'Morning Reminder')),
+            builder: ((context) => ReminderWidget(
+                  title: 'Morning Reminder',
+                  onDateTimeChanged: onDateTimeChanged,
+                )),
           ),
         );
       },
