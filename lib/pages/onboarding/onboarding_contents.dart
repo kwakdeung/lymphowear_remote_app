@@ -91,14 +91,16 @@ class _OnboardingContentsState extends State<OnboardingContents> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(bottom: 0),
-                child: image,
-              ),
-              widget.pageIndex == 2 ? Container() : skipButton,
-            ],
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 0),
+                  child: image,
+                ),
+                widget.pageIndex == 2 ? Container() : skipButton,
+              ],
+            ),
           ),
           Container(
             margin: EdgeInsets.fromLTRB(20, widget.marginTop, 20, 10),
