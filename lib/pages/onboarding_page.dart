@@ -133,7 +133,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: pageView(),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(0),
+                  margin: const EdgeInsets.only(top: 54),
                   child: dotIndicator(),
                 ),
                 Container(
