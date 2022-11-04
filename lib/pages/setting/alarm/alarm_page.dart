@@ -104,7 +104,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     var setMin = min.toString().padLeft(2, '0');
     var mrd = hrs >= 12 ? 'PM' : 'AM';
 
-    return '$setHrs:$setMin$mrd';
+    return 'Scheduled for $setHrs:$setMin$mrd';
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
@@ -120,7 +120,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     _firstAlarmButton = !_firstAlarmButton;
     if (_firstAlarmButton != false) {
       _firstAlarmVisible = true;
-      _firstAlarmValue = "Scheduled for " + alarmTime;
+      _firstAlarmValue = alarmTime;
     } else {
       _firstAlarmVisible = false;
       _firstAlarmValue = "";
