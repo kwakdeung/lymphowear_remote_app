@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/ble_singleton.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
 import 'package:lymphowear_remote_app/pages/pairing/pairing_complete.dart';
@@ -77,6 +78,19 @@ class PairingConnectBody extends StatelessWidget {
               child: OrangeBottomButton(
                 buttonText: 'Connect',
                 onPressed: () {
+                  var ble = BleSingleton();
+                  ble.onSuccessConnect = () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PairingComplete(),
+                      ),
+                    );
+                  };
+
+                  ble.onFailedConnect = (message) {};
+                  ble.connect();
+
                   showProgressDialog(
                     context,
                     'Pairing...',
@@ -102,7 +116,7 @@ class PairingConnectBody extends StatelessWidget {
       });
     }
 
-    const cupertinoactivityIndicator = CupertinoActivityIndicator(
+    const activityIndicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,
     );
@@ -127,7 +141,7 @@ class PairingConnectBody extends StatelessWidget {
               children: [
                 Container(
                   margin: cupertinoIndicatorMargin,
-                  child: cupertinoactivityIndicator,
+                  child: activityIndicator,
                 ),
                 Container(
                   margin: dialogTextMargin,
@@ -143,7 +157,6 @@ class PairingConnectBody extends StatelessWidget {
     await showDialog(
       context: context,
       builder: (BuildContext context) {
-        delay();
         return Theme(
           data: ThemeData(
             dialogBackgroundColor: Colors.white,

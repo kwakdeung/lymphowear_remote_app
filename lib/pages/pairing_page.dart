@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/none.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_failed.dart';
-import 'package:lymphowear_remote_app/pages/pairing/pairing_loading.dart';
-import 'package:lymphowear_remote_app/pages/orange_bottom_button.dart';
-import 'package:lymphowear_remote_app/pages/setting_page.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+import '../constants.dart';
+import 'pairing/pairing_failed.dart';
+import 'pairing/pairing_loading.dart';
+import 'orange_bottom_button.dart';
+import 'setting_page.dart';
+import 'no_device_page.dart';
 
 class PairingPage extends StatefulWidget {
   const PairingPage({Key? key}) : super(key: key);
@@ -18,6 +22,21 @@ class _PairingPageState extends State<PairingPage> {
   @override
   void initState() {
     super.initState();
+    _checkPermissions();
+  }
+
+  _checkPermissions() async {
+    if (Platform.isAndroid) {
+      if (await Permission.contacts
+          .request()
+          .isGranted) {}
+
+      await [
+        Permission.location,
+        Permission.bluetoothScan,
+        Permission.bluetoothConnect,
+      ].request();
+    }
   }
 
   @override
@@ -49,29 +68,30 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       onPressed: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => None(
-              logoTitle: SvgPicture.asset(
-                'assets/images/lymphowear.svg',
-                fit: BoxFit.fill,
-              ),
-              appbarIcon: IconButton(
-                icon: SvgPicture.asset(
-                  'assets/icons/ic_setting.svg',
-                  fit: BoxFit.fill,
-                ),
-                color: const Color(0xff616161),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => const SettingPage()),
+            builder: (context) =>
+                NoDevicePage(
+                  logoTitle: SvgPicture.asset(
+                    'assets/images/lymphowear.svg',
+                    fit: BoxFit.fill,
+                  ),
+                  appbarIcon: IconButton(
+                    icon: SvgPicture.asset(
+                      'assets/icons/ic_setting.svg',
+                      fit: BoxFit.fill,
                     ),
-                  );
-                },
-              ),
-              leadingButton: Container(),
-              routePairing: const PairingPage(),
-            ),
+                    color: const Color(0xff616161),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const SettingPage()),
+                        ),
+                      );
+                    },
+                  ),
+                  leadingButton: Container(),
+                  routePairing: const PairingPage(),
+                ),
           ),
         );
       },
@@ -81,7 +101,10 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Text appbarTitle(context) {
     return Text(
       'Add Device',
-      style: Theme.of(context).textTheme.headline6,
+      style: Theme
+          .of(context)
+          .textTheme
+          .headline6,
     );
   }
 
@@ -115,7 +138,10 @@ class PairingPageBody extends StatelessWidget {
   Text title(context) {
     return Text(
       'Turn on the power of LymphoWear',
-      style: Theme.of(context).textTheme.subtitle1,
+      style: Theme
+          .of(context)
+          .textTheme
+          .subtitle1,
     );
   }
 
@@ -123,7 +149,10 @@ class PairingPageBody extends StatelessWidget {
     return Text(
       "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme
+          .of(context)
+          .textTheme
+          .bodyText2,
     );
   }
 
@@ -157,13 +186,14 @@ class PairingPageBody extends StatelessWidget {
               child: OrangeBottomButton(
                 buttonText: 'Start',
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: ((context) => const PairingLoading(
-                            navigator: PairingPage(),
-                            routePairing: PairingFailed(),
-                          )),
+                      builder: ((context) =>
+                      const PairingLoading(
+                        navigator: PairingPage(),
+                        routePairing: PairingFailed(),
+                      )),
                     ),
                   );
                 },

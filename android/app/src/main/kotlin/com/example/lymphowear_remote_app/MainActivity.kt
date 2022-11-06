@@ -1,4 +1,4 @@
-package com.example.lymphowear_remote_app
+package com.jubileebio.lymphowear_remote_app
 
 import io.flutter.embedding.android.FlutterActivity
 

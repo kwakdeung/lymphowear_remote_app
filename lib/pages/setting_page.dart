@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 
-import 'package:lymphowear_remote_app/pages/none.dart';
-import 'package:lymphowear_remote_app/pages/setting/alarm/alarm_page.dart';
-import 'package:lymphowear_remote_app/pages/setting/my/my_not_connected.dart';
+import '../constants.dart';
+import 'setting/alarm/alarm_page.dart';
+import 'setting/my/my_not_connected.dart';
+import 'no_device_page.dart';
 
 class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  AppBar settingpageAppbar(context) {
+  AppBar settingPageAppbar(context) {
     return AppBar(
       leading: Container(
         margin: appbarleadingMargin,
@@ -72,7 +72,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => None(
+            builder: ((context) => NoDevicePage(
                   logoTitle: Text(
                     'My Device',
                     style: Theme.of(context).textTheme.headline6,
@@ -218,7 +218,7 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: settingpageAppbar(context),
+      appBar: settingPageAppbar(context),
       body: settingpageBody(context),
     );
   }

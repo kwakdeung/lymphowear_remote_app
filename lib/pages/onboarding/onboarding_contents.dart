@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/none.dart';
+
 import 'package:lymphowear_remote_app/pages/pairing_page.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
+
+import '../no_device_page.dart';
 
 class OnboardingContents extends StatefulWidget {
   final String image, description;
@@ -51,10 +53,10 @@ class _OnboardingContentsState extends State<OnboardingContents> {
             ),
           ),
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: ((context) => None(
+                builder: ((context) => NoDevicePage(
                       logoTitle: SvgPicture.asset(
                         'assets/images/lymphowear.svg',
                         fit: BoxFit.fill,

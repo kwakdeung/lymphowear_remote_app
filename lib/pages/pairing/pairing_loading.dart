@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/add_device_appbar.dart';
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
+import 'package:lymphowear_remote_app/ble_singleton.dart';
+
+import '../../constants.dart';
+import '../add_device_appbar.dart';
+import '../pairing_page.dart';
+import 'pairing_connect.dart';
 
 class PairingLoading extends StatefulWidget {
   const PairingLoading({
@@ -11,6 +14,7 @@ class PairingLoading extends StatefulWidget {
     required this.navigator,
   }) : super(key: key);
   final Widget routePairing, navigator;
+
   @override
   State<PairingLoading> createState() => _PairingLoadingState();
 }
@@ -34,6 +38,7 @@ class PairingLoadingBody extends StatefulWidget {
       : super(key: key);
 
   final Widget routePairing;
+
   @override
   State<PairingLoadingBody> createState() => _PairingLoadingBodyState();
 }
@@ -45,21 +50,32 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
 
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    )..addListener(() {
-        loadPage();
-        setState(() {});
-      });
-    controller.forward();
+    // controller = AnimationController(
+    //   vsync: this,
+    //   duration: const Duration(seconds: 3),
+    // )..addListener(() {
+    //     loadPage();
+    //     setState(() {});
+    //   });
+    // controller.forward();
 
     super.initState();
+
+    var ble = BleSingleton();
+    ble.scanDevices();
+    ble.onSuccessScan = () {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const PairingConnect()));
+    };
+
+    ble.onFailedScan = (message) {
+      print(message);
+    };
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    // controller.dispose();
     super.dispose();
   }
 
@@ -115,7 +131,7 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
                 shape: BoxShape.rectangle,
                 color: Colors.white,
               ),
-              child: const PairingLodingBottomButton(),
+              child: const PairingLoadingBottomButton(),
             ),
           ],
         ),
@@ -124,8 +140,8 @@ class _PairingLoadingBodyState extends State<PairingLoadingBody>
   }
 }
 
-class PairingLodingBottomButton extends StatelessWidget {
-  const PairingLodingBottomButton({Key? key}) : super(key: key);
+class PairingLoadingBottomButton extends StatelessWidget {
+  const PairingLoadingBottomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -140,12 +156,8 @@ class PairingLodingBottomButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const PairingPage()),
-          ),
-        );
+        BleSingleton().stopScan();
+        Navigator.of(context).pop();
       },
       child: const Text('Stop'),
     );

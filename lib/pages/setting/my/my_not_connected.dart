@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/ble_singleton.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
@@ -26,6 +27,7 @@ class _MyNotConnectedState extends State<MyNotConnected> {
 class MyNotConnectedAppbar extends StatelessWidget
     implements PreferredSizeWidget {
   const MyNotConnectedAppbar({Key? key}) : super(key: key);
+
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
@@ -244,7 +246,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       trailing: Container(
         margin: zeroMargin,
         child: Text(
-          "ABCDEFG1234",
+          BleSingleton().serialNumber(),
           style: modebodyText,
         ),
       ),

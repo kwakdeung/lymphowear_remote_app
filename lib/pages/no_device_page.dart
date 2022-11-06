@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/constants.dart';
 
-class None extends StatefulWidget {
-  const None({
+import '../constants.dart';
+
+class NoDevicePage extends StatefulWidget {
+  const NoDevicePage({
     Key? key,
     required this.appbarIcon,
     required this.logoTitle,
@@ -13,14 +14,16 @@ class None extends StatefulWidget {
   final Widget logoTitle, appbarIcon, leadingButton, routePairing;
 
   @override
-  State<None> createState() => _NoneState();
+  State<NoDevicePage> createState() => _NoDevicePageState();
 }
 
-class _NoneState extends State<None> {
+class _NoDevicePageState extends State<NoDevicePage> {
   @override
   void initState() {
     super.initState();
   }
+
+
 
   @override
   void dispose() {
@@ -37,7 +40,7 @@ class _NoneState extends State<None> {
         appbarIcon: widget.appbarIcon,
         leadingButton: widget.leadingButton,
       ),
-      body: NoneBody(
+      body: NoDeviceBody(
         routePairing: widget.routePairing,
       ),
     );
@@ -52,6 +55,7 @@ class NoneAppbar extends StatelessWidget implements PreferredSizeWidget {
       required this.leadingButton})
       : super(key: key);
   final Widget logoTitle, appbarIcon, leadingButton;
+
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
@@ -85,8 +89,8 @@ class NoneAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class NoneBody extends StatelessWidget {
-  NoneBody({Key? key, required this.routePairing}) : super(key: key);
+class NoDeviceBody extends StatelessWidget {
+  NoDeviceBody({Key? key, required this.routePairing}) : super(key: key);
   final Widget routePairing;
 
   Text title(context) {
@@ -136,7 +140,7 @@ class NoneBody extends StatelessWidget {
               Container(
                 margin: zeroMargin,
                 width: double.infinity,
-                child: NoneBottomButton(
+                child: NoDeviceBottomButton(
                   routePairing: routePairing,
                 ),
               ),
@@ -148,10 +152,11 @@ class NoneBody extends StatelessWidget {
   }
 }
 
-class NoneBottomButton extends StatelessWidget {
-  const NoneBottomButton({Key? key, required this.routePairing})
+class NoDeviceBottomButton extends StatelessWidget {
+  const NoDeviceBottomButton({Key? key, required this.routePairing})
       : super(key: key);
   final Widget routePairing;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
@@ -167,7 +172,7 @@ class NoneBottomButton extends StatelessWidget {
         textStyle: Theme.of(context).textTheme.button,
       ),
       onPressed: () {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: ((context) => routePairing),

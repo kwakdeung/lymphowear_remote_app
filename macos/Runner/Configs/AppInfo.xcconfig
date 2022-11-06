@@ -8,7 +8,7 @@
 PRODUCT_NAME = lymphowear_remote_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.lymphowearRemoteApp
+PRODUCT_BUNDLE_IDENTIFIER = com.jubileebio.lymphowearRemoteApp
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.

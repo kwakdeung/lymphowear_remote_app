@@ -1,8 +1,6 @@
 name: lymphowear_remote_app
-description: A new Flutter project.
-
-
-publish_to: 'none' 
+description: Lymphowear Remote App
+publish_to: 'none'
 
 
 version: 1.0.0+1
@@ -15,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-  
   cupertino_icons: ^1.0.5
   flutter_svg: ^1.1.6
   lottie: ^1.4.3
@@ -25,6 +21,8 @@ dependencies:
   flutter_native_timezone: ^2.0.0
   rxdart: ^0.27.5
   timezone: ^0.9.0
+  flutter_reactive_ble: ^5.0.2
+  permission_handler: ^10.0.0
 
 
 dev_dependencies:
@@ -36,19 +34,14 @@ dev_dependencies:
 
 
 flutter:
-
-  
   uses-material-design: true
 
-  
   assets:
     - assets/images/
     - assets/images/2.0x/
     - assets/icons/
     - assets/fonts/
-    
 
-  
   fonts:
     - family: Poppins
       fonts:

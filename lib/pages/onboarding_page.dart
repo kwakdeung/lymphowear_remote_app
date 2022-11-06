@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/components/onboarding/dotindicator.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/none.dart';
-import 'package:lymphowear_remote_app/pages/onboarding/onboarding_contents.dart';
-import 'package:lymphowear_remote_app/pages/orange_bottom_button.dart';
-import 'package:lymphowear_remote_app/pages/pairing_page.dart';
-import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
+import 'no_device_page.dart';
+import 'onboarding/onboarding_contents.dart';
+import 'orange_bottom_button.dart';
+import '../components/onboarding/dotindicator.dart';
+import '../constants.dart';
 import '../models/onboarding_model.dart';
+import 'pairing_page.dart';
+import 'setting_page.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -85,10 +85,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final startButton = OrangeBottomButton(
       buttonText: 'Get Started',
       onPressed: () {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: ((context) => None(
+            builder: ((context) => NoDevicePage(
                   logoTitle: SvgPicture.asset(
                     'assets/images/lymphowear.svg',
                     fit: BoxFit.fill,
