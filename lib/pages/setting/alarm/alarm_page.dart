@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
 import 'package:lymphowear_remote_app/pages/reminder/reminder.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);

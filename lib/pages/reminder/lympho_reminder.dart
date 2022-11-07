@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:lymphowear_remote_app/main.dart';
-
-import 'package:timezone/timezone.dart' as tz;
 
 class ReminderWidget extends StatefulWidget {
   final void Function(DateTime) onDateTimeChanged;

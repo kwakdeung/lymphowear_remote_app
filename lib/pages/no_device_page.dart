@@ -23,8 +23,6 @@ class _NoDevicePageState extends State<NoDevicePage> {
     super.initState();
   }
 
-
-
   @override
   void dispose() {
     super.dispose();
