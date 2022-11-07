@@ -26,17 +26,17 @@ class _PairingConnectState extends State<PairingConnect> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const AddDeviceAppbar(),
+      appBar: AddDeviceAppbar(),
       body: PairingConnectBody(),
     );
   }
 }
 
 class PairingConnectBody extends StatelessWidget {
-  PairingConnectBody({Key? key}) : super(key: key);
+  const PairingConnectBody({Key? key}) : super(key: key);
 
   static const title = Text(
     'Confirm on the device',
@@ -46,10 +46,40 @@ class PairingConnectBody extends StatelessWidget {
       fontWeight: semiBold,
     ),
   );
-  final image = Image.asset(
-    'assets/images/pairing_connect_image.png',
-    fit: BoxFit.fill,
-  );
+  Container pairingDevice() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: const Color(0xffF9F9F9),
+        border: Border.all(
+          color: const Color(0xffEEEEEE),
+          width: 1,
+        ),
+      ),
+      padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
+      child: Column(
+        children: [
+          Image.asset(
+            'assets/images/pairing_connect_image.png',
+            fit: BoxFit.fill,
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 16, bottom: 4),
+            child: const Text(
+              'LymphoWear (LW-100)',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14, fontWeight: semiBold),
+            ),
+          ),
+          Text(
+            'Serial number. ${BleSingleton().serialNumber()}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 12, fontWeight: regular),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +94,7 @@ class PairingConnectBody extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
               child: title,
             ),
-            Container(
-              margin: zeroMargin,
-              child: image,
-            ),
+            pairingDevice(),
             const Spacer(),
             Container(
               width: double.infinity,
