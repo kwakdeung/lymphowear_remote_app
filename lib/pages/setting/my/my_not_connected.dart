@@ -142,9 +142,10 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(64, 16, 30, 16),
+          margin: const EdgeInsets.fromLTRB(64, 16, 0, 16),
           child: image,
         ),
+        const Spacer(),
         Visibility(
           visible: _isLoading,
           child: Container(
@@ -184,6 +185,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
             ),
           ],
         ),
+        Container(width: 64),
       ],
     );
   }
