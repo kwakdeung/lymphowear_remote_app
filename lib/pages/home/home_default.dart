@@ -420,7 +420,7 @@ class HomeDefaultBody extends StatelessWidget {
             height: homeValueHeight,
             child: LymphoPartSliderWidget(
               title: 'Collarbone',
-              image: 'assets/images/collarbone.svg',
+              image: 'assets/images/collarbone.png',
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
@@ -432,7 +432,7 @@ class HomeDefaultBody extends StatelessWidget {
             height: homeValueHeight,
             child: LymphoPartSliderWidget(
               title: 'Armpit',
-              image: 'assets/images/armpit.svg',
+              image: 'assets/images/armpit.png',
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
@@ -444,7 +444,7 @@ class HomeDefaultBody extends StatelessWidget {
             height: homeValueHeight,
             child: LymphoPartSliderWidget(
               title: 'Shoulder',
-              image: 'assets/images/shoulder.svg',
+              image: 'assets/images/shoulder.png',
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
@@ -456,7 +456,7 @@ class HomeDefaultBody extends StatelessWidget {
             height: homeValueHeight,
             child: LymphoPartSliderWidget(
               title: 'Heat',
-              image: 'assets/images/heat.svg',
+              image: 'assets/images/heat.png',
               maxValue: 2,
               divisions: 2,
               icon: 'assets/icons/ic_heat_max.svg',

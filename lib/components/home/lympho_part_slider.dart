@@ -115,7 +115,7 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
       children: [
         Container(
           margin: zeroMargin,
-          child: SvgPicture.asset(
+          child: Image.asset(
             widget.image,
             fit: BoxFit.fill,
             width: 40,
