@@ -46,38 +46,27 @@ class PairingConnectBody extends StatelessWidget {
       fontWeight: semiBold,
     ),
   );
-  Container pairingDevice() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: const Color(0xffF9F9F9),
-        border: Border.all(
-          color: const Color(0xffEEEEEE),
-          width: 1,
+  Column pairingDevice() {
+    return Column(
+      children: [
+        Image.asset(
+          'assets/images/pairing_connect_image.png',
+          fit: BoxFit.fill,
         ),
-      ),
-      padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
-      child: Column(
-        children: [
-          Image.asset(
-            'assets/images/pairing_connect_image.png',
-            fit: BoxFit.fill,
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 16, bottom: 4),
-            child: const Text(
-              'LymphoWear (LW-100)',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, fontWeight: semiBold),
-            ),
-          ),
-          Text(
-            'Serial number. ${BleSingleton().serialNumber()}',
+        Container(
+          margin: const EdgeInsets.only(top: 24, bottom: 4),
+          child: const Text(
+            'LymphoWear (LW-100)',
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12, fontWeight: regular),
+            style: TextStyle(fontSize: 14, fontWeight: semiBold),
           ),
-        ],
-      ),
+        ),
+        Text(
+          'Serial number. ${BleSingleton().serialNumber()}',
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 12, fontWeight: regular),
+        ),
+      ],
     );
   }
 
@@ -91,7 +80,7 @@ class PairingConnectBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 56, 0, 16),
+              margin: const EdgeInsets.fromLTRB(0, 56, 0, 24),
               child: title,
             ),
             pairingDevice(),
@@ -105,18 +94,26 @@ class PairingConnectBody extends StatelessWidget {
               child: OrangeBottomButton(
                 buttonText: 'Connect',
                 onPressed: () {
-                  var ble = BleSingleton();
-                  ble.onSuccessConnect = () {
+                  // var ble = BleSingleton();
+                  // ble.onSuccessConnect = () {
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const PairingComplete(),
+                  //     ),
+                  //   );
+                  // };
+
+                  // ble.onFailedConnect = (message) {};
+                  // ble.connect();
+                  Future.delayed(const Duration(seconds: 1), () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const PairingComplete(),
                       ),
                     );
-                  };
-
-                  ble.onFailedConnect = (message) {};
-                  ble.connect();
+                  });
 
                   showProgressDialog(
                     context,

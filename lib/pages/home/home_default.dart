@@ -388,7 +388,7 @@ class HomeDefaultBody extends StatelessWidget {
   }
 
   Container secondContainer(context) {
-    double homeValueHeight = 52;
+    double homeValueHeight = 56;
 
     return Container(
       margin: const EdgeInsets.only(top: 16),
