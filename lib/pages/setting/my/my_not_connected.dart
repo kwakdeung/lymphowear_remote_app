@@ -139,10 +139,10 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
     );
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.fromLTRB(0, 16, 24, 16),
+          margin: const EdgeInsets.fromLTRB(64, 16, 30, 16),
           child: image,
         ),
         Visibility(
