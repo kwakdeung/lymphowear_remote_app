@@ -3,6 +3,8 @@ import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/components/home/lympho_circularprogressindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
+import '../../components/home/lympho_part_slider.dart';
+
 class Mode extends StatefulWidget {
   final String backgroundImage, title, modeTitle, modeContent;
   final Color modeColor, iconColor;
@@ -111,6 +113,7 @@ class ModeBody extends StatefulWidget {
 
 class _ModeBodyState extends State<ModeBody> {
   final int countedSeconds = 10;
+  bool visible = false;
 
   Container modeIndicator() {
     return Container(
@@ -126,6 +129,7 @@ class _ModeBodyState extends State<ModeBody> {
       child: LymphoCircularProgressIndicatorWidget(
         modeColor: widget.modeColor,
         iconColor: widget.iconColor,
+        visible: visible,
       ),
     );
   }
@@ -146,6 +150,36 @@ class _ModeBodyState extends State<ModeBody> {
           ),
         ),
       ],
+    );
+  }
+
+  Text modeContents() {
+    return Text(
+      widget.modeContent,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: widget.modeColor,
+        fontWeight: regular,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  Widget heatSlider() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: const Color(0xffFFFFFF).withOpacity(0.5),
+      ),
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+      child: LymphoPartSliderWidget(
+        title: 'Heat',
+        image: 'assets/images/heat.png',
+        maxValue: 2,
+        divisions: 2,
+        icon: 'assets/icons/ic_heat_max.svg',
+        onValueChanged: (value) {},
+      ),
     );
   }
 
@@ -177,15 +211,7 @@ class _ModeBodyState extends State<ModeBody> {
                         color: Colors.transparent,
                         child: modeHeadline(),
                       ),
-                      Text(
-                        widget.modeContent,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: widget.modeColor,
-                          fontWeight: regular,
-                          fontSize: 16,
-                        ),
-                      ),
+                      if (visible == false) modeContents() else heatSlider(),
                     ],
                   ),
                 ),

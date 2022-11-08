@@ -7,11 +7,13 @@ import 'package:lymphowear_remote_app/constants.dart';
 
 class LymphoCircularProgressIndicatorWidget extends StatefulWidget {
   final Color modeColor, iconColor;
+  final bool visible;
 
   const LymphoCircularProgressIndicatorWidget({
     super.key,
     required this.modeColor,
     required this.iconColor,
+    required this.visible,
   });
 
   @override
@@ -33,6 +35,7 @@ class _LymphoCircularProgressIndicatorWidgetState
   bool circularVisible = false;
 
   bool isPlaying = false;
+
   get time {
     var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
     var sec = (countedSeconds % 60).toString().padLeft(2, '0');
