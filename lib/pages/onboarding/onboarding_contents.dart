@@ -8,7 +8,7 @@ import 'package:lymphowear_remote_app/pages/setting_page.dart';
 import '../no_device_page.dart';
 
 class OnboardingContents extends StatefulWidget {
-  final String image, description;
+  final String image, description, title;
   final double marginTop;
   final int pageIndex;
 
@@ -18,6 +18,7 @@ class OnboardingContents extends StatefulWidget {
     required this.marginTop,
     required this.description,
     required this.pageIndex,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -30,6 +31,12 @@ class _OnboardingContentsState extends State<OnboardingContents> {
         width: double.infinity,
         fit: BoxFit.fill,
       );
+
+  get title => widget.pageIndex == 0
+      ? Image.asset('assets/images/onboarding_01_01.png')
+      : Text(widget.title,
+          style: const TextStyle(
+              fontSize: 20, fontWeight: semiBold, color: Color(0xff005784)));
 
   get description => Text(
         widget.description,
@@ -96,16 +103,17 @@ class _OnboardingContentsState extends State<OnboardingContents> {
           Expanded(
             child: Stack(
               children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 0),
-                  child: image,
-                ),
+                image,
                 widget.pageIndex == 2 ? Container() : skipButton,
               ],
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(20, widget.marginTop, 20, 10),
+            margin: EdgeInsets.only(top: widget.marginTop),
+            child: title,
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(20, 16, 20, 0),
             child: description,
           ),
         ],

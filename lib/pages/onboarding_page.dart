@@ -52,6 +52,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ) =>
             OnboardingContents(
           image: onboardingData[index].image,
+          title: onboardingData[index].title,
           description: onboardingData[index].description,
           marginTop: onboardingData[index].marginTop,
           pageIndex: pageIndex,
