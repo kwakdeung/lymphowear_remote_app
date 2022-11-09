@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
 
@@ -106,8 +105,8 @@ class NoDeviceBody extends StatelessWidget {
     );
   }
 
-  final image = SvgPicture.asset(
-    'assets/images/none_image.svg',
+  final image = Image.asset(
+    'assets/images/none_image.png',
     fit: BoxFit.fill,
   );
 
@@ -127,7 +126,7 @@ class NoDeviceBody extends StatelessWidget {
                 child: title(context),
               ),
               Container(
-                margin: const EdgeInsets.only(bottom: 24),
+                margin: const EdgeInsets.only(bottom: 40),
                 child: content(context),
               ),
               Container(
