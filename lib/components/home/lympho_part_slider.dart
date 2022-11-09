@@ -36,7 +36,7 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
 
   Row sliderTitle() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
           widget.title,
@@ -47,7 +47,12 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
           'Intensity',
           style: intensityText,
         ),
-        Container(width: 6),
+        Container(
+            width: (currentValue == 0.0)
+                ? 3
+                : (currentValue == 1.0)
+                    ? 14
+                    : 12),
         showValue(),
       ],
     );
