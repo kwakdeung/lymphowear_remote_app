@@ -27,9 +27,7 @@ class _PairingPageState extends State<PairingPage> {
 
   _checkPermissions() async {
     if (Platform.isAndroid) {
-      if (await Permission.contacts
-          .request()
-          .isGranted) {}
+      if (await Permission.contacts.request().isGranted) {}
 
       await [
         Permission.location,
@@ -68,30 +66,29 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
       onPressed: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) =>
-                NoDevicePage(
-                  logoTitle: SvgPicture.asset(
-                    'assets/images/lymphowear.svg',
-                    fit: BoxFit.fill,
-                  ),
-                  appbarIcon: IconButton(
-                    icon: SvgPicture.asset(
-                      'assets/icons/ic_setting.svg',
-                      fit: BoxFit.fill,
-                    ),
-                    color: const Color(0xff616161),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((context) => const SettingPage()),
-                        ),
-                      );
-                    },
-                  ),
-                  leadingButton: Container(),
-                  routePairing: const PairingPage(),
+            builder: (context) => NoDevicePage(
+              logoTitle: SvgPicture.asset(
+                'assets/images/lymphowear.svg',
+                fit: BoxFit.fill,
+              ),
+              appbarIcon: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/icons/ic_setting.svg',
+                  fit: BoxFit.fill,
                 ),
+                color: const Color(0xff616161),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const SettingPage()),
+                    ),
+                  );
+                },
+              ),
+              leadingButton: Container(),
+              routePairing: const PairingPage(),
+            ),
           ),
         );
       },
@@ -101,10 +98,7 @@ class PairingPageAppbar extends StatelessWidget implements PreferredSizeWidget {
   Text appbarTitle(context) {
     return Text(
       'Add Device',
-      style: Theme
-          .of(context)
-          .textTheme
-          .headline6,
+      style: Theme.of(context).textTheme.headline6,
     );
   }
 
@@ -135,24 +129,11 @@ class PairingPageBody extends StatelessWidget {
     fit: BoxFit.fill,
   );
 
-  Text title(context) {
+  Text description(context) {
     return Text(
-      'Turn on the power of LymphoWear',
-      style: Theme
-          .of(context)
-          .textTheme
-          .subtitle1,
-    );
-  }
-
-  Text content(context) {
-    return Text(
-      "전원을 켜지 않으면 기기를 연결할 수 없습니다.\n만약 전원이 켜지지 않는다면,\n기기를 충전하고 다시 시도해주세요.",
+      'Turn on the main unit and press\nthe “Start” button to make\nthe Bluetooth connection.',
       textAlign: TextAlign.center,
-      style: Theme
-          .of(context)
-          .textTheme
-          .bodyText2,
+      style: Theme.of(context).textTheme.subtitle1,
     );
   }
 
@@ -168,14 +149,7 @@ class PairingPageBody extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(0, 59, 0, 32),
               child: image,
             ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 16),
-              child: title(context),
-            ),
-            Container(
-              margin: zeroMargin,
-              child: content(context),
-            ),
+            description(context),
             const Spacer(),
             Container(
               width: double.infinity,
@@ -189,11 +163,10 @@ class PairingPageBody extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: ((context) =>
-                      const PairingLoading(
-                        navigator: PairingPage(),
-                        routePairing: PairingFailed(),
-                      )),
+                      builder: ((context) => const PairingLoading(
+                            navigator: PairingPage(),
+                            routePairing: PairingFailed(),
+                          )),
                     ),
                   );
                 },
