@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lymphowear_remote_app/constants.dart';
 
 class ReminderWidget extends StatefulWidget {
   final void Function(DateTime) onDateTimeChanged;
@@ -74,6 +75,16 @@ class ReminderWidgetAppbar extends StatelessWidget
         ),
       ),
       centerTitle: true,
+      actions: [
+        TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Save',
+              style: TextStyle(
+                  fontSize: 16, fontWeight: regular, color: Color(0xffE96000)),
+            )),
+        Container(width: 10),
+      ],
     );
   }
 }

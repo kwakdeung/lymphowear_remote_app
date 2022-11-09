@@ -71,22 +71,6 @@ class AlarmPageBody extends StatefulWidget {
 }
 
 class _AlarmPageBodyState extends State<AlarmPageBody> {
-  // late int timer = DateTime.now().millisecondsSinceEpoch;
-  // late c prefs;
-
-  @override
-  void initState() {
-    super.initState();
-    // getSharedPreferences();
-  }
-
-  // getSharedPreferences() async {
-  //   prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     timer = (prefs.getInt("timer") ?? 0);
-  //   });
-  // }
-
   void onDateTimeChanged(DateTime newTime) {
     setState(() {
       time = newTime;
@@ -108,32 +92,16 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   }
 
   bool _firstAlarmButton = false;
-  bool _firstAlarmVisible = false;
-  String _firstAlarmValue = "";
 
   bool _secondAlarmButton = false;
-  bool _secondAlarmVisible = false;
   String _secondAlarmValue = "";
-
-  void showFirstAlarm() {
-    _firstAlarmButton = !_firstAlarmButton;
-    if (_firstAlarmButton != false) {
-      _firstAlarmVisible = true;
-      _firstAlarmValue = alarmTime;
-    } else {
-      _firstAlarmVisible = false;
-      _firstAlarmValue = "";
-    }
-  }
 
   void showSecondAlarm() {
     _secondAlarmButton = !_secondAlarmButton;
     if (_secondAlarmButton != false) {
-      _secondAlarmVisible = true;
       _secondAlarmValue = "Scheduled for 12:00PM";
     } else {
-      _secondAlarmVisible = false;
-      _secondAlarmValue = "";
+      _secondAlarmValue = "Scheduled for 12:00PM";
     }
   }
 
@@ -147,11 +115,14 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             'Alarm 1',
             style: listTilebodyText1,
           ),
-          Visibility(
-            visible: _firstAlarmVisible,
-            child: Text(
-              _firstAlarmValue,
-              style: alramValueText,
+          Text(
+            alarmTime,
+            style: TextStyle(
+              color: _firstAlarmButton != false
+                  ? const Color(0xffED711A)
+                  : const Color(0xff9E9E9E),
+              fontSize: 12,
+              fontWeight: regular,
             ),
           ),
         ],
@@ -162,7 +133,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _firstAlarmButton,
         onChanged: (bool value) {
           setState(() {
-            showFirstAlarm();
+            _firstAlarmButton = !_firstAlarmButton;
           });
         },
       ),
@@ -171,7 +142,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           context,
           MaterialPageRoute(
             builder: ((context) => ReminderWidget(
-                  title: 'Morning Reminder',
+                  title: 'Alarm 1',
                   onDateTimeChanged: onDateTimeChanged,
                 )),
           ),
@@ -190,11 +161,14 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             'Alarm 2',
             style: listTilebodyText1,
           ),
-          Visibility(
-            visible: _secondAlarmVisible,
-            child: Text(
-              _secondAlarmValue,
-              style: alramValueText,
+          Text(
+            _secondAlarmValue,
+            style: TextStyle(
+              color: _secondAlarmButton != false
+                  ? const Color(0xffED711A)
+                  : const Color(0xff9E9E9E),
+              fontSize: 12,
+              fontWeight: regular,
             ),
           ),
         ],
@@ -213,7 +187,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const Reminder(title: 'Afternoon Reminder')),
+            builder: ((context) => const Reminder(title: 'Alarm 2')),
           ),
         );
       },
