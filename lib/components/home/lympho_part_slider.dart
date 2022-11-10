@@ -30,6 +30,7 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
   showValue() {
     return Text(
       currentValue == 0.0 ? 'Off' : '${currentValue.round()}',
+      textAlign: TextAlign.right,
       style: intensityValueText,
     );
   }
@@ -47,13 +48,10 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
           'Intensity',
           style: intensityText,
         ),
-        Container(
-            width: (currentValue == 0.0)
-                ? 3
-                : (currentValue == 1.0)
-                    ? 14
-                    : 12),
-        showValue(),
+        SizedBox(
+          width: 17,
+          child: showValue(),
+        ),
       ],
     );
   }
