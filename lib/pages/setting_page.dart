@@ -125,56 +125,6 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  ListTile userGuide() {
-    return ListTile(
-      leading: Container(
-        margin: zeroMargin,
-        child: SvgPicture.asset(
-          "assets/icons/ic_info.svg",
-          fit: BoxFit.fill,
-        ),
-      ),
-      title: Text(
-        'User Guide',
-        style: listTilebodyText1,
-      ),
-      tileColor: Colors.white,
-      trailing: Container(
-        margin: zeroMargin,
-        child: SvgPicture.asset(
-          "assets/icons/ic_chevron_right.svg",
-          fit: BoxFit.fill,
-        ),
-      ),
-      onTap: () {},
-    );
-  }
-
-  ListTile question() {
-    return ListTile(
-      leading: Container(
-        margin: zeroMargin,
-        child: SvgPicture.asset(
-          "assets/icons/ic_help.svg",
-          fit: BoxFit.fill,
-        ),
-      ),
-      title: Text(
-        'FAQ',
-        style: listTilebodyText1,
-      ),
-      tileColor: Colors.white,
-      trailing: Container(
-        margin: zeroMargin,
-        child: SvgPicture.asset(
-          "assets/icons/ic_chevron_right.svg",
-          fit: BoxFit.fill,
-        ),
-      ),
-      onTap: () {},
-    );
-  }
-
   Container settingpageBody(context) {
     return Container(
       color: const Color(0xffF3F3F3),
@@ -193,22 +143,6 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
           Container(
             color: Colors.white,
             child: alarm(context),
-          ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
-          Container(
-            color: Colors.white,
-            child: userGuide(),
-          ),
-          const Divider(
-            height: 1,
-            color: Color(0xffE0E0E0),
-          ),
-          Container(
-            color: Colors.white,
-            child: question(),
           ),
         ],
       ),
