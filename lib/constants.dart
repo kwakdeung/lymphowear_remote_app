@@ -84,7 +84,7 @@ var modeTextMargin = const EdgeInsets.fromLTRB(0, 16, 0, 16);
 
 var sliderIconMargin = const EdgeInsets.fromLTRB(0, 35, 24, 0);
 
-var bodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 80);
+var bodyMargin = const EdgeInsets.fromLTRB(20, 0, 20, 40);
 
 var homeValueMargin = const EdgeInsets.fromLTRB(24, 0, 0, 24);
 

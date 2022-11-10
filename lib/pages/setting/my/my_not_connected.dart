@@ -309,7 +309,7 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
           divider,
           const Spacer(),
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 0, 20, 80),
+            margin: bodyMargin,
             width: double.infinity,
             child: const MyNotConnectedBottomButton(),
           ),
