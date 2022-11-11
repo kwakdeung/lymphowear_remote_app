@@ -1,8 +1,9 @@
 class Onboarding {
-  final String image, description, title;
+  final String bgImage, image, description, title;
   final double marginTop;
 
   Onboarding({
+    required this.bgImage,
     required this.image,
     required this.marginTop,
     required this.title,
@@ -12,6 +13,7 @@ class Onboarding {
 
 final List<Onboarding> onboardingData = [
   Onboarding(
+    bgImage: '',
     image: "assets/images/onboarding_01.png",
     marginTop: 20,
     title: "Custom Mode",
@@ -19,13 +21,15 @@ final List<Onboarding> onboardingData = [
         "LymphoWear is the world-first wearable device for lymphatic drainage massage.",
   ),
   Onboarding(
-    image: "assets/images/onboarding_02.png",
+    bgImage: 'assets/images/background_onboarding_02_image.png',
+    image: "assets/images/onboarding_02_image.png",
     marginTop: 20,
     title: "Custom Mode",
     description: "This app helps you to control your device easier.",
   ),
   Onboarding(
-    image: "assets/images/onboarding_03.png",
+    bgImage: 'assets/images/background_onboarding_03_image.png',
+    image: "assets/images/onboarding_03_image.png",
     marginTop: 50,
     title: "3 Massage Modes",
     description: "Also enjoy 3 types of massage program we provide!",

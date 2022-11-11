@@ -51,6 +51,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           int index,
         ) =>
             OnboardingContents(
+          bgImage: onboardingData[index].bgImage,
           image: onboardingData[index].image,
           title: onboardingData[index].title,
           description: onboardingData[index].description,
@@ -134,12 +135,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: pageView(),
                 ),
                 Container(
-                  margin: const EdgeInsets.only(top: 54),
+                  margin: const EdgeInsets.only(top: 24),
                   child: dotIndicator(),
                 ),
                 Container(
                   color: const Color.fromARGB(0, 231, 174, 174),
-                  margin: const EdgeInsets.fromLTRB(20, 24, 20, 80),
+                  margin: const EdgeInsets.fromLTRB(20, 24, 20, 40),
                   width: double.infinity,
                   child: pageIndex == 2 ? startButton : nextButton,
                 ),
