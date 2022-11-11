@@ -48,6 +48,9 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
           'Intensity',
           style: intensityText,
         ),
+        const SizedBox(
+          width: 2,
+        ),
         SizedBox(
           width: 17,
           child: showValue(),
