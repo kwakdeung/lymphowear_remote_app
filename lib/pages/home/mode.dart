@@ -3,13 +3,14 @@ import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/components/home/lympho_circularprogressindicator.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
+import '../../ble_singleton.dart';
 import '../../components/home/lympho_part_slider.dart';
 
-class Mode extends StatefulWidget {
+class AutoModeView extends StatefulWidget {
   final String backgroundImage, title, modeTitle, modeContent;
   final Color modeColor, iconColor;
 
-  const Mode({
+  const AutoModeView({
     super.key,
     required this.backgroundImage,
     required this.title,
@@ -20,34 +21,41 @@ class Mode extends StatefulWidget {
   });
 
   @override
-  State<Mode> createState() => _ModeState();
+  State<AutoModeView> createState() => _AutoModeViewState();
 }
 
-class _ModeState extends State<Mode> {
+class _AutoModeViewState extends State<AutoModeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: ModeAppbar(
-        title: widget.title,
-        iconColor: widget.iconColor,
+    return WillPopScope(
+      child: Scaffold(
+        appBar: AutoModeAppbar(
+          title: widget.title,
+          iconColor: widget.iconColor,
+        ),
+        extendBodyBehindAppBar: true,
+        body: AutoModeBody(
+          backgroundImage: widget.backgroundImage,
+          modeTitle: widget.modeTitle,
+          modeColor: widget.modeColor,
+          iconColor: widget.iconColor,
+          modeContent: widget.modeContent,
+        ),
       ),
-      extendBodyBehindAppBar: true,
-      body: ModeBody(
-        backgroundImage: widget.backgroundImage,
-        modeTitle: widget.modeTitle,
-        modeColor: widget.modeColor,
-        iconColor: widget.iconColor,
-        modeContent: widget.modeContent,
-      ),
+      onWillPop: () async {
+        BleSingleton().writeToDevice('+CMF', -1);
+        Navigator.pop(context);
+        return true;
+      },
     );
   }
 }
 
-class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
+class AutoModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Color iconColor;
 
-  const ModeAppbar({
+  const AutoModeAppbar({
     Key? key,
     required this.title,
     required this.iconColor,
@@ -61,6 +69,7 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
       icon: const Icon(Icons.arrow_back_ios),
       color: iconColor,
       onPressed: () {
+        BleSingleton().writeToDevice('+CMF', -1);
         Navigator.pop(context);
       },
     );
@@ -94,11 +103,11 @@ class ModeAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class ModeBody extends StatefulWidget {
+class AutoModeBody extends StatefulWidget {
   final String backgroundImage, modeTitle, modeContent;
   final Color modeColor, iconColor;
 
-  const ModeBody(
+  const AutoModeBody(
       {Key? key,
       required this.backgroundImage,
       required this.modeTitle,
@@ -108,12 +117,17 @@ class ModeBody extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<ModeBody> createState() => _ModeBodyState();
+  State<AutoModeBody> createState() => _AutoModeBodyState();
 }
 
-class _ModeBodyState extends State<ModeBody> {
+class _AutoModeBodyState extends State<AutoModeBody> {
   final int countedSeconds = 10;
   bool visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   Container modeIndicator() {
     return Container(
@@ -130,6 +144,23 @@ class _ModeBodyState extends State<ModeBody> {
         modeColor: widget.modeColor,
         iconColor: widget.iconColor,
         visible: visible,
+        onPlayStateChanged: (value) {
+          setState(() {
+            if (value) {
+              if (widget.modeTitle == 'Vital Mode') {
+                BleSingleton().writeToDevice('+CMS', 0);
+              } else if (widget.modeTitle == 'Relaxing Mode') {
+                BleSingleton().writeToDevice('+CMS', 1);
+              } else if (widget.modeTitle == 'Sleeping Mode') {
+                BleSingleton().writeToDevice('+CMS', 2);
+              }
+            } else {
+              BleSingleton().writeToDevice('+CPAUSE', -1);
+            }
+
+            visible = value;
+          });
+        },
       ),
     );
   }
@@ -178,7 +209,9 @@ class _ModeBodyState extends State<ModeBody> {
         maxValue: 2,
         divisions: 2,
         icon: 'assets/icons/ic_heat_max.svg',
-        onValueChanged: (value) {},
+        onValueChanged: (value) {
+          BleSingleton().writeToDevice('+MH', value);
+        },
       ),
     );
   }

@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/components/home/lympho_part_slider.dart';
-import 'package:lymphowear_remote_app/components/home/lymphowear_state.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/home/mode.dart';
-import 'package:lymphowear_remote_app/pages/setting_page.dart';
+import '../../ble_singleton.dart';
+import '../../components/home/lympho_part_slider.dart';
+import '../../components/home/lymphowear_custom_view.dart';
+import '../../constants.dart';
+import '../setting_page.dart';
+import 'mode.dart';
 
-class HomeDefault extends StatefulWidget {
-  const HomeDefault({Key? key}) : super(key: key);
+class CustomModeView extends StatefulWidget {
+  const CustomModeView({Key? key}) : super(key: key);
 
   @override
-  State<HomeDefault> createState() => _HomeDefaultState();
+  State<CustomModeView> createState() => _CustomModeViewState();
 }
 
-class _HomeDefaultState extends State<HomeDefault> {
+class _CustomModeViewState extends State<CustomModeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
-      appBar: HomeDefaultAppbar(),
-      body: const HomeDefaultBody(),
+      appBar: CustomModeAppbar(),
+      body: const CustomModeBodyView(),
     );
   }
 }
 
-class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
-  HomeDefaultAppbar({Key? key}) : super(key: key);
+class CustomModeAppbar extends StatelessWidget implements PreferredSizeWidget {
+  CustomModeAppbar({Key? key}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
@@ -187,8 +188,8 @@ class HomeDefaultAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
-class HomeDefaultBody extends StatelessWidget {
-  const HomeDefaultBody({Key? key}) : super(key: key);
+class CustomModeBodyView extends StatelessWidget {
+  const CustomModeBodyView({Key? key}) : super(key: key);
 
   Container firstContainer(context) {
     const verticalDivider = VerticalDivider(
@@ -197,13 +198,13 @@ class HomeDefaultBody extends StatelessWidget {
       color: Color(0xffEEEEEE),
     );
 
-    GestureDetector vitalmodeButton(context) {
-      final vitalmodeimage = SvgPicture.asset(
+    GestureDetector vitalModeButton(context) {
+      final vitalModeImage = SvgPicture.asset(
         'assets/icons/ic_vital.svg',
         fit: BoxFit.fill,
       );
 
-      Text vitalmodeText() {
+      Text vitalModeText() {
         return Text(
           "Vital\n Mode",
           textAlign: TextAlign.center,
@@ -216,7 +217,7 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Mode(
+              builder: (context) => const AutoModeView(
                 backgroundImage: 'assets/images/background_vital.json',
                 title: '',
                 modeTitle: 'Vital Mode',
@@ -236,22 +237,22 @@ class HomeDefaultBody extends StatelessWidget {
             children: [
               Container(
                 margin: modeImageMargin,
-                child: vitalmodeimage,
+                child: vitalModeImage,
               ),
-              vitalmodeText(),
+              vitalModeText(),
             ],
           ),
         ),
       );
     }
 
-    GestureDetector relaxingmodeButton(context) {
-      final relaxingmodeImage = SvgPicture.asset(
+    GestureDetector relaxingModeButton(context) {
+      final relaxingModeImage = SvgPicture.asset(
         'assets/icons/ic_relaxing.svg',
         fit: BoxFit.fill,
       );
 
-      Text relaxingmodeText() {
+      Text relaxingModeText() {
         return Text(
           "Relaxing\n Mode",
           textAlign: TextAlign.center,
@@ -264,7 +265,7 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Mode(
+              builder: (context) => const AutoModeView(
                 backgroundImage: 'assets/images/background_relaxing.json',
                 title: '',
                 modeTitle: 'Relaxing Mode',
@@ -283,22 +284,22 @@ class HomeDefaultBody extends StatelessWidget {
             children: [
               Container(
                 margin: modeImageMargin,
-                child: relaxingmodeImage,
+                child: relaxingModeImage,
               ),
-              relaxingmodeText(),
+              relaxingModeText(),
             ],
           ),
         ),
       );
     }
 
-    GestureDetector sleepingmodeButton(context) {
-      final sleepingmodeImage = SvgPicture.asset(
+    GestureDetector sleepingModeButton(context) {
+      final sleepingModeImage = SvgPicture.asset(
         'assets/icons/ic_sleeping.svg',
         fit: BoxFit.fill,
       );
 
-      Text sleepingmodeText() {
+      Text sleepingModeText() {
         return Text(
           "Sleeping\n Mode",
           textAlign: TextAlign.center,
@@ -311,7 +312,7 @@ class HomeDefaultBody extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Mode(
+              builder: (context) => const AutoModeView(
                 backgroundImage: 'assets/images/background_sleeping.json',
                 title: '',
                 modeTitle: 'Sleeping Mode',
@@ -330,9 +331,9 @@ class HomeDefaultBody extends StatelessWidget {
             children: [
               Container(
                 margin: modeImageMargin,
-                child: sleepingmodeImage,
+                child: sleepingModeImage,
               ),
-              sleepingmodeText(),
+              sleepingModeText(),
             ],
           ),
         ),
@@ -359,7 +360,7 @@ class HomeDefaultBody extends StatelessWidget {
           Expanded(
             child: Container(
               margin: zeroMargin,
-              child: vitalmodeButton(context),
+              child: vitalModeButton(context),
             ),
           ),
           Container(
@@ -369,7 +370,7 @@ class HomeDefaultBody extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: relaxingmodeButton(context),
+              child: relaxingModeButton(context),
             ),
           ),
           Container(
@@ -379,7 +380,7 @@ class HomeDefaultBody extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: sleepingmodeButton(context),
+              child: sleepingModeButton(context),
             ),
           ),
         ],
@@ -413,7 +414,7 @@ class HomeDefaultBody extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(bottom: 32),
             color: Colors.white,
-            child: const LymphoWearState(),
+            child: const LymphoWearCustomView(),
           ),
           Container(
             margin: homeValueMargin,
@@ -424,7 +425,14 @@ class HomeDefaultBody extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
-              onValueChanged: (value) {},
+              onValueChanged: (value) {
+                var ble = BleSingleton();
+                if (ble.isRunning) {
+                  BleSingleton().writeToDevice('+MC', value);
+                } else {
+                  ble.collarbone = value;
+                }
+              },
             ),
           ),
           Container(
@@ -436,7 +444,14 @@ class HomeDefaultBody extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
-              onValueChanged: (value) {},
+              onValueChanged: (value) {
+                var ble = BleSingleton();
+                if (ble.isRunning) {
+                  BleSingleton().writeToDevice('+MA', value);
+                } else {
+                  ble.armpit = value;
+                }
+              },
             ),
           ),
           Container(
@@ -448,7 +463,14 @@ class HomeDefaultBody extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
-              onValueChanged: (value) {},
+              onValueChanged: (value) {
+                var ble = BleSingleton();
+                if (ble.isRunning) {
+                  BleSingleton().writeToDevice('+MS', value);
+                } else {
+                  ble.shoulder = value;
+                }
+              },
             ),
           ),
           Container(
@@ -460,7 +482,14 @@ class HomeDefaultBody extends StatelessWidget {
               maxValue: 2,
               divisions: 2,
               icon: 'assets/icons/ic_heat_max.svg',
-              onValueChanged: (value) {},
+              onValueChanged: (value) {
+                var ble = BleSingleton();
+                if (ble.isRunning) {
+                  BleSingleton().writeToDevice('+MH', value);
+                } else {
+                  ble.heat = value;
+                }
+              },
             ),
           ),
         ],

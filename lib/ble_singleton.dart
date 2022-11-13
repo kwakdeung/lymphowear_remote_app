@@ -15,6 +15,8 @@ class BleSingleton {
   StreamSubscription<DiscoveredDevice>? _scanStream;
   DiscoveredDevice? _device;
 
+  var isRunning = false;
+
   void Function()? onSuccessScan;
   void Function(String)? onFailedScan;
 
@@ -23,8 +25,7 @@ class BleSingleton {
   }
 
   String serialNumber() {
-    print("serial Number");
-    return _device?.id ?? "xxxxxxxx";
+    return _device?.id ?? "";
   }
 
   void stopScan() {
@@ -46,9 +47,57 @@ class BleSingleton {
     });
   }
 
+  var _beforeMessage = '';
+  var _beforeGrade = 0;
+
+  var collarbone = 0;
+  var armpit = 0;
+  var shoulder = 0;
+  var heat = 0;
+
+  writeToDevice2(String message, int grade) {
+    var id = _device?.id;
+    if (id == null) {
+      return;
+    }
+
+    List<int> data = [...message.codeUnits, ..."$grade".codeUnits];
+    data.addAll('\r'.codeUnits);
+
+    _ble.writeCharacteristicWithResponse(
+        QualifiedCharacteristic(
+            characteristicId: rx, serviceId: serviceId, deviceId: id),
+        value: data);
+  }
+
+  writeToDevice(String message, int grade) {
+    if (message == _beforeMessage && _beforeGrade == grade) return;
+    _beforeGrade = grade;
+    _beforeMessage = message;
+
+    var id = _device?.id;
+    if (id == null) {
+      return;
+    }
+
+    var data = [...message.codeUnits];
+    if (grade != -1) {
+      data.add(grade);
+    }
+
+    data.addAll('\r'.codeUnits);
+
+    _ble.writeCharacteristicWithResponse(
+        QualifiedCharacteristic(
+            characteristicId: rx, serviceId: serviceId, deviceId: id),
+        value: data);
+  }
+
   StreamSubscription<ConnectionStateUpdate>? _connectStream;
   void Function()? onSuccessConnect;
   void Function(String)? onFailedConnect;
+
+  void Function(String)? onRead;
 
   void connect() {
     _connectStream?.cancel();
@@ -59,6 +108,22 @@ class BleSingleton {
     }
 
     var device = _device!;
+    _ble.connectedDeviceStream.listen((event) {
+      if (event.connectionState == DeviceConnectionState.connected) {
+        writeToDevice2("+S0123123123123123123123123123123123123123123123", -1);
+        writeToDevice2("+S1321321321321321321321321321321321321321321321", -1);
+        writeToDevice2("+S2132132132132132132132132132132132132132132132", -1);
+
+        _ble
+            .subscribeToCharacteristic(QualifiedCharacteristic(
+                characteristicId: tx,
+                serviceId: serviceId,
+                deviceId: device.id))
+            .listen((event) {
+          onData(String.fromCharCodes(event));
+        });
+      }
+    });
 
     _connectStream = _ble
         .connectToDevice(id: device.id, servicesWithCharacteristicsToDiscover: {
@@ -66,21 +131,40 @@ class BleSingleton {
     }).listen((event) async {
       if (event.connectionState == DeviceConnectionState.connected) {
         await _ble.requestMtu(deviceId: device.id, mtu: 247);
-
         onSuccessConnect?.call();
-        _ble
-            .subscribeToCharacteristic(QualifiedCharacteristic(
-                characteristicId: tx,
-                serviceId: serviceId,
-                deviceId: device.id))
-            .listen((event) {
-          // setState(() {
-          //   text = String.fromCharCodes(event);
-          // });
-        });
-
-        // await _writeToDevice();
       }
     });
+  }
+
+  void Function(int v)? onValueCollarbone;
+  void Function(int v)? onValueShoulder;
+  void Function(int v)? onValueArmpit;
+  void Function(int v)? onValueHeat;
+
+  void onData(String data) {
+    if (data.startsWith("+S")) {
+      var p = data.split(",");
+
+      onValueCollarbone?.call(int.parse(p[2]));
+      onValueShoulder?.call(int.parse(p[3]));
+      onValueArmpit?.call(int.parse(p[4]));
+      onValueHeat?.call(int.parse(p[5]));
+
+      onRead?.call(data);
+    }
+  }
+
+  void sync() {
+    writeToDevice("+MC", collarbone);
+    writeToDevice("+MA", armpit);
+    writeToDevice("+MS", shoulder);
+    writeToDevice("+MH", heat);
+  }
+
+  void syncPause() {
+    writeToDevice("+MC", 0);
+    writeToDevice("+MA", 0);
+    writeToDevice("+MS", 0);
+    writeToDevice("+MH", 0);
   }
 }

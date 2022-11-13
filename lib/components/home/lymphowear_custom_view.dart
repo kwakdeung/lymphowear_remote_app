@@ -3,17 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import '../../ble_singleton.dart';
+import '../../constants.dart';
 
-import 'package:lymphowear_remote_app/constants.dart';
-
-class LymphoWearState extends StatefulWidget {
-  const LymphoWearState({Key? key}) : super(key: key);
+class LymphoWearCustomView extends StatefulWidget {
+  const LymphoWearCustomView({Key? key}) : super(key: key);
 
   @override
-  State<LymphoWearState> createState() => _LymphoWearStateState();
+  State<LymphoWearCustomView> createState() => _LymphoWearCustomViewState();
 }
 
-class _LymphoWearStateState extends State<LymphoWearState>
+class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
     with TickerProviderStateMixin {
   Text stateTitle(context) {
     return Text(
@@ -24,64 +24,53 @@ class _LymphoWearStateState extends State<LymphoWearState>
 
   Timer? timer;
 
-  int countedSeconds = 900;
+  final int minSeconds = 0;
+  final int maxSeconds = 900;
 
-  int minSeconds = 0;
-  int maxSeconds = 900;
+  int defaultSeconds = 900;
+  int currentSeconds = 900;
 
-  bool timerStart = false;
   bool timerRunning = false;
   bool circularVisible = false;
 
   bool isPlaying = false;
   late AnimationController controller;
 
+  var value = 0;
+
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: countedSeconds),
-    )..addListener(() {
-        setState(() {});
-      });
-    controller.forward();
     super.initState();
+
+    BleSingleton().onRead = (data) {
+      // print(data);
+    };
   }
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
   get time {
-    var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
-    var sec = (countedSeconds % 60).toString().padLeft(2, '0');
+    var min = (currentSeconds ~/ 60).toString().padLeft(2, '0');
+    var sec = (currentSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
   }
 
   void startTimer() {
-    timerStart = true;
-    timerRunning = true;
+    timer?.cancel();
 
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        passTime();
-        alertEnd();
+        if (currentSeconds > minSeconds) {
+          currentSeconds--;
+          BleSingleton().writeToDevice2('+A', -1);
+        } else {
+          pause();
+        }
       });
     });
-    alertEnd();
-  }
-
-  void stopTimer() {
-    timerRunning = false;
-    timer!.cancel();
-  }
-
-  void passTime() {
-    if (countedSeconds > minSeconds) {
-      countedSeconds--;
-    }
   }
 
   void alertEnd() {
@@ -95,34 +84,45 @@ class _LymphoWearStateState extends State<LymphoWearState>
   }
 
   void minusControl() {
-    if (countedSeconds > minSeconds &&
-        (timerStart == false && timerRunning == false)) {
-      setState(() {
-        countedSeconds--;
-      });
-    }
+    if (isPlaying || currentSeconds == minSeconds) return;
+
+    setState(() {
+      currentSeconds -= 10;
+      defaultSeconds = currentSeconds;
+    });
   }
 
   void plusControl() {
-    if (countedSeconds < maxSeconds &&
-        (timerStart == false && timerRunning == false)) {
-      setState(() {
-        countedSeconds++;
-      });
-    }
+    if (isPlaying || currentSeconds == maxSeconds) return;
+
+    setState(() {
+      currentSeconds += 1;
+      defaultSeconds = currentSeconds;
+    });
   }
 
-  void playpauseControl() {
-    if (timerRunning) {
-      stopTimer();
-      setState(() => isPlaying = false);
-    } else {
-      startTimer();
-      setState(() {
-        circularVisible = true;
-        isPlaying = true;
-      });
-    }
+  void play() {
+    var ble = BleSingleton();
+
+    ble.writeToDevice2('+CPLAY', currentSeconds);
+    setState(() {
+      isPlaying = true;
+    });
+
+    ble.isRunning = true;
+    ble.sync();
+
+    startTimer();
+  }
+
+  void pause() {
+    BleSingleton().writeToDevice('+CPAUSE', -1);
+    setState(() {
+      isPlaying = false;
+    });
+    BleSingleton().isRunning = false;
+
+    timer?.cancel();
   }
 
   Container minusButton() {
@@ -136,7 +136,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: (countedSeconds > minSeconds) && timerStart == false
+                color: (currentSeconds != minSeconds) && !isPlaying
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -146,7 +146,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
         child: SvgPicture.asset(
           'assets/icons/ic_minus.svg',
           fit: BoxFit.fill,
-          color: (countedSeconds > minSeconds) && timerStart == false
+          color: (currentSeconds != minSeconds) && !isPlaying
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
@@ -165,7 +165,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
         },
         style: ElevatedButton.styleFrom(
             side: BorderSide(
-                color: (countedSeconds < maxSeconds) && timerStart == false
+                color: (currentSeconds != maxSeconds) && !isPlaying
                     ? const Color(0xff212121)
                     : const Color(0xffE0E0E0),
                 width: 2),
@@ -175,7 +175,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
         child: SvgPicture.asset(
           'assets/icons/ic_plus.svg',
           fit: BoxFit.fill,
-          color: (countedSeconds < maxSeconds) && timerStart == false
+          color: (currentSeconds != maxSeconds) && !isPlaying
               ? const Color(0xff212121)
               : const Color(0xffE0E0E0),
         ),
@@ -184,13 +184,13 @@ class _LymphoWearStateState extends State<LymphoWearState>
   }
 
   Container circleTimer() {
-    Visibility circularprogressIndicator() {
+    Visibility circularProgressIndicator() {
       return Visibility(
-        visible: circularVisible,
+        visible: isPlaying,
         child: CircularProgressIndicator(
           backgroundColor: const Color(0xffED711A).withOpacity(0.16),
           strokeWidth: 6,
-          value: controller.value,
+          value: 1.0 - (100 / defaultSeconds * currentSeconds * 0.01),
           valueColor: const AlwaysStoppedAnimation<Color>(
             Color(0xffED711A),
           ),
@@ -220,7 +220,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
       ),
     );
 
-    final playpauseButton = Container(
+    final playPauseButton = Container(
       margin: zeroMargin,
       width: 40.0,
       height: 40.0,
@@ -234,7 +234,11 @@ class _LymphoWearStateState extends State<LymphoWearState>
       ),
       child: IconButton(
         onPressed: () {
-          playpauseControl();
+          if (isPlaying) {
+            pause();
+          } else {
+            play();
+          }
         },
         color: isPlaying ? const Color(0xffED711A) : Colors.white,
         icon: isPlaying
@@ -271,7 +275,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
           fit: StackFit.expand,
           children: [
             Positioned(
-              child: circularprogressIndicator(),
+              child: circularProgressIndicator(),
             ),
             Positioned(
               child: Center(
@@ -279,7 +283,7 @@ class _LymphoWearStateState extends State<LymphoWearState>
                   children: [
                     batteryImage,
                     showTime,
-                    playpauseButton,
+                    playPauseButton,
                   ],
                 ),
               ),

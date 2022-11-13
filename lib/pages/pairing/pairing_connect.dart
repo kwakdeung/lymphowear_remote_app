@@ -46,6 +46,7 @@ class PairingConnectBody extends StatelessWidget {
       fontWeight: semiBold,
     ),
   );
+
   Column pairingDevice() {
     return Column(
       children: [
@@ -94,26 +95,27 @@ class PairingConnectBody extends StatelessWidget {
               child: OrangeBottomButton(
                 buttonText: 'Connect',
                 onPressed: () {
-                  // var ble = BleSingleton();
-                  // ble.onSuccessConnect = () {
-                  //   Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => const PairingComplete(),
-                  //     ),
-                  //   );
-                  // };
-
-                  // ble.onFailedConnect = (message) {};
-                  // ble.connect();
-                  Future.delayed(const Duration(seconds: 1), () {
+                  var ble = BleSingleton();
+                  ble.onSuccessConnect = () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const PairingComplete(),
                       ),
                     );
-                  });
+                  };
+
+                  ble.onFailedConnect = (message) {};
+                  ble.connect();
+
+                  // Future.delayed(const Duration(seconds: 1), () {
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const PairingComplete(),
+                  //     ),
+                  //   );
+                  // });
 
                   showProgressDialog(
                     context,

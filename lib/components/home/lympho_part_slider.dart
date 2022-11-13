@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lymphowear_remote_app/ble_singleton.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
 class LymphoPartSliderWidget extends StatefulWidget {
@@ -25,7 +26,41 @@ class LymphoPartSliderWidget extends StatefulWidget {
 }
 
 class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
-  double currentValue = 1.0;
+  double currentValue = 0.0;
+
+  @override
+  initState() {
+    super.initState();
+
+    var ble = BleSingleton();
+    if (widget.title == 'Collarbone') {
+      ble.onValueCollarbone = (v) {
+        setState(() {
+          currentValue = v.toDouble();
+        });
+      };
+    } else if (widget.title == 'Armpit') {
+      ble.onValueArmpit = (v) {
+        setState(() {
+          currentValue = v.toDouble();
+        });
+      };
+    } else if (widget.title == 'Shoulder') {
+      ble.onValueShoulder = (v) {
+        setState(() {
+          currentValue = v.toDouble();
+        });
+      };
+    } else if (widget.title == 'Heat') {
+      setState(() {
+        ble.onValueHeat = (v) {
+          setState(() {
+            currentValue = v.toDouble();
+          });
+        };
+      });
+    }
+  }
 
   showValue() {
     return Text(

@@ -5,15 +5,19 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 
+import '../../ble_singleton.dart';
+
 class LymphoCircularProgressIndicatorWidget extends StatefulWidget {
   final Color modeColor, iconColor;
   final bool visible;
+  final Function(bool) onPlayStateChanged;
 
   const LymphoCircularProgressIndicatorWidget({
     super.key,
     required this.modeColor,
     required this.iconColor,
     required this.visible,
+    required this.onPlayStateChanged,
   });
 
   @override
@@ -26,19 +30,27 @@ class _LymphoCircularProgressIndicatorWidgetState
     with TickerProviderStateMixin {
   late AnimationController controller;
   Timer? timer;
-  int countedSeconds = 900;
+
+  int currentSeconds = 900;
   int minSeconds = 0;
-  int maxSeconds = 10;
 
   bool timerStart = false;
-  bool timerRunning = false;
-  bool circularVisible = false;
 
-  bool isPlaying = false;
+  bool _isPlaying = false;
+  Function(bool)? onPlayStateChanged;
+
+  get isPlaying {
+    return _isPlaying;
+  }
+
+  set isPlaying(value) {
+    _isPlaying = value;
+    widget.onPlayStateChanged.call(value);
+  }
 
   get time {
-    var min = (countedSeconds ~/ 60).toString().padLeft(2, '0');
-    var sec = (countedSeconds % 60).toString().padLeft(2, '0');
+    var min = (currentSeconds ~/ 60).toString().padLeft(2, '0');
+    var sec = (currentSeconds % 60).toString().padLeft(2, '0');
     return '$min:$sec';
   }
 
@@ -46,10 +58,9 @@ class _LymphoCircularProgressIndicatorWidgetState
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: countedSeconds),
-    )..addListener(() {
-        setState(() {});
-      });
+      duration: Duration(seconds: currentSeconds),
+    );
+
     controller.forward();
     super.initState();
   }
@@ -61,39 +72,33 @@ class _LymphoCircularProgressIndicatorWidgetState
   }
 
   void startTimer() {
-    timerStart = true;
-    timerRunning = true;
-
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        passTime();
-        alertEnd();
+        if (currentSeconds > minSeconds) {
+          currentSeconds--;
+        } else {
+          alertEnd();
+        }
       });
     });
     alertEnd();
   }
 
   void stopTimer() {
-    timerRunning = false;
-    timer!.cancel();
+    timer?.cancel();
   }
 
-  void playpauseControl() {
-    if (timerRunning) {
+  void playOrPause() {
+    if (isPlaying) {
       stopTimer();
-      setState(() => isPlaying = false);
+      setState(() {
+        isPlaying = false;
+      });
     } else {
       startTimer();
       setState(() {
-        circularVisible = true;
         isPlaying = true;
       });
-    }
-  }
-
-  void passTime() {
-    if (countedSeconds > minSeconds) {
-      countedSeconds--;
     }
   }
 
@@ -123,7 +128,7 @@ class _LymphoCircularProgressIndicatorWidgetState
             children: [
               Positioned(
                 child: Visibility(
-                  visible: circularVisible,
+                  visible: isPlaying,
                   child: CircularProgressIndicator(
                     backgroundColor: widget.modeColor.withOpacity(0.16),
                     strokeWidth: 6,
@@ -174,7 +179,7 @@ class _LymphoCircularProgressIndicatorWidgetState
                         ),
                         child: IconButton(
                           onPressed: () {
-                            playpauseControl();
+                            playOrPause();
                           },
                           color: isPlaying ? widget.modeColor : Colors.white,
                           icon: isPlaying

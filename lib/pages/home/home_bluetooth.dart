@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/home/home_default.dart';
-import 'package:lymphowear_remote_app/pages/lymphowear_appbar.dart';
-import 'package:lymphowear_remote_app/pages/white_bottom_button.dart';
+import '../../constants.dart';
+import '../lymphowear_appbar.dart';
+import '../white_bottom_button.dart';
+
+import 'custom_mode_view.dart';
 
 class HomeBluetooth extends StatefulWidget {
   const HomeBluetooth({Key? key}) : super(key: key);
@@ -178,7 +179,7 @@ class HomeBluetoothBody extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const HomeDefault()),
+            builder: ((context) => const CustomModeView()),
           ),
         );
       },
