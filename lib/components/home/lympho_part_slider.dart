@@ -52,13 +52,11 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
         });
       };
     } else if (widget.title == 'Heat') {
-      setState(() {
-        ble.onValueHeat = (v) {
-          setState(() {
-            currentValue = v.toDouble();
-          });
-        };
-      });
+      ble.onValueHeat = (v) {
+        setState(() {
+          currentValue = v.toDouble();
+        });
+      };
     }
   }
 

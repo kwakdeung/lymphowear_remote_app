@@ -116,11 +116,14 @@ class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
   }
 
   void pause() {
-    BleSingleton().writeToDevice('+CPAUSE', -1);
+    var ble = BleSingleton();
+
+    ble.writeToDevice('+CPAUSE', -1);
     setState(() {
       isPlaying = false;
     });
-    BleSingleton().isRunning = false;
+    ble.isRunning = false;
+    ble.syncPause();
 
     timer?.cancel();
   }

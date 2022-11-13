@@ -62,6 +62,11 @@ class _LymphoCircularProgressIndicatorWidgetState
     );
 
     controller.forward();
+
+    BleSingleton().onRead = (data) {
+      print(data);
+    };
+
     super.initState();
   }
 
@@ -76,6 +81,7 @@ class _LymphoCircularProgressIndicatorWidgetState
       setState(() {
         if (currentSeconds > minSeconds) {
           currentSeconds--;
+          BleSingleton().writeToDevice2('+A', -1);
         } else {
           alertEnd();
         }

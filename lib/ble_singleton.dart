@@ -146,9 +146,11 @@ class BleSingleton {
       var p = data.split(",");
 
       onValueCollarbone?.call(int.parse(p[2]));
-      onValueShoulder?.call(int.parse(p[3]));
-      onValueArmpit?.call(int.parse(p[4]));
+      onValueArmpit?.call(int.parse(p[3]));
+      onValueShoulder?.call(int.parse(p[4]));
       onValueHeat?.call(int.parse(p[5]));
+
+      print(data);
 
       onRead?.call(data);
     }

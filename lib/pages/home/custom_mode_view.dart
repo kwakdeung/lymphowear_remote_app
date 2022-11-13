@@ -427,10 +427,9 @@ class CustomModeBodyView extends StatelessWidget {
               icon: 'assets/icons/ic_max.svg',
               onValueChanged: (value) {
                 var ble = BleSingleton();
+                ble.collarbone = value;
                 if (ble.isRunning) {
-                  BleSingleton().writeToDevice('+MC', value);
-                } else {
-                  ble.collarbone = value;
+                  ble.writeToDevice('+MC', value);
                 }
               },
             ),
@@ -446,10 +445,9 @@ class CustomModeBodyView extends StatelessWidget {
               icon: 'assets/icons/ic_max.svg',
               onValueChanged: (value) {
                 var ble = BleSingleton();
+                ble.armpit = value;
                 if (ble.isRunning) {
-                  BleSingleton().writeToDevice('+MA', value);
-                } else {
-                  ble.armpit = value;
+                  ble.writeToDevice('+MA', value);
                 }
               },
             ),
@@ -465,10 +463,9 @@ class CustomModeBodyView extends StatelessWidget {
               icon: 'assets/icons/ic_max.svg',
               onValueChanged: (value) {
                 var ble = BleSingleton();
+                ble.shoulder = value;
                 if (ble.isRunning) {
-                  BleSingleton().writeToDevice('+MS', value);
-                } else {
-                  ble.shoulder = value;
+                  ble.writeToDevice('+MS', value);
                 }
               },
             ),
@@ -484,10 +481,9 @@ class CustomModeBodyView extends StatelessWidget {
               icon: 'assets/icons/ic_heat_max.svg',
               onValueChanged: (value) {
                 var ble = BleSingleton();
+                ble.heat = value;
                 if (ble.isRunning) {
-                  BleSingleton().writeToDevice('+MH', value);
-                } else {
-                  ble.heat = value;
+                  ble.writeToDevice('+MH', value);
                 }
               },
             ),
