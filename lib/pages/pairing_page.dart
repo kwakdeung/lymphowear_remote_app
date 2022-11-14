@@ -131,7 +131,7 @@ class PairingPageBody extends StatelessWidget {
 
   Text description(context) {
     return Text(
-      'Turn on the main unit and press\nthe “Start” button to make\nthe Bluetooth connection.',
+      'Turn on your LymphoWear and\ntap the “Start” button to setup\na bluetooth connection.',
       textAlign: TextAlign.center,
       style: Theme.of(context).textTheme.subtitle1,
     );
