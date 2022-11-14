@@ -205,10 +205,32 @@ class _AutoModeBodyState extends State<AutoModeBody> {
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
       child: LymphoPartSliderWidget(
         title: 'Heat',
-        image: 'assets/images/heat.png',
+        image: 'assets/images/heat_white.png',
         maxValue: 2,
         divisions: 2,
         icon: 'assets/icons/ic_heat_max.svg',
+        activeTrackColor: widget.modeTitle == 'Vital Mode'
+            ? const Color(0xffED711A)
+            : widget.modeTitle == 'Relaxing Mode'
+                ? const Color(0xff00AAC6)
+                : const Color(0xffF6DA6B),
+        inactiveTrackColor: const Color(0xffFFFFFF),
+        thumbColor: widget.modeTitle == 'Vital Mode'
+            ? const Color(0xffED711A)
+            : widget.modeTitle == 'Relaxing Mode'
+                ? const Color(0xff00AAC6)
+                : const Color(0xffF6DA6B),
+        iconColor: widget.modeTitle == 'Sleeping Mode'
+            ? const Color(0xffEEEEEE)
+            : const Color(0xff000000),
+        sliderTextColor: widget.modeTitle == 'Sleeping Mode'
+            ? const Color(0xffEEEEEE)
+            : const Color(0xff9E9E9E),
+        valueColor: widget.modeTitle == 'Vital Mode'
+            ? const Color(0xffED711A)
+            : widget.modeTitle == 'Relaxing Mode'
+                ? const Color(0xff00AAC6)
+                : const Color(0xffF6DA6B),
         onValueChanged: (value) {
           BleSingleton().writeToDevice('+MH', value);
         },

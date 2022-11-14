@@ -425,6 +425,12 @@ class CustomModeBodyView extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
+              activeTrackColor: const Color(0xffED711A),
+              inactiveTrackColor: const Color(0xffEEEEEE),
+              thumbColor: const Color(0xffED711A),
+              iconColor: const Color(0xff000000),
+              sliderTextColor: const Color(0xff9E9E9E),
+              valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
                 var ble = BleSingleton();
                 ble.collarbone = value;
@@ -443,6 +449,12 @@ class CustomModeBodyView extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
+              activeTrackColor: const Color(0xffED711A),
+              inactiveTrackColor: const Color(0xffEEEEEE),
+              thumbColor: const Color(0xffED711A),
+              iconColor: const Color(0xffEEEEEE),
+              sliderTextColor: const Color(0xff9E9E9E),
+              valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
                 var ble = BleSingleton();
                 ble.armpit = value;
@@ -461,6 +473,12 @@ class CustomModeBodyView extends StatelessWidget {
               maxValue: 3,
               divisions: 3,
               icon: 'assets/icons/ic_max.svg',
+              activeTrackColor: const Color(0xffED711A),
+              inactiveTrackColor: const Color(0xffEEEEEE),
+              thumbColor: const Color(0xffED711A),
+              iconColor: const Color(0xffEEEEEE),
+              sliderTextColor: const Color(0xff9E9E9E),
+              valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
                 var ble = BleSingleton();
                 ble.shoulder = value;
@@ -479,6 +497,12 @@ class CustomModeBodyView extends StatelessWidget {
               maxValue: 2,
               divisions: 2,
               icon: 'assets/icons/ic_heat_max.svg',
+              activeTrackColor: const Color(0xffED711A),
+              inactiveTrackColor: const Color(0xffEEEEEE),
+              thumbColor: const Color(0xffED711A),
+              iconColor: const Color(0xffEEEEEE),
+              sliderTextColor: const Color(0xff9E9E9E),
+              valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
                 var ble = BleSingleton();
                 ble.heat = value;

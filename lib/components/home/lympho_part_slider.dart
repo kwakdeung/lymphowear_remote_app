@@ -10,16 +10,28 @@ class LymphoPartSliderWidget extends StatefulWidget {
   final int divisions;
   final String icon;
   final ValueChanged<int> onValueChanged;
+  final Color activeTrackColor,
+      inactiveTrackColor,
+      thumbColor,
+      iconColor,
+      sliderTextColor,
+      valueColor;
 
-  const LymphoPartSliderWidget(
-      {Key? key,
-      required this.title,
-      required this.onValueChanged,
-      required this.image,
-      required this.maxValue,
-      required this.icon,
-      required this.divisions})
-      : super(key: key);
+  const LymphoPartSliderWidget({
+    Key? key,
+    required this.title,
+    required this.onValueChanged,
+    required this.image,
+    required this.maxValue,
+    required this.icon,
+    required this.divisions,
+    required this.activeTrackColor,
+    required this.inactiveTrackColor,
+    required this.thumbColor,
+    required this.iconColor,
+    required this.sliderTextColor,
+    required this.valueColor,
+  }) : super(key: key);
 
   @override
   State<LymphoPartSliderWidget> createState() => _LymphoPartSliderWidgetState();
@@ -64,7 +76,11 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
     return Text(
       currentValue == 0.0 ? 'Off' : '${currentValue.round()}',
       textAlign: TextAlign.right,
-      style: intensityValueText,
+      style: TextStyle(
+        fontSize: 10,
+        color: widget.valueColor,
+        fontWeight: semiBold,
+      ),
     );
   }
 
@@ -79,7 +95,10 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
         const Spacer(),
         Text(
           'Intensity',
-          style: intensityText,
+          style: TextStyle(
+            color: widget.sliderTextColor,
+            fontSize: 10,
+          ),
         ),
         const SizedBox(
           width: 2,
@@ -97,10 +116,10 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
       data: SliderTheme.of(context).copyWith(
         trackHeight: 4.0,
         trackShape: const RoundedRectSliderTrackShape(),
-        activeTrackColor: const Color(0xffED711A),
-        inactiveTrackColor: const Color(0xffEEEEEE),
+        activeTrackColor: widget.activeTrackColor,
+        inactiveTrackColor: widget.inactiveTrackColor,
         thumbShape: const CircleThumbShape(thumbRadius: 6),
-        thumbColor: const Color(0xffED711A),
+        thumbColor: widget.thumbColor,
         tickMarkShape: const RoundSliderTickMarkShape(),
         activeTickMarkColor: const Color(0xff212121).withOpacity(0.12),
         inactiveTickMarkColor: const Color(0xff212121).withOpacity(0.12),
@@ -126,23 +145,35 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
       children: [
         Text(
           'Off',
-          style: intensityText,
+          style: TextStyle(
+            color: widget.sliderTextColor,
+            fontSize: 10,
+          ),
         ),
         const Spacer(),
         Text(
           '1',
-          style: intensityText,
+          style: TextStyle(
+            color: widget.sliderTextColor,
+            fontSize: 10,
+          ),
         ),
         const Spacer(),
         Text(
           '2',
-          style: intensityText,
+          style: TextStyle(
+            color: widget.sliderTextColor,
+            fontSize: 10,
+          ),
         ),
         if (widget.divisions == 3) const Spacer(),
         if (widget.divisions == 3)
           Text(
             '3',
-            style: intensityText,
+            style: TextStyle(
+              color: widget.sliderTextColor,
+              fontSize: 10,
+            ),
           ),
       ],
     );
@@ -185,6 +216,7 @@ class _LymphoPartSliderWidgetState extends State<LymphoPartSliderWidget> {
           margin: sliderIconMargin,
           child: SvgPicture.asset(
             widget.icon,
+            color: widget.iconColor,
             width: 16,
             height: 16,
             fit: BoxFit.fill,
