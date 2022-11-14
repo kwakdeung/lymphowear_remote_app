@@ -428,7 +428,7 @@ class CustomModeBodyView extends StatelessWidget {
               activeTrackColor: const Color(0xffED711A),
               inactiveTrackColor: const Color(0xffEEEEEE),
               thumbColor: const Color(0xffED711A),
-              iconColor: const Color(0xff000000),
+              iconColor: const Color(0xff424242),
               sliderTextColor: const Color(0xff9E9E9E),
               valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
@@ -452,7 +452,7 @@ class CustomModeBodyView extends StatelessWidget {
               activeTrackColor: const Color(0xffED711A),
               inactiveTrackColor: const Color(0xffEEEEEE),
               thumbColor: const Color(0xffED711A),
-              iconColor: const Color(0xffEEEEEE),
+              iconColor: const Color(0xff424242),
               sliderTextColor: const Color(0xff9E9E9E),
               valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
@@ -476,7 +476,7 @@ class CustomModeBodyView extends StatelessWidget {
               activeTrackColor: const Color(0xffED711A),
               inactiveTrackColor: const Color(0xffEEEEEE),
               thumbColor: const Color(0xffED711A),
-              iconColor: const Color(0xffEEEEEE),
+              iconColor: const Color(0xff424242),
               sliderTextColor: const Color(0xff9E9E9E),
               valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
@@ -500,7 +500,7 @@ class CustomModeBodyView extends StatelessWidget {
               activeTrackColor: const Color(0xffED711A),
               inactiveTrackColor: const Color(0xffEEEEEE),
               thumbColor: const Color(0xffED711A),
-              iconColor: const Color(0xffEEEEEE),
+              iconColor: const Color(0xff424242),
               sliderTextColor: const Color(0xff9E9E9E),
               valueColor: const Color(0xffED711A),
               onValueChanged: (value) {
