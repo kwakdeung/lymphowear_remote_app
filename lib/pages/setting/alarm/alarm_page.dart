@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
-import 'package:lymphowear_remote_app/pages/reminder/reminder.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -77,8 +79,8 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     });
   }
 
-  DateTime time = DateTime.now();
-
+  DateTime time = DateTime(0, 0, 0, 9, 0);
+  int _counter = 0;
   get hrs => (time.hour);
   get min => (time.minute);
 
@@ -91,19 +93,50 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
   }
 
+  //Loading counter value on start
+  Future<void> _loadCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      _counter = (prefs.getInt('counter') ?? 0);
+    });
+  }
+
+  //Incrementing counter after click
+  Future<void> _incrementCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    int time1 = time.millisecondsSinceEpoch;
+    setState(() {
+      _counter = (prefs.getInt('counter') ?? 0);
+      prefs.setInt('counter', time1);
+    });
+  }
+
+  removeValues() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.remove('counter');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCounter();
+  }
+
   bool _firstAlarmButton = false;
 
-  bool _secondAlarmButton = false;
-  String _secondAlarmValue = "";
+  // bool _secondAlarmButton = false;
+  // String _secondAlarmValue = "";
 
-  void showSecondAlarm() {
-    _secondAlarmButton = !_secondAlarmButton;
-    if (_secondAlarmButton != false) {
-      _secondAlarmValue = "Scheduled for 12:00PM";
-    } else {
-      _secondAlarmValue = "Scheduled for 12:00PM";
-    }
-  }
+  // void showSecondAlarm() {
+  //   _secondAlarmButton = !_secondAlarmButton;
+  //   if (_secondAlarmButton != false) {
+  //     _secondAlarmValue = "Scheduled for 12:00PM";
+  //   } else {
+  //     _secondAlarmValue = "Scheduled for 12:00PM";
+  //   }
+  // }
 
   ListTile firstAlarmReminder() {
     return ListTile(
@@ -116,7 +149,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             style: listTilebodyText1,
           ),
           Text(
-            alarmTime,
+            'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_counter).toLocal())}',
             style: TextStyle(
               color: _firstAlarmButton != false
                   ? const Color(0xffED711A)
@@ -141,9 +174,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => ReminderWidget(
+            builder: ((context) => SetDatePicker(
                   title: 'Alarm 1',
-                  onDateTimeChanged: onDateTimeChanged,
+                  time: time,
+                  onSetTimeChange: (DateTime newTime) {
+                    setState(() => time = newTime);
+                  },
+                  onSavePressed: () {
+                    _incrementCounter();
+                  },
                 )),
           ),
         );
@@ -151,48 +190,48 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     );
   }
 
-  ListTile secondAlarmReminder() {
-    return ListTile(
-      leading: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Alarm 2',
-            style: listTilebodyText1,
-          ),
-          Text(
-            _secondAlarmValue,
-            style: TextStyle(
-              color: _secondAlarmButton != false
-                  ? const Color(0xffED711A)
-                  : const Color(0xff9E9E9E),
-              fontSize: 12,
-              fontWeight: regular,
-            ),
-          ),
-        ],
-      ),
-      trailing: Switch(
-        activeColor: Colors.white,
-        activeTrackColor: const Color(0xffED711A),
-        value: _secondAlarmButton,
-        onChanged: (bool value) {
-          setState(() {
-            showSecondAlarm();
-          });
-        },
-      ),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const Reminder(title: 'Alarm 2')),
-          ),
-        );
-      },
-    );
-  }
+  // ListTile secondAlarmReminder() {
+  //   return ListTile(
+  //     leading: Column(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(
+  //           'Alarm 2',
+  //           style: listTilebodyText1,
+  //         ),
+  //         Text(
+  //           _secondAlarmValue,
+  //           style: TextStyle(
+  //             color: _secondAlarmButton != false
+  //                 ? const Color(0xffED711A)
+  //                 : const Color(0xff9E9E9E),
+  //             fontSize: 12,
+  //             fontWeight: regular,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //     trailing: Switch(
+  //       activeColor: Colors.white,
+  //       activeTrackColor: const Color(0xffED711A),
+  //       value: _secondAlarmButton,
+  //       onChanged: (bool value) {
+  //         setState(() {
+  //           showSecondAlarm();
+  //         });
+  //       },
+  //     ),
+  //     onTap: () {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: ((context) => const Reminder(title: 'Alarm 2')),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   static const divider = Divider(
     height: 1,
@@ -213,12 +252,12 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             child: firstAlarmReminder(),
           ),
           divider,
-          Container(
-            color: Colors.white,
-            padding: reminderPadding,
-            child: secondAlarmReminder(),
-          ),
-          divider,
+          // Container(
+          //   color: Colors.white,
+          //   padding: reminderPadding,
+          //   child: secondAlarmReminder(),
+          // ),
+          // divider,
         ],
       ),
     );
