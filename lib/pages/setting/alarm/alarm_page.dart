@@ -176,8 +176,8 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     setState(() {
       _firstNum = (prefs.getInt('firstSetTime') ?? 0);
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
-      _firstAlarmButton = (prefs.getBool('firstSetAlarm') ?? false);
-      _secondAlarmButton = (prefs.getBool('secondSetAlarm') ?? false);
+      _firstAlarmButton = (prefs.getBool('firstSetAlarm') ?? true);
+      _secondAlarmButton = (prefs.getBool('secondSetAlarm') ?? true);
     });
   }
 
@@ -201,17 +201,17 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
 
   Future<void> _firstSaveAlarm() async {
     final prefs = await SharedPreferences.getInstance();
-
+    prefs.setBool('firstSetAlarm', _firstAlarmButton);
     setState(() {
-      prefs.setBool('firstSetAlarm', _firstAlarmButton);
+      _firstNum = (prefs.getInt('firstSetTime') ?? 0);
     });
   }
 
   Future<void> _secondSaveAlarm() async {
     final prefs = await SharedPreferences.getInstance();
-
+    prefs.setBool('secondSetAlarm', _secondAlarmButton);
     setState(() {
-      prefs.setBool('secondSetAlarm', _secondAlarmButton);
+      _secondNum = (prefs.getInt('secondSetTime') ?? 0);
     });
   }
 
@@ -221,7 +221,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     _loadData();
   }
 
-  void setFirstToogle() {
+  void setFirstToggle() {
     _firstAlarmButton = !_firstAlarmButton;
     if (_firstAlarmButton) {
       _firstScheduleDailyTenAMNotification();
@@ -230,7 +230,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     }
   }
 
-  void setSecondToogle() {
+  void setSecondToggle() {
     _secondAlarmButton = !_secondAlarmButton;
     if (_secondAlarmButton) {
       _secondScheduleDailyTenAMNotification();
@@ -267,11 +267,8 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _firstAlarmButton,
         onChanged: (bool value) {
           _firstSaveAlarm();
-          print(_firstSaveAlarm());
-          print(
-              'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_firstNum).toLocal())}');
           setState(() {
-            setFirstToogle();
+            setFirstToggle();
           });
         },
       ),
@@ -322,7 +319,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         onChanged: (bool value) {
           _secondSaveAlarm();
           setState(() {
-            setSecondToogle();
+            setSecondToggle();
           });
         },
       ),
