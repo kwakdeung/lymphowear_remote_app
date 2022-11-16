@@ -3,6 +3,10 @@ import 'package:intl/intl.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/timezone.dart' as tz;
+
+import '../../../main.dart';
 
 class AlarmPage extends StatefulWidget {
   const AlarmPage({Key? key}) : super(key: key);
@@ -72,62 +76,147 @@ class AlarmPageBody extends StatefulWidget {
 }
 
 class _AlarmPageBodyState extends State<AlarmPageBody> {
-  void onDateTimeChanged(DateTime newTime) {
-    setState(() {
-      time = newTime;
-    });
+  int firstShowReservativeNum = 1;
+  int secondShowReservativeNum = 2;
+  int notificationCycle = 1;
+
+  DateTime firstTime = DateTime(0, 0, 0, 8, 0);
+  DateTime secondTime = DateTime(0, 0, 0, 18, 0);
+  int _firstNum = 0;
+  int _secondNum = 0;
+
+  bool _firstAlarmButton = false;
+  bool _secondAlarmButton = false;
+
+  get firstHrs => (firstTime.hour);
+  get firstMin => (firstTime.minute);
+
+  get firstAlarmTime {
+    var setFirstHrs = (firstHrs % 12).toString().padLeft(2, '0');
+    var setFirstMin = firstMin.toString().padLeft(2, '0');
+    var firstmrd = firstHrs >= 12 ? 'PM' : 'AM';
+
+    return 'Scheduled for $setFirstHrs:$setFirstMin$firstmrd';
   }
 
-  DateTime time = DateTime(0, 0, 0, 9, 0);
-  int _counter = 0;
+  get secondHrs => (secondTime.hour);
+  get secondMin => (secondTime.minute);
 
-  get hrs => (time.hour);
-  get min => (time.minute);
+  get secondAlarmTime {
+    var setSecondHrs = (secondHrs % 12).toString().padLeft(2, '0');
+    var setSecondMin = secondMin.toString().padLeft(2, '0');
+    var secondmrd = secondHrs >= 12 ? 'PM' : 'AM';
 
-  get alarmTime {
-    var setHrs = (hrs % 12).toString().padLeft(2, '0');
-    var setMin = min.toString().padLeft(2, '0');
-    var mrd = hrs >= 12 ? 'PM' : 'AM';
-
-    return 'Scheduled for $setHrs:$setMin$mrd';
-    // return '${time.hour % 12 < 10 ? '0${time.hour % 12}' : time.hour % 12}:${time.minute < 10 ? '0${time.minute}' : time.minute} ${time.hour >= 12 ? 'PM' : 'AM'}';
+    return 'Scheduled for $setSecondHrs:$setSecondMin$secondmrd';
   }
 
-  //Loading counter value on start
+  Future<void> _firstScheduleDailyTenAMNotification() async {
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      firstShowReservativeNum,
+      firstAlarmTime,
+      'Time For A Massage!',
+      _firstSelectNotification(),
+      const NotificationDetails(),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+    );
+  }
+
+  Future<void> _secondScheduleDailyTenAMNotification() async {
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      secondShowReservativeNum,
+      secondAlarmTime,
+      'Time For A Massage!',
+      _secondSelectNotification(),
+      const NotificationDetails(),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+    );
+  }
+
+  Future<void> _firstCancelSelectedPushNotification() async {
+    await flutterLocalNotificationsPlugin.cancel(firstShowReservativeNum);
+  }
+
+  Future<void> _secondCancelSelectedPushNotification() async {
+    await flutterLocalNotificationsPlugin.cancel(secondShowReservativeNum);
+  }
+
+  tz.TZDateTime _firstSelectNotification() {
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+        tz.local, now.year, now.month, now.day, firstHrs, firstMin);
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(
+        Duration(days: notificationCycle),
+      );
+    }
+    return scheduledDate;
+  }
+
+  tz.TZDateTime _secondSelectNotification() {
+    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    tz.TZDateTime scheduledDate = tz.TZDateTime(
+        tz.local, now.year, now.month, now.day, secondHrs, secondMin);
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(
+        Duration(days: notificationCycle),
+      );
+    }
+    return scheduledDate;
+  }
+
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
 
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
-      _firstAlarmButton = (prefs.getBool('repeat') ?? false);
+      _firstNum = (prefs.getInt('firstSetTime') ?? 0);
+      _secondNum = (prefs.getInt('secondSetTime') ?? 0);
+      _firstAlarmButton = (prefs.getBool('firstSetAlarm') ?? false);
+      _secondAlarmButton = (prefs.getBool('secondSetAlarm') ?? false);
     });
   }
 
-  //Incrementing counter after click
-  Future<void> _incrementCounter() async {
+  Future<void> _firstSaveTime() async {
     final prefs = await SharedPreferences.getInstance();
-    int time1 = time.millisecondsSinceEpoch;
+    int time1 = firstTime.millisecondsSinceEpoch;
 
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
+      _firstNum = (prefs.getInt('firstSetTime') ?? 0);
 
-      prefs.setInt('counter', time1);
+      prefs.setInt('firstSetTime', time1);
     });
   }
 
-  //Incrementing counter after click
-  Future<void> _setBoolean() async {
+  Future<void> _secondSaveTime() async {
+    final prefs = await SharedPreferences.getInstance();
+    int time2 = secondTime.millisecondsSinceEpoch;
+
+    setState(() {
+      _secondNum = (prefs.getInt('secondSetTime') ?? 0);
+
+      prefs.setInt('secondSetTime', time2);
+    });
+  }
+
+  Future<void> _firstSaveAlarm() async {
     final prefs = await SharedPreferences.getInstance();
 
     setState(() {
-      prefs.setBool('repeat', _firstAlarmButton);
+      prefs.setBool('firstSetAlarm', _firstAlarmButton);
     });
   }
 
-  removeValues() async {
+  Future<void> _secondSaveAlarm() async {
     final prefs = await SharedPreferences.getInstance();
 
-    await prefs.remove('counter');
+    setState(() {
+      prefs.setBool('secondSetAlarm', _secondAlarmButton);
+    });
   }
 
   @override
@@ -136,19 +225,23 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     _loadData();
   }
 
-  bool _firstAlarmButton = false;
+  void setFirstToogle() {
+    _firstAlarmButton = !_firstAlarmButton;
+    if (_firstAlarmButton) {
+      _firstScheduleDailyTenAMNotification();
+    } else if (!_firstAlarmButton) {
+      _firstCancelSelectedPushNotification();
+    }
+  }
 
-  // bool _secondAlarmButton = false;
-  // String _secondAlarmValue = "";
-
-  // void showSecondAlarm() {
-  //   _secondAlarmButton = !_secondAlarmButton;
-  //   if (_secondAlarmButton != false) {
-  //     _secondAlarmValue = "Scheduled for 12:00PM";
-  //   } else {
-  //     _secondAlarmValue = "Scheduled for 12:00PM";
-  //   }
-  // }
+  void setSecondToogle() {
+    _secondAlarmButton = !_secondAlarmButton;
+    if (_secondAlarmButton) {
+      _secondScheduleDailyTenAMNotification();
+    } else if (!_secondAlarmButton) {
+      _secondCancelSelectedPushNotification();
+    }
+  }
 
   ListTile firstAlarmReminder() {
     return ListTile(
@@ -161,7 +254,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             style: listTilebodyText1,
           ),
           Text(
-            'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_counter).toLocal())}',
+            'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_firstNum).toLocal())}',
             style: TextStyle(
               color: _firstAlarmButton != false
                   ? const Color(0xffED711A)
@@ -177,11 +270,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xffED711A),
         value: _firstAlarmButton,
         onChanged: (bool value) {
-          _setBoolean();
+          _firstSaveAlarm();
           setState(() {
-            _firstAlarmButton = !_firstAlarmButton;
-            if (_firstAlarmButton) {
-            } else if (!_firstAlarmButton) {}
+            setFirstToogle();
           });
         },
       ),
@@ -191,12 +282,12 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           MaterialPageRoute(
             builder: ((context) => SetDatePicker(
                   title: 'Alarm 1',
-                  time: time,
+                  time: firstTime,
                   onSetTimeChange: (DateTime newTime) {
-                    setState(() => time = newTime);
+                    setState(() => firstTime = newTime);
                   },
                   onSavePressed: () {
-                    _incrementCounter();
+                    _firstSaveTime();
                   },
                 )),
           ),
@@ -205,48 +296,58 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     );
   }
 
-  // ListTile secondAlarmReminder() {
-  //   return ListTile(
-  //     leading: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         Text(
-  //           'Alarm 2',
-  //           style: listTilebodyText1,
-  //         ),
-  //         Text(
-  //           _secondAlarmValue,
-  //           style: TextStyle(
-  //             color: _secondAlarmButton != false
-  //                 ? const Color(0xffED711A)
-  //                 : const Color(0xff9E9E9E),
-  //             fontSize: 12,
-  //             fontWeight: regular,
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //     trailing: Switch(
-  //       activeColor: Colors.white,
-  //       activeTrackColor: const Color(0xffED711A),
-  //       value: _secondAlarmButton,
-  //       onChanged: (bool value) {
-  //         setState(() {
-  //           showSecondAlarm();
-  //         });
-  //       },
-  //     ),
-  //     onTap: () {
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: ((context) => const Reminder(title: 'Alarm 2')),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
+  ListTile secondAlarmReminder() {
+    return ListTile(
+      leading: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Alarm 2',
+            style: listTilebodyText1,
+          ),
+          Text(
+            'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_secondNum).toLocal())}',
+            style: TextStyle(
+              color: _secondAlarmButton != false
+                  ? const Color(0xffED711A)
+                  : const Color(0xff9E9E9E),
+              fontSize: 12,
+              fontWeight: regular,
+            ),
+          ),
+        ],
+      ),
+      trailing: Switch(
+        activeColor: Colors.white,
+        activeTrackColor: const Color(0xffED711A),
+        value: _secondAlarmButton,
+        onChanged: (bool value) {
+          _secondSaveAlarm();
+          setState(() {
+            setSecondToogle();
+          });
+        },
+      ),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => SetDatePicker(
+                  title: 'Alarm 2',
+                  time: firstTime,
+                  onSetTimeChange: (DateTime newTime) {
+                    setState(() => secondTime = newTime);
+                  },
+                  onSavePressed: () {
+                    _secondSaveTime();
+                  },
+                )),
+          ),
+        );
+      },
+    );
+  }
 
   static const divider = Divider(
     height: 1,
@@ -267,12 +368,12 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
             child: firstAlarmReminder(),
           ),
           divider,
-          // Container(
-          //   color: Colors.white,
-          //   padding: reminderPadding,
-          //   child: secondAlarmReminder(),
-          // ),
-          // divider,
+          Container(
+            color: Colors.white,
+            padding: reminderPadding,
+            child: secondAlarmReminder(),
+          ),
+          divider,
         ],
       ),
     );
