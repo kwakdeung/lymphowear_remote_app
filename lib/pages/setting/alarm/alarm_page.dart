@@ -184,22 +184,18 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   Future<void> _firstSaveTime() async {
     final prefs = await SharedPreferences.getInstance();
     int time1 = firstTime.millisecondsSinceEpoch;
-
+    prefs.setInt('firstSetTime', time1);
     setState(() {
       _firstNum = (prefs.getInt('firstSetTime') ?? 0);
-
-      prefs.setInt('firstSetTime', time1);
     });
   }
 
   Future<void> _secondSaveTime() async {
     final prefs = await SharedPreferences.getInstance();
     int time2 = secondTime.millisecondsSinceEpoch;
-
+    prefs.setInt('secondSetTime', time2);
     setState(() {
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
-
-      prefs.setInt('secondSetTime', time2);
     });
   }
 
@@ -271,6 +267,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         value: _firstAlarmButton,
         onChanged: (bool value) {
           _firstSaveAlarm();
+          print(_firstSaveAlarm());
+          print(
+              'Scheduled for ${DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(_firstNum).toLocal())}');
           setState(() {
             setFirstToogle();
           });
@@ -286,9 +285,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
                   onSetTimeChange: (DateTime newTime) {
                     setState(() => firstTime = newTime);
                   },
-                  onSavePressed: () {
-                    _firstSaveTime();
-                  },
+                  onSavePressed: _firstSaveTime,
                 )),
           ),
         );
