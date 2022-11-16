@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AlarmPage extends StatefulWidget {
@@ -81,6 +80,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
 
   DateTime time = DateTime(0, 0, 0, 9, 0);
   int _counter = 0;
+
   get hrs => (time.hour);
   get min => (time.minute);
 
@@ -94,11 +94,12 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   }
 
   //Loading counter value on start
-  Future<void> _loadCounter() async {
+  Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
 
     setState(() {
       _counter = (prefs.getInt('counter') ?? 0);
+      _firstAlarmButton = (prefs.getBool('repeat') ?? false);
     });
   }
 
@@ -106,9 +107,20 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   Future<void> _incrementCounter() async {
     final prefs = await SharedPreferences.getInstance();
     int time1 = time.millisecondsSinceEpoch;
+
     setState(() {
       _counter = (prefs.getInt('counter') ?? 0);
+
       prefs.setInt('counter', time1);
+    });
+  }
+
+  //Incrementing counter after click
+  Future<void> _setBoolean() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      prefs.setBool('repeat', _firstAlarmButton);
     });
   }
 
@@ -121,7 +133,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   @override
   void initState() {
     super.initState();
-    _loadCounter();
+    _loadData();
   }
 
   bool _firstAlarmButton = false;
@@ -165,8 +177,11 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xffED711A),
         value: _firstAlarmButton,
         onChanged: (bool value) {
+          _setBoolean();
           setState(() {
             _firstAlarmButton = !_firstAlarmButton;
+            if (_firstAlarmButton) {
+            } else if (!_firstAlarmButton) {}
           });
         },
       ),
