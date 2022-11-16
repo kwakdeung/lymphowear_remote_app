@@ -13,7 +13,7 @@ class Onboarding {
 
 final List<Onboarding> onboardingData = [
   Onboarding(
-    bgImage: '',
+    bgImage: 'assets/images/background_onboarding_01_image.png',
     image: "assets/images/onboarding_01.png",
     marginTop: 20,
     title: "Custom Mode",
