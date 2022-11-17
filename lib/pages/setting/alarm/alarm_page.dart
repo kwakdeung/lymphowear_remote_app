@@ -122,7 +122,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           'channel name',
           channelDescription: 'channel description',
           importance: Importance.max,
-          icon: "app_icon", //<-- Add this parameter
+          icon: "app_icon",
         ),
       ),
       androidAllowWhileIdle: true,
@@ -144,7 +144,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           'channel name',
           channelDescription: 'channel description',
           importance: Importance.max,
-          icon: "app_icon", //<-- Add this parameter
+          icon: "app_icon",
         ),
       ),
       androidAllowWhileIdle: true,
