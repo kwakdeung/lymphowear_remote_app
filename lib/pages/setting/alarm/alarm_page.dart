@@ -204,6 +204,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     setState(() {
       _firstNum = (prefs.getInt('firstSetTime') ?? 0);
       if (_firstAlarmButton = true) {
+        _firstCancelSelectedPushNotification();
         _firstScheduleDailyTenAMNotification();
       }
     });
@@ -216,6 +217,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     setState(() {
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
       if (_secondAlarmButton = true) {
+        _secondCancelSelectedPushNotification();
         _secondScheduleDailyTenAMNotification();
       }
     });
