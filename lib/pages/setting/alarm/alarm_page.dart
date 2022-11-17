@@ -215,6 +215,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     prefs.setInt('secondSetTime', time2);
     setState(() {
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
+      if (_secondAlarmButton = true) {
+        _secondScheduleDailyTenAMNotification();
+      }
     });
   }
 
