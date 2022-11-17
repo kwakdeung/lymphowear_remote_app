@@ -122,7 +122,8 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           'channel name',
           channelDescription: 'channel description',
           importance: Importance.max,
-          icon: "app_icon",
+          icon: ('app_icon'),
+          largeIcon: DrawableResourceAndroidBitmap('app_icon'),
         ),
       ),
       androidAllowWhileIdle: true,
@@ -145,6 +146,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
           channelDescription: 'channel description',
           importance: Importance.max,
           icon: "app_icon",
+          largeIcon: DrawableResourceAndroidBitmap('app_icon'),
         ),
       ),
       androidAllowWhileIdle: true,
@@ -217,7 +219,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     setState(() {
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
       if (_secondAlarmButton = true) {
-        _secondCancelSelectedPushNotification();
+        _firstCancelSelectedPushNotification();
         _secondScheduleDailyTenAMNotification();
       }
     });
