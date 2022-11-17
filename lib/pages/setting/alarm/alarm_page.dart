@@ -116,7 +116,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       firstAlarmTime,
       'Time For A Massage!',
       _firstSelectNotification(),
-      const NotificationDetails(),
+      const NotificationDetails(
+        android: AndroidNotificationDetails(
+          'channel id',
+          'channel name',
+          channelDescription: 'channel description',
+          importance: Importance.max,
+          icon: "app_icon", //<-- Add this parameter
+        ),
+      ),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
@@ -130,7 +138,15 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
       secondAlarmTime,
       'Time For A Massage!',
       _secondSelectNotification(),
-      const NotificationDetails(),
+      const NotificationDetails(
+        android: AndroidNotificationDetails(
+          'channel id',
+          'channel name',
+          channelDescription: 'channel description',
+          importance: Importance.max,
+          icon: "app_icon", //<-- Add this parameter
+        ),
+      ),
       androidAllowWhileIdle: true,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
@@ -176,8 +192,8 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     setState(() {
       _firstNum = (prefs.getInt('firstSetTime') ?? 0);
       _secondNum = (prefs.getInt('secondSetTime') ?? 0);
-      _firstAlarmButton = (prefs.getBool('firstSetAlarm') ?? true);
-      _secondAlarmButton = (prefs.getBool('secondSetAlarm') ?? true);
+      _firstAlarmButton = (prefs.getBool('firstSetAlarm') ?? false);
+      _secondAlarmButton = (prefs.getBool('secondSetAlarm') ?? false);
     });
   }
 
@@ -231,7 +247,6 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   }
 
   void setSecondToggle() {
-    _secondAlarmButton = !_secondAlarmButton;
     if (_secondAlarmButton) {
       _secondScheduleDailyTenAMNotification();
     } else if (!_secondAlarmButton) {
@@ -317,10 +332,11 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
         activeTrackColor: const Color(0xffED711A),
         value: _secondAlarmButton,
         onChanged: (bool value) {
-          _secondSaveAlarm();
+          _secondAlarmButton = !_secondAlarmButton;
           setState(() {
             setSecondToggle();
           });
+          _secondSaveAlarm();
         },
       ),
       onTap: () {
