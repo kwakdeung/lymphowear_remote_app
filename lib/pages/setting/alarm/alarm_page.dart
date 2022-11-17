@@ -203,6 +203,9 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
     prefs.setInt('firstSetTime', time1);
     setState(() {
       _firstNum = (prefs.getInt('firstSetTime') ?? 0);
+      if (_firstAlarmButton = true) {
+        _firstScheduleDailyTenAMNotification();
+      }
     });
   }
 
