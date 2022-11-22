@@ -7,26 +7,25 @@ import 'package:lymphowear_remote_app/ble_singleton.dart';
 import 'package:lymphowear_remote_app/constants.dart';
 import 'package:lymphowear_remote_app/pages/setting_page.dart';
 
-class MyNotConnected extends StatefulWidget {
-  const MyNotConnected({Key? key}) : super(key: key);
+class MyDevicePage extends StatefulWidget {
+  const MyDevicePage({Key? key}) : super(key: key);
 
   @override
-  State<MyNotConnected> createState() => _MyNotConnectedState();
+  State<MyDevicePage> createState() => _MyDevicePageState();
 }
 
-class _MyNotConnectedState extends State<MyNotConnected> {
+class _MyDevicePageState extends State<MyDevicePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: MyNotConnectedAppbar(),
+      appBar: MyDeviceAppbar(),
       body: MyNotConnectedBody(),
     );
   }
 }
 
-class MyNotConnectedAppbar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const MyNotConnectedAppbar({Key? key}) : super(key: key);
+class MyDeviceAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const MyDeviceAppbar({Key? key}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
@@ -82,6 +81,19 @@ class _MyNotConnectedBodyState extends State<MyNotConnectedBody> {
   bool _isConnected = false;
 
   String connectText = "Not connected";
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (BleSingleton().isConnected) {
+      _isVisible = false;
+      connectText = "Connected";
+    } else {
+      _isVisible = true;
+      connectText = "Not connected";
+    }
+  }
 
   void delay() {
     Future.delayed(const Duration(seconds: 3), () {
@@ -348,7 +360,7 @@ class _MyNotConnectedBottomButtonState
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
-        showProgressDialog(context);
+        showDeviceDeleteDialog(context);
       },
       icon: iconImage,
       label: MyNotConnectedBottomButton.buttonText,
@@ -359,7 +371,7 @@ class _MyNotConnectedBottomButtonState
     );
   }
 
-  Future showProgressDialog(context) async {
+  Future showDeviceDeleteDialog(context) async {
     const title = Text(
       'Delete to this device',
       style: TextStyle(

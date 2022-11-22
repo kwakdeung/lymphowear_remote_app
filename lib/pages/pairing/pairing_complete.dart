@@ -118,12 +118,9 @@ class PairingCompleteBody extends StatelessWidget {
               child: OrangeBottomButton(
                 buttonText: 'Start',
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => const CustomModeView()),
-                    ),
-                  );
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) => const CustomModeView()), (route) => false);
+
                 },
               ),
             ),

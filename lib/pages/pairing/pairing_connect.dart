@@ -131,17 +131,6 @@ class PairingConnectBody extends StatelessWidget {
   }
 
   Future showProgressDialog(BuildContext context, String message) async {
-    void delay() {
-      Future.delayed(const Duration(seconds: 1), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const PairingComplete(),
-          ),
-        );
-      });
-    }
-
     const activityIndicator = CupertinoActivityIndicator(
       radius: 12,
       animating: true,

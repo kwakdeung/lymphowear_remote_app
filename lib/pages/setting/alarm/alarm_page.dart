@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:lymphowear_remote_app/constants.dart';
-import 'package:lymphowear_remote_app/pages/reminder/lympho_reminder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
+
+import '../../../constants.dart';
+import '../../reminder/lympho_reminder.dart';
 
 import '../../../main.dart';
 
@@ -89,6 +90,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   bool _secondAlarmButton = false;
 
   get firstHrs => (firstTime.hour);
+
   get firstMin => (firstTime.minute);
 
   get firstAlarmTime {
@@ -100,6 +102,7 @@ class _AlarmPageBodyState extends State<AlarmPageBody> {
   }
 
   get secondHrs => (secondTime.hour);
+
   get secondMin => (secondTime.minute);
 
   get secondAlarmTime {

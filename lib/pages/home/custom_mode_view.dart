@@ -17,11 +17,17 @@ class CustomModeView extends StatefulWidget {
 class _CustomModeViewState extends State<CustomModeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: false,
-      appBar: CustomModeAppbar(),
-      body: const CustomModeBodyView(),
+    return WillPopScope(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        resizeToAvoidBottomInset: false,
+        appBar: CustomModeAppbar(),
+        body: const CustomModeBodyView(),
+      ),
+      onWillPop: () async {
+        BleSingleton().disconnect();
+        return true;
+      },
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import '../../ble_singleton.dart';
 import '../../constants.dart';
+import '../../pages/pairing/pairing_failed.dart';
 
 class LymphoWearCustomView extends StatefulWidget {
   const LymphoWearCustomView({Key? key}) : super(key: key);
@@ -45,6 +46,13 @@ class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
     BleSingleton().onRead = (data) {
       // print(data);
     };
+
+    BleSingleton().onDisconnected = () {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const PairingFailed()),
+          (route) => false);
+    };
   }
 
   @override
@@ -73,21 +81,11 @@ class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
     });
   }
 
-  void alertEnd() {
-    if (time == "00:00") {
-      timer!.cancel();
-      timeAlertDialog(
-        context,
-        "Total Time: 15mins",
-      );
-    }
-  }
-
   void minusControl() {
     if (isPlaying || currentSeconds == minSeconds) return;
 
     setState(() {
-      currentSeconds -= 10;
+      currentSeconds -= 5;
       defaultSeconds = currentSeconds;
     });
   }
@@ -96,7 +94,7 @@ class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
     if (isPlaying || currentSeconds == maxSeconds) return;
 
     setState(() {
-      currentSeconds += 1;
+      currentSeconds += 5;
       defaultSeconds = currentSeconds;
     });
   }
@@ -121,11 +119,24 @@ class _LymphoWearCustomViewState extends State<LymphoWearCustomView>
     ble.writeToDevice('+CPAUSE', -1);
     setState(() {
       isPlaying = false;
+      currentSeconds = defaultSeconds;
     });
+
     ble.isRunning = false;
     ble.syncPause();
 
     timer?.cancel();
+
+    if (currentSeconds == 0) {
+      var message = defaultSeconds < 60
+          ? "Total Time: $defaultSeconds seconds"
+          : "Total Time: ${defaultSeconds / 60} mins";
+
+      timeAlertDialog(
+        context,
+        message,
+      );
+    }
   }
 
   Container minusButton() {
@@ -376,7 +387,7 @@ Future timeAlertDialog(BuildContext context, String message) async {
     ),
     content: Container(
       margin: zeroMargin,
-      height: 100,
+      height: 110,
       child: Column(
         children: [
           Container(

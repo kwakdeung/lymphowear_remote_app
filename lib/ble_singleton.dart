@@ -16,6 +16,7 @@ class BleSingleton {
   DiscoveredDevice? _device;
 
   var isRunning = false;
+  var isConnected = false;
 
   void Function()? onSuccessScan;
   void Function(String)? onFailedScan;
@@ -99,6 +100,12 @@ class BleSingleton {
 
   void Function(String)? onRead;
 
+  void disconnect() {
+    _connectStream?.cancel();
+  }
+
+  Function()? onDisconnected;
+
   void connect() {
     _connectStream?.cancel();
 
@@ -110,6 +117,7 @@ class BleSingleton {
     var device = _device!;
     _ble.connectedDeviceStream.listen((event) {
       if (event.connectionState == DeviceConnectionState.connected) {
+        isConnected = true;
         writeToDevice2("+S0123123123123123123123123123123123123123123123", -1);
         writeToDevice2("+S1321321321321321321321321321321321321321321321", -1);
         writeToDevice2("+S2132132132132132132132132132132132132132132132", -1);
@@ -122,6 +130,11 @@ class BleSingleton {
             .listen((event) {
           onData(String.fromCharCodes(event));
         });
+      } else if (event.connectionState == DeviceConnectionState.disconnected) {
+        if (isConnected) {
+          isConnected = false;
+          onDisconnected?.call();
+        }
       }
     });
 

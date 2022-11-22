@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../ble_singleton.dart';
 import '../constants.dart';
+import 'pairing/pairing_complete.dart';
+import 'pairing_page.dart';
 import 'setting/alarm/alarm_page.dart';
 import 'setting/my/my_not_connected.dart';
 import 'no_device_page.dart';
@@ -69,26 +72,62 @@ class SettingPage extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => NoDevicePage(
-                  logoTitle: Text(
-                    'My Device',
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  appbarIcon: Container(),
-                  leadingButton: IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    color: const Color(0xff616161),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  routePairing: const MyNotConnected(),
-                )),
-          ),
-        );
+        print("xxx");
+        print(BleSingleton().isConnected);
+
+        if (BleSingleton().isConnected) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const MyDevicePage())));
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((context) => NoDevicePage(
+                    logoTitle: SvgPicture.asset(
+                      'assets/images/lymphowear.svg',
+                      fit: BoxFit.fill,
+                    ),
+                    appbarIcon: IconButton(
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_setting.svg',
+                        fit: BoxFit.fill,
+                      ),
+                      color: const Color(0xff616161),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((context) => const SettingPage()),
+                          ),
+                        );
+                      },
+                    ),
+                    leadingButton: Container(),
+                    routePairing: const PairingPage(),
+                  )),
+            ),
+          );
+        }
+
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: ((context) => NoDevicePage(
+        //         logoTitle: Text(
+        //           'My Device',
+        //           style: Theme.of(context).textTheme.headline6,
+        //         ),
+        //         appbarIcon: Container(),
+        //         leadingButton: IconButton(
+        //           icon: const Icon(Icons.arrow_back_ios),
+        //           color: const Color(0xff616161),
+        //           onPressed: () {
+        //             Navigator.pop(context);
+        //           },
+        //         ),
+        //         routePairing: const MyNotConnected())),
+        //   ),
+        // );
       },
     );
   }
