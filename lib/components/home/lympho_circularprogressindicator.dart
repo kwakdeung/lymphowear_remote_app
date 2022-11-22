@@ -99,6 +99,7 @@ class _LymphoCircularProgressIndicatorWidgetState
       stopTimer();
       setState(() {
         isPlaying = false;
+        currentSeconds = 900;
       });
     } else {
       startTimer();
@@ -262,7 +263,7 @@ Future timeAlertDialog(BuildContext context, String message) async {
     ),
     content: Container(
       margin: zeroMargin,
-      height: 100,
+      height: 110,
       child: Column(
         children: [
           Container(

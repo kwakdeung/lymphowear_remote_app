@@ -155,7 +155,7 @@ class _AutoModeBodyState extends State<AutoModeBody> {
                 BleSingleton().writeToDevice('+CMS', 2);
               }
             } else {
-              BleSingleton().writeToDevice('+CPAUSE', -1);
+              BleSingleton().writeToDevice('+CMF', -1);
             }
 
             visible = value;
