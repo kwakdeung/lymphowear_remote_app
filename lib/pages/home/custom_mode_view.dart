@@ -531,9 +531,9 @@ class CustomModeBodyView extends StatelessWidget {
       child: SingleChildScrollView(
         child: Center(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(20, 16, 20, 68),
+            margin: const EdgeInsets.fromLTRB(20, 16, 20, 0),
             child: Container(
-              margin: const EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 16),
               child: Column(
                 children: [
                   firstContainer(context),
